@@ -1,0 +1,169 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand: #2563eb;
+  --color-brand-light: #dbeafe;
+  --color-brand-dark: #1d4ed8;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Base styles */
+html {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* A4 preview scaling */
+.a4-page {
+  width: 210mm;
+  min-height: 297mm;
+  padding: 15mm;
+  background: white;
+  color: black;
+  font-size: 10pt;
+  line-height: 1.5;
+}
+
+/* Print styles */
+@media print {
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
+  /* Hide everything except the print portal */
+  body > *:not(#print-root) {
+    display: none !important;
+  }
+
+  /* The print portal is hidden by default (display:none via .hidden),
+     and revealed only during print via Tailwind print:block.
+     We reinforce it here for reliability. */
+  #print-root {
+    display: block !important;
+    position: static !important;
+    background: white;
+  }
+
+  .a4-page {
+    /* Keep the 15mm padding from the document itself */
+    padding: 15mm;
+    min-height: auto;
+    width: 100%;
+    box-shadow: none;
+  }
+
+  table {
+    break-inside: auto;
+  }
+
+  tr {
+    break-inside: avoid;
+  }
+
+  thead {
+    display: table-header-group;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .print-break-avoid {
+    break-inside: avoid;
+  }
+
+  * {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+}
+
+/* Dialog backdrop */
+.dialog-backdrop {
+  animation: fadeIn 150ms ease-out;
+}
+
+.dialog-content {
+  animation: slideUp 200ms ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Toast animation */
+.toast-enter {
+  animation: toastIn 250ms ease-out;
+}
+
+.toast-exit {
+  animation: toastOut 200ms ease-in forwards;
+}
+
+@keyframes toastIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes toastOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+
+/* Mobile bottom sheet */
+.mobile-sheet {
+  animation: sheetUp 300ms ease-out;
+}
+
+@keyframes sheetUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* Scrollbar styling */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
