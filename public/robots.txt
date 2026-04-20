@@ -4,4 +4,4 @@ Disallow: /view/
 Disallow: /edit/
 Disallow: /404
 
-Sitemap: https://quillbill.vercel.app/sitemap.xml
+Sitemap: https://quill-bill.com/sitemap.xml

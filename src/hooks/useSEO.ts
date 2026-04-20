@@ -7,7 +7,7 @@ interface SEOOptions {
   noindex?: boolean;
 }
 
-const BASE_URL = 'https://quillbill.vercel.app';
+const BASE_URL = 'https://quill-bill.com';
 const SUFFIX = ' — QuillBill';
 
 function setMetaTag(property: string, content: string, attr: 'name' | 'property' = 'name') {
