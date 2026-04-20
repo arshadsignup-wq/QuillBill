@@ -25,7 +25,7 @@ export default function ActionBar({ onPreview }: ActionBarProps) {
           Preview
         </Button>
       )}
-      {data.mode === 'quote' && (
+      {data.mode !== 'invoice' && (
         <Button
           variant="ghost"
           size="sm"

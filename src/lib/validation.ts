@@ -2,7 +2,7 @@ export function isValidInvoiceData(data: unknown): boolean {
   if (!data || typeof data !== 'object') return false;
   const d = data as Record<string, unknown>;
 
-  if (d.mode !== 'invoice' && d.mode !== 'quote') return false;
+  if (d.mode !== 'invoice' && d.mode !== 'quote' && d.mode !== 'proposal') return false;
   if (typeof d.documentTitle !== 'string' && d.documentTitle !== undefined) return false;
   if (typeof d.documentNumber !== 'string') return false;
   if (typeof d.issueDate !== 'string') return false;
@@ -23,10 +23,14 @@ export function isValidInvoiceData(data: unknown): boolean {
   if (typeof d.shippingCost !== 'number') return false;
   if (typeof d.notes !== 'string') return false;
   if (typeof d.paymentTerms !== 'string') return false;
+  if (typeof d.bankDetails !== 'string' && d.bankDetails !== undefined) return false;
   if (typeof d.logo !== 'string') return false;
   const validTemplates = ['minimal','modern','classic','compact','elegant','bold','stripe','executive','clean','sidebar','professional','creative','letterhead','receipt','gradient'];
   if (!validTemplates.includes(d.template as string)) return false;
   if (typeof d.accentColor !== 'string') return false;
+  if (d.projectScope !== undefined && typeof d.projectScope !== 'string') return false;
+  if (d.deliverables !== undefined && typeof d.deliverables !== 'string') return false;
+  if (d.timeline !== undefined && typeof d.timeline !== 'string') return false;
 
   return true;
 }

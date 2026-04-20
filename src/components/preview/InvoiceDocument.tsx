@@ -14,6 +14,7 @@ import CreativeTemplate from './templates/CreativeTemplate';
 import LetterheadTemplate from './templates/LetterheadTemplate';
 import ReceiptTemplate from './templates/ReceiptTemplate';
 import GradientTemplate from './templates/GradientTemplate';
+import ProposalDocument from './ProposalDocument';
 
 interface InvoiceDocumentProps {
   data: InvoiceData;
@@ -40,6 +41,14 @@ const templateMap: Record<TemplateName, typeof MinimalTemplate> = {
 };
 
 export default function InvoiceDocument({ data, totals, printable }: InvoiceDocumentProps) {
+  if (data.mode === 'proposal') {
+    return (
+      <div id={printable ? 'printable-document' : undefined}>
+        <ProposalDocument data={data} totals={totals} />
+      </div>
+    );
+  }
+
   const Template = templateMap[data.template] || MinimalTemplate;
 
   return (

@@ -5,8 +5,12 @@ import LineItemsTable from './LineItemsTable';
 import TotalsEditor from './TotalsEditor';
 import NotesEditor from './NotesEditor';
 import BrandingEditor from './BrandingEditor';
+import ProposalEditor from './ProposalEditor';
+import { useInvoiceContext } from '../../context/InvoiceContext';
 
 export default function EditorPanel() {
+  const { data } = useInvoiceContext();
+
   return (
     <div className="flex flex-col gap-5 p-5 overflow-y-auto custom-scrollbar h-full">
       <div className="flex items-center justify-between">
@@ -17,6 +21,7 @@ export default function EditorPanel() {
         <ContactCard type="from" />
         <ContactCard type="to" />
       </div>
+      {data.mode === 'proposal' && <ProposalEditor />}
       <LineItemsTable />
       <TotalsEditor />
       <NotesEditor />

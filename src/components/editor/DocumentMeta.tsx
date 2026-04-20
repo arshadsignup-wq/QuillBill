@@ -7,7 +7,9 @@ import Card from '../ui/Card';
 export default function DocumentMeta() {
   const { data, dispatch } = useInvoiceContext();
 
-  const defaultTitle = data.mode === 'invoice' ? 'Invoice' : 'Quotation';
+  const defaultTitle = data.mode === 'invoice' ? 'Invoice' : data.mode === 'proposal' ? 'Proposal' : 'Quotation';
+  const numberPlaceholder = data.mode === 'proposal' ? 'PROP-001' : 'INV-001';
+  const dueDateLabel = data.mode === 'proposal' ? 'Valid Until' : 'Due Date';
 
   return (
     <Card title="Document Details">
@@ -28,7 +30,7 @@ export default function DocumentMeta() {
           onChange={(e) =>
             dispatch({ type: 'SET_META', payload: { documentNumber: e.target.value } })
           }
-          placeholder="INV-001"
+          placeholder={numberPlaceholder}
         />
         <Select
           label="Currency"
@@ -52,7 +54,7 @@ export default function DocumentMeta() {
           }
         />
         <Input
-          label="Due Date"
+          label={dueDateLabel}
           id="due-date"
           type="date"
           value={data.dueDate}

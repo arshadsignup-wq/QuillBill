@@ -1,4 +1,4 @@
-export type DocumentMode = 'invoice' | 'quote';
+export type DocumentMode = 'invoice' | 'quote' | 'proposal';
 
 export type TemplateName =
   | 'minimal' | 'modern' | 'classic' | 'compact' | 'elegant'
@@ -35,9 +35,13 @@ export interface InvoiceData {
   shippingCost: number;
   notes: string;
   paymentTerms: string;
+  bankDetails: string;
   logo: string;
   template: TemplateName;
   accentColor: string;
+  projectScope: string;
+  deliverables: string;
+  timeline: string;
 }
 
 export interface CalculatedTotals {

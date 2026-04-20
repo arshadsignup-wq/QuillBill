@@ -4,5 +4,7 @@ export function getDocumentTitle(data: InvoiceData): string {
   if (data.documentTitle && data.documentTitle.trim()) {
     return data.documentTitle.trim().toUpperCase();
   }
-  return data.mode === 'invoice' ? 'INVOICE' : 'QUOTATION';
+  if (data.mode === 'invoice') return 'INVOICE';
+  if (data.mode === 'proposal') return 'PROPOSAL';
+  return 'QUOTATION';
 }

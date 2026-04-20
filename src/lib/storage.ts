@@ -19,6 +19,10 @@ export function loadDraft(): InvoiceData | null {
     if (!isValidInvoiceData(data)) return null;
     // Backfill new fields for older drafts
     if (typeof data.documentTitle !== 'string') data.documentTitle = '';
+    if (typeof data.bankDetails !== 'string') data.bankDetails = '';
+    if (typeof data.projectScope !== 'string') data.projectScope = '';
+    if (typeof data.deliverables !== 'string') data.deliverables = '';
+    if (typeof data.timeline !== 'string') data.timeline = '';
     return data as InvoiceData;
   } catch {
     return null;

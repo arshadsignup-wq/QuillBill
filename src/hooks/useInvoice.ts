@@ -14,9 +14,13 @@ type Action =
   | { type: 'SET_TOTALS'; payload: Partial<Pick<InvoiceData, 'discountType' | 'discountValue' | 'taxRate' | 'shippingCost'>> }
   | { type: 'SET_NOTES'; payload: string }
   | { type: 'SET_PAYMENT_TERMS'; payload: string }
+  | { type: 'SET_BANK_DETAILS'; payload: string }
   | { type: 'SET_LOGO'; payload: string }
   | { type: 'SET_TEMPLATE'; payload: TemplateName }
   | { type: 'SET_ACCENT_COLOR'; payload: string }
+  | { type: 'SET_PROJECT_SCOPE'; payload: string }
+  | { type: 'SET_DELIVERABLES'; payload: string }
+  | { type: 'SET_TIMELINE'; payload: string }
   | { type: 'LOAD_DATA'; payload: InvoiceData }
   | { type: 'DUPLICATE_AS_INVOICE' }
   | { type: 'RESET' };
@@ -65,6 +69,9 @@ function reducer(state: InvoiceData, action: Action): InvoiceData {
     case 'SET_PAYMENT_TERMS':
       return { ...state, paymentTerms: action.payload };
 
+    case 'SET_BANK_DETAILS':
+      return { ...state, bankDetails: action.payload };
+
     case 'SET_LOGO':
       return { ...state, logo: action.payload };
 
@@ -73,6 +80,15 @@ function reducer(state: InvoiceData, action: Action): InvoiceData {
 
     case 'SET_ACCENT_COLOR':
       return { ...state, accentColor: action.payload };
+
+    case 'SET_PROJECT_SCOPE':
+      return { ...state, projectScope: action.payload };
+
+    case 'SET_DELIVERABLES':
+      return { ...state, deliverables: action.payload };
+
+    case 'SET_TIMELINE':
+      return { ...state, timeline: action.payload };
 
     case 'LOAD_DATA':
       return { ...action.payload };

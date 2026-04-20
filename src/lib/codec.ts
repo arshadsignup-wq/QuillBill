@@ -14,6 +14,10 @@ export function decodePayload(payload: string): InvoiceData | null {
     const data = JSON.parse(json);
     if (!isValidInvoiceData(data)) return null;
     if (typeof data.documentTitle !== 'string') data.documentTitle = '';
+    if (typeof data.bankDetails !== 'string') data.bankDetails = '';
+    if (typeof data.projectScope !== 'string') data.projectScope = '';
+    if (typeof data.deliverables !== 'string') data.deliverables = '';
+    if (typeof data.timeline !== 'string') data.timeline = '';
     return data as InvoiceData;
   } catch {
     return null;

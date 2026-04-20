@@ -31,8 +31,12 @@ export function createDefaultInvoice(): InvoiceData {
     shippingCost: 0,
     notes: '',
     paymentTerms: '',
+    bankDetails: '',
     logo: '',
     template: 'minimal',
     accentColor: '#2563eb',
+    projectScope: '',
+    deliverables: '',
+    timeline: '',
   };
 }
