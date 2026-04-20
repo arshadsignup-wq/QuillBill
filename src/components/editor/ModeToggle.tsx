@@ -20,7 +20,7 @@ export default function ModeToggle() {
           <button
             key={mode}
             onClick={() => toggle(mode)}
-            className={`rounded-md px-4 py-1.5 text-sm font-medium transition-all cursor-pointer ${
+            className={`rounded-md px-3 sm:px-4 py-1.5 text-xs sm:text-sm font-medium transition-all cursor-pointer ${
               data.mode === mode
                 ? 'bg-white text-gray-900 shadow-sm'
                 : 'text-gray-500 hover:text-gray-700'

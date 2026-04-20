@@ -38,9 +38,9 @@ export default function LogoUpload() {
         />
         <button
           onClick={() => dispatch({ type: 'SET_LOGO', payload: '' })}
-          className="absolute -top-2 -right-2 rounded-full bg-gray-900 text-white p-0.5 hover:bg-red-600 transition-colors cursor-pointer"
+          className="absolute -top-2.5 -right-2.5 rounded-full bg-gray-900 text-white p-1 hover:bg-red-600 transition-colors cursor-pointer"
         >
-          <X size={12} />
+          <X size={14} />
         </button>
       </div>
     );

@@ -56,7 +56,7 @@ export default function LineItemRow({ item, index, canDelete }: LineItemRowProps
         {canDelete && (
           <button
             onClick={() => dispatch({ type: 'REMOVE_ITEM', payload: item.id })}
-            className="opacity-0 group-hover:opacity-100 text-gray-400 hover:text-red-500 transition-all p-1 rounded cursor-pointer"
+            className="sm:opacity-0 sm:group-hover:opacity-100 text-gray-400 hover:text-red-500 transition-all p-2 sm:p-1 rounded cursor-pointer"
           >
             <Trash2 size={14} />
           </button>

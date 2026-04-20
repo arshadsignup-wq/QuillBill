@@ -10,7 +10,7 @@ export default function TotalsEditor() {
   return (
     <Card title="Totals">
       <div className="flex flex-col gap-4">
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <Select
             label="Discount Type"
             id="discount-type"
@@ -41,7 +41,7 @@ export default function TotalsEditor() {
             }
           />
         </div>
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <Input
             label="Tax Rate (%)"
             id="tax-rate"

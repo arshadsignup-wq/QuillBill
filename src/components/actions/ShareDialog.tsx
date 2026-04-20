@@ -46,11 +46,11 @@ export default function ShareDialog({ open, onClose }: ShareDialogProps) {
             <input
               readOnly
               value={viewUrl}
-              className="flex-1 rounded-lg border border-gray-300 bg-gray-50 px-3 py-2 text-xs text-gray-700 truncate"
+              className="flex-1 min-w-0 rounded-lg border border-gray-300 bg-gray-50 px-3 py-2 text-xs text-gray-700 truncate"
             />
             <button
               onClick={() => copyToClipboard(viewUrl, 'view')}
-              className="flex items-center gap-1.5 rounded-lg border border-gray-300 bg-white px-3 py-2 text-xs font-medium text-gray-700 hover:bg-gray-50 transition-colors cursor-pointer"
+              className="flex-shrink-0 flex items-center gap-1.5 rounded-lg border border-gray-300 bg-white px-3 py-2 text-xs font-medium text-gray-700 hover:bg-gray-50 transition-colors cursor-pointer"
             >
               {copiedView ? <Check size={14} className="text-green-600" /> : <Copy size={14} />}
               {copiedView ? 'Copied!' : 'Copy'}
@@ -65,11 +65,11 @@ export default function ShareDialog({ open, onClose }: ShareDialogProps) {
             <input
               readOnly
               value={editUrl}
-              className="flex-1 rounded-lg border border-gray-300 bg-gray-50 px-3 py-2 text-xs text-gray-700 truncate"
+              className="flex-1 min-w-0 rounded-lg border border-gray-300 bg-gray-50 px-3 py-2 text-xs text-gray-700 truncate"
             />
             <button
               onClick={() => copyToClipboard(editUrl, 'edit')}
-              className="flex items-center gap-1.5 rounded-lg border border-gray-300 bg-white px-3 py-2 text-xs font-medium text-gray-700 hover:bg-gray-50 transition-colors cursor-pointer"
+              className="flex-shrink-0 flex items-center gap-1.5 rounded-lg border border-gray-300 bg-white px-3 py-2 text-xs font-medium text-gray-700 hover:bg-gray-50 transition-colors cursor-pointer"
             >
               {copiedEdit ? <Check size={14} className="text-green-600" /> : <Copy size={14} />}
               {copiedEdit ? 'Copied!' : 'Copy'}

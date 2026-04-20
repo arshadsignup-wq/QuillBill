@@ -31,6 +31,14 @@ export function isValidInvoiceData(data: unknown): boolean {
   if (d.projectScope !== undefined && typeof d.projectScope !== 'string') return false;
   if (d.deliverables !== undefined && typeof d.deliverables !== 'string') return false;
   if (d.timeline !== undefined && typeof d.timeline !== 'string') return false;
+  if (d.executiveSummary !== undefined && typeof d.executiveSummary !== 'string') return false;
+  if (d.proposedSolution !== undefined && typeof d.proposedSolution !== 'string') return false;
+  if (d.clientSignatureName !== undefined && typeof d.clientSignatureName !== 'string') return false;
+  if (d.authorizedSignatureName !== undefined && typeof d.authorizedSignatureName !== 'string') return false;
+  if (d.clientSignatureDate !== undefined && typeof d.clientSignatureDate !== 'string') return false;
+  if (d.authorizedSignatureDate !== undefined && typeof d.authorizedSignatureDate !== 'string') return false;
+  if (d.clientSignatureImage !== undefined && typeof d.clientSignatureImage !== 'string') return false;
+  if (d.authorizedSignatureImage !== undefined && typeof d.authorizedSignatureImage !== 'string') return false;
 
   return true;
 }

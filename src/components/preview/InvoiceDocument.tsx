@@ -14,7 +14,21 @@ import CreativeTemplate from './templates/CreativeTemplate';
 import LetterheadTemplate from './templates/LetterheadTemplate';
 import ReceiptTemplate from './templates/ReceiptTemplate';
 import GradientTemplate from './templates/GradientTemplate';
-import ProposalDocument from './ProposalDocument';
+import MinimalProposal from './proposal-templates/MinimalProposal';
+import ModernProposal from './proposal-templates/ModernProposal';
+import ClassicProposal from './proposal-templates/ClassicProposal';
+import CompactProposal from './proposal-templates/CompactProposal';
+import ElegantProposal from './proposal-templates/ElegantProposal';
+import BoldProposal from './proposal-templates/BoldProposal';
+import StripeProposal from './proposal-templates/StripeProposal';
+import ExecutiveProposal from './proposal-templates/ExecutiveProposal';
+import CleanProposal from './proposal-templates/CleanProposal';
+import SidebarProposal from './proposal-templates/SidebarProposal';
+import ProfessionalProposal from './proposal-templates/ProfessionalProposal';
+import CreativeProposal from './proposal-templates/CreativeProposal';
+import LetterheadProposal from './proposal-templates/LetterheadProposal';
+import ReceiptProposal from './proposal-templates/ReceiptProposal';
+import GradientProposal from './proposal-templates/GradientProposal';
 
 interface InvoiceDocumentProps {
   data: InvoiceData;
@@ -40,16 +54,28 @@ const templateMap: Record<TemplateName, typeof MinimalTemplate> = {
   gradient: GradientTemplate,
 };
 
-export default function InvoiceDocument({ data, totals, printable }: InvoiceDocumentProps) {
-  if (data.mode === 'proposal') {
-    return (
-      <div id={printable ? 'printable-document' : undefined}>
-        <ProposalDocument data={data} totals={totals} />
-      </div>
-    );
-  }
+const proposalTemplateMap: Record<TemplateName, typeof MinimalProposal> = {
+  minimal: MinimalProposal,
+  modern: ModernProposal,
+  classic: ClassicProposal,
+  compact: CompactProposal,
+  elegant: ElegantProposal,
+  bold: BoldProposal,
+  stripe: StripeProposal,
+  executive: ExecutiveProposal,
+  clean: CleanProposal,
+  sidebar: SidebarProposal,
+  professional: ProfessionalProposal,
+  creative: CreativeProposal,
+  letterhead: LetterheadProposal,
+  receipt: ReceiptProposal,
+  gradient: GradientProposal,
+};
 
-  const Template = templateMap[data.template] || MinimalTemplate;
+export default function InvoiceDocument({ data, totals, printable }: InvoiceDocumentProps) {
+  const isProposal = data.mode === 'proposal';
+  const map = isProposal ? proposalTemplateMap : templateMap;
+  const Template = map[data.template] || (isProposal ? MinimalProposal : MinimalTemplate);
 
   return (
     <div id={printable ? 'printable-document' : undefined}>

@@ -24,6 +24,14 @@ export default function NotesEditor() {
           placeholder="Payment due within 30 days of issue date."
           rows={2}
         />
+        <Textarea
+          label="Bank Details"
+          id="bank-details"
+          value={data.bankDetails}
+          onChange={(e) => dispatch({ type: 'SET_BANK_DETAILS', payload: e.target.value })}
+          placeholder="Bank: Example Bank&#10;Account: 1234567890&#10;Routing: 021000021"
+          rows={3}
+        />
       </div>
     </Card>
   );

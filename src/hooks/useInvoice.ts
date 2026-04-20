@@ -21,14 +21,30 @@ type Action =
   | { type: 'SET_PROJECT_SCOPE'; payload: string }
   | { type: 'SET_DELIVERABLES'; payload: string }
   | { type: 'SET_TIMELINE'; payload: string }
+  | { type: 'SET_EXECUTIVE_SUMMARY'; payload: string }
+  | { type: 'SET_PROPOSED_SOLUTION'; payload: string }
+  | { type: 'SET_CLIENT_SIGNATURE_NAME'; payload: string }
+  | { type: 'SET_AUTHORIZED_SIGNATURE_NAME'; payload: string }
+  | { type: 'SET_CLIENT_SIGNATURE_DATE'; payload: string }
+  | { type: 'SET_AUTHORIZED_SIGNATURE_DATE'; payload: string }
+  | { type: 'SET_CLIENT_SIGNATURE_IMAGE'; payload: string }
+  | { type: 'SET_AUTHORIZED_SIGNATURE_IMAGE'; payload: string }
   | { type: 'LOAD_DATA'; payload: InvoiceData }
   | { type: 'DUPLICATE_AS_INVOICE' }
   | { type: 'RESET' };
 
 function reducer(state: InvoiceData, action: Action): InvoiceData {
   switch (action.type) {
-    case 'SET_MODE':
-      return { ...state, mode: action.payload };
+    case 'SET_MODE': {
+      const newMode = action.payload;
+      let documentNumber = state.documentNumber;
+      if (newMode === 'proposal' && documentNumber === 'INV-001') {
+        documentNumber = 'PROP-001';
+      } else if (newMode !== 'proposal' && documentNumber === 'PROP-001') {
+        documentNumber = 'INV-001';
+      }
+      return { ...state, mode: newMode, documentNumber };
+    }
 
     case 'SET_META':
       return { ...state, ...action.payload };
@@ -89,6 +105,30 @@ function reducer(state: InvoiceData, action: Action): InvoiceData {
 
     case 'SET_TIMELINE':
       return { ...state, timeline: action.payload };
+
+    case 'SET_EXECUTIVE_SUMMARY':
+      return { ...state, executiveSummary: action.payload };
+
+    case 'SET_PROPOSED_SOLUTION':
+      return { ...state, proposedSolution: action.payload };
+
+    case 'SET_CLIENT_SIGNATURE_NAME':
+      return { ...state, clientSignatureName: action.payload };
+
+    case 'SET_AUTHORIZED_SIGNATURE_NAME':
+      return { ...state, authorizedSignatureName: action.payload };
+
+    case 'SET_CLIENT_SIGNATURE_DATE':
+      return { ...state, clientSignatureDate: action.payload };
+
+    case 'SET_AUTHORIZED_SIGNATURE_DATE':
+      return { ...state, authorizedSignatureDate: action.payload };
+
+    case 'SET_CLIENT_SIGNATURE_IMAGE':
+      return { ...state, clientSignatureImage: action.payload };
+
+    case 'SET_AUTHORIZED_SIGNATURE_IMAGE':
+      return { ...state, authorizedSignatureImage: action.payload };
 
     case 'LOAD_DATA':
       return { ...action.payload };

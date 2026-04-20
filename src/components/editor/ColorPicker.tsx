@@ -12,12 +12,12 @@ export default function ColorPicker() {
   return (
     <div className="flex flex-col gap-2">
       <label className="text-xs font-medium text-gray-600">Accent Color</label>
-      <div className="flex items-center gap-2 flex-wrap">
+      <div className="flex items-center gap-1.5 sm:gap-2 flex-wrap">
         {presets.map((color) => (
           <button
             key={color}
             onClick={() => dispatch({ type: 'SET_ACCENT_COLOR', payload: color })}
-            className={`h-7 w-7 rounded-full border-2 transition-all cursor-pointer ${
+            className={`h-8 w-8 sm:h-7 sm:w-7 rounded-full border-2 transition-all cursor-pointer ${
               data.accentColor === color
                 ? 'border-gray-900 scale-110'
                 : 'border-transparent hover:scale-105'
@@ -29,7 +29,7 @@ export default function ColorPicker() {
           type="color"
           value={data.accentColor}
           onChange={(e) => dispatch({ type: 'SET_ACCENT_COLOR', payload: e.target.value })}
-          className="h-7 w-7 rounded-full cursor-pointer border-0 p-0"
+          className="h-8 w-8 sm:h-7 sm:w-7 rounded-full cursor-pointer border-0 p-0"
         />
       </div>
     </div>

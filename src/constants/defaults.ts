@@ -38,5 +38,13 @@ export function createDefaultInvoice(): InvoiceData {
     projectScope: '',
     deliverables: '',
     timeline: '',
+    executiveSummary: '',
+    proposedSolution: '',
+    clientSignatureName: '',
+    authorizedSignatureName: '',
+    clientSignatureDate: '',
+    authorizedSignatureDate: '',
+    clientSignatureImage: '',
+    authorizedSignatureImage: '',
   };
 }

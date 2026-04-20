@@ -12,6 +12,7 @@ import PreviewPanel from '../components/preview/PreviewPanel';
 import ActionBar from '../components/actions/ActionBar';
 import MobilePreviewSheet from '../components/layout/MobilePreviewSheet';
 import PrintPortal from '../components/preview/PrintPortal';
+import { useSEO } from '../hooks/useSEO';
 
 function EditorContent() {
   const [previewOpen, setPreviewOpen] = useState(false);
@@ -34,6 +35,12 @@ export default function EditorPage() {
   const { payload } = useParams<{ payload?: string }>();
   const [initialData, setInitialData] = useState<InvoiceData | null>(null);
   const [ready, setReady] = useState(false);
+
+  useSEO({
+    title: 'Free Invoice & Quotation Generator',
+    description: 'Create professional invoices, quotations, and proposals for free. No sign-up, no watermarks — your data stays in your browser.',
+    canonical: payload ? undefined : '/',
+  });
 
   useEffect(() => {
     let data: InvoiceData | null = null;

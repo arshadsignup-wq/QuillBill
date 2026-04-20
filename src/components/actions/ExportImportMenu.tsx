@@ -41,9 +41,9 @@ export default function ExportImportMenu() {
     <div className="relative">
       <button
         onClick={() => setOpen(!open)}
-        className="flex items-center gap-1 rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors cursor-pointer"
+        className="flex items-center gap-1 rounded-lg border border-gray-300 bg-white px-2.5 sm:px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors cursor-pointer"
       >
-        More
+        <span className="hidden sm:inline">More</span>
         <ChevronDown size={14} />
       </button>
       {open && (
@@ -52,14 +52,14 @@ export default function ExportImportMenu() {
           <div className="absolute right-0 top-full mt-1 z-20 w-48 rounded-lg border border-gray-200 bg-white shadow-lg py-1">
             <button
               onClick={handleExport}
-              className="flex items-center gap-2 w-full px-3 py-2 text-sm text-gray-700 hover:bg-gray-50 cursor-pointer"
+              className="flex items-center gap-2 w-full px-3 py-2.5 text-sm text-gray-700 hover:bg-gray-50 active:bg-gray-100 cursor-pointer"
             >
               <Download size={14} />
               Export JSON
             </button>
             <button
               onClick={() => fileInputRef.current?.click()}
-              className="flex items-center gap-2 w-full px-3 py-2 text-sm text-gray-700 hover:bg-gray-50 cursor-pointer"
+              className="flex items-center gap-2 w-full px-3 py-2.5 text-sm text-gray-700 hover:bg-gray-50 active:bg-gray-100 cursor-pointer"
             >
               <Upload size={14} />
               Import JSON
@@ -67,7 +67,7 @@ export default function ExportImportMenu() {
             <hr className="my-1 border-gray-200" />
             <button
               onClick={handleReset}
-              className="flex items-center gap-2 w-full px-3 py-2 text-sm text-red-600 hover:bg-red-50 cursor-pointer"
+              className="flex items-center gap-2 w-full px-3 py-2.5 text-sm text-red-600 hover:bg-red-50 active:bg-red-100 cursor-pointer"
             >
               <RotateCcw size={14} />
               Reset

@@ -18,6 +18,14 @@ export function decodePayload(payload: string): InvoiceData | null {
     if (typeof data.projectScope !== 'string') data.projectScope = '';
     if (typeof data.deliverables !== 'string') data.deliverables = '';
     if (typeof data.timeline !== 'string') data.timeline = '';
+    if (typeof data.executiveSummary !== 'string') data.executiveSummary = '';
+    if (typeof data.proposedSolution !== 'string') data.proposedSolution = '';
+    if (typeof data.clientSignatureName !== 'string') data.clientSignatureName = '';
+    if (typeof data.authorizedSignatureName !== 'string') data.authorizedSignatureName = '';
+    if (typeof data.clientSignatureDate !== 'string') data.clientSignatureDate = '';
+    if (typeof data.authorizedSignatureDate !== 'string') data.authorizedSignatureDate = '';
+    if (typeof data.clientSignatureImage !== 'string') data.clientSignatureImage = '';
+    if (typeof data.authorizedSignatureImage !== 'string') data.authorizedSignatureImage = '';
     return data as InvoiceData;
   } catch {
     return null;

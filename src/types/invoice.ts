@@ -42,6 +42,14 @@ export interface InvoiceData {
   projectScope: string;
   deliverables: string;
   timeline: string;
+  executiveSummary: string;
+  proposedSolution: string;
+  clientSignatureName: string;
+  authorizedSignatureName: string;
+  clientSignatureDate: string;
+  authorizedSignatureDate: string;
+  clientSignatureImage: string;
+  authorizedSignatureImage: string;
 }
 
 export interface CalculatedTotals {

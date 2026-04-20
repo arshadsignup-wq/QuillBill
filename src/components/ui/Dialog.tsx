@@ -15,7 +15,11 @@ export default function Dialog({ open, onClose, title, children }: DialogProps) 
       if (e.key === 'Escape') onClose();
     };
     document.addEventListener('keydown', handler);
-    return () => document.removeEventListener('keydown', handler);
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.removeEventListener('keydown', handler);
+      document.body.style.overflow = '';
+    };
   }, [open, onClose]);
 
   if (!open) return null;
@@ -26,9 +30,9 @@ export default function Dialog({ open, onClose, title, children }: DialogProps) 
         className="dialog-backdrop fixed inset-0 bg-black/40"
         onClick={onClose}
       />
-      <div className="dialog-content relative z-10 w-full max-w-lg rounded-xl bg-white shadow-2xl">
-        <div className="flex items-center justify-between border-b border-gray-200 px-6 py-4">
-          <h2 className="text-lg font-semibold text-gray-900">{title}</h2>
+      <div className="dialog-content relative z-10 w-full max-w-lg rounded-xl bg-white shadow-2xl max-h-[90vh] overflow-y-auto">
+        <div className="flex items-center justify-between border-b border-gray-200 px-4 sm:px-6 py-4 sticky top-0 bg-white z-10">
+          <h2 className="text-base sm:text-lg font-semibold text-gray-900">{title}</h2>
           <button
             onClick={onClose}
             className="rounded-lg p-1.5 text-gray-400 hover:bg-gray-100 hover:text-gray-600 transition-colors cursor-pointer"
@@ -36,7 +40,7 @@ export default function Dialog({ open, onClose, title, children }: DialogProps) 
             <X size={18} />
           </button>
         </div>
-        <div className="px-6 py-4">{children}</div>
+        <div className="px-4 sm:px-6 py-4">{children}</div>
       </div>
     </div>
   );
