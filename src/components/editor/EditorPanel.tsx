@@ -1,4 +1,5 @@
 import { useCallback, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { Upload, X } from 'lucide-react';
 import ModeToggle from './ModeToggle';
 import DocumentMeta from './DocumentMeta';
@@ -160,6 +161,21 @@ export default function EditorPanel() {
         </Card>
       )}
       <BrandingEditor />
+
+      <footer className="border-t border-gray-200 pt-4 pb-2 mt-2">
+        <nav className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1.5 text-xs text-gray-400">
+          <Link to="/privacy" className="hover:text-gray-600 transition-colors">Privacy</Link>
+          <Link to="/terms" className="hover:text-gray-600 transition-colors">Terms</Link>
+          <Link to="/about" className="hover:text-gray-600 transition-colors">About</Link>
+          <Link to="/contact" className="hover:text-gray-600 transition-colors">Contact</Link>
+          <Link to="/disclaimer" className="hover:text-gray-600 transition-colors">Disclaimer</Link>
+          <Link to="/faq" className="hover:text-gray-600 transition-colors">FAQ</Link>
+          <Link to="/dmca" className="hover:text-gray-600 transition-colors">DMCA</Link>
+        </nav>
+        <p className="text-center text-[11px] text-gray-300 mt-2">
+          &copy; {new Date().getFullYear()} QuillBill
+        </p>
+      </footer>
     </div>
   );
 }
