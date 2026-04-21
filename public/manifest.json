@@ -1,0 +1,21 @@
+{
+  "name": "QuillBill — Free Invoice & Quotation Generator",
+  "short_name": "QuillBill",
+  "description": "Create professional invoices, quotations, and proposals for free. No sign-up, no watermarks.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f9fafb",
+  "theme_color": "#2563eb",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

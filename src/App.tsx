@@ -8,6 +8,9 @@ import PrivacyPage from './pages/PrivacyPage';
 import TermsPage from './pages/TermsPage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
+import DisclaimerPage from './pages/DisclaimerPage';
+import FAQPage from './pages/FAQPage';
+import DMCAPage from './pages/DMCAPage';
 
 /** Redirect old hash-based URLs (/#/about → /about) for backward compatibility */
 function HashRedirect() {
@@ -36,6 +39,9 @@ export default function App() {
           <Route path="/terms" element={<TermsPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/disclaimer" element={<DisclaimerPage />} />
+          <Route path="/faq" element={<FAQPage />} />
+          <Route path="/dmca" element={<DMCAPage />} />
           <Route path="/404" element={<NotFoundPage />} />
           <Route path="*" element={<Navigate to="/404" replace />} />
         </Routes>

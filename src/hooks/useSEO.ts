@@ -47,9 +47,16 @@ export function useSEO({ title, description, canonical, noindex }: SEOOptions) {
     setMetaTag('og:title', fullTitle, 'property');
     setMetaTag('og:description', description, 'property');
 
+    // Open Graph image
+    setMetaTag('og:image', `${BASE_URL}/og-image.png`, 'property');
+    setMetaTag('og:image:width', '1200', 'property');
+    setMetaTag('og:image:height', '630', 'property');
+
     // Twitter
+    setMetaTag('twitter:card', 'summary_large_image');
     setMetaTag('twitter:title', fullTitle);
     setMetaTag('twitter:description', description);
+    setMetaTag('twitter:image', `${BASE_URL}/og-image.png`);
 
     // Canonical
     const canonicalUrl = canonical ? `${BASE_URL}${canonical}` : null;
