@@ -37,6 +37,9 @@ export default function StaticPageLayout({ children }: StaticPageLayoutProps) {
               <Link to="/disclaimer" className="hover:text-gray-900 transition-colors">Disclaimer</Link>
               <Link to="/faq" className="hover:text-gray-900 transition-colors">FAQ</Link>
               <Link to="/dmca" className="hover:text-gray-900 transition-colors">DMCA</Link>
+              <Link to="/invoice-generator" className="hover:text-gray-900 transition-colors">Invoice Generator</Link>
+              <Link to="/quotation-generator" className="hover:text-gray-900 transition-colors">Quotation Generator</Link>
+              <Link to="/proposal-generator" className="hover:text-gray-900 transition-colors">Proposal Generator</Link>
             </nav>
           </div>
           <p className="text-center text-xs text-gray-400 mt-4">

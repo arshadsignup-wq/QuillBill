@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useSearchParams } from 'react-router-dom';
 import { InvoiceProvider } from '../context/InvoiceContext';
 import { decodePayload } from '../lib/codec';
 import { loadDraft } from '../lib/storage';
 import { createDefaultInvoice } from '../constants/defaults';
-import type { InvoiceData } from '../types/invoice';
+import type { InvoiceData, DocumentMode } from '../types/invoice';
 import AppShell from '../components/layout/AppShell';
 import SplitPane from '../components/layout/SplitPane';
 import EditorPanel from '../components/editor/EditorPanel';
@@ -87,8 +87,15 @@ function EditorContent() {
   );
 }
 
+const VALID_MODES: Record<string, DocumentMode> = {
+  invoice: 'invoice',
+  quote: 'quote',
+  proposal: 'proposal',
+};
+
 export default function EditorPage() {
   const { payload } = useParams<{ payload?: string }>();
+  const [searchParams] = useSearchParams();
   const [initialData, setInitialData] = useState<InvoiceData | null>(null);
   const [ready, setReady] = useState(false);
 
@@ -109,9 +116,24 @@ export default function EditorPage() {
       data = loadDraft();
     }
 
-    setInitialData(data ?? createDefaultInvoice());
+    data = data ?? createDefaultInvoice();
+
+    // Apply ?mode= deep-link override
+    const modeParam = searchParams.get('mode');
+    if (modeParam && VALID_MODES[modeParam] && data.mode !== VALID_MODES[modeParam]) {
+      const newMode = VALID_MODES[modeParam];
+      data = { ...data, mode: newMode };
+      // Mirror the document number logic from the reducer
+      if (newMode === 'proposal' && data.documentNumber === 'INV-001') {
+        data.documentNumber = 'PROP-001';
+      } else if (newMode !== 'proposal' && data.documentNumber === 'PROP-001') {
+        data.documentNumber = 'INV-001';
+      }
+    }
+
+    setInitialData(data);
     setReady(true);
-  }, [payload]);
+  }, [payload, searchParams]);
 
   if (!ready || !initialData) return null;
 

@@ -171,6 +171,9 @@ export default function EditorPanel() {
           <Link to="/disclaimer" className="hover:text-gray-600 transition-colors">Disclaimer</Link>
           <Link to="/faq" className="hover:text-gray-600 transition-colors">FAQ</Link>
           <Link to="/dmca" className="hover:text-gray-600 transition-colors">DMCA</Link>
+          <Link to="/invoice-generator" className="hover:text-gray-600 transition-colors">Invoice Generator</Link>
+          <Link to="/quotation-generator" className="hover:text-gray-600 transition-colors">Quotation Generator</Link>
+          <Link to="/proposal-generator" className="hover:text-gray-600 transition-colors">Proposal Generator</Link>
         </nav>
         <p className="text-center text-[11px] text-gray-300 mt-2">
           &copy; {new Date().getFullYear()} QuillBill

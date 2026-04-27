@@ -11,6 +11,9 @@ import ContactPage from './pages/ContactPage';
 import DisclaimerPage from './pages/DisclaimerPage';
 import FAQPage from './pages/FAQPage';
 import DMCAPage from './pages/DMCAPage';
+import InvoiceGeneratorPage from './pages/InvoiceGeneratorPage';
+import QuotationGeneratorPage from './pages/QuotationGeneratorPage';
+import ProposalGeneratorPage from './pages/ProposalGeneratorPage';
 
 /** Redirect old hash-based URLs (/#/about → /about) for backward compatibility */
 function HashRedirect() {
@@ -42,6 +45,9 @@ export default function App() {
           <Route path="/disclaimer" element={<DisclaimerPage />} />
           <Route path="/faq" element={<FAQPage />} />
           <Route path="/dmca" element={<DMCAPage />} />
+          <Route path="/invoice-generator" element={<InvoiceGeneratorPage />} />
+          <Route path="/quotation-generator" element={<QuotationGeneratorPage />} />
+          <Route path="/proposal-generator" element={<ProposalGeneratorPage />} />
           <Route path="/404" element={<NotFoundPage />} />
           <Route path="*" element={<Navigate to="/404" replace />} />
         </Routes>
