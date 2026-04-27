@@ -22,7 +22,7 @@ export default function LandingPage({ config }: LandingPageProps) {
       <HowItWorks steps={config.steps} />
       <LandingFAQ faqs={config.faqs} />
       <CrossLinks links={config.crossLinks} />
-      <LandingCTA ctaText={config.hero.ctaText} ctaLink={config.hero.ctaLink} />
+      <LandingCTA ctaText={config.hero.ctaText} ctaLink={config.hero.ctaLink} description={config.ctaDescription} />
     </StaticPageLayout>
   );
 }
