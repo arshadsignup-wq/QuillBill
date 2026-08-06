@@ -1,7 +1,9 @@
 User-agent: *
 Allow: /
+
+# Shared and editable document URLs carry user data in the path — never index.
 Disallow: /view/
 Disallow: /edit/
 Disallow: /404
 
-Sitemap: https://quill-bill.com/sitemap.xml
+Sitemap: https://www.quill-bill.com/sitemap.xml

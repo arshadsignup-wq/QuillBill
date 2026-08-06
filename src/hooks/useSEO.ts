@@ -1,14 +1,22 @@
 import { useEffect } from 'react';
+import { absoluteUrl, OG_IMAGE } from '../lib/site';
 
-interface SEOOptions {
+export interface SEOOptions {
   title: string;
   description: string;
   canonical?: string;
   noindex?: boolean;
+  /** JSON-LD graph nodes to publish for this page. */
+  jsonLd?: object[];
 }
 
-const BASE_URL = 'https://quill-bill.com';
-const SUFFIX = ' — QuillBill';
+const SUFFIX = ' | QuillBill';
+
+/** Google truncates titles around this width, so never exceed it. */
+const MAX_TITLE = 60;
+
+/** Marks nodes this hook owns so it can clean up without touching static tags. */
+const MANAGED = 'data-seo-managed';
 
 function setMetaTag(property: string, content: string, attr: 'name' | 'property' = 'name') {
   const selector = `meta[${attr}="${property}"]`;
@@ -35,9 +43,19 @@ function setCanonical(href: string | null) {
   }
 }
 
-export function useSEO({ title, description, canonical, noindex }: SEOOptions) {
+/**
+ * Appends the brand suffix only when it still fits inside the SERP title
+ * budget. Blindly appending it pushed several titles past 70 characters, so
+ * Google truncated the part that actually carried the keyword.
+ */
+export function fullTitleFor(title: string) {
+  if (title.includes('QuillBill')) return title;
+  return title.length + SUFFIX.length <= MAX_TITLE ? title + SUFFIX : title;
+}
+
+export function useSEO({ title, description, canonical, noindex, jsonLd }: SEOOptions) {
   useEffect(() => {
-    const fullTitle = title.includes('QuillBill') ? title : title + SUFFIX;
+    const fullTitle = fullTitleFor(title);
     document.title = fullTitle;
 
     setMetaTag('description', description);
@@ -46,9 +64,7 @@ export function useSEO({ title, description, canonical, noindex }: SEOOptions) {
     // Open Graph
     setMetaTag('og:title', fullTitle, 'property');
     setMetaTag('og:description', description, 'property');
-
-    // Open Graph image
-    setMetaTag('og:image', `${BASE_URL}/og-image.png`, 'property');
+    setMetaTag('og:image', OG_IMAGE, 'property');
     setMetaTag('og:image:width', '1200', 'property');
     setMetaTag('og:image:height', '630', 'property');
 
@@ -56,13 +72,37 @@ export function useSEO({ title, description, canonical, noindex }: SEOOptions) {
     setMetaTag('twitter:card', 'summary_large_image');
     setMetaTag('twitter:title', fullTitle);
     setMetaTag('twitter:description', description);
-    setMetaTag('twitter:image', `${BASE_URL}/og-image.png`);
+    setMetaTag('twitter:image', OG_IMAGE);
 
     // Canonical
-    const canonicalUrl = canonical ? `${BASE_URL}${canonical}` : null;
+    const canonicalUrl = canonical ? absoluteUrl(canonical) : null;
     setCanonical(canonicalUrl);
     if (canonicalUrl) {
       setMetaTag('og:url', canonicalUrl, 'property');
     }
   }, [title, description, canonical, noindex]);
+
+  useEffect(() => {
+    if (!jsonLd || jsonLd.length === 0) return;
+
+    // Remove any structured data the prerenderer or a previous route left behind
+    // so client-side navigation never stacks duplicate schema blocks.
+    const stale = document.querySelectorAll(
+      `script[type="application/ld+json"][${MANAGED}], script[type="application/ld+json"][data-prerendered]`
+    );
+    stale.forEach((n) => n.remove());
+
+    const added = jsonLd.map((node) => {
+      const script = document.createElement('script');
+      script.type = 'application/ld+json';
+      script.setAttribute(MANAGED, '');
+      script.textContent = JSON.stringify(node);
+      document.head.appendChild(script);
+      return script;
+    });
+
+    return () => {
+      added.forEach((s) => s.remove());
+    };
+  }, [jsonLd]);
 }

@@ -1,13 +1,10 @@
 import { Link } from 'react-router-dom';
 import StaticPageLayout from '../components/layout/StaticPageLayout';
 import { useSEO } from '../hooks/useSEO';
+import { routeFor } from '../seo/routeManifest';
 
 export default function DMCAPage() {
-  useSEO({
-    title: 'DMCA Policy',
-    description: 'QuillBill DMCA policy — how to report copyright infringement and submit takedown notices.',
-    canonical: '/dmca',
-  });
+  useSEO(routeFor('/dmca')!);
 
   return (
     <StaticPageLayout>

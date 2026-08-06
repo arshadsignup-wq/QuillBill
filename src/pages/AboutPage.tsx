@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { FileText, Shield, Zap, Share2, Palette, Globe } from 'lucide-react';
 import StaticPageLayout from '../components/layout/StaticPageLayout';
 import { useSEO } from '../hooks/useSEO';
+import { routeFor } from '../seo/routeManifest';
 
 const features = [
   {
@@ -37,11 +38,7 @@ const features = [
 ];
 
 export default function AboutPage() {
-  useSEO({
-    title: 'About',
-    description: 'Learn about QuillBill — a free, open-source, privacy-first invoice and quotation generator with no sign-up required.',
-    canonical: '/about',
-  });
+  useSEO(routeFor('/about')!);
 
   return (
     <StaticPageLayout>

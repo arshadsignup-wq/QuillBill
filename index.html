@@ -10,15 +10,21 @@
     <meta name="author" content="QuillBill" />
     <meta name="theme-color" content="#2563eb" />
     <meta name="format-detection" content="telephone=no" />
-    <link rel="canonical" href="https://quill-bill.com/" />
+    <link rel="canonical" href="https://www.quill-bill.com/" />
+
+    <!--
+      These head tags are placeholders only. scripts/prerender.mjs strips them
+      and writes each route's real title, description, canonical, Open Graph
+      tags and JSON-LD into that route's own static HTML file at build time.
+    -->
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content="QuillBill — Free Invoice & Quotation Generator" />
     <meta property="og:description" content="Create professional invoices, quotations, and proposals for free. No sign-up, no watermarks — your data stays in your browser." />
-    <meta property="og:url" content="https://quill-bill.com/" />
+    <meta property="og:url" content="https://www.quill-bill.com/" />
     <meta property="og:site_name" content="QuillBill" />
-    <meta property="og:image" content="https://quill-bill.com/og-image.png" />
+    <meta property="og:image" content="https://www.quill-bill.com/og-image.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
 
@@ -26,7 +32,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="QuillBill — Free Invoice & Quotation Generator" />
     <meta name="twitter:description" content="Create professional invoices, quotations, and proposals for free. No sign-up, no watermarks — your data stays in your browser." />
-    <meta name="twitter:image" content="https://quill-bill.com/og-image.png" />
+    <meta name="twitter:image" content="https://www.quill-bill.com/og-image.png" />
 
     <!-- Favicon & Icons -->
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -71,7 +77,20 @@
     <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <!--
+      Loaded non-blocking: as a print stylesheet the browser fetches it without
+      blocking first paint, then the onload handler promotes it to all media.
+      A render-blocking font request on a third-party host was delaying LCP.
+    -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    </noscript>
   </head>
   <body class="bg-gray-50 text-gray-900 antialiased">
     <div id="root"></div>

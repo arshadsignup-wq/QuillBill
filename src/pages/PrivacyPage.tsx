@@ -1,13 +1,10 @@
 import { Link } from 'react-router-dom';
 import StaticPageLayout from '../components/layout/StaticPageLayout';
 import { useSEO } from '../hooks/useSEO';
+import { routeFor } from '../seo/routeManifest';
 
 export default function PrivacyPage() {
-  useSEO({
-    title: 'Privacy Policy',
-    description: 'QuillBill privacy policy. No data collection, no tracking — everything runs in your browser.',
-    canonical: '/privacy',
-  });
+  useSEO(routeFor('/privacy')!);
 
   return (
     <StaticPageLayout>

@@ -1,19 +1,7 @@
-import { BrowserRouter, Routes, Route, Navigate, useNavigate, useLocation } from 'react-router-dom';
+import { BrowserRouter, useNavigate, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 import { ToastProvider } from './components/ui/ToastProvider';
-import EditorPage from './pages/EditorPage';
-import ViewPage from './pages/ViewPage';
-import NotFoundPage from './pages/NotFoundPage';
-import PrivacyPage from './pages/PrivacyPage';
-import TermsPage from './pages/TermsPage';
-import AboutPage from './pages/AboutPage';
-import ContactPage from './pages/ContactPage';
-import DisclaimerPage from './pages/DisclaimerPage';
-import FAQPage from './pages/FAQPage';
-import DMCAPage from './pages/DMCAPage';
-import InvoiceGeneratorPage from './pages/InvoiceGeneratorPage';
-import QuotationGeneratorPage from './pages/QuotationGeneratorPage';
-import ProposalGeneratorPage from './pages/ProposalGeneratorPage';
+import AppRoutes from './routes';
 
 /** Redirect old hash-based URLs (/#/about → /about) for backward compatibility */
 function HashRedirect() {
@@ -34,23 +22,7 @@ export default function App() {
     <ToastProvider>
       <BrowserRouter>
         <HashRedirect />
-        <Routes>
-          <Route path="/" element={<EditorPage />} />
-          <Route path="/edit/:payload" element={<EditorPage />} />
-          <Route path="/view/:payload" element={<ViewPage />} />
-          <Route path="/privacy" element={<PrivacyPage />} />
-          <Route path="/terms" element={<TermsPage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="/disclaimer" element={<DisclaimerPage />} />
-          <Route path="/faq" element={<FAQPage />} />
-          <Route path="/dmca" element={<DMCAPage />} />
-          <Route path="/invoice-generator" element={<InvoiceGeneratorPage />} />
-          <Route path="/quotation-generator" element={<QuotationGeneratorPage />} />
-          <Route path="/proposal-generator" element={<ProposalGeneratorPage />} />
-          <Route path="/404" element={<NotFoundPage />} />
-          <Route path="*" element={<Navigate to="/404" replace />} />
-        </Routes>
+        <AppRoutes />
       </BrowserRouter>
     </ToastProvider>
   );

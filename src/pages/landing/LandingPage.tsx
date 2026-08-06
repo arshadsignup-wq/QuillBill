@@ -6,6 +6,7 @@ import HowItWorks from './components/HowItWorks';
 import LandingFAQ from './components/LandingFAQ';
 import CrossLinks from './components/CrossLinks';
 import LandingCTA from './components/LandingCTA';
+import { landingJsonLd } from '../../seo/pageSchemas';
 import type { LandingPageConfig } from './landingData';
 
 interface LandingPageProps {
@@ -13,7 +14,7 @@ interface LandingPageProps {
 }
 
 export default function LandingPage({ config }: LandingPageProps) {
-  useSEO(config.seo);
+  useSEO({ ...config.seo, jsonLd: landingJsonLd(config) });
 
   return (
     <StaticPageLayout>

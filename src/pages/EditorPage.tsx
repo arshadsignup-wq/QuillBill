@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
-import { useParams, useSearchParams } from 'react-router-dom';
+import { useParams, useSearchParams, Link } from 'react-router-dom';
 import { InvoiceProvider } from '../context/InvoiceContext';
 import { decodePayload } from '../lib/codec';
 import { loadDraft } from '../lib/storage';
 import { createDefaultInvoice } from '../constants/defaults';
-import type { InvoiceData, DocumentMode } from '../types/invoice';
+import type { InvoiceData, DocumentMode, TemplateName } from '../types/invoice';
+import { templateGalleryConfigs } from './templates/templateData';
 import AppShell from '../components/layout/AppShell';
 import SplitPane from '../components/layout/SplitPane';
 import EditorPanel from '../components/editor/EditorPanel';
@@ -13,13 +14,16 @@ import ActionBar from '../components/actions/ActionBar';
 import MobilePreviewSheet from '../components/layout/MobilePreviewSheet';
 import PrintPortal from '../components/preview/PrintPortal';
 import { useSEO } from '../hooks/useSEO';
+import { routeFor } from '../seo/routeManifest';
 import { Zap, Shield, Share2, Palette, X } from 'lucide-react';
 
 const HERO_DISMISSED_KEY = 'quillbill-hero-dismissed';
 
 function HeroBanner() {
   const [dismissed, setDismissed] = useState(() =>
-    sessionStorage.getItem(HERO_DISMISSED_KEY) === '1'
+    // Guarded so the banner also renders during build-time prerendering, which
+    // is what puts the homepage h1 and copy into the served HTML.
+    typeof window !== 'undefined' && sessionStorage.getItem(HERO_DISMISSED_KEY) === '1'
   );
 
   if (dismissed) return null;
@@ -40,12 +44,20 @@ function HeroBanner() {
       </button>
       <div className="max-w-4xl mx-auto">
         <h1 className="text-base sm:text-lg font-bold text-gray-900">
-          Free Invoice & Quotation Generator
+          Free Invoice &amp; Quotation Generator
         </h1>
         <p className="text-xs sm:text-sm text-gray-600 mt-1 max-w-2xl">
           Create professional invoices, quotations, and proposals in seconds. No sign-up required,
-          no watermarks, and your data never leaves your browser.
+          no watermarks, and your data never leaves your browser. Choose from 15 free templates and
+          export a printable PDF instantly.
         </p>
+        <nav aria-label="Guides and templates" className="flex flex-wrap gap-x-4 gap-y-1 mt-2 text-xs">
+          <Link to="/invoice-generator" className="text-brand hover:underline">Invoice generator</Link>
+          <Link to="/quotation-generator" className="text-brand hover:underline">Quotation generator</Link>
+          <Link to="/proposal-generator" className="text-brand hover:underline">Proposal generator</Link>
+          <Link to="/invoice-templates" className="text-brand hover:underline">Free invoice templates</Link>
+          <Link to="/how-to-create-an-invoice" className="text-brand hover:underline">How to create an invoice</Link>
+        </nav>
         <div className="flex flex-wrap gap-2 mt-2">
           <span className="inline-flex items-center gap-1 rounded-full bg-white/80 border border-brand/15 px-2.5 py-0.5 text-xs text-gray-700">
             <Zap size={12} className="text-brand" /> Instant PDF export
@@ -93,16 +105,22 @@ const VALID_MODES: Record<string, DocumentMode> = {
   proposal: 'proposal',
 };
 
+const VALID_TEMPLATES = new Set<string>(
+  templateGalleryConfigs[0].templates.map((t) => t.key)
+);
+
 export default function EditorPage() {
   const { payload } = useParams<{ payload?: string }>();
   const [searchParams] = useSearchParams();
   const [initialData, setInitialData] = useState<InvoiceData | null>(null);
   const [ready, setReady] = useState(false);
 
+  const homeMeta = routeFor('/')!;
   useSEO({
-    title: 'Free Invoice & Quotation Generator',
-    description: 'Create professional invoices, quotations, and proposals for free. No sign-up, no watermarks — your data stays in your browser.',
+    ...homeMeta,
+    // /edit/:payload holds user document data — never index or canonicalise it.
     canonical: payload ? undefined : '/',
+    noindex: Boolean(payload),
   });
 
   useEffect(() => {
@@ -131,11 +149,29 @@ export default function EditorPage() {
       }
     }
 
+    // Apply ?template= deep-link, used by the template gallery pages
+    const templateParam = searchParams.get('template');
+    if (templateParam && VALID_TEMPLATES.has(templateParam)) {
+      data = { ...data, template: templateParam as TemplateName };
+    }
+
     setInitialData(data);
     setReady(true);
   }, [payload, searchParams]);
 
-  if (!ready || !initialData) return null;
+  // Before the editor's client-side state is resolved — and during build-time
+  // prerendering, where effects never run — render the shell and hero anyway.
+  // This is what puts the homepage h1, description and internal links into the
+  // served HTML instead of shipping an empty <div id="root">.
+  if (!ready || !initialData) {
+    return (
+      <AppShell>
+        <div className="flex flex-col h-full">
+          <HeroBanner />
+        </div>
+      </AppShell>
+    );
+  }
 
   return (
     <InvoiceProvider initialData={initialData} autoSave>

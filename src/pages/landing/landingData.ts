@@ -53,9 +53,9 @@ export const invoiceConfig: LandingPageConfig = {
   slug: 'invoice-generator',
   mode: 'invoice',
   seo: {
-    title: 'Free Invoice Generator Online | No Sign-Up, No Watermark',
+    title: 'Free Invoice Generator Online | No Sign-Up',
     description:
-      'Create professional invoices for free with this online invoice creator. No sign-up, no watermarks, no login required. Export printable PDF invoices instantly with 15 free invoice templates.',
+      'Create professional invoices free with this online invoice generator. No sign-up, no watermarks, no login. 15 free templates and instant PDF export.',
     canonical: '/invoice-generator',
   },
   hero: {
@@ -155,6 +155,16 @@ export const invoiceConfig: LandingPageConfig = {
   ],
   crossLinks: [
     {
+      title: 'Free Invoice Templates',
+      description: 'Browse all 15 free printable invoice templates and pick a format.',
+      href: '/invoice-templates',
+    },
+    {
+      title: 'How to Create an Invoice',
+      description: 'Step-by-step guide covering what to include and how to get paid faster.',
+      href: '/how-to-create-an-invoice',
+    },
+    {
       title: 'Quotation Generator',
       description: 'Create professional quotations and price quotes for free.',
       href: '/quotation-generator',
@@ -171,9 +181,9 @@ export const quotationConfig: LandingPageConfig = {
   slug: 'quotation-generator',
   mode: 'quote',
   seo: {
-    title: 'Free Quotation Generator Online | No Sign-Up, No Watermark',
+    title: 'Free Quotation Generator Online | No Sign-Up',
     description:
-      'Create professional price quotations for free with this online quotation generator. No sign-up, no watermarks. Export quotation PDFs with 15 templates. Free quotation software for any business.',
+      'Create professional price quotations free. No sign-up, no watermarks. Export quotation PDFs with 15 free templates. Free quotation software for business.',
     canonical: '/quotation-generator',
   },
   hero: {
@@ -273,6 +283,16 @@ export const quotationConfig: LandingPageConfig = {
   ],
   crossLinks: [
     {
+      title: 'Free Quotation Templates',
+      description: 'Browse all 15 free price quote and estimate templates.',
+      href: '/quotation-templates',
+    },
+    {
+      title: 'Invoice vs Quotation',
+      description: 'Understand which document to send and when.',
+      href: '/invoice-vs-quotation',
+    },
+    {
       title: 'Invoice Generator',
       description: 'Create professional invoices with PDF export for free.',
       href: '/invoice-generator',
@@ -289,9 +309,9 @@ export const proposalConfig: LandingPageConfig = {
   slug: 'proposal-generator',
   mode: 'proposal',
   seo: {
-    title: 'Free Proposal Generator | Business & Project Proposals',
+    title: 'Free Proposal Generator | Business Proposals',
     description:
-      'Create professional business and project proposals for free. Free proposal software with scope, deliverables, timeline, and signatures. No sign-up, no watermarks. Export proposal PDFs instantly.',
+      'Create business and project proposals free, with scope, deliverables, timeline and signatures. No sign-up, no watermarks. Export proposal PDFs instantly.',
     canonical: '/proposal-generator',
   },
   hero: {
@@ -390,6 +410,11 @@ export const proposalConfig: LandingPageConfig = {
     },
   ],
   crossLinks: [
+    {
+      title: 'Free Proposal Templates',
+      description: 'Browse all 15 free business and project proposal templates.',
+      href: '/proposal-templates',
+    },
     {
       title: 'Invoice Generator',
       description: 'Create professional invoices with PDF export for free.',

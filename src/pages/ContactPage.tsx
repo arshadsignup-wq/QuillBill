@@ -3,17 +3,14 @@ import { Link } from 'react-router-dom';
 import { Mail, Github, Clock, MessageSquare, HelpCircle, Send } from 'lucide-react';
 import StaticPageLayout from '../components/layout/StaticPageLayout';
 import { useSEO } from '../hooks/useSEO';
+import { routeFor } from '../seo/routeManifest';
 
 export default function ContactPage() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
 
-  useSEO({
-    title: 'Contact',
-    description: 'Get in touch with QuillBill. Report bugs, request features, or send us a message.',
-    canonical: '/contact',
-  });
+  useSEO(routeFor('/contact')!);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();

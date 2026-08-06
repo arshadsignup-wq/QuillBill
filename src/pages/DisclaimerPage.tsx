@@ -1,13 +1,10 @@
 import { Link } from 'react-router-dom';
 import StaticPageLayout from '../components/layout/StaticPageLayout';
 import { useSEO } from '../hooks/useSEO';
+import { routeFor } from '../seo/routeManifest';
 
 export default function DisclaimerPage() {
-  useSEO({
-    title: 'Disclaimer',
-    description: 'QuillBill disclaimer — no warranties, use at your own risk. Read our full legal disclaimer.',
-    canonical: '/disclaimer',
-  });
+  useSEO(routeFor('/disclaimer')!);
 
   return (
     <StaticPageLayout>

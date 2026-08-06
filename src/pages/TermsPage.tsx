@@ -1,13 +1,10 @@
 import { Link } from 'react-router-dom';
 import StaticPageLayout from '../components/layout/StaticPageLayout';
 import { useSEO } from '../hooks/useSEO';
+import { routeFor } from '../seo/routeManifest';
 
 export default function TermsPage() {
-  useSEO({
-    title: 'Terms of Service',
-    description: 'QuillBill terms of service. Free to use, no warranty, your documents belong to you.',
-    canonical: '/terms',
-  });
+  useSEO(routeFor('/terms')!);
 
   return (
     <StaticPageLayout>
