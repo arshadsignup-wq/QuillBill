@@ -26,3 +26,6 @@ dist-ssr
 
 # Build-time SSR bundle used by scripts/prerender.mjs
 .ssr-build
+
+# Internal SEO working docs — keep off the public repo
+backlink-plan.md
