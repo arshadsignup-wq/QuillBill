@@ -118,6 +118,40 @@ export function howToSchema(name: string, description: string, steps: HowToStep[
   };
 }
 
+export interface ArticleMeta {
+  headline: string;
+  description: string;
+  path: string;
+  published: string;
+  updated: string;
+  section: string;
+}
+
+/**
+ * Article schema for the guides. datePublished/dateModified come from explicit
+ * fields on each guide rather than the build clock — a dateModified that bumps
+ * on every deploy is both untrue and a freshness signal Google discounts.
+ */
+export function articleSchema(meta: ArticleMeta) {
+  const url = absoluteUrl(meta.path);
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    '@id': `${url}#article`,
+    headline: meta.headline,
+    description: meta.description,
+    articleSection: meta.section,
+    inLanguage: 'en',
+    mainEntityOfPage: { '@type': 'WebPage', '@id': url },
+    url,
+    image: OG_IMAGE,
+    datePublished: meta.published,
+    dateModified: meta.updated,
+    author: { '@id': ORG_ID },
+    publisher: { '@id': ORG_ID },
+  };
+}
+
 /** ItemList schema for template gallery pages. */
 export function itemListSchema(name: string, items: { name: string; description: string }[]) {
   return {

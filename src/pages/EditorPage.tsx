@@ -56,7 +56,7 @@ function HeroBanner() {
           <Link to="/quotation-generator" className="text-brand hover:underline">Quotation generator</Link>
           <Link to="/proposal-generator" className="text-brand hover:underline">Proposal generator</Link>
           <Link to="/invoice-templates" className="text-brand hover:underline">Free invoice templates</Link>
-          <Link to="/how-to-create-an-invoice" className="text-brand hover:underline">How to create an invoice</Link>
+          <Link to="/guides" className="text-brand hover:underline">Invoicing guides</Link>
         </nav>
         <div className="flex flex-wrap gap-2 mt-2">
           <span className="inline-flex items-center gap-1 rounded-full bg-white/80 border border-brand/15 px-2.5 py-0.5 text-xs text-gray-700">

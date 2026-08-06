@@ -18,7 +18,8 @@ import {
   proposalTemplatesConfig,
 } from './pages/templates/templateData';
 import GuidePage from './pages/guides/GuidePage';
-import { howToCreateInvoiceGuide, invoiceVsQuotationGuide } from './pages/guides/guideData';
+import GuidesHubPage from './pages/guides/GuidesHubPage';
+import { guideConfigs } from './pages/guides/guideData';
 
 /**
  * Route table shared by the browser entry (App.tsx) and the prerender entry
@@ -46,8 +47,10 @@ export default function AppRoutes() {
       <Route path="/quotation-templates" element={<TemplateGalleryPage config={quotationTemplatesConfig} />} />
       <Route path="/proposal-templates" element={<TemplateGalleryPage config={proposalTemplatesConfig} />} />
 
-      <Route path="/how-to-create-an-invoice" element={<GuidePage config={howToCreateInvoiceGuide} />} />
-      <Route path="/invoice-vs-quotation" element={<GuidePage config={invoiceVsQuotationGuide} />} />
+      <Route path="/guides" element={<GuidesHubPage />} />
+      {guideConfigs.map((g) => (
+        <Route key={g.slug} path={`/${g.slug}`} element={<GuidePage config={g} />} />
+      ))}
 
       <Route path="/404" element={<NotFoundPage />} />
       <Route path="*" element={<Navigate to="/404" replace />} />

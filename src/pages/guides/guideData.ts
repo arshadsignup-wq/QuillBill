@@ -1,29 +1,23 @@
-import type { FAQItem } from '../landing/landingData';
+import type { GuideConfig } from './types';
+import { paymentTermsGuide, chasePaymentGuide } from './gettingPaid';
+import { writeQuotationGuide, writeProposalGuide } from './writing';
+import { proformaInvoiceGuide, purchaseOrderGuide, freelanceInvoicingGuide } from './invoicing';
 
-export interface GuideSection {
-  heading: string;
-  body: string[];
-  /** Optional ordered checklist rendered under the prose. */
-  list?: string[];
-}
-
-export interface GuideConfig {
-  slug: string;
-  seo: { title: string; description: string; canonical: string };
-  h1: string;
-  intro: string;
-  /** When set, a HowTo schema is emitted from these steps. */
-  howTo?: { name: string; description: string; steps: { title: string; description: string }[] };
-  sections: GuideSection[];
-  faqs: FAQItem[];
-  ctaHeading: string;
-  ctaText: string;
-  ctaLink: string;
-  crossLinks: { title: string; description: string; href: string }[];
-}
+export type { GuideConfig, GuideSection } from './types';
 
 export const howToCreateInvoiceGuide: GuideConfig = {
   slug: 'how-to-create-an-invoice',
+  cluster: 'Invoicing',
+  published: '2026-04-27',
+  updated: '2026-08-06',
+  summary:
+    'What an invoice must contain, how to number them, setting payment terms, and exporting a PDF.',
+  keyTakeaways: [
+    'Every invoice needs a unique number, an issue date and an explicit due date.',
+    'Itemise clearly. Vague descriptions are the most common reason invoices get queried.',
+    'State payment terms and bank details on the invoice itself, not only in a contract.',
+    'Send it the day the work is finished, not at month end.',
+  ],
   seo: {
     title: 'How to Create an Invoice | Step-by-Step Guide',
     description:
@@ -184,6 +178,17 @@ export const howToCreateInvoiceGuide: GuideConfig = {
 
 export const invoiceVsQuotationGuide: GuideConfig = {
   slug: 'invoice-vs-quotation',
+  cluster: 'Quotations',
+  published: '2026-04-27',
+  updated: '2026-08-06',
+  summary:
+    'Quote first to win the work, invoice afterwards to get paid. Where estimates and proposals fit.',
+  keyTakeaways: [
+    'A quotation is a fixed-price offer sent before work begins.',
+    'An invoice requests payment after the work is delivered.',
+    'An estimate is an approximation; a proposal adds scope, timeline and signatures.',
+    'The usual sequence is quotation, then invoice, then receipt.',
+  ],
   seo: {
     title: "Invoice vs Quotation | What's the Difference?",
     description:
@@ -291,4 +296,25 @@ export const invoiceVsQuotationGuide: GuideConfig = {
   ],
 };
 
-export const guideConfigs = [howToCreateInvoiceGuide, invoiceVsQuotationGuide];
+export {
+  paymentTermsGuide,
+  chasePaymentGuide,
+  writeQuotationGuide,
+  writeProposalGuide,
+  proformaInvoiceGuide,
+  purchaseOrderGuide,
+  freelanceInvoicingGuide,
+};
+
+/** Every guide, in the order they appear on the /guides hub. */
+export const guideConfigs: GuideConfig[] = [
+  howToCreateInvoiceGuide,
+  freelanceInvoicingGuide,
+  paymentTermsGuide,
+  chasePaymentGuide,
+  proformaInvoiceGuide,
+  purchaseOrderGuide,
+  writeQuotationGuide,
+  invoiceVsQuotationGuide,
+  writeProposalGuide,
+];

@@ -5,9 +5,10 @@ import {
   quotationTemplatesConfig,
   proposalTemplatesConfig,
 } from '../pages/templates/templateData';
-import { howToCreateInvoiceGuide, invoiceVsQuotationGuide } from '../pages/guides/guideData';
+import { guideConfigs } from '../pages/guides/guideData';
+import { guidesHubSeo } from '../pages/guides/hubMeta';
 import { siteFaqs } from '../pages/faqData';
-import { landingJsonLd, galleryJsonLd, guideJsonLd } from './pageSchemas';
+import { landingJsonLd, galleryJsonLd, guideJsonLd, guidesHubJsonLd } from './pageSchemas';
 import {
   organizationSchema,
   websiteSchema,
@@ -87,21 +88,21 @@ export const routes: RouteEntry[] = [
     priority: 0.8,
   },
 
-  // Guides
+  // Guides hub + every guide, generated from the same list the hub renders
   {
-    path: '/how-to-create-an-invoice',
-    ...howToCreateInvoiceGuide.seo,
-    jsonLd: guideJsonLd(howToCreateInvoiceGuide),
-    changefreq: 'monthly',
+    path: '/guides',
+    ...guidesHubSeo,
+    jsonLd: guidesHubJsonLd(),
+    changefreq: 'weekly',
     priority: 0.8,
   },
-  {
-    path: '/invoice-vs-quotation',
-    ...invoiceVsQuotationGuide.seo,
-    jsonLd: guideJsonLd(invoiceVsQuotationGuide),
+  ...guideConfigs.map((g) => ({
+    path: `/${g.slug}`,
+    ...g.seo,
+    jsonLd: guideJsonLd(g),
     changefreq: 'monthly',
     priority: 0.7,
-  },
+  })),
 
   // Supporting / trust pages
   {
