@@ -13,6 +13,7 @@ import PreviewPanel from '../components/preview/PreviewPanel';
 import ActionBar from '../components/actions/ActionBar';
 import MobilePreviewSheet from '../components/layout/MobilePreviewSheet';
 import PrintPortal from '../components/preview/PrintPortal';
+import HomeContent from './HomeContent';
 import { useSEO } from '../hooks/useSEO';
 import { routeFor } from '../seo/routeManifest';
 import { Zap, Shield, Share2, Palette, X } from 'lucide-react';
@@ -77,7 +78,7 @@ function HeroBanner() {
   );
 }
 
-function EditorContent() {
+function EditorContent({ showHomeContent }: { showHomeContent: boolean }) {
   const [previewOpen, setPreviewOpen] = useState(false);
 
   return (
@@ -94,6 +95,7 @@ function EditorContent() {
         </div>
         <MobilePreviewSheet open={previewOpen} onClose={() => setPreviewOpen(false)} />
       </AppShell>
+      {showHomeContent && <HomeContent />}
       <PrintPortal />
     </>
   );
@@ -165,17 +167,22 @@ export default function EditorPage() {
   // served HTML instead of shipping an empty <div id="root">.
   if (!ready || !initialData) {
     return (
-      <AppShell>
-        <div className="flex flex-col h-full">
-          <HeroBanner />
-        </div>
-      </AppShell>
+      <>
+        <AppShell>
+          <div className="flex flex-col h-full">
+            <HeroBanner />
+          </div>
+        </AppShell>
+        {!payload && <HomeContent />}
+      </>
     );
   }
 
   return (
     <InvoiceProvider initialData={initialData} autoSave>
-      <EditorContent />
+      {/* Only the canonical homepage carries the marketing copy; /edit/:payload
+          is a working document view and stays a bare editor. */}
+      <EditorContent showHomeContent={!payload} />
     </InvoiceProvider>
   );
 }

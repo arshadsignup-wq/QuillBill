@@ -1,6 +1,29 @@
+import { lazy, type ComponentType } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import EditorPage from './pages/EditorPage';
-import ViewPage from './pages/ViewPage';
+
+/**
+ * The editor and viewer pull in the whole document engine: 15 invoice
+ * templates, 15 proposal templates, the editor panels and the print portal.
+ * Statically importing them meant every text guide shipped that code too.
+ * They are lazy so content pages only download what they render.
+ *
+ * Note: no <Suspense> boundary here on purpose. App.tsx provides one for the
+ * browser, while the prerenderer renders without one so it can catch the
+ * thrown promise, await the chunk and re-render — giving real static HTML
+ * instead of a suspense fallback.
+ */
+const LazyEditorPage = lazy(() => import('./pages/EditorPage'));
+const LazyViewPage = lazy(() => import('./pages/ViewPage'));
+
+interface AppRoutesProps {
+  /**
+   * The prerenderer passes the real components here. renderToStaticMarkup is
+   * synchronous, so a lazy component would suspend and emit an empty page
+   * instead of the homepage markup.
+   */
+  editor?: ComponentType;
+  viewer?: ComponentType;
+}
 import NotFoundPage from './pages/NotFoundPage';
 import PrivacyPage from './pages/PrivacyPage';
 import TermsPage from './pages/TermsPage';
@@ -25,7 +48,10 @@ import { guideConfigs } from './pages/guides/guideData';
  * Route table shared by the browser entry (App.tsx) and the prerender entry
  * (entry-server.tsx), so the static HTML and the client render the same tree.
  */
-export default function AppRoutes() {
+export default function AppRoutes({ editor, viewer }: AppRoutesProps = {}) {
+  const EditorPage = editor ?? LazyEditorPage;
+  const ViewPage = viewer ?? LazyViewPage;
+
   return (
     <Routes>
       <Route path="/" element={<EditorPage />} />

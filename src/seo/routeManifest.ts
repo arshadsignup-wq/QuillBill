@@ -144,7 +144,7 @@ export const routes: RouteEntry[] = [
     canonical: '/privacy',
     title: 'Privacy Policy',
     description:
-      'QuillBill privacy policy. No data collection and no tracking. Everything runs entirely inside your own browser.',
+      'QuillBill privacy policy. Your document data never leaves your browser. What we do and do not collect, explained plainly.',
     changefreq: 'yearly',
     priority: 0.3,
   },

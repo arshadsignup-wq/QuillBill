@@ -54,7 +54,7 @@ export default function AboutPage() {
 
           <p>
             Unlike other invoice tools, QuillBill runs entirely in your browser. There's no backend,
-            no database, and no tracking. Your data stays on your device — always. When you share a
+            no database, and no account system. Your document data stays on your device — always. When you share a
             link, the document data is compressed and encoded directly into the URL, so nothing is
             ever stored on our servers.
           </p>

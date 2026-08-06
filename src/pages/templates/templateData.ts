@@ -27,24 +27,82 @@ export interface TemplateGalleryConfig {
   crossLinks: { title: string; description: string; href: string }[];
 }
 
-/** Shared visual identity of the 15 templates, described per document type. */
-const baseTemplates: { key: string; label: string; style: string }[] = [
-  { key: 'minimal', label: 'Minimal', style: 'Clean and simple, with generous white space and no heavy borders.' },
-  { key: 'modern', label: 'Modern', style: 'A bold coloured header band with crisp, contemporary type.' },
-  { key: 'classic', label: 'Classic', style: 'Formal and bordered, in the traditional business document style.' },
-  { key: 'compact', label: 'Compact', style: 'Space-efficient layout that fits long item lists on a single page.' },
-  { key: 'elegant', label: 'Elegant', style: 'Refined serif typography with thin underlines and a premium feel.' },
-  { key: 'bold', label: 'Bold', style: 'Oversized headings and strong contrast that command attention.' },
-  { key: 'stripe', label: 'Stripe', style: 'A left accent rule with alternating row stripes for easy scanning.' },
-  { key: 'executive', label: 'Executive', style: 'A dark header block with a formal, corporate presentation.' },
-  { key: 'clean', label: 'Clean', style: 'Ultra-minimal, text-forward design with almost no decoration.' },
-  { key: 'sidebar', label: 'Sidebar', style: 'A coloured side panel holding your branding and contact details.' },
-  { key: 'professional', label: 'Professional', style: 'A structured corporate look with clearly numbered sections.' },
-  { key: 'creative', label: 'Creative', style: 'Rounded cards and playful spacing for studios and creative work.' },
-  { key: 'letterhead', label: 'Letterhead', style: 'Top and bottom colour bands that mimic printed letterhead.' },
-  { key: 'receipt', label: 'Receipt', style: 'Narrow, monospaced and centred, like a printed till receipt.' },
-  { key: 'gradient', label: 'Gradient', style: 'A smooth gradient header that adds colour without clutter.' },
+const TEMPLATE_LABELS: { key: string; label: string }[] = [
+  { key: 'minimal', label: 'Minimal' },
+  { key: 'modern', label: 'Modern' },
+  { key: 'classic', label: 'Classic' },
+  { key: 'compact', label: 'Compact' },
+  { key: 'elegant', label: 'Elegant' },
+  { key: 'bold', label: 'Bold' },
+  { key: 'stripe', label: 'Stripe' },
+  { key: 'executive', label: 'Executive' },
+  { key: 'clean', label: 'Clean' },
+  { key: 'sidebar', label: 'Sidebar' },
+  { key: 'professional', label: 'Professional' },
+  { key: 'creative', label: 'Creative' },
+  { key: 'letterhead', label: 'Letterhead' },
+  { key: 'receipt', label: 'Receipt' },
+  { key: 'gradient', label: 'Gradient' },
 ];
+
+/**
+ * Style copy is written separately for each document type. Sharing one
+ * description set made the three gallery pages ~49% token-identical, which
+ * reads to a search engine as the same page published three times.
+ */
+const invoiceStyle: Record<string, string> = {
+  minimal: 'Plenty of white space around the line items, with the amount due set apart at the foot.',
+  modern: 'A coloured band across the top carrying the invoice number and due date.',
+  classic: 'Ruled borders around the item table, in the traditional accounting layout.',
+  compact: 'Tight row spacing that keeps twenty or more line items on one page.',
+  elegant: 'Serif figures and hairline rules, with the total set in a lighter weight.',
+  bold: 'The amount due printed large enough to read across a desk.',
+  stripe: 'A coloured rule down the left edge with alternating row shading.',
+  executive: 'A dark header block holding your logo, with the balance boxed beneath.',
+  clean: 'Type and numbers only, with no rules, boxes or shading anywhere.',
+  sidebar: 'A coloured panel down one side holding your logo and payment details.',
+  professional: 'Numbered sections separating billing details, items and payment terms.',
+  creative: 'Rounded cards around each block, with the total in a tinted panel.',
+  letterhead: 'Colour bands top and bottom, leaving the middle clear for the item table.',
+  receipt: 'A narrow monospaced column, sized for a till roll rather than A4.',
+  gradient: 'A soft colour gradient behind the header, fading before the item table.',
+};
+
+const quotationStyle: Record<string, string> = {
+  minimal: 'Uncluttered pricing, with the quoted total and validity date easy to find.',
+  modern: 'A coloured header carrying the quotation number and the date it expires.',
+  classic: 'A formally ruled pricing table suited to procurement and tender packs.',
+  compact: 'Dense rows for quoting long material or component lists in one page.',
+  elegant: 'Serif headings and fine rules, for quotes where presentation carries weight.',
+  bold: 'The quoted price and expiry date given the most prominent position.',
+  stripe: 'Banded rows so a client can compare optional line items at a glance.',
+  executive: 'A dark header with the quoted total boxed for a purchasing committee.',
+  clean: 'Pricing presented as plain text, with no shading or decorative rules.',
+  sidebar: 'A side panel holding validity, terms and what the quote excludes.',
+  professional: 'Numbered sections covering scope, pricing, validity and terms.',
+  creative: 'Rounded blocks per option, so alternatives read as separate choices.',
+  letterhead: 'Top and bottom bands matching printed stationery for formal quotes.',
+  receipt: 'A short, narrow format for over-the-counter price quotes.',
+  gradient: 'A gradient header above a plainly set pricing table.',
+};
+
+const proposalStyle: Record<string, string> = {
+  minimal: 'Generous spacing between the summary, scope and deliverables sections.',
+  modern: 'A coloured banner on the cover, with accent rules dividing each section.',
+  classic: 'A double-ruled frame and formal headings for traditional review panels.',
+  compact: 'Two columns, fitting scope, deliverables and timeline into fewer pages.',
+  elegant: 'Serif body text and thin underlines, for high-value consulting pitches.',
+  bold: 'A full-width title page with the headline outcome set very large.',
+  stripe: 'Alternating section bands that separate each project phase visually.',
+  executive: 'A dark cover header, with the investment figure boxed on its own.',
+  clean: 'Unadorned text throughout, keeping attention on scope and deliverables.',
+  sidebar: 'A running side panel carrying timeline and contact details on every page.',
+  professional: 'Numbered sections through summary, scope, timeline, terms and signing.',
+  creative: 'Rounded cards per deliverable, with the timeline shown as stepped blocks.',
+  letterhead: 'Colour bands top and bottom on every page, matching printed stationery.',
+  receipt: 'A single narrow page, suited to a short statement of work.',
+  gradient: 'Gradient section dividers carrying colour through a long document.',
+};
 
 const invoiceBestFor: Record<string, string> = {
   minimal: 'Freelancers and consultants who want a free invoice template that looks calm and uncluttered.',
@@ -100,8 +158,11 @@ const proposalBestFor: Record<string, string> = {
   gradient: 'Modern digital agencies wanting a colourful free proposal template.',
 };
 
-function buildTemplates(bestFor: Record<string, string>): TemplateEntry[] {
-  return baseTemplates.map((t) => ({ ...t, bestFor: bestFor[t.key] }));
+function buildTemplates(
+  style: Record<string, string>,
+  bestFor: Record<string, string>
+): TemplateEntry[] {
+  return TEMPLATE_LABELS.map((t) => ({ ...t, style: style[t.key], bestFor: bestFor[t.key] }));
 }
 
 export const invoiceTemplatesConfig: TemplateGalleryConfig = {
@@ -120,7 +181,7 @@ export const invoiceTemplatesConfig: TemplateGalleryConfig = {
     'Pick from 15 free invoice templates and fill them in directly in your browser. Every printable invoice template exports to PDF with no watermark, no sign-up and no email required. Choose a free invoice template below, customise the accent colour and add your logo.',
   ctaText: 'Use These Invoice Templates Free',
   ctaLink: '/?mode=invoice',
-  templates: buildTemplates(invoiceBestFor),
+  templates: buildTemplates(invoiceStyle, invoiceBestFor),
   sections: [
     {
       heading: 'How to use a free invoice template',
@@ -199,7 +260,7 @@ export const quotationTemplatesConfig: TemplateGalleryConfig = {
     'Choose from 15 free quotation templates and fill them in directly in your browser. Every price quote template exports to PDF with no watermark and no sign-up. Pick a quotation format below, add your logo and send it to your client.',
   ctaText: 'Use These Quotation Templates Free',
   ctaLink: '/?mode=quote',
-  templates: buildTemplates(quotationBestFor),
+  templates: buildTemplates(quotationStyle, quotationBestFor),
   sections: [
     {
       heading: 'How to use a free quotation template',
@@ -278,7 +339,7 @@ export const proposalTemplatesConfig: TemplateGalleryConfig = {
     'Choose from 15 free proposal templates covering executive summary, scope of work, deliverables, timeline and signatures. Fill in your company proposal template online and export a PDF. No sign-up, no watermark, completely free.',
   ctaText: 'Use These Proposal Templates Free',
   ctaLink: '/?mode=proposal',
-  templates: buildTemplates(proposalBestFor),
+  templates: buildTemplates(proposalStyle, proposalBestFor),
   sections: [
     {
       heading: 'What a business proposal template should contain',

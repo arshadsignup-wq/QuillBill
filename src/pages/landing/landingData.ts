@@ -77,7 +77,7 @@ export const invoiceConfig: LandingPageConfig = {
       icon: Shield,
       title: '100% Private & Secure',
       description:
-        'Your invoice data never leaves your browser. This free invoice app runs entirely client-side with no servers, no databases, and no tracking.',
+        'Your invoice data never leaves your browser. This free invoice app runs entirely client-side with no servers and no databases.',
     },
     {
       icon: Download,

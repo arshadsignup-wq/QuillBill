@@ -1,6 +1,7 @@
 import { BrowserRouter, useNavigate, useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
+import { Suspense, useEffect } from 'react';
 import { ToastProvider } from './components/ui/ToastProvider';
+import AnalyticsRouteTracker from './components/AnalyticsRouteTracker';
 import AppRoutes from './routes';
 
 /** Redirect old hash-based URLs (/#/about → /about) for backward compatibility */
@@ -22,7 +23,10 @@ export default function App() {
     <ToastProvider>
       <BrowserRouter>
         <HashRedirect />
-        <AppRoutes />
+        <AnalyticsRouteTracker />
+        <Suspense fallback={null}>
+          <AppRoutes />
+        </Suspense>
       </BrowserRouter>
     </ToastProvider>
   );

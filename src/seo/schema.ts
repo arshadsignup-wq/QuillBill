@@ -58,7 +58,7 @@ export function webApplicationSchema() {
       'PDF export',
       'Shareable links',
       'No sign-up required',
-      'Privacy-first, no data collection',
+      'Privacy-first, your documents never leave your device',
     ],
   };
 }

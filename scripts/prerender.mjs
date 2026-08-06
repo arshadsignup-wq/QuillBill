@@ -73,7 +73,7 @@ function buildHead(route) {
 
 /**
  * Strip the placeholder head tags from the built template so each route's own
- * tags are the only ones present. Leaves viewport, icons, fonts, AdSense etc.
+ * tags are the only ones present. Leaves viewport, icons, fonts and the app script.
  */
 function stripPlaceholders(html) {
   return html
@@ -98,8 +98,6 @@ for (const route of routes) {
   try {
     body = renderRoute(route.path);
   } catch (err) {
-    // The editor route intentionally renders nothing until its client effects
-    // run; anything else failing is a real problem worth surfacing.
     failures.push(`${route.path}: ${err.message}`);
   }
 
