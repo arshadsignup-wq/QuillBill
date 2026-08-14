@@ -3,6 +3,36 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+    <!--
+      Google tag (gtag.js). Hardcoded rather than read from VITE_GA_MEASUREMENT_ID:
+      Vite inlines that variable at build time, so in any build where it was not
+      set the ID became `undefined`, the loader below it became unreachable, and
+      the bundler dropped the tag from the output entirely. A measurement ID is
+      public in page source anyway, so there is nothing to protect by hiding it.
+    -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YHPYZQ885T"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      // /edit/ and /view/ carry the entire document in the URL, so those paths
+      // must never reach GA. The automatic page_view is suppressed there; on
+      // every other route it fires here, from static HTML, so a hit is recorded
+      // without waiting for React to mount.
+      var gaPath = location.pathname;
+      var gaPrivate = gaPath.indexOf('/edit/') === 0 || gaPath.indexOf('/view/') === 0;
+
+      // Keeps localhost and *.vercel.app previews out of the production property.
+      if (/(^|\.)quill-bill\.com$/.test(location.hostname)) {
+        gtag('config', 'G-YHPYZQ885T', {
+          send_page_view: !gaPrivate,
+          anonymize_ip: true
+        });
+      }
+    </script>
+
     <title>QuillBill — Free Invoice & Quotation Generator</title>
     <meta name="description" content="Create professional invoices, quotations, and proposals for free. No sign-up, no watermarks, no backend — your data stays in your browser." />
     <meta name="keywords" content="invoice generator, quotation generator, proposal maker, free invoice, no login invoice, PDF invoice, shareable invoice" />

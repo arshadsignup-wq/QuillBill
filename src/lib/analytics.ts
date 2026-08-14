@@ -1,13 +1,12 @@
 /**
- * GA4, loaded only when a measurement ID is configured.
+ * GA4 helpers.
  *
- * The ID comes from VITE_GA_MEASUREMENT_ID rather than being hardcoded, so it
- * can be set in the Vercel project environment without a code change. With no
- * ID set — local dev, previews, or before the property exists — every function
- * here is a no-op and no third-party script is requested at all.
+ * The tag itself is loaded from index.html, which means it is baked into the
+ * static HTML of every prerendered route and fires before React mounts. This
+ * module only layers the SPA-navigation page_views and custom events on top.
+ * If the tag never loaded — blocked by an extension, or a non-production host —
+ * window.gtag is absent and every function here is a no-op.
  */
-
-const MEASUREMENT_ID = import.meta.env.VITE_GA_MEASUREMENT_ID as string | undefined;
 
 declare global {
   interface Window {
@@ -16,37 +15,7 @@ declare global {
   }
 }
 
-export const analyticsEnabled = Boolean(MEASUREMENT_ID);
-
-let loaded = false;
-
-/** Injects gtag.js once. Safe to call repeatedly. */
-export function initAnalytics() {
-  if (!MEASUREMENT_ID || loaded || typeof window === 'undefined') return;
-  loaded = true;
-
-  const script = document.createElement('script');
-  script.async = true;
-  script.src = `https://www.googletagmanager.com/gtag/js?id=${MEASUREMENT_ID}`;
-  document.head.appendChild(script);
-
-  window.dataLayer = window.dataLayer || [];
-  const gtag: (...args: unknown[]) => void = function gtag(...args) {
-    window.dataLayer!.push(args);
-  };
-  window.gtag = gtag;
-
-  gtag('js', new Date());
-  gtag('config', MEASUREMENT_ID, {
-    // The router sends page_view manually on navigation, so the automatic one
-    // would double-count the first load.
-    send_page_view: false,
-    // Nothing typed into the editor is ever sent. Only the path is reported,
-    // and /edit and /view paths carry document data, so they are excluded in
-    // trackPageView below.
-    anonymize_ip: true,
-  });
-}
+export const MEASUREMENT_ID = 'G-YHPYZQ885T';
 
 /** Document payloads live in the path on these routes — never report them. */
 function isPrivatePath(path: string) {
@@ -54,7 +23,7 @@ function isPrivatePath(path: string) {
 }
 
 export function trackPageView(path: string, title?: string) {
-  if (!MEASUREMENT_ID || typeof window === 'undefined' || !window.gtag) return;
+  if (typeof window === 'undefined' || !window.gtag) return;
   if (isPrivatePath(path)) return;
 
   window.gtag('event', 'page_view', {
@@ -65,6 +34,6 @@ export function trackPageView(path: string, title?: string) {
 }
 
 export function trackEvent(name: string, params?: Record<string, unknown>) {
-  if (!MEASUREMENT_ID || typeof window === 'undefined' || !window.gtag) return;
+  if (typeof window === 'undefined' || !window.gtag) return;
   window.gtag('event', name, params ?? {});
 }
