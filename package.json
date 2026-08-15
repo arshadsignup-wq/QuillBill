@@ -9,7 +9,10 @@
     "build:ssr": "vite build --ssr src/entry-server.tsx --outDir .ssr-build --logLevel warn",
     "build:client": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "audit:seo": "node scripts/seo-audit.mjs dist",
+    "audit:qa": "node scripts/qa-audit.mjs",
+    "audit": "npm run audit:qa && npm run audit:seo"
   },
   "dependencies": {
     "lucide-react": "^0.570.0",
