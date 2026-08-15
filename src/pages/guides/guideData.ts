@@ -26,6 +26,34 @@ import {
   quotationsAboutChangeGuide,
   randomQuoteGeneratorGuide,
 } from './writingCluster';
+import {
+  indiaGstInvoiceGuide,
+  uaeVatInvoiceGuide,
+  philippinesInvoiceGuide,
+  nigeriaInvoiceGuide,
+  euVatInvoiceGuide,
+} from './countries';
+import {
+  photographerInvoiceGuide,
+  tradesInvoiceGuide,
+  consultantInvoiceGuide,
+  designerInvoiceGuide,
+  developerInvoiceGuide,
+  tutorInvoiceGuide,
+} from './professions';
+import {
+  depositInvoiceGuide,
+  milestoneInvoiceGuide,
+  creditNoteGuide,
+  disputedInvoiceGuide,
+} from './paymentProblems';
+import {
+  invoiceNumberingGuide,
+  retainerInvoiceGuide,
+  invoiceEmailGuide,
+  recordKeepingGuide,
+  internationalInvoiceGuide,
+} from './operations';
 
 export type { GuideConfig, GuideSection } from './types';
 
@@ -186,11 +214,6 @@ export const howToCreateInvoiceGuide: GuideConfig = {
         'Do not silently alter a sent invoice. If it was wrong, issue a credit note cancelling it and then a corrected invoice with a new number, so your numbering sequence and your client\'s records both stay auditable. Quietly reissuing the same number creates a reconciliation problem.',
     },
     {
-      question: 'What is a credit note?',
-      answer:
-        'A document that cancels or reduces a previously issued invoice, used when you overcharged, the client returned goods, or the invoice was wrong. It references the original invoice number and carries its own number in your sequence.',
-    },
-    {
       question: 'Should I put my bank details on an invoice?',
       answer:
         'Yes — an invoice without a way to pay it is a notification rather than a request. Include everything needed to complete the transfer, including IBAN, SWIFT or routing numbers for cross-border payments, and verify them carefully, since invoice payment fraud targets exactly this field.',
@@ -221,11 +244,6 @@ export const howToCreateInvoiceGuide: GuideConfig = {
       question: 'Do I need to charge tax on my invoice?',
       answer:
         'That depends on your country and whether you are registered for sales tax, VAT or GST. If you are registered, show the tax rate and tax amount as separate lines. If you are not registered, do not add tax to the invoice.',
-    },
-    {
-      question: 'How long should I keep copies of invoices?',
-      answer:
-        'Most tax authorities require businesses to keep invoice records for between five and seven years. Check the rule in your own country and keep both the PDF and your accounting record.',
     },
     {
       question: 'What is the difference between an invoice and a receipt?',
@@ -382,6 +400,26 @@ export {
   quotationMarksGuide,
   quotationsAboutChangeGuide,
   randomQuoteGeneratorGuide,
+  indiaGstInvoiceGuide,
+  uaeVatInvoiceGuide,
+  philippinesInvoiceGuide,
+  nigeriaInvoiceGuide,
+  euVatInvoiceGuide,
+  photographerInvoiceGuide,
+  tradesInvoiceGuide,
+  consultantInvoiceGuide,
+  designerInvoiceGuide,
+  developerInvoiceGuide,
+  tutorInvoiceGuide,
+  depositInvoiceGuide,
+  milestoneInvoiceGuide,
+  creditNoteGuide,
+  disputedInvoiceGuide,
+  invoiceNumberingGuide,
+  retainerInvoiceGuide,
+  invoiceEmailGuide,
+  recordKeepingGuide,
+  internationalInvoiceGuide,
 };
 
 /**
@@ -397,12 +435,36 @@ export const guideConfigs: GuideConfig[] = [
   createInvoiceFreeGuide,
   freeInvoiceTemplateGuide,
   freelanceInvoicingGuide,
+  invoiceNumberingGuide,
+  internationalInvoiceGuide,
+  recordKeepingGuide,
   proformaInvoiceGuide,
   purchaseOrderGuide,
+
+  // By profession
+  photographerInvoiceGuide,
+  tradesInvoiceGuide,
+  consultantInvoiceGuide,
+  designerInvoiceGuide,
+  developerInvoiceGuide,
+  tutorInvoiceGuide,
+
+  // By country
+  indiaGstInvoiceGuide,
+  uaeVatInvoiceGuide,
+  euVatInvoiceGuide,
+  philippinesInvoiceGuide,
+  nigeriaInvoiceGuide,
 
   // Getting paid
   paymentTermsGuide,
   chasePaymentGuide,
+  invoiceEmailGuide,
+  depositInvoiceGuide,
+  milestoneInvoiceGuide,
+  disputedInvoiceGuide,
+  creditNoteGuide,
+  retainerInvoiceGuide,
 
   // Quotations
   writeQuotationGuide,

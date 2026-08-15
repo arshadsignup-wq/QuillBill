@@ -699,11 +699,6 @@ export const createInvoiceFreeGuide: GuideConfig = {
       answer:
         'Yes. State the currency explicitly next to the total using its ISO code, since dollar and pound symbols are ambiguous across countries. Agree in advance who absorbs conversion costs and bank charges, and record the exchange rate you used for your own records.',
     },
-    {
-      question: 'What do I do if a client says they never received the invoice?',
-      answer:
-        'Resend it immediately with the original date and number unchanged, and copy a second contact. Do not reissue it with a new date, which resets the payment clock in the client\'s favour. Following up in writing also gives you a record if the debt is later disputed.',
-    },
   ],
   faqs: [
     {

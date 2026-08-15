@@ -386,11 +386,6 @@ export const freelanceInvoicingGuide: GuideConfig = {
         'Agree the currency and who covers transfer fees in advance, include full international payment details such as IBAN and SWIFT where relevant, and check the cross-border tax treatment for your situation. Allow extra days for the transfer.',
     },
     {
-      question: 'How long should I keep freelance invoices?',
-      answer:
-        'Most tax authorities expect records to be kept for five to seven years. Check your local requirement and keep both the PDF and your accounting record.',
-    },
-    {
       question: 'When should I send the invoice?',
       answer:
         'The day the work is finished. Batching invoices to month end can add weeks to when you are paid, because it pushes you past the client billing cycle.',

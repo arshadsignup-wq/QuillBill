@@ -50,7 +50,15 @@ export interface GuideConfig {
   published: string;
   updated: string;
   /** Short cluster label shown on the hub and in the article eyebrow. */
-  cluster: 'Invoicing' | 'Getting paid' | 'Quotations' | 'Proposals' | 'Tools' | 'Writing';
+  cluster:
+    | 'Invoicing'
+    | 'Getting paid'
+    | 'Quotations'
+    | 'Proposals'
+    | 'Tools'
+    | 'Writing'
+    | 'By country'
+    | 'By profession';
   /** One-line summary used on the /guides hub. */
   summary: string;
   /** Scannable answer box directly under the intro. */
