@@ -72,33 +72,13 @@
     <!-- Google Site Verification -->
     <meta name="google-site-verification" content="QxfXKDEe3DXHV9ed-u1oQiwX-KUXCED16CUVXwFz_XQ" />
 
-    <!-- JSON-LD Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "QuillBill",
-      "url": "https://quill-bill.com",
-      "description": "Free, no-login, no-watermark invoice and quotation generator with shareable links.",
-      "applicationCategory": "BusinessApplication",
-      "operatingSystem": "Any",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      },
-      "featureList": [
-        "Invoice generation",
-        "Quotation generation",
-        "Proposal creation",
-        "15 professional templates",
-        "PDF export",
-        "Shareable links",
-        "No sign-up required",
-        "Privacy-first — no data collection"
-      ]
-    }
-    </script>
+    <!--
+      No static JSON-LD here on purpose. Every route's structured data comes
+      from src/seo/routeManifest.ts and is written into that route's prerendered
+      file. A hardcoded block in the shell would be stamped onto all 40 pages,
+      which previously put a WebApplication node (and the non-www host, which
+      redirects) on articles that are not the application.
+    -->
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -119,17 +99,15 @@
   </head>
   <body class="bg-gray-50 text-gray-900 antialiased">
     <div id="root"></div>
+    <!--
+      The noscript fallback deliberately carries no <h1> and no page copy.
+      Every route is prerendered, so the real content is already in this file
+      before React boots. The old fallback duplicated the homepage's heading
+      and body text into all 40 pages, giving each one two <h1> elements and a
+      block of off-topic boilerplate.
+    -->
     <noscript>
-      <h1>QuillBill — Free Invoice & Quotation Generator</h1>
-      <p>Create professional invoices, quotations, and proposals for free. No sign-up required, no watermarks, no backend — your data stays in your browser.</p>
-      <ul>
-        <li>15 professional templates</li>
-        <li>PDF export</li>
-        <li>Shareable links</li>
-        <li>Invoice, quotation, and proposal modes</li>
-      </ul>
-      <p>Please enable JavaScript to use QuillBill.</p>
-      <p><a href="https://quill-bill.com">quill-bill.com</a></p>
+      <p>The document editor needs JavaScript. The guides and templates on this site read fine without it.</p>
     </noscript>
     <script type="module" src="/src/main.tsx"></script>
   </body>

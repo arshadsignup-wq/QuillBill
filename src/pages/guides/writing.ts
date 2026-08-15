@@ -187,7 +187,7 @@ export const writeProposalGuide: GuideConfig = {
   summary:
     'The structure of a proposal that wins work: executive summary, scope, deliverables, timeline and pricing.',
   seo: {
-    title: 'How to Write a Business Proposal | Structure & Free Template',
+    title: 'How to Write a Business Proposal: Structure + Template',
     description:
       'How to write a business proposal that wins work: executive summary, scope, deliverables, timeline, pricing and signatures. Free template.',
     canonical: '/how-to-write-a-business-proposal',
@@ -321,11 +321,6 @@ export const writeProposalGuide: GuideConfig = {
       question: 'How long should a business proposal be?',
       answer:
         'Two to four pages suits most freelance and agency work. Go longer only where formal procurement requires it. Length is not a proxy for quality, and a shorter proposal is more likely to be read in full.',
-    },
-    {
-      question: 'What is the difference between a proposal and a quotation?',
-      answer:
-        'A quotation focuses on price for a defined scope. A proposal adds the executive summary, approach, scope of work, deliverables, timeline and signatures. Use a quotation when the client already knows what they want; use a proposal when you still need to make the case.',
     },
     {
       question: 'What should the executive summary include?',

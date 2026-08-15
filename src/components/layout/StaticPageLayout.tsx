@@ -33,9 +33,21 @@ const FOOTER_COLUMNS: { heading: string; links: { label: string; href: string }[
     links: [
       { label: 'All guides', href: '/guides' },
       { label: 'How to create an invoice', href: '/how-to-create-an-invoice' },
+      { label: 'Create an invoice free', href: '/create-invoice-free' },
       { label: 'Invoice payment terms', href: '/invoice-payment-terms' },
       { label: 'Chasing unpaid invoices', href: '/how-to-chase-an-unpaid-invoice' },
       { label: 'Freelance invoicing', href: '/freelance-invoicing-guide' },
+    ],
+  },
+  {
+    heading: 'Compare',
+    links: [
+      { label: 'Online invoice generator', href: '/online-invoice-generator' },
+      { label: 'Free invoice software', href: '/free-invoice-software' },
+      { label: 'Free invoice templates', href: '/free-invoice-template-guide' },
+      { label: 'Quotation generators', href: '/quotation-generator-guide' },
+      { label: 'AI proposal generators', href: '/ai-proposal-generator' },
+      { label: 'Business proposal format', href: '/business-proposal-format' },
     ],
   },
   {
@@ -70,7 +82,7 @@ export default function StaticPageLayout({ children }: StaticPageLayoutProps) {
 
       <footer className="border-t border-gray-200 bg-white">
         <div className="max-w-5xl mx-auto px-4 py-10">
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-5">
             {FOOTER_COLUMNS.map((col) => (
               <nav key={col.heading} aria-label={col.heading}>
                 <h2 className="text-xs font-semibold uppercase tracking-wide text-gray-900">

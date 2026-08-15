@@ -152,6 +152,36 @@ export const invoiceConfig: LandingPageConfig = {
       answer:
         'Yes. You can add line-item descriptions, apply discount percentages or fixed amounts, set tax rates, and include shipping costs. All invoice totals are calculated automatically.',
     },
+    {
+      question: 'What is an invoice generator?',
+      answer:
+        'An invoice generator is a tool that turns details you enter — your business, your client, line items, tax and payment terms — into a formatted invoice you can download as a PDF. It calculates the totals for you, so there is no manual arithmetic to get wrong.',
+    },
+    {
+      question: 'Is an invoice made with a generator legally valid?',
+      answer:
+        'Yes. No country requires invoices to be produced by particular software. Validity comes from the content: a unique invoice number, both parties identified, a clear description of the work, the dates, the correct tax treatment and the total payable.',
+    },
+    {
+      question: 'How many invoices can I create for free?',
+      answer:
+        'As many as you like. There is no document cap, no trial period and no point at which you are asked to upgrade, because QuillBill renders invoices in your browser rather than on a server and so has no per-invoice cost to recover.',
+    },
+    {
+      question: 'Where is my invoice data stored?',
+      answer:
+        'On your device only. The invoice is assembled in your browser and never transmitted, so your client names, rates and volumes are not sent anywhere. The trade-off is that there is no cross-device history, so keep your exported PDFs somewhere you back up.',
+    },
+    {
+      question: 'Can I use this invoice generator on my phone?',
+      answer:
+        'Yes. It works in any modern mobile browser and exports the PDF straight to your phone\'s storage or share sheet. The practical limit is typing long line-item descriptions on a phone keyboard, not the tool itself.',
+    },
+    {
+      question: 'Can I edit an invoice after I have created it?',
+      answer:
+        'Before you send it, yes — your work is saved locally as you type. Once an invoice has gone to a client, do not silently alter it. Issue a credit note cancelling it and a corrected invoice with a new number, so both sets of records stay auditable.',
+    },
   ],
   crossLinks: [
     {
@@ -280,6 +310,36 @@ export const quotationConfig: LandingPageConfig = {
       answer:
         'A quotation is a document sent before work begins, outlining proposed pricing. An invoice is sent after work is completed to request payment. This business quotation generator supports both. You can create quotations and invoices from the same editor.',
     },
+    {
+      question: 'What is a quotation generator?',
+      answer:
+        'A tool that produces a formal price quotation as a shareable or printable document. A good one handles what makes a quote an offer rather than a price list: a validity date, itemised scope, stated exclusions and a clear way for the client to accept.',
+    },
+    {
+      question: 'How do I create a quotation online?',
+      answer:
+        'Enter your business and client details, give the quotation its own number, set the issue date and a validity date, itemise the scope with quantities and rates, state what is excluded and the payment terms that will apply, then export the PDF and send it.',
+    },
+    {
+      question: 'How long should my quotation be valid for?',
+      answer:
+        'Fourteen to thirty days suits most service businesses. Shorten it where your input costs move quickly, as in construction or anything using commodity materials. What matters most is that a validity date exists, because without one a client can accept at an outdated price.',
+    },
+    {
+      question: 'Can I turn an accepted quotation into an invoice?',
+      answer:
+        'Yes. The same document supports invoice, quotation and proposal modes, so once a quote is accepted you switch the mode and every line item carries over. Give the invoice its own number and reference the quotation number on it.',
+    },
+    {
+      question: 'Can I use this to create an estimate instead?',
+      answer:
+        'Yes — change the document heading to Estimate. The distinction matters: a quotation is a fixed price you are held to once accepted, while an estimate is an approximation that can change. Label it accurately, because clients reasonably treat the two differently.',
+    },
+    {
+      question: 'How many quotations can I create for free?',
+      answer:
+        'Unlimited. There is no document allowance, no trial and no upgrade prompt. Because quotations are generated in your browser, your pricing never reaches a server — which matters more for quotes than invoices, since a quote reveals your rates before you have won the work.',
+    },
   ],
   crossLinks: [
     {
@@ -407,6 +467,36 @@ export const proposalConfig: LandingPageConfig = {
       question: 'How is a proposal different from a quotation?',
       answer:
         'A proposal includes detailed project information like scope of work, deliverables, timeline, and signatures, in addition to pricing. A quotation focuses primarily on pricing. This project proposal generator supports both from the same editor.',
+    },
+    {
+      question: 'What is a proposal generator?',
+      answer:
+        'A tool that builds a structured business proposal document — problem, approach, deliverables, timeline and a calculated pricing table — and exports it as a PDF. It handles the layout and the arithmetic so you can concentrate on the argument.',
+    },
+    {
+      question: 'What should a business proposal include?',
+      answer:
+        'A title page, an executive summary, the problem in the client\'s own terms, your proposed approach, verifiable deliverables, a timeline, itemised pricing, assumptions and exclusions, brief relevant credentials, and clear terms with a validity date and an acceptance instruction.',
+    },
+    {
+      question: 'How long should a business proposal be?',
+      answer:
+        'Two to four pages covers most straightforward work where the client has already asked for it. Unsolicited proposals run longer because they must establish the problem exists first. RFP responses follow whatever length the RFP specifies. Padding actively hurts.',
+    },
+    {
+      question: 'Does this proposal generator use AI?',
+      answer:
+        'No. It builds the document and calculates the pricing; the words are yours. That is deliberate — a generated proposal invents pricing and timelines that become binding commitments once a client accepts. See our guide on where AI drafting helps and where it does not.',
+    },
+    {
+      question: 'Can I add a pricing table with optional items?',
+      answer:
+        'Yes. Add optional or alternative work as separate line items so the client can see what they are choosing rather than facing a single total. Presenting options tends to raise average deal size, because it changes the question from whether to buy to how much.',
+    },
+    {
+      question: 'How many proposals can I create for free?',
+      answer:
+        'Unlimited, with no watermark, no account and no trial period. Proposals are generated in your browser, so your scope, pricing and client details are never transmitted to a server.',
     },
   ],
   crossLinks: [

@@ -2,6 +2,30 @@ import type { GuideConfig } from './types';
 import { paymentTermsGuide, chasePaymentGuide } from './gettingPaid';
 import { writeQuotationGuide, writeProposalGuide } from './writing';
 import { proformaInvoiceGuide, purchaseOrderGuide, freelanceInvoicingGuide } from './invoicing';
+import {
+  onlineInvoiceGeneratorGuide,
+  freeInvoiceSoftwareGuide,
+  createInvoiceFreeGuide,
+  freeInvoiceTemplateGuide,
+  invoiceGeneratorAlternativesGuide,
+} from './invoiceTools';
+import {
+  quotationGeneratorGuide,
+  freeQuotationTemplateGuide,
+  freeQuotationSoftwareGuide,
+  requestQuotationGuide,
+} from './quotationTools';
+import {
+  aiProposalGeneratorGuide,
+  proposalGenerationSoftwareGuide,
+  freeProposalTemplateGuide,
+  businessProposalFormatGuide,
+} from './proposalTools';
+import {
+  quotationMarksGuide,
+  quotationsAboutChangeGuide,
+  randomQuoteGeneratorGuide,
+} from './writingCluster';
 
 export type { GuideConfig, GuideSection } from './types';
 
@@ -132,6 +156,49 @@ export const howToCreateInvoiceGuide: GuideConfig = {
         'Forgetting to apply the correct tax or VAT rate',
         'Sending the invoice late, which pushes the payment date out with it',
       ],
+    },
+  ],
+  answersHeading: 'How to generate an invoice: common questions',
+  answers: [
+    {
+      question: 'How do I generate an invoice?',
+      answer:
+        'Enter your business details, the client\'s legal entity and address, a unique invoice number, the issue and due dates, and itemised line items with quantities and rates. Apply tax as a separate line, state your payment terms and bank details, then export the document as a PDF.',
+    },
+    {
+      question: 'What information is legally required on an invoice?',
+      answer:
+        'Requirements vary by country, but almost all expect a unique identifying number, both parties\' names and addresses, a clear description of what is supplied, the dates, the amount due and the tax treatment. VAT and GST registered businesses have longer lists again.',
+    },
+    {
+      question: 'What is the difference between an invoice and a bill?',
+      answer:
+        'They describe the same document from opposite sides. What you send as an invoice arrives at the client as a bill they owe. "Invoice" is the standard term in business-to-business trade; "bill" is more common in consumer and retail contexts.',
+    },
+    {
+      question: 'When should an invoice be issued?',
+      answer:
+        'As soon as the work is complete or the goods are delivered, or at agreed milestones on longer projects. Payment terms run from the invoice date, so issuing late pushes your payment date out by exactly as long as you waited.',
+    },
+    {
+      question: 'Can I edit an invoice after sending it?',
+      answer:
+        'Do not silently alter a sent invoice. If it was wrong, issue a credit note cancelling it and then a corrected invoice with a new number, so your numbering sequence and your client\'s records both stay auditable. Quietly reissuing the same number creates a reconciliation problem.',
+    },
+    {
+      question: 'What is a credit note?',
+      answer:
+        'A document that cancels or reduces a previously issued invoice, used when you overcharged, the client returned goods, or the invoice was wrong. It references the original invoice number and carries its own number in your sequence.',
+    },
+    {
+      question: 'Should I put my bank details on an invoice?',
+      answer:
+        'Yes — an invoice without a way to pay it is a notification rather than a request. Include everything needed to complete the transfer, including IBAN, SWIFT or routing numbers for cross-border payments, and verify them carefully, since invoice payment fraud targets exactly this field.',
+    },
+    {
+      question: 'Do I need to sign an invoice?',
+      answer:
+        'No. Invoices do not require signatures in ordinary commercial practice, unlike quotations and proposals where acceptance matters. A few clients and some jurisdictions request signed invoices for specific purposes, so follow the requirement when you are given one.',
     },
   ],
   faqs: [
@@ -266,11 +333,6 @@ export const invoiceVsQuotationGuide: GuideConfig = {
         'No. A quotation offers a price before work begins and does not request payment. Once the work is complete, issue a separate invoice with its own unique invoice number and a payment due date.',
     },
     {
-      question: 'Is a quotation legally binding?',
-      answer:
-        'In most jurisdictions a quotation becomes binding once the client accepts it within its validity period, because it is a firm offer. This is why stating an expiry date on every quotation matters.',
-    },
-    {
       question: 'Do I send a quotation and an invoice for the same job?',
       answer:
         'Usually yes. You send the quotation to win the work, and once the work is delivered you send an invoice for the agreed amount, referencing the quotation number.',
@@ -304,17 +366,66 @@ export {
   proformaInvoiceGuide,
   purchaseOrderGuide,
   freelanceInvoicingGuide,
+  onlineInvoiceGeneratorGuide,
+  freeInvoiceSoftwareGuide,
+  createInvoiceFreeGuide,
+  freeInvoiceTemplateGuide,
+  invoiceGeneratorAlternativesGuide,
+  quotationGeneratorGuide,
+  freeQuotationTemplateGuide,
+  freeQuotationSoftwareGuide,
+  requestQuotationGuide,
+  aiProposalGeneratorGuide,
+  proposalGenerationSoftwareGuide,
+  freeProposalTemplateGuide,
+  businessProposalFormatGuide,
+  quotationMarksGuide,
+  quotationsAboutChangeGuide,
+  randomQuoteGeneratorGuide,
 };
 
-/** Every guide, in the order they appear on the /guides hub. */
+/**
+ * Every guide, in the order they appear on the /guides hub.
+ *
+ * Ordering within a cluster is deliberate: the page targeting the broadest
+ * intent comes first, so the hub's internal links hit the pages we most want
+ * crawled and ranked before the long-tail ones.
+ */
 export const guideConfigs: GuideConfig[] = [
+  // Invoicing
   howToCreateInvoiceGuide,
+  createInvoiceFreeGuide,
+  freeInvoiceTemplateGuide,
   freelanceInvoicingGuide,
-  paymentTermsGuide,
-  chasePaymentGuide,
   proformaInvoiceGuide,
   purchaseOrderGuide,
+
+  // Getting paid
+  paymentTermsGuide,
+  chasePaymentGuide,
+
+  // Quotations
   writeQuotationGuide,
   invoiceVsQuotationGuide,
+  freeQuotationTemplateGuide,
+  requestQuotationGuide,
+
+  // Proposals
   writeProposalGuide,
+  businessProposalFormatGuide,
+  freeProposalTemplateGuide,
+  aiProposalGeneratorGuide,
+  proposalGenerationSoftwareGuide,
+
+  // Tools
+  onlineInvoiceGeneratorGuide,
+  freeInvoiceSoftwareGuide,
+  quotationGeneratorGuide,
+  freeQuotationSoftwareGuide,
+  invoiceGeneratorAlternativesGuide,
+
+  // Writing
+  quotationMarksGuide,
+  quotationsAboutChangeGuide,
+  randomQuoteGeneratorGuide,
 ];

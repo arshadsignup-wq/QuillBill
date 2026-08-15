@@ -8,13 +8,22 @@ import { guidesHubSeo } from './hubMeta';
 import type { GuideConfig } from './types';
 
 /** Cluster order on the hub — broadest topic first. */
-const CLUSTERS: GuideConfig['cluster'][] = ['Invoicing', 'Getting paid', 'Quotations', 'Proposals'];
+const CLUSTERS: GuideConfig['cluster'][] = [
+  'Invoicing',
+  'Getting paid',
+  'Quotations',
+  'Proposals',
+  'Tools',
+  'Writing',
+];
 
 const CLUSTER_BLURB: Record<GuideConfig['cluster'], string> = {
   Invoicing: 'Creating invoices correctly, the different invoice types, and what each one is for.',
   'Getting paid': 'Payment terms, deposits, and what to do when an invoice goes unpaid.',
   Quotations: 'Quoting work, setting scope and validity, and knowing which document to send.',
   Proposals: 'Winning work with a proposal that covers scope, deliverables and timeline.',
+  Tools: 'How online generators actually work, what "free" costs you, and how the options compare.',
+  Writing: 'Punctuation, wording and the language side of quoting — including actual quotations.',
 };
 
 export default function GuidesHubPage() {
@@ -25,11 +34,12 @@ export default function GuidesHubPage() {
       <section className="bg-gradient-to-br from-brand/8 via-blue-50 to-indigo-50 border-b border-brand/10">
         <div className="max-w-4xl mx-auto px-4 py-14 sm:py-16 text-center">
           <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight">
-            Invoicing &amp; Quotation Guides
+            Invoicing, Quotation &amp; Proposal Guides
           </h1>
           <p className="mt-4 text-base sm:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            Practical, jargon-free guides to invoicing clients, quoting work and writing proposals.
-            Written for freelancers and small businesses who want to get paid on time.
+            Practical, jargon-free guides to invoicing clients, quoting work and writing proposals —
+            plus honest comparisons of the free tools in this category. Written for freelancers and
+            small businesses who want to get paid on time.
           </p>
         </div>
       </section>

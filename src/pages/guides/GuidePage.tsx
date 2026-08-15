@@ -5,6 +5,9 @@ import { useSEO } from '../../hooks/useSEO';
 import LandingFAQ from '../landing/components/LandingFAQ';
 import CrossLinks from '../landing/components/CrossLinks';
 import { guideJsonLd } from '../../seo/pageSchemas';
+import { RichText } from './RichText';
+import { relFor } from './links';
+import { guideConfigs } from './guideData';
 import type { GuideConfig, GuideSection } from './types';
 
 interface Props {
@@ -55,6 +58,33 @@ function SectionTable({ table }: { table: NonNullable<GuideSection['table']> }) 
         </tbody>
       </table>
     </div>
+  );
+}
+
+/**
+ * Curated crossLinks alone left the newer guides with two or three inbound
+ * links each while the four in the footer had forty. This links every guide
+ * from its cluster siblings automatically, so link equity follows the topic
+ * structure instead of whatever was hand-picked at authoring time.
+ */
+function RelatedGuides({ config }: Props) {
+  const siblings = guideConfigs.filter((g) => g.cluster === config.cluster && g.slug !== config.slug);
+  if (siblings.length === 0) return null;
+
+  return (
+    <section className="max-w-3xl mx-auto px-4 pt-12">
+      <h2 className="text-xl font-bold text-gray-900 mb-4">More on {config.cluster.toLowerCase()}</h2>
+      <ul className="grid gap-3 sm:grid-cols-2">
+        {siblings.map((g) => (
+          <li key={g.slug} className="rounded-lg border border-gray-200 bg-white p-4">
+            <Link to={`/${g.slug}`} className="text-sm font-semibold text-gray-900 hover:text-brand transition-colors">
+              {g.h1}
+            </Link>
+            <p className="mt-1.5 text-xs text-gray-600 leading-relaxed">{g.summary}</p>
+          </li>
+        ))}
+      </ul>
+    </section>
   );
 }
 
@@ -132,7 +162,7 @@ export default function GuidePage({ config }: Props) {
             <h2 className="text-xl font-bold text-gray-900 mb-4">{s.heading}</h2>
             {s.body.map((p, i) => (
               <p key={i} className="text-sm text-gray-600 leading-relaxed mb-3">
-                {p}
+                <RichText text={p} />
               </p>
             ))}
             {s.list && (
@@ -140,7 +170,9 @@ export default function GuidePage({ config }: Props) {
                 {s.list.map((item, i) => (
                   <li key={i} className="flex gap-2.5 text-sm text-gray-600 leading-relaxed">
                     <Check size={16} className="shrink-0 mt-0.5 text-brand" />
-                    <span>{item}</span>
+                    <span>
+                      <RichText text={item} />
+                    </span>
                   </li>
                 ))}
               </ul>
@@ -149,9 +181,58 @@ export default function GuidePage({ config }: Props) {
           </section>
         ))}
 
+        {config.answers && config.answers.length > 0 && (
+          <section className="max-w-3xl mx-auto px-4 pt-14">
+            <h2 className="text-2xl font-bold text-gray-900">
+              {config.answersHeading ?? 'Questions people ask'}
+            </h2>
+            {config.answers.map((a) => (
+              <div key={a.question} className="mt-8">
+                {/*
+                  h3 under the section's h2 keeps the outline valid. The answer
+                  is the first element after the heading and is self-contained,
+                  which is what a paragraph snippet needs in order to be lifted.
+                */}
+                <h3 className="text-base font-semibold text-gray-900">{a.question}</h3>
+                <p className="mt-2 text-sm text-gray-700 leading-relaxed">
+                  <RichText text={a.answer} />
+                </p>
+                {a.detail && (
+                  <p className="mt-2 text-sm text-gray-600 leading-relaxed">
+                    <RichText text={a.detail} />
+                  </p>
+                )}
+              </div>
+            ))}
+          </section>
+        )}
+
         <div className="mt-4">
           <LandingFAQ faqs={config.faqs} />
         </div>
+
+        {config.sources && config.sources.length > 0 && (
+          <section className="max-w-3xl mx-auto px-4 pt-12">
+            <h2 className="text-xl font-bold text-gray-900 mb-4">Sources</h2>
+            <ol className="space-y-2 list-decimal list-inside">
+              {config.sources.map((s) => (
+                <li key={s.url} className="text-sm text-gray-600 leading-relaxed">
+                  <a
+                    href={s.url}
+                    target="_blank"
+                    rel={relFor(s.url)}
+                    className="text-brand underline underline-offset-2 hover:text-brand-dark"
+                  >
+                    {s.label}
+                  </a>
+                  <span className="text-gray-500"> — {s.publisher}</span>
+                </li>
+              ))}
+            </ol>
+          </section>
+        )}
+
+        <RelatedGuides config={config} />
 
         <CrossLinks links={config.crossLinks} />
 
