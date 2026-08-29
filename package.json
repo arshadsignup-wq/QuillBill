@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build && npm run build:ssr && node scripts/prerender.mjs",
+    "build": "tsc -b && vite build && npm run build:ssr && node scripts/prerender.mjs && node scripts/gen-downloads.mjs dist",
     "build:ssr": "vite build --ssr src/entry-server.tsx --outDir .ssr-build --logLevel warn",
     "build:client": "tsc -b && vite build",
     "lint": "eslint .",
@@ -13,7 +13,8 @@
     "audit:seo": "node scripts/seo-audit.mjs dist",
     "audit:qa": "node scripts/qa-audit.mjs",
     "audit": "npm run audit:qa && npm run audit:seo",
-    "gen:guides": "node scripts/gen-guide-index.mjs"
+    "gen:guides": "node scripts/gen-guide-index.mjs",
+    "gen:downloads": "node scripts/gen-downloads.mjs dist"
   },
   "dependencies": {
     "lucide-react": "^0.570.0",

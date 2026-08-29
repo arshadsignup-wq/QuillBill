@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { FileText, Check } from 'lucide-react';
+import { FileText, Check, Download } from 'lucide-react';
 import StaticPageLayout from '../../components/layout/StaticPageLayout';
 import { useSEO } from '../../hooks/useSEO';
 import LandingFAQ from '../landing/components/LandingFAQ';
@@ -71,6 +71,35 @@ export default function TemplateGalleryPage({ config }: Props) {
           ))}
         </div>
       </section>
+
+      {config.downloads && (
+        <section className="max-w-3xl mx-auto px-4 pb-4">
+          <div className="rounded-xl border border-gray-200 bg-white p-6">
+            <h2 className="text-lg font-bold text-gray-900">Prefer a file you can keep?</h2>
+            <p className="mt-2 text-sm text-gray-600 leading-relaxed">
+              Download a blank {config.docLabel} template and fill it in offline. No email, no
+              sign-up — the file downloads straight away.
+            </p>
+            <ul className="mt-4 grid gap-3 sm:grid-cols-2">
+              {config.downloads.map((d) => (
+                <li key={d.file}>
+                  <a
+                    href={`/downloads/${d.file}`}
+                    download
+                    className="flex h-full flex-col gap-1.5 rounded-lg border border-gray-200 p-4 hover:border-brand hover:bg-brand/5 transition-colors"
+                  >
+                    <span className="flex items-center gap-2 text-sm font-semibold text-gray-900">
+                      <Download size={15} className="text-brand" />
+                      {d.label}
+                    </span>
+                    <span className="text-xs text-gray-600 leading-relaxed">{d.note}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
 
       {config.sections.map((s) => (
         <section key={s.heading} className="max-w-3xl mx-auto px-4 pb-12">

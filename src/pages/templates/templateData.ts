@@ -22,6 +22,11 @@ export interface TemplateGalleryConfig {
   ctaText: string;
   ctaLink: string;
   templates: TemplateEntry[];
+  /**
+   * Downloadable files for people who want a document to keep rather than a
+   * web app. Generated at build time by scripts/gen-downloads.mjs.
+   */
+  downloads?: { file: string; label: string; note: string }[];
   sections: { heading: string; body: string[] }[];
   faqs: FAQItem[];
   crossLinks: { title: string; description: string; href: string }[];
@@ -167,6 +172,18 @@ function buildTemplates(
 
 export const invoiceTemplatesConfig: TemplateGalleryConfig = {
   slug: 'invoice-templates',
+  downloads: [
+    {
+      file: 'quillbill-invoice-template.docx',
+      label: 'Invoice template (Word .docx)',
+      note: 'Fill it in, save it, reuse it. Opens in Word, Google Docs and Pages.',
+    },
+    {
+      file: 'quillbill-invoice-template.xlsx',
+      label: 'Invoice template (Excel .xlsx)',
+      note: 'Line totals, subtotal, tax and total are live formulas that recalculate as you type.',
+    },
+  ],
   mode: 'invoice',
   docLabel: 'invoice',
   docLabelPlural: 'invoices',
@@ -246,6 +263,18 @@ export const invoiceTemplatesConfig: TemplateGalleryConfig = {
 
 export const quotationTemplatesConfig: TemplateGalleryConfig = {
   slug: 'quotation-templates',
+  downloads: [
+    {
+      file: 'quillbill-quotation-template.docx',
+      label: 'Quotation template (Word .docx)',
+      note: 'Includes a validity date, which is the field most quotations forget.',
+    },
+    {
+      file: 'quillbill-quotation-template.xlsx',
+      label: 'Quotation template (Excel .xlsx)',
+      note: 'Live formulas for the line totals and the quoted total.',
+    },
+  ],
   mode: 'quote',
   docLabel: 'quotation',
   docLabelPlural: 'quotations',

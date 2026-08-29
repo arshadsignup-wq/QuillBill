@@ -23,7 +23,7 @@
  * page. Worth running before any release that touches the shell.
  */
 
-import { readFileSync, readdirSync } from 'node:fs';
+import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 
 const DIST = process.argv[2] || 'dist';
@@ -104,8 +104,13 @@ for (const p of pages) {
   for (const link of p.internal) {
     const bare = link.split("?")[0];
     const target = bare === '' ? '/' : bare.replace(/\/$/, '') || '/';
-    if (!routeSet.has(target) && !target.startsWith('/assets') && !target.match(/\.(png|svg|xml|json|txt|ico|webmanifest)$/)) {
-      P('ERR', r, `internal link to non-existent route: ${link}`);
+    // A link can legitimately point at a static file rather than a route —
+    // the downloadable .docx and .xlsx templates, for one. Resolve those
+    // against the build output instead of exempting the paths by name, so a
+    // link to a file that was never generated is still caught.
+    const isFile = /\.[a-z0-9]{2,5}$/i.test(target) && existsSync(join(DIST, target));
+    if (!routeSet.has(target) && !target.startsWith('/assets') && !isFile) {
+      P('ERR', r, `internal link to neither a route nor a file in the build: ${link}`);
     }
     if (target !== r) inbound.set(target, (inbound.get(target) || 0) + 1);
   }
