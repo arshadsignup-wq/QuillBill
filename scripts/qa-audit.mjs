@@ -114,5 +114,44 @@ if (wc.length) {
   console.log(`\nAnswer length: avg ${avg}w, ${inRange}/${wc.length} in the 35-65w snippet band`);
 }
 
+// --- guideIndex drift ------------------------------------------------------
+// guideIndex.ts is a hand-committed copy of each guide's slug, cluster, title
+// and summary, kept separate so the route table can be built without loading
+// 600KB of prose. A stale copy would silently drop a guide from the hub and the
+// route table, so it is checked against the sources here rather than trusted.
+{
+  const indexSrc = readFileSync(`${src}/guideIndex.ts`, 'utf8');
+  const indexed = new Map();
+  const entryRe = /\{\s*slug: '([^']+)',\s*cluster: '([^']+)',\s*title: '((?:[^'\\]|\\.)*)',\s*summary: '((?:[^'\\]|\\.)*)',\s*\}/g;
+  let im;
+  while ((im = entryRe.exec(indexSrc)) !== null) {
+    indexed.set(im[1], { cluster: im[2], title: im[3], summary: im[4] });
+  }
+
+  const actual = new Map();
+  for (const f of files) {
+    if (f === 'guideIndex.ts') continue;
+    const text = readFileSync(`${src}/${f}`, 'utf8');
+    const re = /export const \w+: GuideConfig = \{\s*\n\s*slug: '([^']+)',\s*\n\s*cluster: '([^']+)'/g;
+    let m2;
+    while ((m2 = re.exec(text)) !== null) actual.set(m2[1], { cluster: m2[2] });
+  }
+
+  for (const [slug, meta] of actual) {
+    const got = indexed.get(slug);
+    if (!got) {
+      problems.push(`GUIDE INDEX: "${slug}" exists in the guides but is missing from guideIndex.ts — it has no route and no hub card`);
+    } else if (got.cluster !== meta.cluster) {
+      problems.push(`GUIDE INDEX: "${slug}" cluster is '${meta.cluster}' in source but '${got.cluster}' in guideIndex.ts`);
+    }
+  }
+  for (const slug of indexed.keys()) {
+    if (!actual.has(slug)) {
+      problems.push(`GUIDE INDEX: "${slug}" is in guideIndex.ts but no guide defines it — its route will fail to load`);
+    }
+  }
+  console.log(`\nGuide index: ${indexed.size} indexed, ${actual.size} defined`);
+}
+
 console.log(`\n===== ${problems.length} PROBLEMS =====`);
 for (const p of problems) console.log('  ' + p);

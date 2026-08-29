@@ -3,10 +3,10 @@ import StaticPageLayout from '../components/layout/StaticPageLayout';
 import { useSEO } from '../hooks/useSEO';
 import LandingFAQ from './landing/components/LandingFAQ';
 import { siteFaqs } from './faqData';
-import { routeFor } from '../seo/routeManifest';
+import { pageMetaFor } from '../seo/pageMeta';
 
 export default function FAQPage() {
-  useSEO(routeFor('/faq')!);
+  useSEO(pageMetaFor('/faq'));
 
   return (
     <StaticPageLayout>

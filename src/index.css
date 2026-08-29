@@ -41,6 +41,8 @@ html {
 
 /* Print styles */
 @media print {
+  /* Default only. PrintPageStyle injects the document's actual paper size
+     into <head> at runtime, after this sheet, and wins the cascade. */
   @page {
     size: A4;
     margin: 0;

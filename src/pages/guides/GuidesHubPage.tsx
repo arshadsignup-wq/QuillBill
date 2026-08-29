@@ -3,7 +3,7 @@ import { FileText, ArrowRight } from 'lucide-react';
 import StaticPageLayout from '../../components/layout/StaticPageLayout';
 import { useSEO } from '../../hooks/useSEO';
 import { guidesHubJsonLd } from '../../seo/pageSchemas';
-import { guideConfigs } from './guideData';
+import { guideIndex } from './guideIndex';
 import { guidesHubSeo } from './hubMeta';
 import type { GuideConfig } from './types';
 
@@ -49,7 +49,7 @@ export default function GuidesHubPage() {
       </section>
 
       {CLUSTERS.map((cluster) => {
-        const guides = guideConfigs.filter((g) => g.cluster === cluster);
+        const guides = guideIndex.filter((g) => g.cluster === cluster);
         if (guides.length === 0) return null;
         return (
           <section key={cluster} className="max-w-4xl mx-auto px-4 pt-12">
@@ -60,7 +60,7 @@ export default function GuidesHubPage() {
                 <article key={g.slug} className="rounded-lg border border-gray-200 bg-white p-5 flex flex-col">
                   <h3 className="text-sm font-semibold text-gray-900">
                     <Link to={`/${g.slug}`} className="hover:text-brand transition-colors">
-                      {g.h1}
+                      {g.title}
                     </Link>
                   </h3>
                   <p className="mt-2 text-xs text-gray-600 leading-relaxed flex-1">{g.summary}</p>

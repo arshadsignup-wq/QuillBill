@@ -1,5 +1,7 @@
 export type DocumentMode = 'invoice' | 'quote' | 'proposal';
 
+export type PaperSize = 'a4' | 'letter';
+
 export type TemplateName =
   | 'minimal' | 'modern' | 'classic' | 'compact' | 'elegant'
   | 'bold' | 'stripe' | 'executive' | 'clean' | 'sidebar'
@@ -39,6 +41,7 @@ export interface InvoiceData {
   logo: string;
   template: TemplateName;
   accentColor: string;
+  paperSize: PaperSize;
   projectScope: string;
   deliverables: string;
   timeline: string;

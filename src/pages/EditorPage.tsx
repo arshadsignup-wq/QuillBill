@@ -15,7 +15,7 @@ import MobilePreviewSheet from '../components/layout/MobilePreviewSheet';
 import PrintPortal from '../components/preview/PrintPortal';
 import HomeContent from './HomeContent';
 import { useSEO } from '../hooks/useSEO';
-import { routeFor } from '../seo/routeManifest';
+import { pageMetaFor } from '../seo/pageMeta';
 import { Zap, Shield, Share2, Palette, X } from 'lucide-react';
 
 const HERO_DISMISSED_KEY = 'quillbill-hero-dismissed';
@@ -117,7 +117,7 @@ export default function EditorPage() {
   const [initialData, setInitialData] = useState<InvoiceData | null>(null);
   const [ready, setReady] = useState(false);
 
-  const homeMeta = routeFor('/')!;
+  const homeMeta = pageMetaFor('/');
   useSEO({
     ...homeMeta,
     // /edit/:payload holds user document data — never index or canonicalise it.

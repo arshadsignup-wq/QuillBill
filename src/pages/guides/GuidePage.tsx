@@ -7,7 +7,7 @@ import CrossLinks from '../landing/components/CrossLinks';
 import { guideJsonLd } from '../../seo/pageSchemas';
 import { RichText } from './RichText';
 import { relFor } from './links';
-import { guideConfigs } from './guideData';
+import { guideIndex } from './guideIndex';
 import type { GuideConfig, GuideSection } from './types';
 
 interface Props {
@@ -68,7 +68,7 @@ function SectionTable({ table }: { table: NonNullable<GuideSection['table']> }) 
  * structure instead of whatever was hand-picked at authoring time.
  */
 function RelatedGuides({ config }: Props) {
-  const siblings = guideConfigs.filter((g) => g.cluster === config.cluster && g.slug !== config.slug);
+  const siblings = guideIndex.filter((g) => g.cluster === config.cluster && g.slug !== config.slug);
   if (siblings.length === 0) return null;
 
   return (
@@ -78,7 +78,7 @@ function RelatedGuides({ config }: Props) {
         {siblings.map((g) => (
           <li key={g.slug} className="rounded-lg border border-gray-200 bg-white p-4">
             <Link to={`/${g.slug}`} className="text-sm font-semibold text-gray-900 hover:text-brand transition-colors">
-              {g.h1}
+              {g.title}
             </Link>
             <p className="mt-1.5 text-xs text-gray-600 leading-relaxed">{g.summary}</p>
           </li>

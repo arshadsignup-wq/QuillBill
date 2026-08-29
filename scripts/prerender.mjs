@@ -27,7 +27,28 @@ const {
   OG_IMAGE,
   SITE_ORIGIN,
   fullTitleFor,
+  guideModulePath,
 } = await import(join(ssrDir, 'entry-server.js'));
+
+/**
+ * Guide prose is code-split per cluster, so a guide page would otherwise have
+ * to discover its chunk only after the main bundle booted — one extra round
+ * trip of blank content on exactly the pages that exist to be read. Vite's
+ * manifest maps the source module to its built chunk, and each guide's HTML
+ * preloads its own cluster so the chunk arrives alongside the app.
+ */
+let viteManifest = {};
+try {
+  viteManifest = JSON.parse(readFileSync(join(distDir, '.vite', 'manifest.json'), 'utf8'));
+} catch {
+  console.log('  note: no vite manifest, skipping guide modulepreload hints');
+}
+
+function preloadFor(routePath) {
+  const source = guideModulePath?.[routePath.replace(/^\//, '')];
+  const chunk = source && viteManifest[source];
+  return chunk?.file ? `<link rel="modulepreload" href="/${chunk.file}" />` : '';
+}
 
 const template = readFileSync(join(distDir, 'index.html'), 'utf8');
 
@@ -60,6 +81,7 @@ function buildHead(route) {
     `<meta name="twitter:title" content="${escapeAttr(title)}" />`,
     `<meta name="twitter:description" content="${escapeAttr(route.description)}" />`,
     `<meta name="twitter:image" content="${escapeAttr(OG_IMAGE)}" />`,
+    preloadFor(route.path),
   ].filter(Boolean);
 
   for (const node of route.jsonLd ?? []) {

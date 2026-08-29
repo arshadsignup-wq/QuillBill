@@ -7,7 +7,7 @@ import {
   articleSchema,
 } from './schema';
 import { absoluteUrl } from '../lib/site';
-import { guideConfigs } from '../pages/guides/guideData';
+import { guideIndex } from '../pages/guides/guideIndex';
 import type { LandingPageConfig } from '../pages/landing/landingData';
 import type { TemplateGalleryConfig } from '../pages/templates/templateData';
 import type { GuideConfig } from '../pages/guides/types';
@@ -88,12 +88,12 @@ export function guidesHubJsonLd() {
       '@context': 'https://schema.org',
       '@type': 'ItemList',
       name: 'Invoicing and quotation guides',
-      numberOfItems: guideConfigs.length,
-      itemListElement: guideConfigs.map((g, i) => ({
+      numberOfItems: guideIndex.length,
+      itemListElement: guideIndex.map((g, i) => ({
         '@type': 'ListItem',
         position: i + 1,
-        name: g.h1,
-        url: absoluteUrl(g.seo.canonical),
+        name: g.title,
+        url: absoluteUrl(`/${g.slug}`),
       })),
     },
   ];

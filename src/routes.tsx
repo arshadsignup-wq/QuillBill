@@ -23,6 +23,12 @@ interface AppRoutesProps {
    */
   editor?: ComponentType;
   viewer?: ComponentType;
+  /**
+   * Likewise for the guides: the prerenderer hands over the fully loaded
+   * configs so every guide still renders to real static HTML, while the
+   * browser gets the lazy per-cluster version.
+   */
+  guides?: Record<string, GuideConfig>;
 }
 import NotFoundPage from './pages/NotFoundPage';
 import PrivacyPage from './pages/PrivacyPage';
@@ -42,13 +48,31 @@ import {
 } from './pages/templates/templateData';
 import GuidePage from './pages/guides/GuidePage';
 import GuidesHubPage from './pages/guides/GuidesHubPage';
-import { guideConfigs } from './pages/guides/guideData';
+import { guideSlugs, guideLoaders } from './pages/guides/guideIndex';
+import type { GuideConfig } from './pages/guides/types';
+
+/**
+ * One lazy component per guide, each resolving to its cluster module.
+ *
+ * Built once at module scope rather than inside render: lazy() called during a
+ * render returns a new component type every pass, which remounts the subtree on
+ * every state change.
+ */
+const lazyGuides: Record<string, ComponentType> = Object.fromEntries(
+  guideSlugs.map((slug) => [
+    slug,
+    lazy(async () => {
+      const config = await guideLoaders[slug]();
+      return { default: () => <GuidePage config={config} /> };
+    }),
+  ]),
+);
 
 /**
  * Route table shared by the browser entry (App.tsx) and the prerender entry
  * (entry-server.tsx), so the static HTML and the client render the same tree.
  */
-export default function AppRoutes({ editor, viewer }: AppRoutesProps = {}) {
+export default function AppRoutes({ editor, viewer, guides }: AppRoutesProps = {}) {
   const EditorPage = editor ?? LazyEditorPage;
   const ViewPage = viewer ?? LazyViewPage;
 
@@ -77,9 +101,17 @@ export default function AppRoutes({ editor, viewer }: AppRoutesProps = {}) {
       <Route path="/proposal-templates" element={<TemplateGalleryPage config={proposalTemplatesConfig} />} />
 
       <Route path="/guides" element={<GuidesHubPage />} />
-      {guideConfigs.map((g) => (
-        <Route key={g.slug} path={`/${g.slug}`} element={<GuidePage config={g} />} />
-      ))}
+      {guideSlugs.map((slug) => {
+        const Eager = guides?.[slug];
+        const Guide = lazyGuides[slug];
+        return (
+          <Route
+            key={slug}
+            path={`/${slug}`}
+            element={Eager ? <GuidePage config={Eager} /> : <Guide />}
+          />
+        );
+      })}
 
       <Route path="/404" element={<NotFoundPage />} />
       <Route path="*" element={<Navigate to="/404" replace />} />

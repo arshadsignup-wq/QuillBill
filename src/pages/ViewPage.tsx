@@ -7,6 +7,7 @@ import { calculateTotals } from '../lib/calculations';
 import { usePrint } from '../hooks/usePrint';
 import { useSEO } from '../hooks/useSEO';
 import InvoiceDocument from '../components/preview/InvoiceDocument';
+import PrintPageStyle from '../components/preview/PrintPageStyle';
 import Button from '../components/ui/Button';
 
 const A4_WIDTH_PX = 794; // 210mm ≈ 794px
@@ -91,7 +92,7 @@ export default function ViewPage() {
           </Link>
           <Button variant="primary" size="sm" onClick={print}>
             <Printer size={14} />
-            <span className="hidden sm:inline">Download</span> PDF
+            <span className="hidden sm:inline">Print / Save as</span> PDF
           </Button>
         </div>
       </header>
@@ -104,6 +105,7 @@ export default function ViewPage() {
           </div>
         </div>
       </div>
+      <PrintPageStyle paperSize={data.paperSize} />
       {/* Print portal — renders at body level for clean print */}
       {createPortal(
         <div id="print-root" className="hidden print:block fixed inset-0 z-[99999] bg-white">

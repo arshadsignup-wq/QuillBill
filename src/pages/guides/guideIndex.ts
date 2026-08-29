@@ -1,0 +1,399 @@
+import type { GuideConfig } from './types';
+
+/**
+ * Lightweight index of every guide: enough to build the route table and the
+ * hub cards, and nothing else.
+ *
+ * The full configs carry ~600KB of prose. routes.tsx and the route manifest
+ * both imported them eagerly, so someone who opened the editor to make a
+ * single invoice downloaded all 45 guides first. This file lets the route
+ * table be built without touching that prose; `guideLoaders` then fetches a
+ * guide's cluster only when that guide is actually visited.
+ *
+ * Generated from guideConfigs and asserted against it by `npm run audit:qa`,
+ * so the two cannot drift.
+ */
+export interface GuideIndexEntry {
+  slug: string;
+  cluster: string;
+  title: string;
+  summary: string;
+}
+
+export const guideIndex: GuideIndexEntry[] = [
+  {
+    slug: 'how-to-create-an-invoice',
+    cluster: 'Invoicing',
+    title: 'How to Create an Invoice: A Step-by-Step Guide',
+    summary: 'What an invoice must contain, how to number them, setting payment terms, and exporting a PDF.',
+  },
+  {
+    slug: 'create-invoice-free',
+    cluster: 'Invoicing',
+    title: 'How to Create an Invoice for Free',
+    summary: 'Four routes to a free invoice compared on speed and accuracy, plus the pre-send checks that stop invoices being queried.',
+  },
+  {
+    slug: 'free-invoice-template-guide',
+    cluster: 'Invoicing',
+    title: 'Free Invoice Templates: Choosing a Format That Actually Works',
+    summary: 'Choosing an invoice template by file format and industry, the layout decisions that affect payment speed, and why template sites hold 1,000 near-identical files.',
+  },
+  {
+    slug: 'freelance-invoicing-guide',
+    cluster: 'Invoicing',
+    title: 'Freelance Invoicing: A Complete Guide',
+    summary: 'Invoicing as a freelancer end to end: your first invoice, rates, deposits, international clients and records.',
+  },
+  {
+    slug: 'invoice-numbering-system',
+    cluster: 'Invoicing',
+    title: 'Invoice Numbering Systems That Survive an Audit',
+    summary: 'Designing an invoice numbering system that survives an audit: sequential vs dated schemes, why gaps matter, resetting annually, and what to do after a mistake.',
+  },
+  {
+    slug: 'international-invoicing-currency',
+    cluster: 'Invoicing',
+    title: 'International Invoicing: Currency, Fees and Getting Paid',
+    summary: 'Invoicing across borders: choosing the currency, who pays the transfer fees, exchange rate risk, and getting paid without losing a chunk to intermediary banks.',
+  },
+  {
+    slug: 'invoice-record-keeping',
+    cluster: 'Invoicing',
+    title: 'Invoice Record Keeping: What to Keep and For How Long',
+    summary: 'How long to keep invoices, what counts as an acceptable record, digital versus paper, and building a filing system you can actually search under pressure.',
+  },
+  {
+    slug: 'proforma-invoice',
+    cluster: 'Invoicing',
+    title: 'What Is a Proforma Invoice?',
+    summary: 'What a proforma invoice is, when to send one, and how it differs from a quotation and a commercial invoice.',
+  },
+  {
+    slug: 'purchase-order-vs-invoice',
+    cluster: 'Invoicing',
+    title: 'Purchase Order vs Invoice',
+    summary: 'Who issues a purchase order, who issues an invoice, and why a missing PO number stops you getting paid.',
+  },
+  {
+    slug: 'photographer-invoice',
+    cluster: 'By profession',
+    title: 'How to Invoice as a Photographer',
+    summary: 'Invoicing for photography: separating shoot fee from licensing, why usage rights belong on the invoice, and handling deposits, prints and image delivery.',
+  },
+  {
+    slug: 'contractor-trades-invoice',
+    cluster: 'By profession',
+    title: 'How to Invoice for Trades and Construction Work',
+    summary: 'Invoicing for trades and construction: separating labour from materials, call-out charges, variations, retention, and documenting work that is now hidden.',
+  },
+  {
+    slug: 'consultant-invoice',
+    cluster: 'By profession',
+    title: 'How to Invoice for Consulting Services',
+    summary: 'Invoicing for consulting: day rates versus deliverables, billing retainers in advance, evidencing intangible work, and handling expenses and multi-stakeholder approval.',
+  },
+  {
+    slug: 'graphic-designer-invoice',
+    cluster: 'By profession',
+    title: 'How to Invoice as a Graphic Designer',
+    summary: 'Invoicing for design work: bounding revisions, when source files and IP transfer, charging for concepts, and the kill fee that protects abandoned projects.',
+  },
+  {
+    slug: 'developer-invoice',
+    cluster: 'By profession',
+    title: 'How to Invoice as a Software Developer',
+    summary: 'Invoicing for software work: sprint and milestone billing, what happens to code ownership on non-payment, billing for maintenance, bugs and third-party costs.',
+  },
+  {
+    slug: 'tutor-invoice',
+    cluster: 'By profession',
+    title: 'How to Invoice for Tutoring and Coaching',
+    summary: 'Invoicing for tutoring and coaching: session packages versus pay-as-you-go, cancellation policies that hold, billing parents for a student, and term-time scheduling.',
+  },
+  {
+    slug: 'gst-invoice-format-india',
+    cluster: 'By country',
+    title: 'GST Invoice Format in India: Every Mandatory Field',
+    summary: 'The 16 fields Rule 46 requires on a GST invoice, how CGST/SGST/IGST is decided, HSN digit rules by turnover, and what breaks your buyer\'s input tax credit.',
+  },
+  {
+    slug: 'vat-invoice-format-uae',
+    cluster: 'By country',
+    title: 'UAE Tax Invoice Format: What the FTA Requires',
+    summary: 'What Article 59 requires on a UAE tax invoice, when the simplified format is allowed, and how the AED 10,000 threshold works.',
+  },
+  {
+    slug: 'eu-vat-invoice-cross-border',
+    cluster: 'By country',
+    title: 'EU VAT Invoices: Reverse Charge and Cross-Border Rules',
+    summary: 'Cross-border EU invoicing: when to use reverse charge, the exact wording the VAT Directive requires, validating a customer VAT number, and what changes for non-EU sellers.',
+  },
+  {
+    slug: 'invoice-requirements-philippines',
+    cluster: 'By country',
+    title: 'Invoice Requirements in the Philippines After the EOPT Act',
+    summary: 'How the Ease of Paying Taxes Act changed Philippine invoicing: the sales invoice is now primary, the official receipt is supplementary, and what that means for VAT.',
+  },
+  {
+    slug: 'vat-invoice-format-nigeria',
+    cluster: 'By country',
+    title: 'Nigeria VAT Invoice Format and FIRS E-Invoicing',
+    summary: 'Nigerian VAT invoice requirements, the FIRS e-invoicing mandate and its IRN and QR validation, plus how withholding tax changes what you actually receive.',
+  },
+  {
+    slug: 'invoice-payment-terms',
+    cluster: 'Getting paid',
+    title: 'Invoice Payment Terms Explained',
+    summary: 'What Net 30, Net 15, due on receipt and 2/10 Net 30 actually mean, and which terms get you paid fastest.',
+  },
+  {
+    slug: 'how-to-chase-an-unpaid-invoice',
+    cluster: 'Getting paid',
+    title: 'How to Chase an Unpaid Invoice',
+    summary: 'A calm, escalating sequence for recovering late payments without damaging the client relationship.',
+  },
+  {
+    slug: 'invoice-email',
+    cluster: 'Getting paid',
+    title: 'The Invoice Email: What to Write and When to Follow Up',
+    summary: 'The email that carries the invoice: subject lines that survive a full inbox, what to put in the body, who to send it to, and a follow-up sequence that works.',
+  },
+  {
+    slug: 'deposit-invoice',
+    cluster: 'Getting paid',
+    title: 'Deposit and Advance Payment Invoices',
+    summary: 'Taking money before you start: how much to ask for, making a deposit non-refundable in a way that holds, and the difference between a deposit and a prepayment.',
+  },
+  {
+    slug: 'milestone-partial-payment-invoice',
+    cluster: 'Getting paid',
+    title: 'Milestone Invoicing and Partial Payments',
+    summary: 'Splitting payment across a long project: choosing milestones that cannot be argued with, payment plans for struggling clients, and handling part payments correctly.',
+  },
+  {
+    slug: 'disputed-invoice',
+    cluster: 'Getting paid',
+    title: 'What to Do When a Client Disputes Your Invoice',
+    summary: 'What to do when a client disputes an invoice: separating real disputes from stalling, the response that resolves most of them, and when to escalate.',
+  },
+  {
+    slug: 'credit-note-and-refunds',
+    cluster: 'Getting paid',
+    title: 'Credit Notes and Refunds: Correcting an Invoice',
+    summary: 'Correcting an invoice properly: why you never edit a sent invoice, how credit and debit notes work, handling overpayments, and the tax consequences of a refund.',
+  },
+  {
+    slug: 'retainer-recurring-invoice',
+    cluster: 'Getting paid',
+    title: 'Retainer and Recurring Invoices',
+    summary: 'Billing the same client every month: retainer models, invoicing in advance, rollover policy, price rises, and cancelling without a fight.',
+  },
+  {
+    slug: 'how-to-write-a-quotation',
+    cluster: 'Quotations',
+    title: 'How to Write a Quotation',
+    summary: 'How to write a price quotation that wins the work and cannot be argued with later.',
+  },
+  {
+    slug: 'invoice-vs-quotation',
+    cluster: 'Quotations',
+    title: 'Invoice vs Quotation: What Is the Difference?',
+    summary: 'Quote first to win the work, invoice afterwards to get paid. Where estimates and proposals fit.',
+  },
+  {
+    slug: 'free-quotation-template-guide',
+    cluster: 'Quotations',
+    title: 'Free Quotation Templates: What Most of Them Leave Out',
+    summary: 'Word, Excel, PDF and browser quotation templates compared, the fields most free templates omit, and how to adapt one for your trade.',
+  },
+  {
+    slug: 'request-a-quotation',
+    cluster: 'Quotations',
+    title: 'How to Get a Free Quotation That You Can Actually Compare',
+    summary: 'How to ask suppliers for a free quotation so the responses are comparable, what an RFQ should contain, and how to read the quotes you get back.',
+  },
+  {
+    slug: 'how-to-write-a-business-proposal',
+    cluster: 'Proposals',
+    title: 'How to Write a Business Proposal',
+    summary: 'The structure of a proposal that wins work: executive summary, scope, deliverables, timeline and pricing.',
+  },
+  {
+    slug: 'business-proposal-format',
+    cluster: 'Proposals',
+    title: 'Business Proposal Format: Structure That Follows the Decision',
+    summary: 'The standard business proposal structure, why section order should follow the client\'s decision process, and the formatting rules that make a proposal readable.',
+  },
+  {
+    slug: 'free-business-proposal-template',
+    cluster: 'Proposals',
+    title: 'Free Business Proposal Templates: Choosing and Adapting One',
+    summary: 'How to choose a free proposal template by proposal type, the sections most free templates get wrong, and how to adapt one so it does not read like a template.',
+  },
+  {
+    slug: 'ai-proposal-generator',
+    cluster: 'Proposals',
+    title: 'AI Proposal Generator: Useful Scaffold, Dangerous Final Draft',
+    summary: 'What AI proposal generators do well, the four things they reliably get wrong, and how to use one without sending a proposal that reads like everyone else\'s.',
+  },
+  {
+    slug: 'proposal-generation-software',
+    cluster: 'Proposals',
+    title: 'Proposal Generation Software: What You Are Actually Paying For',
+    summary: 'What proposal generation software does beyond documents, the features worth paying for, and why regulated industries like financial advice need different tools.',
+  },
+  {
+    slug: 'online-invoice-generator',
+    cluster: 'Tools',
+    title: 'Online Invoice Generator: How Browser Invoicing Actually Works',
+    summary: 'How browser-based invoice generation works, where your data goes, and what separates a genuine free tool from a free trial.',
+  },
+  {
+    slug: 'free-invoice-software',
+    cluster: 'Tools',
+    title: 'Free Invoice Software: What "Free" Actually Costs You',
+    summary: 'The five business models behind "free" invoicing tools, what each one actually limits, and how to avoid the migration trap.',
+  },
+  {
+    slug: 'quotation-generator-guide',
+    cluster: 'Tools',
+    title: 'Quotation Generator: Choosing a Tool That Understands Quotes',
+    summary: 'What a quotation generator has to do that an invoice tool does not — validity dates, optional items, acceptance — and how to pick one.',
+  },
+  {
+    slug: 'free-quotation-software',
+    cluster: 'Tools',
+    title: 'Free Quotation Software: What an Account Actually Buys You',
+    summary: 'Free quoting software compared against generators and CRMs, the features that justify an account, and the one metric quoting software should give you.',
+  },
+  {
+    slug: 'invoice-generator-alternatives',
+    cluster: 'Tools',
+    title: 'Wise and Refrens Invoice Generators Compared',
+    summary: 'What the Wise and Refrens invoice generators actually do, the account and document limits attached to each, and when a no-account tool fits better.',
+  },
+  {
+    slug: 'quotation-marks',
+    cluster: 'Writing',
+    title: 'Quotation Marks: The Rules, With Examples',
+    summary: 'How quotation marks work in American and British style, where the punctuation goes, and the rules for quoting inside business documents.',
+  },
+  {
+    slug: 'quotations-about-change',
+    cluster: 'Writing',
+    title: 'Quotations About Change, With the Attributions Checked',
+    summary: 'Quotations about change, grouped by what you actually need them for, with attributions checked and the commonly misattributed ones flagged.',
+  },
+  {
+    slug: 'random-quote-generator',
+    cluster: 'Writing',
+    title: 'Random Quote Generators: How They Work, and Their Attribution Problem',
+    summary: 'What random quote generators and quote meme makers do, the attribution and licensing problems they create, and how to build one yourself.',
+  },
+];
+
+export const guideSlugs: string[] = guideIndex.map((g) => g.slug);
+
+/** Per-cluster dynamic imports, so one guide never drags in the other 44. */
+export const guideLoaders: Record<string, () => Promise<GuideConfig>> = {
+  'how-to-create-an-invoice': () => import('./guideData').then((m) => m.howToCreateInvoiceGuide),
+  'create-invoice-free': () => import('./invoiceTools').then((m) => m.createInvoiceFreeGuide),
+  'free-invoice-template-guide': () => import('./invoiceTools').then((m) => m.freeInvoiceTemplateGuide),
+  'freelance-invoicing-guide': () => import('./invoicing').then((m) => m.freelanceInvoicingGuide),
+  'invoice-numbering-system': () => import('./operations').then((m) => m.invoiceNumberingGuide),
+  'international-invoicing-currency': () => import('./operations').then((m) => m.internationalInvoiceGuide),
+  'invoice-record-keeping': () => import('./operations').then((m) => m.recordKeepingGuide),
+  'proforma-invoice': () => import('./invoicing').then((m) => m.proformaInvoiceGuide),
+  'purchase-order-vs-invoice': () => import('./invoicing').then((m) => m.purchaseOrderGuide),
+  'photographer-invoice': () => import('./professions').then((m) => m.photographerInvoiceGuide),
+  'contractor-trades-invoice': () => import('./professions').then((m) => m.tradesInvoiceGuide),
+  'consultant-invoice': () => import('./professions').then((m) => m.consultantInvoiceGuide),
+  'graphic-designer-invoice': () => import('./professions').then((m) => m.designerInvoiceGuide),
+  'developer-invoice': () => import('./professions').then((m) => m.developerInvoiceGuide),
+  'tutor-invoice': () => import('./professions').then((m) => m.tutorInvoiceGuide),
+  'gst-invoice-format-india': () => import('./countries').then((m) => m.indiaGstInvoiceGuide),
+  'vat-invoice-format-uae': () => import('./countries').then((m) => m.uaeVatInvoiceGuide),
+  'eu-vat-invoice-cross-border': () => import('./countries').then((m) => m.euVatInvoiceGuide),
+  'invoice-requirements-philippines': () => import('./countries').then((m) => m.philippinesInvoiceGuide),
+  'vat-invoice-format-nigeria': () => import('./countries').then((m) => m.nigeriaInvoiceGuide),
+  'invoice-payment-terms': () => import('./gettingPaid').then((m) => m.paymentTermsGuide),
+  'how-to-chase-an-unpaid-invoice': () => import('./gettingPaid').then((m) => m.chasePaymentGuide),
+  'invoice-email': () => import('./operations').then((m) => m.invoiceEmailGuide),
+  'deposit-invoice': () => import('./paymentProblems').then((m) => m.depositInvoiceGuide),
+  'milestone-partial-payment-invoice': () => import('./paymentProblems').then((m) => m.milestoneInvoiceGuide),
+  'disputed-invoice': () => import('./paymentProblems').then((m) => m.disputedInvoiceGuide),
+  'credit-note-and-refunds': () => import('./paymentProblems').then((m) => m.creditNoteGuide),
+  'retainer-recurring-invoice': () => import('./operations').then((m) => m.retainerInvoiceGuide),
+  'how-to-write-a-quotation': () => import('./writing').then((m) => m.writeQuotationGuide),
+  'invoice-vs-quotation': () => import('./guideData').then((m) => m.invoiceVsQuotationGuide),
+  'free-quotation-template-guide': () => import('./quotationTools').then((m) => m.freeQuotationTemplateGuide),
+  'request-a-quotation': () => import('./quotationTools').then((m) => m.requestQuotationGuide),
+  'how-to-write-a-business-proposal': () => import('./writing').then((m) => m.writeProposalGuide),
+  'business-proposal-format': () => import('./proposalTools').then((m) => m.businessProposalFormatGuide),
+  'free-business-proposal-template': () => import('./proposalTools').then((m) => m.freeProposalTemplateGuide),
+  'ai-proposal-generator': () => import('./proposalTools').then((m) => m.aiProposalGeneratorGuide),
+  'proposal-generation-software': () => import('./proposalTools').then((m) => m.proposalGenerationSoftwareGuide),
+  'online-invoice-generator': () => import('./invoiceTools').then((m) => m.onlineInvoiceGeneratorGuide),
+  'free-invoice-software': () => import('./invoiceTools').then((m) => m.freeInvoiceSoftwareGuide),
+  'quotation-generator-guide': () => import('./quotationTools').then((m) => m.quotationGeneratorGuide),
+  'free-quotation-software': () => import('./quotationTools').then((m) => m.freeQuotationSoftwareGuide),
+  'invoice-generator-alternatives': () => import('./invoiceTools').then((m) => m.invoiceGeneratorAlternativesGuide),
+  'quotation-marks': () => import('./writingCluster').then((m) => m.quotationMarksGuide),
+  'quotations-about-change': () => import('./writingCluster').then((m) => m.quotationsAboutChangeGuide),
+  'random-quote-generator': () => import('./writingCluster').then((m) => m.randomQuoteGeneratorGuide),
+};
+
+/**
+ * Source module each guide lives in. Build-time only: the prerenderer maps
+ * this through Vite's manifest to emit a <link rel="modulepreload"> for the
+ * cluster chunk, so the chunk is already cached when React mounts and the
+ * split costs the reader no visible delay.
+ */
+export const guideModulePath: Record<string, string> = {
+  'how-to-create-an-invoice': 'src/pages/guides/guideData.ts',
+  'create-invoice-free': 'src/pages/guides/invoiceTools.ts',
+  'free-invoice-template-guide': 'src/pages/guides/invoiceTools.ts',
+  'freelance-invoicing-guide': 'src/pages/guides/invoicing.ts',
+  'invoice-numbering-system': 'src/pages/guides/operations.ts',
+  'international-invoicing-currency': 'src/pages/guides/operations.ts',
+  'invoice-record-keeping': 'src/pages/guides/operations.ts',
+  'proforma-invoice': 'src/pages/guides/invoicing.ts',
+  'purchase-order-vs-invoice': 'src/pages/guides/invoicing.ts',
+  'photographer-invoice': 'src/pages/guides/professions.ts',
+  'contractor-trades-invoice': 'src/pages/guides/professions.ts',
+  'consultant-invoice': 'src/pages/guides/professions.ts',
+  'graphic-designer-invoice': 'src/pages/guides/professions.ts',
+  'developer-invoice': 'src/pages/guides/professions.ts',
+  'tutor-invoice': 'src/pages/guides/professions.ts',
+  'gst-invoice-format-india': 'src/pages/guides/countries.ts',
+  'vat-invoice-format-uae': 'src/pages/guides/countries.ts',
+  'eu-vat-invoice-cross-border': 'src/pages/guides/countries.ts',
+  'invoice-requirements-philippines': 'src/pages/guides/countries.ts',
+  'vat-invoice-format-nigeria': 'src/pages/guides/countries.ts',
+  'invoice-payment-terms': 'src/pages/guides/gettingPaid.ts',
+  'how-to-chase-an-unpaid-invoice': 'src/pages/guides/gettingPaid.ts',
+  'invoice-email': 'src/pages/guides/operations.ts',
+  'deposit-invoice': 'src/pages/guides/paymentProblems.ts',
+  'milestone-partial-payment-invoice': 'src/pages/guides/paymentProblems.ts',
+  'disputed-invoice': 'src/pages/guides/paymentProblems.ts',
+  'credit-note-and-refunds': 'src/pages/guides/paymentProblems.ts',
+  'retainer-recurring-invoice': 'src/pages/guides/operations.ts',
+  'how-to-write-a-quotation': 'src/pages/guides/writing.ts',
+  'invoice-vs-quotation': 'src/pages/guides/guideData.ts',
+  'free-quotation-template-guide': 'src/pages/guides/quotationTools.ts',
+  'request-a-quotation': 'src/pages/guides/quotationTools.ts',
+  'how-to-write-a-business-proposal': 'src/pages/guides/writing.ts',
+  'business-proposal-format': 'src/pages/guides/proposalTools.ts',
+  'free-business-proposal-template': 'src/pages/guides/proposalTools.ts',
+  'ai-proposal-generator': 'src/pages/guides/proposalTools.ts',
+  'proposal-generation-software': 'src/pages/guides/proposalTools.ts',
+  'online-invoice-generator': 'src/pages/guides/invoiceTools.ts',
+  'free-invoice-software': 'src/pages/guides/invoiceTools.ts',
+  'quotation-generator-guide': 'src/pages/guides/quotationTools.ts',
+  'free-quotation-software': 'src/pages/guides/quotationTools.ts',
+  'invoice-generator-alternatives': 'src/pages/guides/invoiceTools.ts',
+  'quotation-marks': 'src/pages/guides/writingCluster.ts',
+  'quotations-about-change': 'src/pages/guides/writingCluster.ts',
+  'random-quote-generator': 'src/pages/guides/writingCluster.ts',
+};

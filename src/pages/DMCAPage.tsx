@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
 import StaticPageLayout from '../components/layout/StaticPageLayout';
 import { useSEO } from '../hooks/useSEO';
-import { routeFor } from '../seo/routeManifest';
+import { pageMetaFor } from '../seo/pageMeta';
 
 export default function DMCAPage() {
-  useSEO(routeFor('/dmca')!);
+  useSEO(pageMetaFor('/dmca'));
 
   return (
     <StaticPageLayout>

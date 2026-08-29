@@ -1,4 +1,5 @@
 import type { SEOOptions } from '../hooks/useSEO';
+import { pageMeta } from './pageMeta';
 import { invoiceConfig, quotationConfig, proposalConfig } from '../pages/landing/landingData';
 import {
   invoiceTemplatesConfig,
@@ -33,10 +34,7 @@ export interface RouteEntry extends SEOOptions {
 export const routes: RouteEntry[] = [
   {
     path: '/',
-    canonical: '/',
-    title: 'Free Invoice & Quotation Generator',
-    description:
-      'Create professional invoices, quotations and proposals free. No sign-up, no watermarks, no login. 15 templates, instant PDF export, fully private.',
+    ...pageMeta['/'],
     jsonLd: [organizationSchema(), websiteSchema(), webApplicationSchema()],
     changefreq: 'weekly',
     priority: 1.0,
@@ -107,10 +105,7 @@ export const routes: RouteEntry[] = [
   // Supporting / trust pages
   {
     path: '/faq',
-    canonical: '/faq',
-    title: 'Frequently Asked Questions',
-    description:
-      'Common questions about QuillBill, the free invoice generator with no login, no watermarks, and complete data privacy.',
+    ...pageMeta['/faq'],
     jsonLd: [
       breadcrumbSchema([
         { name: 'Home', path: '/' },
@@ -123,55 +118,38 @@ export const routes: RouteEntry[] = [
   },
   {
     path: '/about',
-    canonical: '/about',
-    title: 'About',
-    description:
-      'Learn about QuillBill, a free, open-source, privacy-first invoice and quotation generator with no sign-up required.',
+    ...pageMeta['/about'],
     jsonLd: [organizationSchema()],
     changefreq: 'monthly',
     priority: 0.6,
   },
   {
     path: '/contact',
-    canonical: '/contact',
-    title: 'Contact',
-    description: 'Get in touch with QuillBill. Report bugs, request features, or send us a message.',
+    ...pageMeta['/contact'],
     changefreq: 'monthly',
     priority: 0.5,
   },
   {
     path: '/privacy',
-    canonical: '/privacy',
-    title: 'Privacy Policy',
-    description:
-      'QuillBill privacy policy. Your document data never leaves your browser. What we do and do not collect, explained plainly.',
+    ...pageMeta['/privacy'],
     changefreq: 'yearly',
     priority: 0.3,
   },
   {
     path: '/terms',
-    canonical: '/terms',
-    title: 'Terms of Service',
-    description:
-      'QuillBill terms of service. Free to use, no warranty, your documents belong to you.',
+    ...pageMeta['/terms'],
     changefreq: 'yearly',
     priority: 0.3,
   },
   {
     path: '/disclaimer',
-    canonical: '/disclaimer',
-    title: 'Disclaimer',
-    description:
-      'QuillBill disclaimer. No warranties, use at your own risk. Read the full legal disclaimer for the free invoice generator.',
+    ...pageMeta['/disclaimer'],
     changefreq: 'yearly',
     priority: 0.3,
   },
   {
     path: '/dmca',
-    canonical: '/dmca',
-    title: 'DMCA Policy',
-    description:
-      'QuillBill DMCA policy. How to report copyright infringement and submit a takedown notice to us.',
+    ...pageMeta['/dmca'],
     changefreq: 'yearly',
     priority: 0.3,
   },

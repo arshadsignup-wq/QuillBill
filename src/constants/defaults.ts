@@ -35,6 +35,7 @@ export function createDefaultInvoice(): InvoiceData {
     logo: '',
     template: 'minimal',
     accentColor: '#2563eb',
+    paperSize: 'a4',
     projectScope: '',
     deliverables: '',
     timeline: '',

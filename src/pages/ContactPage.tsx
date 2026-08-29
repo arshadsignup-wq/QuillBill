@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom';
 import { Mail, Github, Clock, MessageSquare, HelpCircle, Send } from 'lucide-react';
 import StaticPageLayout from '../components/layout/StaticPageLayout';
 import { useSEO } from '../hooks/useSEO';
-import { routeFor } from '../seo/routeManifest';
+import { pageMetaFor } from '../seo/pageMeta';
 
 export default function ContactPage() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
 
-  useSEO(routeFor('/contact')!);
+  useSEO(pageMetaFor('/contact'));
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();

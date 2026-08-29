@@ -1,6 +1,6 @@
 import { useReducer } from 'react';
 import { nanoid } from 'nanoid';
-import type { InvoiceData, DocumentMode, ContactInfo, LineItem, TemplateName } from '../types/invoice';
+import type { InvoiceData, DocumentMode, ContactInfo, LineItem, TemplateName, PaperSize } from '../types/invoice';
 import { createDefaultInvoice, createDefaultLineItem } from '../constants/defaults';
 
 type Action =
@@ -18,6 +18,7 @@ type Action =
   | { type: 'SET_LOGO'; payload: string }
   | { type: 'SET_TEMPLATE'; payload: TemplateName }
   | { type: 'SET_ACCENT_COLOR'; payload: string }
+  | { type: 'SET_PAPER_SIZE'; payload: PaperSize }
   | { type: 'SET_PROJECT_SCOPE'; payload: string }
   | { type: 'SET_DELIVERABLES'; payload: string }
   | { type: 'SET_TIMELINE'; payload: string }
@@ -96,6 +97,9 @@ function reducer(state: InvoiceData, action: Action): InvoiceData {
 
     case 'SET_ACCENT_COLOR':
       return { ...state, accentColor: action.payload };
+
+    case 'SET_PAPER_SIZE':
+      return { ...state, paperSize: action.payload };
 
     case 'SET_PROJECT_SCOPE':
       return { ...state, projectScope: action.payload };

@@ -2,6 +2,7 @@ import Card from '../ui/Card';
 import LogoUpload from './LogoUpload';
 import TemplatePicker from './TemplatePicker';
 import ColorPicker from './ColorPicker';
+import PaperSizePicker from './PaperSizePicker';
 
 export default function BrandingEditor() {
   return (
@@ -13,6 +14,7 @@ export default function BrandingEditor() {
         </div>
         <TemplatePicker />
         <ColorPicker />
+        <PaperSizePicker />
       </div>
     </Card>
   );

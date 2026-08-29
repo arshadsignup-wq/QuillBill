@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { FileText, Shield, Zap, Share2, Palette, Globe } from 'lucide-react';
 import StaticPageLayout from '../components/layout/StaticPageLayout';
 import { useSEO } from '../hooks/useSEO';
-import { routeFor } from '../seo/routeManifest';
+import { pageMetaFor } from '../seo/pageMeta';
 
 const features = [
   {
@@ -38,7 +38,7 @@ const features = [
 ];
 
 export default function AboutPage() {
-  useSEO(routeFor('/about')!);
+  useSEO(pageMetaFor('/about'));
 
   return (
     <StaticPageLayout>

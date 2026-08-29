@@ -28,6 +28,7 @@ export function isValidInvoiceData(data: unknown): boolean {
   const validTemplates = ['minimal','modern','classic','compact','elegant','bold','stripe','executive','clean','sidebar','professional','creative','letterhead','receipt','gradient'];
   if (!validTemplates.includes(d.template as string)) return false;
   if (typeof d.accentColor !== 'string') return false;
+  if (d.paperSize !== undefined && d.paperSize !== 'a4' && d.paperSize !== 'letter') return false;
   if (d.projectScope !== undefined && typeof d.projectScope !== 'string') return false;
   if (d.deliverables !== undefined && typeof d.deliverables !== 'string') return false;
   if (d.timeline !== undefined && typeof d.timeline !== 'string') return false;

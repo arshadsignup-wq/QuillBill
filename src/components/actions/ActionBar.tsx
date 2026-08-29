@@ -56,7 +56,7 @@ export default function ActionBar({ onPreview }: ActionBarProps) {
       </Button>
       <Button variant="primary" size="sm" onClick={print}>
         <Printer size={16} />
-        <span className="hidden sm:inline">Download PDF</span>
+        <span className="hidden sm:inline">Print / Save as PDF</span>
       </Button>
       <ExportImportMenu />
       <ShareDialog open={shareOpen} onClose={() => setShareOpen(false)} />
