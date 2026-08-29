@@ -2,8 +2,8 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
-    { "source": "/view/:payload", "destination": "/index.html" },
-    { "source": "/edit/:payload", "destination": "/index.html" }
+    { "source": "/view/:payload", "destination": "/view" },
+    { "source": "/edit/:payload", "destination": "/edit" }
   ],
   "headers": [
     {

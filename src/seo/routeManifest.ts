@@ -176,6 +176,28 @@ export const routes: RouteEntry[] = [
     priority: 0.3,
   },
 
+  // Shells that /view/:payload and /edit/:payload rewrite onto. Without them
+  // those URLs matched no file, fell through to 404.html and were served with a
+  // 404 status, so every shared link unfurled as "Page Not Found" even though
+  // React recovered and drew the document. Both are noindex and out of the
+  // sitemap: the payload in the path is the user's document.
+  {
+    path: '/view',
+    title: 'Shared Document',
+    description:
+      'A QuillBill invoice, quotation or proposal shared by link. The document is encoded in the URL and never touches a server.',
+    noindex: true,
+    sitemap: false,
+  },
+  {
+    path: '/edit',
+    title: 'Edit Shared Document',
+    description:
+      'Open a shared QuillBill document for editing. The document is encoded in the URL and never touches a server.',
+    noindex: true,
+    sitemap: false,
+  },
+
   // Rendered as a static file so the SPA fallback can serve a real 404 body,
   // but deliberately kept out of the sitemap and marked noindex.
   {

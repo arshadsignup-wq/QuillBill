@@ -11,6 +11,30 @@ import Button from '../components/ui/Button';
 
 const A4_WIDTH_PX = 794; // 210mm ≈ 794px
 
+function SharedDocumentShell() {
+  return (
+    <div className="min-h-screen bg-gray-100">
+      <header className="no-print bg-white border-b border-gray-200 px-4 py-3">
+        <Link to="/" aria-label="QuillBill home" className="flex items-center gap-2">
+          <FileText size={20} className="text-brand" />
+          <span className="text-base font-bold text-gray-900">QuillBill</span>
+        </Link>
+      </header>
+      <div className="flex flex-col items-center justify-center gap-3 py-24 px-4 text-center">
+        <FileText size={32} className="text-gray-300" />
+        <h1 className="text-lg font-semibold text-gray-900">Shared document</h1>
+        <p className="max-w-md text-sm text-gray-500">
+          This document is encoded in the link itself and is being decoded in your browser. It was
+          never uploaded to a server.
+        </p>
+        <Link to="/" className="text-sm text-brand hover:underline">
+          Create your own document
+        </Link>
+      </div>
+    </div>
+  );
+}
+
 export default function ViewPage() {
   const { payload } = useParams<{ payload: string }>();
   const print = usePrint();
@@ -42,6 +66,11 @@ export default function ViewPage() {
     return () => window.removeEventListener('resize', updateScale);
   }, [data]);
 
+  // No payload at all means this is the prerendered /view shell, which every
+  // shared link is rewritten onto. It is the markup link unfurlers and the
+  // pre-hydration paint see, so it must read as a document loading rather than
+  // as an error. A payload that is present but will not decode is a real 404.
+  if (!payload) return <SharedDocumentShell />;
   if (!data) return <Navigate to="/404" replace />;
 
   const totals = calculateTotals(data);

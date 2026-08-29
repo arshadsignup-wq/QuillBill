@@ -57,6 +57,9 @@ export default function AppRoutes({ editor, viewer }: AppRoutesProps = {}) {
       <Route path="/" element={<EditorPage />} />
       <Route path="/edit/:payload" element={<EditorPage />} />
       <Route path="/view/:payload" element={<ViewPage />} />
+      {/* Prerendered shells the share-link rewrites resolve to. */}
+      <Route path="/edit" element={<EditorPage />} />
+      <Route path="/view" element={<ViewPage />} />
       <Route path="/privacy" element={<PrivacyPage />} />
       <Route path="/terms" element={<TermsPage />} />
       <Route path="/about" element={<AboutPage />} />
