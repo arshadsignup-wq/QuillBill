@@ -146,6 +146,8 @@ for (const route of routes) {
 }
 
 // --- sitemap.xml -------------------------------------------------------------
+// Falls back to the build date only for a route that declares no lastmod;
+// every route in the manifest sets one, so this is a safety net, not the norm.
 const today = new Date().toISOString().slice(0, 10);
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -153,7 +155,7 @@ ${sitemapRoutes
   .map(
     (r) => `  <url>
     <loc>${absoluteUrl(r.canonical ?? r.path)}</loc>
-    <lastmod>${today}</lastmod>
+    <lastmod>${r.lastmod ?? today}</lastmod>
     <changefreq>${r.changefreq ?? 'monthly'}</changefreq>
     <priority>${(r.priority ?? 0.5).toFixed(1)}</priority>
   </url>`

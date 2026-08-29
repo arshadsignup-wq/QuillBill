@@ -52,7 +52,7 @@ export const onlineInvoiceGeneratorGuide: GuideConfig = {
           'Enter the client\'s legal entity name and billing address, then set a unique sequential invoice number, the issue date and an explicit due date. The legal entity matters more than the trading name if you ever have to chase the debt.',
       },
       {
-        title: 'Itemise the work',
+        title: 'Itemize the work',
         description:
           'One line per deliverable, with a description specific enough that someone in the client\'s accounts department who never met you can approve it without asking a question.',
       },
@@ -131,7 +131,7 @@ export const onlineInvoiceGeneratorGuide: GuideConfig = {
         'The invoice date and, where different, the date of supply',
         'An explicit payment due date rather than "on receipt"',
         'A line-by-line description with quantity and unit rate',
-        'Subtotal, discount, correctly labelled tax rate and tax amount',
+        'Subtotal, discount, correctly labeled tax rate and tax amount',
         'The total payable, with the currency stated unambiguously',
         'How to pay you, in enough detail to actually pay you',
       ],
@@ -187,7 +187,7 @@ export const onlineInvoiceGeneratorGuide: GuideConfig = {
     {
       question: 'Do I need to download software to generate an invoice?',
       answer:
-        'No. Browser-based generators need nothing installed and work on any device with a modern browser, including phones. Downloadable Word and Excel templates require that software; desktop accounting packages require installation and usually a licence.',
+        'No. Browser-based generators need nothing installed and work on any device with a modern browser, including phones. Downloadable Word and Excel templates require that software; desktop accounting packages require installation and usually a license.',
     },
     {
       question: 'Why does my generated invoice have a watermark?',
@@ -618,7 +618,7 @@ export const createInvoiceFreeGuide: GuideConfig = {
     {
       heading: 'When a word processor is the right answer',
       body: [
-        'There is one situation where Word or Google Docs genuinely wins: a client whose procurement process demands an editable document in a specific format, usually because they paste it into their own system. It happens, particularly with large organisations and public-sector buyers.',
+        'There is one situation where Word or Google Docs genuinely wins: a client whose procurement process demands an editable document in a specific format, usually because they paste it into their own system. It happens, particularly with large organizations and public-sector buyers.',
         'Outside that case, avoid it. Word processors do no arithmetic, layouts drift as content grows, and an editable invoice file is an invitation to a dispute about what the agreed figure was. If you must send one, send the PDF as well and state that the PDF governs.',
       ],
     },
@@ -682,7 +682,7 @@ export const createInvoiceFreeGuide: GuideConfig = {
     {
       question: 'What should I put on my first invoice?',
       answer:
-        'Your name and address, the client\'s legal entity and billing address, a unique invoice number, the issue date, an explicit due date, itemised work with quantities and rates, any tax as a separate line, the total, and exactly how you want to be paid.',
+        'Your name and address, the client\'s legal entity and billing address, a unique invoice number, the issue date, an explicit due date, itemized work with quantities and rates, any tax as a separate line, the total, and exactly how you want to be paid.',
     },
     {
       question: 'How do I send an invoice to a client?',
@@ -775,7 +775,7 @@ export const freeInvoiceTemplateGuide: GuideConfig = {
   },
   h1: 'Free Invoice Templates: Choosing a Format That Actually Works',
   intro:
-    'Searching for a free invoice template returns sites advertising 200, 1,000, even 1,140 templates. That number is a marketing metric, not a feature — it is almost always a dozen layouts in different colourways. The choice that genuinely affects your working life is the file format, because Word, Excel, PDF and fill-in-browser templates fail in completely different ways. This guide covers how to choose, what a good layout does, and when a template is the wrong tool entirely.',
+    'Searching for a free invoice template returns sites advertising 200, 1,000, even 1,140 templates. That number is a marketing metric, not a feature — it is almost always a dozen layouts in different colorways. The choice that genuinely affects your working life is the file format, because Word, Excel, PDF and fill-in-browser templates fail in completely different ways. This guide covers how to choose, what a good layout does, and when a template is the wrong tool entirely.',
   sections: [
     {
       heading: 'Choose the format first, the design second',
@@ -800,17 +800,17 @@ export const freeInvoiceTemplateGuide: GuideConfig = {
     {
       heading: 'What separates a good invoice layout from a pretty one',
       body: [
-        'An invoice has one job: get approved and paid without a follow-up question. A handful of layout decisions measurably help with that, and none of them are about colour.',
+        'An invoice has one job: get approved and paid without a follow-up question. A handful of layout decisions measurably help with that, and none of them are about color.',
         'Put the amount due and the due date in the top third of the page. The person approving it is scanning, often on a phone, and frequently never reaches the bottom. Burying the total under a decorative header costs you days.',
         'Give line items room. Cramped descriptions get abbreviated, abbreviated descriptions get queried, and a queried invoice restarts the payment clock. A layout that fits eight comfortable lines beats one that crams in twenty.',
         'Make the payment details impossible to miss. A surprising number of otherwise attractive templates render bank details in small grey type at the very bottom, which is the least-read part of the page.',
-        'Keep the tax line separate and clearly labelled. Folding tax into unit prices makes the invoice unusable for a VAT- or GST-registered client, who needs the tax amount stated to reclaim it.',
+        'Keep the tax line separate and clearly labeled. Folding tax into unit prices makes the invoice unusable for a VAT- or GST-registered client, who needs the tax amount stated to reclaim it.',
       ],
       list: [
         'Total and due date visible without scrolling or squinting',
         'The word "Invoice" and the invoice number prominent at the top',
         'Enough vertical space per line item for a real description',
-        'Tax shown as its own labelled line with the rate stated',
+        'Tax shown as its own labeled line with the rate stated',
         'Payment details in body-text size, not footnote size',
         'Your contact details present, so queries reach you rather than stalling',
         'Prints correctly on both A4 and US Letter without clipping',
@@ -837,7 +837,7 @@ export const freeInvoiceTemplateGuide: GuideConfig = {
       heading: 'Why template sites advertise a thousand templates',
       body: [
         'It is worth understanding the incentive, because it explains why choosing takes so long. Template pages are extremely effective for search: each one is a landing page, and a large library covers a large number of long-tail queries. The library size is a traffic strategy.',
-        'What this means for you is practical. Do not try to evaluate a thousand options. Decide your format, pick a layout that puts the total and due date near the top, and standardise on it. Changing templates between invoices makes your business look unsettled and makes your own records harder to scan.',
+        'What this means for you is practical. Do not try to evaluate a thousand options. Decide your format, pick a layout that puts the total and due date near the top, and standardize on it. Changing templates between invoices makes your business look unsettled and makes your own records harder to scan.',
         'QuillBill\'s [invoice templates](/invoice-templates) are 15 distinct layouts rather than a large recoloured library, and all of them calculate and export as PDF from the browser. That is the number that is actually useful to choose between.',
       ],
     },
@@ -862,7 +862,7 @@ export const freeInvoiceTemplateGuide: GuideConfig = {
     {
       question: 'Should an invoice template be A4 or Letter?',
       answer:
-        'Match your client\'s country: A4 almost everywhere, US Letter in the United States and Canada. The two differ enough that a template designed for one can clip content on the other. Export a PDF and check nothing is cut off before you standardise on a template.',
+        'Match your client\'s country: A4 almost everywhere, US Letter in the United States and Canada. The two differ enough that a template designed for one can clip content on the other. Export a PDF and check nothing is cut off before you standardize on a template.',
     },
     {
       question: 'Can I use the same template for invoices and quotations?',
@@ -872,7 +872,7 @@ export const freeInvoiceTemplateGuide: GuideConfig = {
     {
       question: 'How many invoice templates do I need?',
       answer:
-        'One, for most businesses. Consistency makes your invoices recognisable to clients who process many, and makes your own records easier to scan. Keep a second only if you do materially different work, such as retainers alongside project fees.',
+        'One, for most businesses. Consistency makes your invoices recognizable to clients who process many, and makes your own records easier to scan. Keep a second only if you do materially different work, such as retainers alongside project fees.',
     },
     {
       question: 'Are downloadable invoice templates safe?',
@@ -882,7 +882,7 @@ export const freeInvoiceTemplateGuide: GuideConfig = {
     {
       question: 'What is the difference between an invoice template and an invoice form?',
       answer:
-        'The terms are used loosely and often interchangeably. Where a distinction is drawn, a template is a designed document you customise and reuse digitally, while a form is a blank printable layout completed by hand. Searches for free invoice forms usually mean the printable kind.',
+        'The terms are used loosely and often interchangeably. Where a distinction is drawn, a template is a designed document you customize and reuse digitally, while a form is a blank printable layout completed by hand. Searches for free invoice forms usually mean the printable kind.',
     },
     {
       question: 'Do free invoice templates work on a phone?',
@@ -892,7 +892,7 @@ export const freeInvoiceTemplateGuide: GuideConfig = {
     {
       question: 'Why do template sites advertise a thousand invoice templates?',
       answer:
-        'Because each template page is a landing page, and a large library covers a large number of long-tail searches. The number is a traffic strategy rather than a feature. In practice most large libraries are a dozen layouts in different colourways.',
+        'Because each template page is a landing page, and a large library covers a large number of long-tail searches. The number is a traffic strategy rather than a feature. In practice most large libraries are a dozen layouts in different colorways.',
     },
   ],
   faqs: [
@@ -907,14 +907,14 @@ export const freeInvoiceTemplateGuide: GuideConfig = {
         'Downloadable Word and Excel templates from reputable sources are fine, though as with any downloaded document, be wary of files that ask you to enable macros — an invoice template has no legitimate need for them. For browser-based templates, the question is whether your data is transmitted.',
     },
     {
-      question: 'Can I edit a free invoice template with my own logo and colours?',
+      question: 'Can I edit a free invoice template with my own logo and colors?',
       answer:
         'Yes in every format, though the effort varies. Word and browser-based templates make it trivial. Fillable PDFs often lock the design, so branding means going back to the source file. Keep the logo modest — it should identify you, not dominate the page above the amount due.',
     },
     {
       question: 'How many invoice templates do I actually need?',
       answer:
-        'One, in most cases. Consistency makes your invoices recognisable to clients who receive many of them and makes your own records easier to scan. You might keep a second for a materially different type of work, such as retainers versus project fees.',
+        'One, in most cases. Consistency makes your invoices recognizable to clients who receive many of them and makes your own records easier to scan. You might keep a second for a materially different type of work, such as retainers versus project fees.',
     },
     {
       question: 'Do free invoice templates include tax calculations?',

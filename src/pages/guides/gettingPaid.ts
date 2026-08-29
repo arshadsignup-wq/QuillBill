@@ -169,7 +169,7 @@ export const chasePaymentGuide: GuideConfig = {
       {
         title: 'Day 1 after due date: a short, friendly nudge',
         description:
-          'Assume it was missed. Reattach the invoice, restate the amount and the due date, and ask whether it reached the right person. Keep it to three sentences and do not apologise for asking.',
+          'Assume it was missed. Reattach the invoice, restate the amount and the due date, and ask whether it reached the right person. Keep it to three sentences and do not apologize for asking.',
       },
       {
         title: 'Day 7: confirm it is in the system',
@@ -184,7 +184,7 @@ export const chasePaymentGuide: GuideConfig = {
       {
         title: 'Day 30: formal notice',
         description:
-          'Send a clearly labelled final reminder stating the amount outstanding, referencing the agreed payment terms and any previously agreed late payment interest, and giving a specific deadline. Say what happens next if the deadline passes.',
+          'Send a clearly labeled final reminder stating the amount outstanding, referencing the agreed payment terms and any previously agreed late payment interest, and giving a specific deadline. Say what happens next if the deadline passes.',
       },
       {
         title: 'Day 45+: escalate externally',
@@ -285,7 +285,7 @@ export const chasePaymentGuide: GuideConfig = {
     {
       question: 'What should I do if the client simply stops replying?',
       answer:
-        'Send a clearly labelled final notice with a specific deadline to a verified address, and copy any other contact you have at the business. If that produces nothing, weigh a debt recovery service or small claims against the amount owed.',
+        'Send a clearly labeled final notice with a specific deadline to a verified address, and copy any other contact you have at the business. If that produces nothing, weigh a debt recovery service or small claims against the amount owed.',
     },
     {
       question: 'How do I avoid this happening again?',

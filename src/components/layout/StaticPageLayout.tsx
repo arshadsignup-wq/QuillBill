@@ -11,6 +11,13 @@ interface StaticPageLayoutProps {
  * site. A flat list had grown past ten links and left the guides and template
  * galleries with no site-wide internal links at all.
  */
+/** Top-level navigation shown on every content page. */
+const PRIMARY_NAV = [
+  { label: 'Invoice generator', href: '/invoice-generator' },
+  { label: 'Templates', href: '/invoice-templates' },
+  { label: 'Guides', href: '/guides' },
+];
+
 const FOOTER_COLUMNS: { heading: string; links: { label: string; href: string }[] }[] = [
   {
     heading: 'Create',
@@ -68,11 +75,31 @@ export default function StaticPageLayout({ children }: StaticPageLayoutProps) {
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">
       <header className="bg-white border-b border-gray-200">
-        <div className="max-w-4xl mx-auto px-4 h-14 flex items-center">
+        <div className="max-w-5xl mx-auto px-4 h-14 flex items-center justify-between gap-4">
           <Link to="/" aria-label="QuillBill home" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
             <FileText size={22} className="text-brand" />
             <span className="text-lg font-bold text-gray-900 tracking-tight">QuillBill</span>
           </Link>
+          {/* Every content page previously reached the rest of the site only
+              through the footer. Readers who land on a guide from search now
+              have the tool and the two hubs one click away, at the top. */}
+          <nav aria-label="Main" className="flex items-center gap-1 sm:gap-4">
+            {PRIMARY_NAV.map((l) => (
+              <Link
+                key={l.href}
+                to={l.href}
+                className="hidden sm:block text-sm text-gray-600 hover:text-gray-900 transition-colors"
+              >
+                {l.label}
+              </Link>
+            ))}
+            <Link
+              to="/"
+              className="rounded-lg bg-brand px-3 py-1.5 text-sm font-medium text-white hover:opacity-90 transition-opacity"
+            >
+              Create a document
+            </Link>
+          </nav>
         </div>
       </header>
 

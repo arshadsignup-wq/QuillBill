@@ -313,12 +313,12 @@ export const quotationConfig: LandingPageConfig = {
     {
       question: 'What is a quotation generator?',
       answer:
-        'A tool that produces a formal price quotation as a shareable or printable document. A good one handles what makes a quote an offer rather than a price list: a validity date, itemised scope, stated exclusions and a clear way for the client to accept.',
+        'A tool that produces a formal price quotation as a shareable or printable document. A good one handles what makes a quote an offer rather than a price list: a validity date, itemized scope, stated exclusions and a clear way for the client to accept.',
     },
     {
       question: 'How do I create a quotation online?',
       answer:
-        'Enter your business and client details, give the quotation its own number, set the issue date and a validity date, itemise the scope with quantities and rates, state what is excluded and the payment terms that will apply, then export the PDF and send it.',
+        'Enter your business and client details, give the quotation its own number, set the issue date and a validity date, itemize the scope with quantities and rates, state what is excluded and the payment terms that will apply, then export the PDF and send it.',
     },
     {
       question: 'How long should my quotation be valid for?',
@@ -476,7 +476,7 @@ export const proposalConfig: LandingPageConfig = {
     {
       question: 'What should a business proposal include?',
       answer:
-        'A title page, an executive summary, the problem in the client\'s own terms, your proposed approach, verifiable deliverables, a timeline, itemised pricing, assumptions and exclusions, brief relevant credentials, and clear terms with a validity date and an acceptance instruction.',
+        'A title page, an executive summary, the problem in the client\'s own terms, your proposed approach, verifiable deliverables, a timeline, itemized pricing, assumptions and exclusions, brief relevant credentials, and clear terms with a validity date and an acceptance instruction.',
     },
     {
       question: 'How long should a business proposal be?',

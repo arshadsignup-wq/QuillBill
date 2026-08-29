@@ -52,25 +52,25 @@ const TEMPLATE_LABELS: { key: string; label: string }[] = [
  */
 const invoiceStyle: Record<string, string> = {
   minimal: 'Plenty of white space around the line items, with the amount due set apart at the foot.',
-  modern: 'A coloured band across the top carrying the invoice number and due date.',
+  modern: 'A colored band across the top carrying the invoice number and due date.',
   classic: 'Ruled borders around the item table, in the traditional accounting layout.',
   compact: 'Tight row spacing that keeps twenty or more line items on one page.',
   elegant: 'Serif figures and hairline rules, with the total set in a lighter weight.',
   bold: 'The amount due printed large enough to read across a desk.',
-  stripe: 'A coloured rule down the left edge with alternating row shading.',
+  stripe: 'A colored rule down the left edge with alternating row shading.',
   executive: 'A dark header block holding your logo, with the balance boxed beneath.',
   clean: 'Type and numbers only, with no rules, boxes or shading anywhere.',
-  sidebar: 'A coloured panel down one side holding your logo and payment details.',
+  sidebar: 'A colored panel down one side holding your logo and payment details.',
   professional: 'Numbered sections separating billing details, items and payment terms.',
   creative: 'Rounded cards around each block, with the total in a tinted panel.',
-  letterhead: 'Colour bands top and bottom, leaving the middle clear for the item table.',
+  letterhead: 'Color bands top and bottom, leaving the middle clear for the item table.',
   receipt: 'A narrow monospaced column, sized for a till roll rather than A4.',
-  gradient: 'A soft colour gradient behind the header, fading before the item table.',
+  gradient: 'A soft color gradient behind the header, fading before the item table.',
 };
 
 const quotationStyle: Record<string, string> = {
   minimal: 'Uncluttered pricing, with the quoted total and validity date easy to find.',
-  modern: 'A coloured header carrying the quotation number and the date it expires.',
+  modern: 'A colored header carrying the quotation number and the date it expires.',
   classic: 'A formally ruled pricing table suited to procurement and tender packs.',
   compact: 'Dense rows for quoting long material or component lists in one page.',
   elegant: 'Serif headings and fine rules, for quotes where presentation carries weight.',
@@ -88,7 +88,7 @@ const quotationStyle: Record<string, string> = {
 
 const proposalStyle: Record<string, string> = {
   minimal: 'Generous spacing between the summary, scope and deliverables sections.',
-  modern: 'A coloured banner on the cover, with accent rules dividing each section.',
+  modern: 'A colored banner on the cover, with accent rules dividing each section.',
   classic: 'A double-ruled frame and formal headings for traditional review panels.',
   compact: 'Two columns, fitting scope, deliverables and timeline into fewer pages.',
   elegant: 'Serif body text and thin underlines, for high-value consulting pitches.',
@@ -99,19 +99,19 @@ const proposalStyle: Record<string, string> = {
   sidebar: 'A running side panel carrying timeline and contact details on every page.',
   professional: 'Numbered sections through summary, scope, timeline, terms and signing.',
   creative: 'Rounded cards per deliverable, with the timeline shown as stepped blocks.',
-  letterhead: 'Colour bands top and bottom on every page, matching printed stationery.',
+  letterhead: 'Color bands top and bottom on every page, matching printed stationery.',
   receipt: 'A single narrow page, suited to a short statement of work.',
-  gradient: 'Gradient section dividers carrying colour through a long document.',
+  gradient: 'Gradient section dividers carrying color through a long document.',
 };
 
 const invoiceBestFor: Record<string, string> = {
   minimal: 'Freelancers and consultants who want a free invoice template that looks calm and uncluttered.',
-  modern: 'Startups and agencies that want a branded invoice template matching a colourful visual identity.',
+  modern: 'Startups and agencies that want a branded invoice template matching a colorful visual identity.',
   classic: 'Accountants, law firms and any business that needs a conventional printable invoice template.',
   compact: 'Wholesalers and retailers billing many line items who need everything on one printed page.',
   elegant: 'Photographers, designers and premium service providers sending high-touch client invoices.',
   bold: 'Small businesses that want the invoice total and due date to be impossible to miss.',
-  stripe: 'Anyone invoicing with long itemised lists where row-by-row readability matters most.',
+  stripe: 'Anyone invoicing with long itemized lists where row-by-row readability matters most.',
   executive: 'Consultancies and B2B suppliers issuing invoices to large corporate finance departments.',
   clean: 'Developers and technical freelancers who prefer a plain, distraction-free invoice format.',
   sidebar: 'Service businesses that want logo, address and payment terms grouped in one panel.',
@@ -119,7 +119,7 @@ const invoiceBestFor: Record<string, string> = {
   creative: 'Creative studios, illustrators and marketing freelancers who want personality in their billing.',
   letterhead: 'Businesses with existing printed stationery who want invoices to match their letterhead.',
   receipt: 'Cafés, shops and market traders who need a simple receipt-style proof of payment.',
-  gradient: 'Modern digital brands wanting a colourful free invoice template without a heavy header.',
+  gradient: 'Modern digital brands wanting a colorful free invoice template without a heavy header.',
 };
 
 const quotationBestFor: Record<string, string> = {
@@ -129,7 +129,7 @@ const quotationBestFor: Record<string, string> = {
   compact: 'Trades and suppliers quoting many materials and line items on a single page.',
   elegant: 'Event planners, interior designers and premium services sending refined price quotes.',
   bold: 'Businesses that want the quoted price and validity period to stand out immediately.',
-  stripe: 'Detailed itemised quotations where the client compares options line by line.',
+  stripe: 'Detailed itemized quotations where the client compares options line by line.',
   executive: 'B2B suppliers submitting quotations into a formal corporate purchasing process.',
   clean: 'Technical and software services quoting work in a plain, readable quotation format.',
   sidebar: 'Businesses that want terms, validity and contact details in a dedicated panel.',
@@ -137,7 +137,7 @@ const quotationBestFor: Record<string, string> = {
   creative: 'Creative studios quoting projects where presentation is part of the pitch.',
   letterhead: 'Firms whose quotations must match existing printed company stationery.',
   receipt: 'Quick over-the-counter price quotes that need a short, simple printed format.',
-  gradient: 'Digital-first brands wanting a colourful free quotation template.',
+  gradient: 'Digital-first brands wanting a colorful free quotation template.',
 };
 
 const proposalBestFor: Record<string, string> = {
@@ -149,13 +149,13 @@ const proposalBestFor: Record<string, string> = {
   bold: 'Pitches where the headline outcome and investment figure should lead the document.',
   stripe: 'Proposals with detailed phase-by-phase breakdowns that benefit from banded sections.',
   executive: 'Enterprise proposals going to executive sponsors and procurement committees.',
-  clean: 'Technical and software project proposals that prioritise clarity over decoration.',
+  clean: 'Technical and software project proposals that prioritize clarity over decoration.',
   sidebar: 'Proposals that need scope, timeline and contact information grouped in a panel.',
   professional: 'Corporate proposals requiring numbered sections for scope, timeline and terms.',
   creative: 'Creative and marketing proposals where a distinctive look supports the pitch.',
   letterhead: 'Firms whose proposals must carry the same letterhead as their printed documents.',
   receipt: 'Short, single-page proposals or simple statements of work.',
-  gradient: 'Modern digital agencies wanting a colourful free proposal template.',
+  gradient: 'Modern digital agencies wanting a colorful free proposal template.',
 };
 
 function buildTemplates(
@@ -178,7 +178,7 @@ export const invoiceTemplatesConfig: TemplateGalleryConfig = {
   },
   h1: 'Free Invoice Templates',
   intro:
-    'Pick from 15 free invoice templates and fill them in directly in your browser. Every printable invoice template exports to PDF with no watermark, no sign-up and no email required. Choose a free invoice template below, customise the accent colour and add your logo.',
+    'Pick from 15 free invoice templates and fill them in directly in your browser. Every printable invoice template exports to PDF with no watermark, no sign-up and no email required. Choose a free invoice template below, customize the accent color and add your logo.',
   ctaText: 'Use These Invoice Templates Free',
   ctaLink: '/?mode=invoice',
   templates: buildTemplates(invoiceStyle, invoiceBestFor),
@@ -193,7 +193,7 @@ export const invoiceTemplatesConfig: TemplateGalleryConfig = {
     {
       heading: 'What every invoice template includes',
       body: [
-        'Each free invoice template contains the fields a valid invoice needs: your business name and address, the client name and address, a unique invoice number, the issue date and due date, an itemised list of goods or services with quantity and rate, and the total amount due.',
+        'Each free invoice template contains the fields a valid invoice needs: your business name and address, the client name and address, a unique invoice number, the issue date and due date, an itemized list of goods or services with quantity and rate, and the total amount due.',
         'You can also add your logo, a tax or VAT rate, a percentage or fixed discount, shipping costs, payment terms and free-text notes. Totals recalculate automatically as you edit, so the printable invoice you download is always correct.',
       ],
     },
@@ -219,7 +219,7 @@ export const invoiceTemplatesConfig: TemplateGalleryConfig = {
     {
       question: 'Do I need Word or Excel to use these invoice templates?',
       answer:
-        'No. These are online invoice templates that you fill in directly in your browser. There is nothing to download, install or reformat, and no Microsoft Office licence is required.',
+        'No. These are online invoice templates that you fill in directly in your browser. There is nothing to download, install or reformat, and no Microsoft Office license is required.',
     },
     {
       question: 'Can I add my company logo to the invoice template?',
@@ -229,7 +229,7 @@ export const invoiceTemplatesConfig: TemplateGalleryConfig = {
     {
       question: 'Which free invoice template should I choose?',
       answer:
-        'Minimal and Clean suit freelancers who want something simple. Classic and Professional suit formal business and corporate clients. Modern, Gradient and Creative suit brands that want colour. Compact works best when you have many line items.',
+        'Minimal and Clean suit freelancers who want something simple. Classic and Professional suit formal business and corporate clients. Modern, Gradient and Creative suit brands that want color. Compact works best when you have many line items.',
     },
     {
       question: 'Can I switch invoice templates after filling in my details?',
@@ -266,13 +266,13 @@ export const quotationTemplatesConfig: TemplateGalleryConfig = {
       heading: 'How to use a free quotation template',
       body: [
         'A quotation tells a prospective client exactly what you will do and what it will cost, before any work begins. These free quotation templates are ready to fill in online, so there is no Word or Excel file to download and reformat.',
-        'Enter your business details, the client details and your itemised pricing. Discounts, tax and totals are calculated automatically. Then switch between the 15 quotation templates to find the format that suits the client.',
+        'Enter your business details, the client details and your itemized pricing. Discounts, tax and totals are calculated automatically. Then switch between the 15 quotation templates to find the format that suits the client.',
       ],
     },
     {
       heading: 'What every quotation template includes',
       body: [
-        'Each quotation template covers the essentials of a professional price quote: your business name and contact details, the client name and address, a quotation number, the issue date, a validity or expiry date, an itemised breakdown of the work with quantities and rates, and the total quoted price.',
+        'Each quotation template covers the essentials of a professional price quote: your business name and contact details, the client name and address, a quotation number, the issue date, a validity or expiry date, an itemized breakdown of the work with quantities and rates, and the total quoted price.',
         'You can add tax rates, discounts, shipping, payment terms and notes explaining what is and is not included in the quoted price. Clear inclusions and exclusions are what stop a quotation turning into a dispute later.',
       ],
     },
@@ -345,7 +345,7 @@ export const proposalTemplatesConfig: TemplateGalleryConfig = {
       heading: 'What a business proposal template should contain',
       body: [
         'A strong business proposal template opens with an executive summary that states the client problem and your proposed outcome in a few sentences. It then sets out the proposed solution, the scope of work, the specific deliverables, a timeline with milestones, and the investment required.',
-        'Every free proposal template here includes dedicated sections for all of these, plus signature blocks for both the client and your authorised signer so the proposal can double as an acceptance document.',
+        'Every free proposal template here includes dedicated sections for all of these, plus signature blocks for both the client and your authorized signer so the proposal can double as an acceptance document.',
       ],
     },
     {
@@ -372,7 +372,7 @@ export const proposalTemplatesConfig: TemplateGalleryConfig = {
     {
       question: 'Do the proposal templates include signature fields?',
       answer:
-        'Yes. Every free proposal template includes signature blocks for both the client and your authorised signer, with name, date and an optional uploaded signature image.',
+        'Yes. Every free proposal template includes signature blocks for both the client and your authorized signer, with name, date and an optional uploaded signature image.',
     },
     {
       question: 'Can I download a proposal template in Word format?',
@@ -382,7 +382,7 @@ export const proposalTemplatesConfig: TemplateGalleryConfig = {
     {
       question: 'What sections does a project proposal template include?',
       answer:
-        'Executive summary, proposed solution, scope of work, deliverables, timeline and milestones, itemised pricing, terms and notes, plus signature blocks.',
+        'Executive summary, proposed solution, scope of work, deliverables, timeline and milestones, itemized pricing, terms and notes, plus signature blocks.',
     },
     {
       question: 'Which proposal template should I use for a corporate client?',

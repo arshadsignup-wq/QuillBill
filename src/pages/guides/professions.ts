@@ -16,7 +16,7 @@ export const photographerInvoiceGuide: GuideConfig = {
   summary:
     'Invoicing for photography: separating shoot fee from licensing, why usage rights belong on the invoice, and handling deposits, prints and image delivery.',
   keyTakeaways: [
-    'Separate the shoot fee from the licence. They are different products and are priced differently.',
+    'Separate the shoot fee from the license. They are different products and are priced differently.',
     'State usage rights on the invoice, not only in the contract — the invoice is what survives.',
     'Deliver final files after payment clears, and say so before the shoot, not after.',
     'Second shooters, travel and retouching are line items, not goodwill.',
@@ -29,21 +29,21 @@ export const photographerInvoiceGuide: GuideConfig = {
   },
   h1: 'How to Invoice as a Photographer',
   intro:
-    'Photography invoicing is harder than most freelance work for one structural reason: you are usually selling several different things in a single job. Your time on the day, your skill in post, physical products, and — most importantly and most often forgotten — a licence to use the images. Bundle those into one line reading "Photography services" and you have made the licence invisible, which is exactly how clients end up using your images somewhere you never agreed to.',
+    'Photography invoicing is harder than most freelance work for one structural reason: you are usually selling several different things in a single job. Your time on the day, your skill in post, physical products, and — most importantly and most often forgotten — a license to use the images. Bundle those into one line reading "Photography services" and you have made the license invisible, which is exactly how clients end up using your images somewhere you never agreed to.',
   sections: [
     {
-      heading: 'The shoot fee and the licence are two different things',
+      heading: 'The shoot fee and the license are two different things',
       body: [
         'This is the single most important structural decision in a photography invoice, and it is worth being stubborn about.',
-        'The shoot fee pays for your time, your equipment and your expertise on the day. The licence grants the client permission to use the resulting images in defined ways, for a defined period, in defined places. They are separately priced because they vary independently: the same day\'s work is worth far more to a national advertising campaign than to a small business website.',
+        'The shoot fee pays for your time, your equipment and your expertise on the day. The license grants the client permission to use the resulting images in defined ways, for a defined period, in defined places. They are separately priced because they vary independently: the same day\'s work is worth far more to a national advertising campaign than to a small business website.',
         'If your invoice shows one combined figure, you have implicitly sold unlimited rights, because nothing on the document says otherwise. When the client later runs your image on a billboard, you have no line to point at.',
-        'Split them. Line one: shoot fee. Line two: licence, with the scope written out. Even if the licence is generously priced at zero for a small client, having the line present establishes that rights were a separate thing you granted.',
+        'Split them. Line one: shoot fee. Line two: license, with the scope written out. Even if the license is generously priced at zero for a small client, having the line present establishes that rights were a separate thing you granted.',
       ],
       table: {
         head: ['Line item', 'What it covers', 'Varies with'],
         rows: [
           ['Shoot fee / day rate', 'Your time on the day', 'Hours, complexity, crew'],
-          ['Licence', 'Permission to use the images', 'Media, territory, duration, exclusivity'],
+          ['License', 'Permission to use the images', 'Media, territory, duration, exclusivity'],
           ['Retouching', 'Post-production per image', 'Number of finals, depth of edit'],
           ['Travel and expenses', 'Getting there, permits, parking', 'Distance, location fees'],
           ['Second shooter / assistant', 'Additional crew', 'Day rate per person'],
@@ -53,12 +53,12 @@ export const photographerInvoiceGuide: GuideConfig = {
       },
     },
     {
-      heading: 'How to write the licence line',
+      heading: 'How to write the license line',
       body: [
-        'A usable licence line answers four questions: what media, what territory, how long, and is it exclusive. You can write it in one sentence.',
-        '"Licence: web and social media use, worldwide, two years from delivery, non-exclusive." That is enough to be meaningful and short enough that nobody skips it.',
+        'A usable license line answers four questions: what media, what territory, how long, and is it exclusive. You can write it in one sentence.',
+        '"License: web and social media use, worldwide, two years from delivery, non-exclusive." That is enough to be meaningful and short enough that nobody skips it.',
         'Avoid the word "full rights" unless you genuinely mean a buyout, and if you do mean a buyout, price it as one. Clients often ask for full rights because it sounds safer, not because they need it — a conversation about what they actually plan to do with the images frequently lands somewhere much cheaper for them and better for you.',
-        'For weddings and portraits the licence is usually a personal-use grant, which still deserves stating, because "personal use" excludes the client\'s employer using the photos in a company newsletter.',
+        'For weddings and portraits the license is usually a personal-use grant, which still deserves stating, because "personal use" excludes the client\'s employer using the photos in a company newsletter.',
       ],
     },
     {
@@ -84,12 +84,12 @@ export const photographerInvoiceGuide: GuideConfig = {
     {
       question: 'What should a photography invoice include?',
       answer:
-        'Your details and the client\'s, an invoice number and dates, the shoot fee, a separate licence line stating usage rights, retouching, travel and any products, plus the deposit already paid, the balance due, and your delivery terms.',
+        'Your details and the client\'s, an invoice number and dates, the shoot fee, a separate license line stating usage rights, retouching, travel and any products, plus the deposit already paid, the balance due, and your delivery terms.',
     },
     {
       question: 'How do I charge for photo licensing?',
       answer:
-        'Price it by how much value the use creates: media type, territory, duration and exclusivity. A local business website licence and a national campaign licence for the same photograph are legitimately priced very differently, because what the client gains differs enormously.',
+        'Price it by how much value the use creates: media type, territory, duration and exclusivity. A local business website license and a national campaign license for the same photograph are legitimately priced very differently, because what the client gains differs enormously.',
     },
     {
       question: 'Should usage rights go on the invoice or the contract?',
@@ -109,7 +109,7 @@ export const photographerInvoiceGuide: GuideConfig = {
     {
       question: 'How do I invoice for a wedding?',
       answer:
-        'Usually in two or three stages: a booking deposit securing the date, an optional milestone before the day, and the balance due before final delivery. Itemise coverage hours, second shooter, album and travel separately so any changes are easy to price.',
+        'Usually in two or three stages: a booking deposit securing the date, an optional milestone before the day, and the balance due before final delivery. Itemize coverage hours, second shooter, album and travel separately so any changes are easy to price.',
     },
     {
       question: 'Do I charge for travel as a photographer?',
@@ -124,7 +124,7 @@ export const photographerInvoiceGuide: GuideConfig = {
     {
       question: 'Who owns the copyright in photographs?',
       answer:
-        'In most jurisdictions the photographer owns copyright by default, and the client buys a licence to use the images rather than ownership. Employment and specific commissioning arrangements can change this, so state the position on the invoice rather than assuming it is understood.',
+        'In most jurisdictions the photographer owns copyright by default, and the client buys a license to use the images rather than ownership. Employment and specific commissioning arrangements can change this, so state the position on the invoice rather than assuming it is understood.',
     },
     {
       question: 'What is a photography buyout?',
@@ -144,19 +144,19 @@ export const photographerInvoiceGuide: GuideConfig = {
     {
       question: 'How do I invoice for stock or archive images?',
       answer:
-        'There is no shoot fee, so the invoice is entirely licence: the specific images, the usage granted, the term and the fee. Reference the image file names or IDs so the grant is unambiguous years later.',
+        'There is no shoot fee, so the invoice is entirely license: the specific images, the usage granted, the term and the fee. Reference the image file names or IDs so the grant is unambiguous years later.',
     },
   ],
   faqs: [
     {
       question: 'Can a client use my photos however they like once they have paid?',
       answer:
-        'Only within the licence you granted. If the invoice does not state a licence, you are in a weak position to argue the use was outside it, which is precisely why the licence belongs on the invoice as its own line rather than in a filed contract.',
+        'Only within the license you granted. If the invoice does not state a license, you are in a weak position to argue the use was outside it, which is precisely why the license belongs on the invoice as its own line rather than in a filed contract.',
     },
     {
-      question: 'What do I do if a client uses images beyond the licence?',
+      question: 'What do I do if a client uses images beyond the license?',
       answer:
-        'Raise it in writing, reference the licence line on the invoice, and offer to issue an extension invoice for the additional use. Most breaches are careless rather than deliberate, and an easy path to paying for the extra use resolves them faster than a legal threat.',
+        'Raise it in writing, reference the license line on the invoice, and offer to issue an extension invoice for the additional use. Most breaches are careless rather than deliberate, and an easy path to paying for the extra use resolves them faster than a legal threat.',
     },
     {
       question: 'Do I need a contract as well as an invoice?',
@@ -195,18 +195,18 @@ export const tradesInvoiceGuide: GuideConfig = {
   },
   h1: 'How to Invoice for Trades and Construction Work',
   intro:
-    'Trades invoicing gets disputed more than almost any other kind, and the disputes are remarkably consistent: the customer expected a different number, or cannot see what they are paying for, or is being asked to pay for work they did not knowingly authorise. All three are documentation problems rather than pricing problems, and all three are solved on the invoice. This guide covers the line structure that prevents them, plus retention, variations and the evidence that makes an invoice hold up.',
+    'Trades invoicing gets disputed more than almost any other kind, and the disputes are remarkably consistent: the customer expected a different number, or cannot see what they are paying for, or is being asked to pay for work they did not knowingly authorize. All three are documentation problems rather than pricing problems, and all three are solved on the invoice. This guide covers the line structure that prevents them, plus retention, variations and the evidence that makes an invoice hold up.',
   sections: [
     {
       heading: 'Always separate labour from materials',
       body: [
         'A single figure for a completed job invites the customer to evaluate it against their imagination. Separated lines invite them to evaluate it against reality, which is a much better position for you.',
-        'Show labour with the hours and the hourly rate, or the agreed day rate and the days worked. Show materials as their own lines, ideally itemised for anything substantial. Show the markup on materials if you apply one, or price them at a stated supply rate — what you should not do is bury a markup inside an unexplained materials total, because customers who price-check a boiler online and find a gap they cannot explain stop trusting the whole invoice.',
+        'Show labour with the hours and the hourly rate, or the agreed day rate and the days worked. Show materials as their own lines, ideally itemized for anything substantial. Show the markup on materials if you apply one, or price them at a stated supply rate — what you should not do is bury a markup inside an unexplained materials total, because customers who price-check a boiler online and find a gap they cannot explain stop trusting the whole invoice.',
         'This also matters for insurance and warranty claims, where an assessor will ask for the labour and materials split and an invoice that cannot provide it slows everything down.',
       ],
       list: [
         'Labour: hours or days, rate, and who did the work for multi-trade jobs',
-        'Materials: itemised, with your supply rate or stated markup',
+        'Materials: itemized, with your supply rate or stated markup',
         'Plant and equipment hire, as its own line',
         'Call-out or first-hour charge, if you apply one',
         'Waste disposal and skip hire',
@@ -392,7 +392,7 @@ export const consultantInvoiceGuide: GuideConfig = {
       body: [
         'A consulting invoice reading "Consultancy services — £6,000" gives an approver nothing to approve with. They were not there. They are being asked to release money against a word.',
         'Add a short summary of what the period produced. Not a timesheet — a few lines of outcome. "Completed supplier assessment across 14 vendors; delivered shortlist and negotiation brief; supported two negotiation sessions." That is three lines and it transforms the invoice from an assertion into a record.',
-        'This matters most when the person approving is not the person you worked with. In larger organisations that is the norm, and your day-to-day contact\'s enthusiasm does not travel with the invoice into accounts payable. The summary does.',
+        'This matters most when the person approving is not the person you worked with. In larger organizations that is the norm, and your day-to-day contact\'s enthusiasm does not travel with the invoice into accounts payable. The summary does.',
         'For retainers, list what was included and note that availability itself is the product, so a quiet month does not read as an unearned invoice.',
       ],
     },
@@ -450,7 +450,7 @@ export const consultantInvoiceGuide: GuideConfig = {
     {
       question: 'Do I need a purchase order number on a consulting invoice?',
       answer:
-        'In larger organisations, usually yes, and an invoice without one is frequently rejected automatically before a human sees it. Ask at onboarding whether a PO is required and get the number before you invoice, not after it bounces.',
+        'In larger organizations, usually yes, and an invoice without one is frequently rejected automatically before a human sees it. Ask at onboarding whether a PO is required and get the number before you invoice, not after it bounces.',
     },
     {
       question: 'How long should consulting payment terms be?',
@@ -529,7 +529,7 @@ export const designerInvoiceGuide: GuideConfig = {
         'Every design invoice should state how many rounds of revision the price includes, and what an additional round costs.',
         '"Logo design — includes 3 concepts and 2 rounds of revision. Additional revision rounds £X each." That single line does more to protect design margin than any contract clause, because it is visible at the moment the client is thinking about the money.',
         'Define what a round actually is, because this is where the ambiguity lives. A round is one consolidated set of feedback, delivered together. It is not each individual email as thoughts occur. Say so: "A revision round means one consolidated set of feedback." Clients are not usually trying to exploit this — they simply do not know that sending six separate notes costs you differently from sending one list.',
-        'Charging for extra rounds is rarely necessary once the limit is stated. The limit changes behaviour on its own: clients consolidate their feedback because they can see it matters.',
+        'Charging for extra rounds is rarely necessary once the limit is stated. The limit changes behavior on its own: clients consolidate their feedback because they can see it matters.',
       ],
     },
     {
@@ -546,7 +546,7 @@ export const designerInvoiceGuide: GuideConfig = {
       body: [
         'Presenting several initial concepts for free is common and mostly a mistake. Each concept is real work, and offering four rather than one does not improve your odds — it teaches the client that your time is free and gives them more ways to be indecisive.',
         'Present one or two well-argued directions as standard, and price additional concepts explicitly.',
-        'For anything substantial, include a kill fee: if the project is cancelled after work begins, a stated percentage of the fee becomes payable, scaled by how far it progressed. This is normal professional practice, not an aggressive term, and clients who commission design regularly will expect it.',
+        'For anything substantial, include a kill fee: if the project is canceled after work begins, a stated percentage of the fee becomes payable, scaled by how far it progressed. This is normal professional practice, not an aggressive term, and clients who commission design regularly will expect it.',
         'Projects also die quietly rather than formally — the client goes silent mid-project and resurfaces four months later. Handle it with a dormancy clause: if a project is inactive for a stated period, work completed to date is invoiced and restarting is quoted separately. Otherwise you are carrying unbilled work indefinitely on someone else\'s indecision.',
       ],
     },
@@ -609,7 +609,7 @@ export const designerInvoiceGuide: GuideConfig = {
     {
       question: 'Do I charge for stock images and fonts?',
       answer:
-        'Yes, at cost as separate lines, and make sure the licence is bought in the client\'s name where the licence terms require it. Designers who license assets under their own name and hand them on create a compliance problem the client inherits unknowingly.',
+        'Yes, at cost as separate lines, and make sure the license is bought in the client\'s name where the license terms require it. Designers who license assets under their own name and hand them on create a compliance problem the client inherits unknowingly.',
     },
     {
       question: 'How do I invoice for a retainer as a designer?',
@@ -697,7 +697,7 @@ export const developerInvoiceGuide: GuideConfig = {
         'This is the leverage that software work uniquely needs, because unlike a physical deliverable you cannot repossess a deployed application.',
         'State on the invoice that intellectual property in the delivered code transfers to the client on receipt of payment in full. Until then, the client is using code they do not own. That is a materially stronger position than being an unsecured creditor, and it turns a chase into a straightforward conversation about completing a transfer.',
         'The corollary is that you must actually be able to make the claim. If you push directly to the client\'s repository from day one and hold nothing, the term is rhetorical. Approaches vary — staged handover, working in your own repository until milestone payment, or holding deployment credentials — and the right one depends on how much trust the relationship has earned.',
-        'Be careful with open-source components. Code you incorporate under a permissive or copyleft licence is not yours to assign, and the invoice term should cover the work you authored rather than claiming ownership of the whole dependency tree.',
+        'Be careful with open-source components. Code you incorporate under a permissive or copyleft license is not yours to assign, and the invoice term should cover the work you authored rather than claiming ownership of the whole dependency tree.',
       ],
     },
     {
@@ -705,7 +705,7 @@ export const developerInvoiceGuide: GuideConfig = {
       body: [
         'This distinction causes more developer-client friction than pricing does, and it is entirely definable in advance.',
         'A bug is the software failing to do what was agreed. Fixing it inside a stated warranty period — 30 to 90 days after delivery is typical — is not billable. You are completing work already paid for.',
-        'A change is the client wanting something different from what was agreed, including things they now realise they wanted all along. That is billable, at your normal rate, regardless of how small it seems.',
+        'A change is the client wanting something different from what was agreed, including things they now realize they wanted all along. That is billable, at your normal rate, regardless of how small it seems.',
         'Write the definition into the invoice terms in one sentence: "Defects in delivered functionality are corrected free of charge for 60 days from delivery. Changes to agreed functionality are chargeable at the standard rate." Then apply it consistently, including on the small things — the precedent set by absorbing three "tiny" changes is what makes the fourth one an argument.',
       ],
     },
@@ -714,7 +714,7 @@ export const developerInvoiceGuide: GuideConfig = {
       body: [
         'Hosting, domains, API subscriptions, app store fees, SSL certificates, paid libraries — modern software carries a tail of third-party costs, and how you handle them matters more than the amounts suggest.',
         'Wherever possible, have the client hold these accounts in their own name and pay them directly. It avoids you funding their infrastructure, avoids the awkwardness of a service lapsing because an invoice is late, and means the client keeps access if the relationship ends.',
-        'Where you do pay on their behalf, bill at cost as clearly labelled pass-through lines and attach the evidence. Do not mark them up quietly. If handling them is real work, charge a stated management fee for that work rather than inflating the underlying cost — the first is a service, the second reads as a hidden margin when discovered.',
+        'Where you do pay on their behalf, bill at cost as clearly labeled pass-through lines and attach the evidence. Do not mark them up quietly. If handling them is real work, charge a stated management fee for that work rather than inflating the underlying cost — the first is a service, the second reads as a hidden margin when discovered.',
         'Recurring costs need an explicit answer to what happens at renewal. An annual API subscription you paid for in month two is a real liability if the engagement ends in month five.',
       ],
     },
@@ -749,12 +749,12 @@ export const developerInvoiceGuide: GuideConfig = {
     {
       question: 'What is the difference between a bug and a change request?',
       answer:
-        'A bug is the software not doing what was agreed. A change is the client wanting something different from what was agreed, including things they now realise they always wanted. Define this in your terms and apply it consistently, especially on small items.',
+        'A bug is the software not doing what was agreed. A change is the client wanting something different from what was agreed, including things they now realize they always wanted. Define this in your terms and apply it consistently, especially on small items.',
     },
     {
       question: 'How do I bill for hosting and third-party services?',
       answer:
-        'Ideally have the client hold and pay those accounts directly. Where you pay on their behalf, bill at cost as clearly labelled pass-through lines with evidence attached, and charge a stated management fee if handling them is real work.',
+        'Ideally have the client hold and pay those accounts directly. Where you pay on their behalf, bill at cost as clearly labeled pass-through lines with evidence attached, and charge a stated management fee if handling them is real work.',
     },
     {
       question: 'How do I invoice for maintenance after launch?',
@@ -855,7 +855,7 @@ export const tutorInvoiceGuide: GuideConfig = {
       heading: 'A cancellation policy that actually holds',
       body: [
         'Every tutor has one in their head. Far fewer have one their clients have seen, and a policy the client has not seen is not a policy.',
-        'State it in three parts: the notice period, what happens inside it, and what counts as an exception. "Sessions cancelled with less than 24 hours\' notice are charged in full. One rescheduled session per term is offered as a courtesy."',
+        'State it in three parts: the notice period, what happens inside it, and what counts as an exception. "Sessions canceled with less than 24 hours\' notice are charged in full. One rescheduled session per term is offered as a courtesy."',
         'Put it on the invoice, not only in a welcome email. The invoice is the document that gets kept, and it is the one that will be looked at when a dispute arises.',
         'The courtesy exception is worth including deliberately. It gives you a way to be generous once without setting a precedent, which is the specific situation most tutors handle badly — either enforcing rigidly and damaging the relationship, or waiving repeatedly until the policy is meaningless.',
       ],
@@ -864,8 +864,8 @@ export const tutorInvoiceGuide: GuideConfig = {
       heading: 'Bill the payer, not the student',
       body: [
         'When you tutor a child, the student and the client are different people, and the invoice must be addressed to whoever is paying.',
-        'Get the billing name and contact at enrolment, along with which parent or guardian is responsible where that is not obvious. Invoices addressed to a fourteen-year-old, or to the wrong parent in a separated household, are an entirely avoidable source of both non-payment and genuine awkwardness.',
-        'For adult learners funded by an employer, the client is the employer. That usually means a purchase order, a different address, longer payment terms and an approval chain, so ask at enrolment rather than discovering it when the first invoice stalls.',
+        'Get the billing name and contact at enrollment, along with which parent or guardian is responsible where that is not obvious. Invoices addressed to a fourteen-year-old, or to the wrong parent in a separated household, are an entirely avoidable source of both non-payment and genuine awkwardness.',
+        'For adult learners funded by an employer, the client is the employer. That usually means a purchase order, a different address, longer payment terms and an approval chain, so ask at enrollment rather than discovering it when the first invoice stalls.',
         'Agency and platform work is different again — you invoice the platform, at their rates and on their terms, and the parent is not your client at all.',
       ],
     },
@@ -904,7 +904,7 @@ export const tutorInvoiceGuide: GuideConfig = {
     {
       question: 'Who do I invoice when tutoring a child?',
       answer:
-        'The parent or guardian responsible for payment, by name, established at enrolment. In separated households confirm which parent is billed. Invoices addressed to the student, or to the wrong parent, are an avoidable cause of both non-payment and awkwardness.',
+        'The parent or guardian responsible for payment, by name, established at enrollment. In separated households confirm which parent is billed. Invoices addressed to the student, or to the wrong parent, are an avoidable cause of both non-payment and awkwardness.',
     },
     {
       question: 'How do I price a tutoring package?',
@@ -929,7 +929,7 @@ export const tutorInvoiceGuide: GuideConfig = {
     {
       question: 'How do I invoice a school or employer for tutoring?',
       answer:
-        'Ask at enrolment for a purchase order number, the billing address and the approval contact. Institutional payment terms are typically 30 days or longer and invoices without a PO are often auto-rejected, so gather this before the first invoice rather than after.',
+        'Ask at enrollment for a purchase order number, the billing address and the approval contact. Institutional payment terms are typically 30 days or longer and invoices without a PO are often auto-rejected, so gather this before the first invoice rather than after.',
     },
     {
       question: 'Do I need to register as a business to tutor?',

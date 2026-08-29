@@ -58,7 +58,7 @@ export const indiaGstInvoiceGuide: GuideConfig = {
         'Place of supply, with the state name, for inter-state supplies',
         'Delivery address, where it differs from the place of supply',
         'Whether tax is payable on a reverse charge basis',
-        'Signature or digital signature of the supplier or an authorised representative',
+        'Signature or digital signature of the supplier or an authorized representative',
       ],
     },
     {
@@ -120,7 +120,7 @@ export const indiaGstInvoiceGuide: GuideConfig = {
     {
       question: 'What is the difference between CGST, SGST and IGST?',
       answer:
-        'CGST and SGST are charged together on supplies within one state, splitting the rate between the centre and the state. IGST is charged at the full rate on supplies between states, and on imports. Place of supply relative to your location decides which applies.',
+        'CGST and SGST are charged together on supplies within one state, splitting the rate between the center and the state. IGST is charged at the full rate on supplies between states, and on imports. Place of supply relative to your location decides which applies.',
     },
     {
       question: 'What is HSN code on an invoice?',
@@ -170,7 +170,7 @@ export const indiaGstInvoiceGuide: GuideConfig = {
     {
       question: 'Do I need a signature on a GST invoice?',
       answer:
-        'Rule 46 requires a signature or digital signature of the supplier or an authorised representative. Electronically issued invoices carrying a valid digital signature satisfy this, and e-invoices reported to the IRP are treated as authenticated through that process.',
+        'Rule 46 requires a signature or digital signature of the supplier or an authorized representative. Electronically issued invoices carrying a valid digital signature satisfy this, and e-invoices reported to the IRP are treated as authenticated through that process.',
     },
     {
       question: 'How long must I keep GST invoices?',
@@ -235,7 +235,7 @@ export const uaeVatInvoiceGuide: GuideConfig = {
   },
   h1: 'UAE Tax Invoice Format: What the FTA Requires',
   intro:
-    'The UAE has one of the more precisely specified invoice formats in the region, set out in Article 59 of the VAT Executive Regulations. It also has something many jurisdictions do not: a genuinely simpler alternative format for small and consumer transactions, which most businesses are entitled to use more often than they realise. This guide covers both, the threshold that separates them, and the currency rule that catches out anyone invoicing in dollars.',
+    'The UAE has one of the more precisely specified invoice formats in the region, set out in Article 59 of the VAT Executive Regulations. It also has something many jurisdictions do not: a genuinely simpler alternative format for small and consumer transactions, which most businesses are entitled to use more often than they realize. This guide covers both, the threshold that separates them, and the currency rule that catches out anyone invoicing in dollars.',
   sections: [
     {
       heading: 'What a full tax invoice must contain',
@@ -289,7 +289,7 @@ export const uaeVatInvoiceGuide: GuideConfig = {
       body: [
         'Invoice numbers must be sequential and uniquely identify the document. Gaps invite questions, because the FTA uses sequence integrity to test whether any invoices have been suppressed.',
         'Records generally must be kept for five years from the end of the tax period, with longer retention for real estate. Keep the invoice, the evidence of supply and the exchange rate source together, since a review will ask for the chain rather than the document alone.',
-        'The UAE has an e-invoicing programme in progress, with phased implementation announced for the coming years. If you are planning a system change, it is worth checking the current timetable on the FTA site before committing to a format that will need replacing.',
+        'The UAE has an e-invoicing program in progress, with phased implementation announced for the coming years. If you are planning a system change, it is worth checking the current timetable on the FTA site before committing to a format that will need replacing.',
       ],
     },
   ],
@@ -348,7 +348,7 @@ export const uaeVatInvoiceGuide: GuideConfig = {
     {
       question: 'Is e-invoicing mandatory in the UAE?',
       answer:
-        'A national e-invoicing programme is being introduced in phases. Timetables have shifted, so confirm the current position and your own phase on the Federal Tax Authority site before rebuilding your invoicing around it.',
+        'A national e-invoicing program is being introduced in phases. Timetables have shifted, so confirm the current position and your own phase on the Federal Tax Authority site before rebuilding your invoicing around it.',
     },
     {
       question: 'What happens if my UAE tax invoice is wrong?',
@@ -464,7 +464,7 @@ export const philippinesInvoiceGuide: GuideConfig = {
       heading: 'Where e-invoicing sits',
       body: [
         'The BIR operates an Electronic Invoicing System with a phased scope, beginning with large taxpayers, exporters and e-commerce, and widening over time.',
-        'The timetable and the covered population have both moved since the programme was announced. Confirm your own obligation directly with the BIR rather than relying on a summary, including this one — the scope is defined by taxpayer classification rather than by a simple turnover figure.',
+        'The timetable and the covered population have both moved since the program was announced. Confirm your own obligation directly with the BIR rather than relying on a summary, including this one — the scope is defined by taxpayer classification rather than by a simple turnover figure.',
       ],
     },
   ],
@@ -778,7 +778,7 @@ export const euVatInvoiceGuide: GuideConfig = {
         'The reverse charge depends on your customer being a taxable person in another member state. Their VAT number is your evidence of that, and an unchecked number is not evidence.',
         'The Commission operates VIES, a free service that confirms whether a given VAT number is valid at a given date. Check it before issuing, and keep the consultation record. Some member states issue a consultation number you can retain as proof.',
         'If the number is invalid and you zero-rated anyway, the default position is that you should have charged domestic VAT — and you will be asked for it, typically with interest. This is not a theoretical risk; it is one of the most common cross-border assessments.',
-        'Re-check periodically for recurring customers. VAT registrations get cancelled, and a number that was valid when you onboarded a client two years ago may not be valid today.',
+        'Re-check periodically for recurring customers. VAT registrations get canceled, and a number that was valid when you onboarded a client two years ago may not be valid today.',
       ],
     },
     {

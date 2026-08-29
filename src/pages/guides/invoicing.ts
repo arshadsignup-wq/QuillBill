@@ -74,7 +74,7 @@ export const proformaInvoiceGuide: GuideConfig = {
         'The client business name and address',
         'A reference number from a separate sequence, such as PRO-001',
         'The issue date and a validity period',
-        'An itemised description of the goods or services with quantities and rates',
+        'An itemized description of the goods or services with quantities and rates',
         'Subtotal, discount, tax rate and estimated tax, and the total payable',
         'Payment terms and full payment details',
         'A note that this is not a demand for payment and that a full invoice will follow',
@@ -160,11 +160,11 @@ export const purchaseOrderGuide: GuideConfig = {
   },
   h1: 'Purchase Order vs Invoice',
   intro:
-    'A purchase order and an invoice cover the same transaction from opposite sides. The buyer issues the purchase order to commit to buying. The seller issues the invoice to request payment for what was supplied. If you sell to larger organisations, understanding how the two are matched is the difference between being paid on time and being told your invoice was rejected.',
+    'A purchase order and an invoice cover the same transaction from opposite sides. The buyer issues the purchase order to commit to buying. The seller issues the invoice to request payment for what was supplied. If you sell to larger organizations, understanding how the two are matched is the difference between being paid on time and being told your invoice was rejected.',
   keyTakeaways: [
     'The buyer issues the purchase order. The seller issues the invoice.',
     'The purchase order comes first and is an offer to buy; accepting it forms the contract.',
-    'The invoice comes after supply and requests payment for what the PO authorised.',
+    'The invoice comes after supply and requests payment for what the PO authorized.',
     'If a client uses purchase orders, your invoice must quote the PO number or it will be rejected.',
     'Always ask whether a PO is required before you start work, not after you invoice.',
   ],
@@ -180,7 +180,7 @@ export const purchaseOrderGuide: GuideConfig = {
           ['Issued by', 'The buyer', 'The seller'],
           ['Issued when', 'Before the goods or services are supplied', 'After they are supplied'],
           ['Says', '"We commit to buy this"', '"You owe us for this"'],
-          ['Creates', 'An authorisation and a commitment to buy', 'A debt owed to the seller'],
+          ['Creates', 'An authorization and a commitment to buy', 'A debt owed to the seller'],
           ['Numbered by', 'The buyer (PO number)', 'The seller (invoice number)'],
           ['Goes in accounts as', 'A committed cost for the buyer', 'A sale for the seller, a payable for the buyer'],
         ],
@@ -189,7 +189,7 @@ export const purchaseOrderGuide: GuideConfig = {
     {
       heading: 'How the sequence normally runs',
       body: [
-        'In an organisation that uses purchase orders, the flow is predictable, and each step exists to make the next one auditable.',
+        'In an organization that uses purchase orders, the flow is predictable, and each step exists to make the next one auditable.',
       ],
       list: [
         'The buyer requests a quotation from you',
@@ -205,7 +205,7 @@ export const purchaseOrderGuide: GuideConfig = {
     {
       heading: 'Why the PO number matters so much',
       body: [
-        'Larger organisations run what is called three-way matching: the purchase order, the goods received note and the invoice must all agree before payment is released. It is an anti-fraud control, and it is automated.',
+        'Larger organizations run what is called three-way matching: the purchase order, the goods received note and the invoice must all agree before payment is released. It is an anti-fraud control, and it is automated.',
         'An invoice arriving without a PO number typically cannot be matched, so it is rejected or parked by the system before a human ever considers it. Nobody is being difficult. The invoice simply has nowhere to go.',
         'The practical consequence is that a missing PO number is one of the most common causes of a genuinely unexplained late payment. You chase, your contact says it was approved weeks ago, and the invoice has been sitting in an exceptions queue the whole time.',
       ],
@@ -214,14 +214,14 @@ export const purchaseOrderGuide: GuideConfig = {
       heading: 'What to do before you start work',
       body: [
         'Ask two questions during the quoting stage rather than after delivery. First: do you require a purchase order for this? Second: which address should the invoice go to?',
-        'If the answer to the first is yes, do not begin work until you have the PO number in writing. Starting without one means you may have no authorised commitment to invoice against, and getting a retrospective PO raised can take weeks.',
-        'If the PO has a value limit and the scope grows, get the PO amended before you exceed it. Invoicing above the authorised amount will fail matching just as surely as invoicing with no PO at all.',
+        'If the answer to the first is yes, do not begin work until you have the PO number in writing. Starting without one means you may have no authorized commitment to invoice against, and getting a retrospective PO raised can take weeks.',
+        'If the PO has a value limit and the scope grows, get the PO amended before you exceed it. Invoicing above the authorized amount will fail matching just as surely as invoicing with no PO at all.',
       ],
     },
     {
       heading: 'Putting the PO number on your invoice',
       body: [
-        'Put it somewhere prominent and clearly labelled, near your own invoice number rather than buried in a description line. "PO Number: 4500123456" is what the processing system and the person keying it in are both looking for.',
+        'Put it somewhere prominent and clearly labeled, near your own invoice number rather than buried in a description line. "PO Number: 4500123456" is what the processing system and the person keying it in are both looking for.',
         'Match the other details too. If the PO is addressed to a specific legal entity, invoice that entity, not the trading name you usually use. Mismatched entity names are the second most common matching failure after missing PO numbers.',
         'In QuillBill you can add the PO reference in the document notes or as a dedicated line so it appears clearly on every template.',
       ],
@@ -243,7 +243,7 @@ export const purchaseOrderGuide: GuideConfig = {
     {
       question: 'Does a purchase order come before or after the invoice?',
       answer:
-        'Before. The purchase order authorises and commits to the purchase; the invoice requests payment after the goods or services have been supplied.',
+        'Before. The purchase order authorizes and commits to the purchase; the invoice requests payment after the goods or services have been supplied.',
     },
     {
       question: 'Is a purchase order legally binding?',
@@ -258,12 +258,12 @@ export const purchaseOrderGuide: GuideConfig = {
     {
       question: 'Can one purchase order cover several invoices?',
       answer:
-        'Yes. Staged or recurring work is often invoiced in instalments against a single PO, provided the cumulative total stays within the authorised value.',
+        'Yes. Staged or recurring work is often invoiced in instalments against a single PO, provided the cumulative total stays within the authorized value.',
     },
     {
       question: 'What if the work grows beyond the PO value?',
       answer:
-        'Ask the buyer to amend or reissue the purchase order before you invoice above its value. Invoicing over the authorised amount will fail matching.',
+        'Ask the buyer to amend or reissue the purchase order before you invoice above its value. Invoicing over the authorized amount will fail matching.',
     },
   ],
   ctaHeading: 'Invoice against a purchase order',
@@ -310,15 +310,15 @@ export const freelanceInvoicingGuide: GuideConfig = {
     {
       heading: 'Your first invoice',
       body: [
-        'The mechanics are the same as any business invoice: your details, the client details, a unique number, dates, itemised work, totals and payment terms. The guide on how to create an invoice covers the full field list.',
+        'The mechanics are the same as any business invoice: your details, the client details, a unique number, dates, itemized work, totals and payment terms. The guide on how to create an invoice covers the full field list.',
         'Two things are worth getting right from the very first one. Start a numbering sequence you can live with, such as INV-001, and never reuse or skip a number. And set your terms deliberately rather than copying Net 30 out of habit.',
       ],
     },
     {
-      heading: 'Rates, and what to itemise',
+      heading: 'Rates, and what to itemize',
       body: [
-        'Whether you bill hourly, daily or by project, the invoice should describe work the client recognises. "Homepage and three interior page designs, including two revision rounds" tells them what they bought. "32 hours" tells them what to negotiate.',
-        'If you bill hourly, keep a defensible record of time even when the client never asks. If you bill by project, itemise by deliverable or phase. Either way, avoid single-line invoices reading "Consulting — $4,000" on anything substantial, because that is the line most likely to be queried.',
+        'Whether you bill hourly, daily or by project, the invoice should describe work the client recognizes. "Homepage and three interior page designs, including two revision rounds" tells them what they bought. "32 hours" tells them what to negotiate.',
+        'If you bill hourly, keep a defensible record of time even when the client never asks. If you bill by project, itemize by deliverable or phase. Either way, avoid single-line invoices reading "Consulting — $4,000" on anything substantial, because that is the line most likely to be queried.',
       ],
     },
     {
@@ -373,7 +373,7 @@ export const freelanceInvoicingGuide: GuideConfig = {
     {
       question: 'What should a freelancer put on an invoice?',
       answer:
-        'Your name and address, the client details, a unique invoice number, the issue and due dates, an itemised description of the work with quantities and rates, the total, any tax, and your payment terms and bank details.',
+        'Your name and address, the client details, a unique invoice number, the issue and due dates, an itemized description of the work with quantities and rates, the total, any tax, and your payment terms and bank details.',
     },
     {
       question: 'Should I ask freelance clients for a deposit?',

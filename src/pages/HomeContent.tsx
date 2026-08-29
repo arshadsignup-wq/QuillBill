@@ -54,7 +54,7 @@ export default function HomeContent() {
         </p>
         <p className="mt-3 text-sm text-gray-600 leading-relaxed">
           Create invoices, quotations and proposals from a single editor. Choose from 15 templates,
-          set your own accent colour, add your logo, and export a clean A4 or Letter PDF. Line
+          set your own accent color, add your logo, and export a clean A4 or Letter PDF. Line
           totals, discounts, tax or VAT and shipping are all calculated as you type.
         </p>
 
@@ -72,7 +72,7 @@ export default function HomeContent() {
         <ol className="mt-4 space-y-3">
           {[
             'Fill in your business details, your client details and the line items. Your draft saves to your own browser as you go.',
-            'Pick one of 15 templates and set an accent colour to match your brand. Switching templates never changes your content.',
+            'Pick one of 15 templates and set an accent color to match your brand. Switching templates never changes your content.',
             'Export a PDF, or generate a shareable link that encodes the document into the URL itself rather than storing it on a server.',
           ].map((step, i) => (
             <li key={i} className="flex gap-3 text-sm text-gray-600 leading-relaxed">

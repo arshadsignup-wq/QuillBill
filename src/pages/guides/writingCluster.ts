@@ -330,7 +330,7 @@ export const quotationsAboutChangeGuide: GuideConfig = {
     {
       question: 'How many quotations should I use in a piece of writing?',
       answer:
-        'Usually one. Quotations borrow authority, and borrowing repeatedly suggests you have none of your own. The exception is writing where the quotations are the subject rather than the support, such as a collection or a piece analysing them.',
+        'Usually one. Quotations borrow authority, and borrowing repeatedly suggests you have none of your own. The exception is writing where the quotations are the subject rather than the support, such as a collection or a piece analyzing them.',
     },
     {
       question: 'Is it legal to use a quotation in commercial material?',
@@ -441,7 +441,7 @@ export const randomQuoteGeneratorGuide: GuideConfig = {
         'Shuffle-and-step rather than re-rolling, if you want full coverage',
         'Verify attributions before adding them, not after someone corrects you',
         'Include the source work where you know it, not just the name',
-        'If rendering to an image, check your font licence covers the intended use',
+        'If rendering to an image, check your font license covers the intended use',
       ],
     },
     {
@@ -484,7 +484,7 @@ export const randomQuoteGeneratorGuide: GuideConfig = {
     {
       question: 'Can I use quote images commercially?',
       answer:
-        'Check three things: your font licence, since many attractive free fonts are personal-use only; the background image rights, since stock inside an editor may be licensed to the tool rather than to you; and the quotation itself, since long extracts remain copyrighted.',
+        'Check three things: your font license, since many attractive free fonts are personal-use only; the background image rights, since stock inside an editor may be licensed to the tool rather than to you; and the quotation itself, since long extracts remain copyrighted.',
     },
     {
       question: 'What is the best random quote generator?',
@@ -506,7 +506,7 @@ export const randomQuoteGeneratorGuide: GuideConfig = {
     {
       question: 'Can I use a quote generator image commercially?',
       answer:
-        'Check three things first: the font licence, since many free fonts are personal-use only; the background image rights, since stock in the editor may be licensed to the tool rather than to you; and the quotation itself, since long extracts from copyrighted works, especially song lyrics, remain protected.',
+        'Check three things first: the font license, since many free fonts are personal-use only; the background image rights, since stock in the editor may be licensed to the tool rather than to you; and the quotation itself, since long extracts from copyrighted works, especially song lyrics, remain protected.',
     },
     {
       question: 'How do I build a random quote generator?',

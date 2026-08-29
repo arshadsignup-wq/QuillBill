@@ -66,7 +66,7 @@ export const howToCreateInvoiceGuide: GuideConfig = {
     'What an invoice must contain, how to number them, setting payment terms, and exporting a PDF.',
   keyTakeaways: [
     'Every invoice needs a unique number, an issue date and an explicit due date.',
-    'Itemise clearly. Vague descriptions are the most common reason invoices get queried.',
+    'Itemize clearly. Vague descriptions are the most common reason invoices get queried.',
     'State payment terms and bank details on the invoice itself, not only in a contract.',
     'Send it the day the work is finished, not at month end.',
   ],
@@ -82,7 +82,7 @@ export const howToCreateInvoiceGuide: GuideConfig = {
   howTo: {
     name: 'How to create an invoice',
     description:
-      'Create a professional invoice with your business details, client details, itemised line items, totals and payment terms, then export it as a PDF.',
+      'Create a professional invoice with your business details, client details, itemized line items, totals and payment terms, then export it as a PDF.',
     steps: [
       {
         title: 'Add your business details',
@@ -134,7 +134,7 @@ export const howToCreateInvoiceGuide: GuideConfig = {
         'Your tax, VAT or company registration number where applicable',
         'The client business name and billing address',
         'The invoice issue date and the payment due date',
-        'An itemised description of the goods or services supplied',
+        'An itemized description of the goods or services supplied',
         'Quantity, unit price and line total for each item',
         'The subtotal, any discount, the tax rate and tax amount',
         'The total amount payable and the currency',
@@ -191,7 +191,7 @@ export const howToCreateInvoiceGuide: GuideConfig = {
     {
       question: 'How do I generate an invoice?',
       answer:
-        'Enter your business details, the client\'s legal entity and address, a unique invoice number, the issue and due dates, and itemised line items with quantities and rates. Apply tax as a separate line, state your payment terms and bank details, then export the document as a PDF.',
+        'Enter your business details, the client\'s legal entity and address, a unique invoice number, the issue and due dates, and itemized line items with quantities and rates. Apply tax as a separate line, state your payment terms and bank details, then export the document as a PDF.',
     },
     {
       question: 'What information is legally required on an invoice?',
@@ -301,7 +301,7 @@ export const invoiceVsQuotationGuide: GuideConfig = {
       list: [
         'A quotation number and issue date',
         'A validity or expiry date for the quoted price',
-        'An itemised breakdown of the work with quantities and rates',
+        'An itemized breakdown of the work with quantities and rates',
         'The total quoted price and currency',
         'What is explicitly included and excluded',
         'Payment terms that will apply once accepted',
@@ -316,7 +316,7 @@ export const invoiceVsQuotationGuide: GuideConfig = {
       list: [
         'A unique, sequential invoice number',
         'The issue date and a clear payment due date',
-        'Itemised goods or services with quantity and rate',
+        'Itemized goods or services with quantity and rate',
         'Subtotal, discount, tax rate and tax amount',
         'The total amount payable',
         'Payment instructions and bank or payment details',

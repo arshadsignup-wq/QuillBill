@@ -51,9 +51,9 @@ export const aiProposalGeneratorGuide: GuideConfig = {
       heading: 'The four things they consistently get wrong',
       body: [
         'These are not model quality problems that will disappear with the next release. They are structural: the tool does not have the information.',
-        'Pricing. A generator does not know your cost base, your utilisation, your minimum viable margin or what this client paid last time. Any figure it produces is a plausible-looking guess, and a proposal is where a plausible-looking guess becomes a binding number. Always replace generated pricing entirely.',
+        'Pricing. A generator does not know your cost base, your utilization, your minimum viable margin or what this client paid last time. Any figure it produces is a plausible-looking guess, and a proposal is where a plausible-looking guess becomes a binding number. Always replace generated pricing entirely.',
         'Timelines. The model does not know your current workload or your dependencies. Generated timelines skew optimistic, because the training data is full of confident project plans. A deadline in a proposal is a commitment, and this is the most common way AI-drafted proposals cause real damage.',
-        'Specificity about the client. The output will say "your organisation\'s unique challenges" because it does not know what those are. This is the difference between a proposal that reads as written for someone and one that reads as generated, and clients who read a lot of proposals spot it instantly.',
+        'Specificity about the client. The output will say "your organization\'s unique challenges" because it does not know what those are. This is the difference between a proposal that reads as written for someone and one that reads as generated, and clients who read a lot of proposals spot it instantly.',
         'Claims about you. Models will happily assert experience, certifications and case study results you do not have. Every factual claim about your business needs verifying before it goes out, and inventing credentials in a document that forms part of a contract is a serious problem, not a stylistic one.',
       ],
       table: {
@@ -147,7 +147,7 @@ export const aiProposalGeneratorGuide: GuideConfig = {
     {
       question: 'Can AI generate the pricing for a proposal?',
       answer:
-        'It can produce a figure, and you should never use it. The model has no knowledge of your cost base, utilisation or minimum margin, so its number is a plausible-looking guess — and in a proposal, a guess becomes a binding commitment the moment the client accepts.',
+        'It can produce a figure, and you should never use it. The model has no knowledge of your cost base, utilization or minimum margin, so its number is a plausible-looking guess — and in a proposal, a guess becomes a binding commitment the moment the client accepts.',
     },
     {
       question: 'What is the best free AI proposal generator?',
@@ -316,7 +316,7 @@ export const proposalGenerationSoftwareGuide: GuideConfig = {
     {
       question: 'What is an automated proposal generation engine?',
       answer:
-        'A system that assembles proposals from structured inputs without anyone drafting each one, pulling client data from a CRM and content from a rules-driven library. It suits high-volume standardised proposals such as insurance or equipment quoting, and is overkill for bespoke work.',
+        'A system that assembles proposals from structured inputs without anyone drafting each one, pulling client data from a CRM and content from a rules-driven library. It suits high-volume standardized proposals such as insurance or equipment quoting, and is overkill for bespoke work.',
     },
     {
       question: 'What proposal software do financial advisers use?',
@@ -426,7 +426,7 @@ export const freeProposalTemplateGuide: GuideConfig = {
           ['Lead with', 'Your approach', 'The problem', 'Their required order'],
           ['Typical length', 'Short', 'Medium', 'As specified'],
           ['Problem section', 'Brief recap', 'The main work', 'Restate their framing'],
-          ['Pricing detail', 'Itemised', 'Indicative range', 'Exactly their format'],
+          ['Pricing detail', 'Itemized', 'Indicative range', 'Exactly their format'],
           ['Template useful?', 'Yes', 'Partly', 'No — follow the RFP'],
         ],
       },
@@ -436,7 +436,7 @@ export const freeProposalTemplateGuide: GuideConfig = {
       body: [
         'Download a handful of the most popular free proposal templates and the same problems recur.',
         'Too much about you, too early. A typical template opens with company background, team biographies and a client logo wall. The client is not yet interested in you; they are interested in whether you understand their problem. Move credentials after the approach section, where they serve as evidence rather than throat-clearing.',
-        'A problem statement written in your language. Templates prompt you to "describe the client\'s challenge", and most people describe it as their industry would. The client needs to recognise their own situation, in their own words, or the whole document reads as generic.',
+        'A problem statement written in your language. Templates prompt you to "describe the client\'s challenge", and most people describe it as their industry would. The client needs to recognize their own situation, in their own words, or the whole document reads as generic.',
         'A single price with no structure. Most templates give you one total. A pricing section with a core scope plus clearly priced options converts better, because it changes the question from whether to how much.',
         'Deliverables that are activities. "Ongoing consultation" and "strategic support" are not deliverables and cannot be verified as complete. A deliverable is something that either exists or does not.',
         'No stated next step. Templates end with a signature block and no instruction. Tell the client exactly what happens next and by when.',
@@ -454,7 +454,7 @@ export const freeProposalTemplateGuide: GuideConfig = {
         'Your proposed approach, specific enough that a competitor could not have written it',
         'Deliverables, each one verifiable as done or not done',
         'Timeline with milestones, based on your real capacity',
-        'Pricing, itemised, with options where they exist',
+        'Pricing, itemized, with options where they exist',
         'Assumptions and what is explicitly out of scope',
         'Brief, relevant credentials — the two most relevant, not everything',
         'Terms, validity period, and exactly how to accept',
@@ -467,7 +467,7 @@ export const freeProposalTemplateGuide: GuideConfig = {
         'Rewrite the headings. "Proposed Solution" is a template heading. "Reducing your onboarding time from three weeks to four days" is a heading that only applies to this client. Headings are the most-scanned part of a document and the cheapest place to demonstrate specificity.',
         'Quote them directly. Two or three phrases from your discovery call, used verbatim, transform how the document reads. This is the single highest-leverage edit available.',
         'Cut the sections that do not apply. A template with an empty or padded section is worse than a template with the section removed. Nobody is counting.',
-        'Fix the pricing table. This is the section clients spend the most time on, and it is the section free templates handle worst. Make sure the totals calculate correctly, tax is labelled properly, and any options are visually distinct from the core scope.',
+        'Fix the pricing table. This is the section clients spend the most time on, and it is the section free templates handle worst. Make sure the totals calculate correctly, tax is labeled properly, and any options are visually distinct from the core scope.',
       ],
     },
     {
@@ -534,7 +534,7 @@ export const freeProposalTemplateGuide: GuideConfig = {
     {
       question: 'What should a free business proposal template include?',
       answer:
-        'A title page, an executive summary, the problem stated in the client\'s terms, your approach, verifiable deliverables, a timeline, itemised pricing, assumptions and exclusions, brief relevant credentials, and clear terms with a validity date and an acceptance instruction.',
+        'A title page, an executive summary, the problem stated in the client\'s terms, your approach, verifiable deliverables, a timeline, itemized pricing, assumptions and exclusions, brief relevant credentials, and clear terms with a validity date and an acceptance instruction.',
     },
     {
       question: 'Are free proposal templates good enough to win work?',
@@ -621,7 +621,7 @@ export const businessProposalFormatGuide: GuideConfig = {
       heading: 'The executive summary is written last and read first',
       body: [
         'This is the most consequential formatting rule in the document, and the one most often broken.',
-        'The executive summary appears first and must work as a standalone document, because in many organisations it is the only part the actual decision-maker reads — the rest goes to whoever is doing the evaluation. It should state the problem, your approach, the outcome and the price, in about a page.',
+        'The executive summary appears first and must work as a standalone document, because in many organizations it is the only part the actual decision-maker reads — the rest goes to whoever is doing the evaluation. It should state the problem, your approach, the outcome and the price, in about a page.',
         'It must be written after everything else. Written first, it becomes an introduction to a document you have not written yet, which is why so many summaries describe what the proposal contains rather than what you are proposing. "This proposal outlines our approach to..." is the signature of a summary written first.',
         'A good test: delete every other section and hand someone only the summary. If they can tell you what is being proposed, for how much, and why it is a good idea, it works.',
       ],
@@ -634,7 +634,7 @@ export const businessProposalFormatGuide: GuideConfig = {
         'Use real heading styles rather than bold text, so the document generates a navigable structure and a working table of contents. This matters for accessibility too: screen readers navigate by heading structure, and some public sector buyers have accessibility requirements for submitted documents.',
         'Keep paragraphs to three or four lines. Dense blocks get skipped, and the information in them is effectively not in the proposal.',
         'Leave whitespace. A page at 60% density reads as considered; a page at 90% reads as a wall and signals that you did not edit.',
-        'Use your branding sparingly and consistently — logo, one accent colour, one typeface. Heavy design in a proposal tends to read as compensating.',
+        'Use your branding sparingly and consistently — logo, one accent color, one typeface. Heavy design in a proposal tends to read as compensating.',
       ],
       list: [
         'Body 11–12pt, headings 14–16pt, one typeface throughout',
@@ -643,7 +643,7 @@ export const businessProposalFormatGuide: GuideConfig = {
         'Page numbers and your client\'s name in the footer of every page',
         'Pricing in a table, never in prose',
         'Consistent number and date formats, especially currency',
-        'One accent colour, used for headings and table rules only',
+        'One accent color, used for headings and table rules only',
         'Enough contrast that it prints legibly in greyscale',
       ],
     },
@@ -698,7 +698,7 @@ export const businessProposalFormatGuide: GuideConfig = {
     {
       question: 'How should pricing be presented in a proposal?',
       answer:
-        'Always as a table, never in prose: line item, quantity where relevant, unit price, line total, then subtotal, correctly labelled tax and total. State the currency explicitly, separate optional items visually from the core scope, and give the pricing its own validity date.',
+        'Always as a table, never in prose: line item, quantity where relevant, unit price, line total, then subtotal, correctly labeled tax and total. State the currency explicitly, separate optional items visually from the core scope, and give the pricing its own validity date.',
     },
     {
       question: 'What font should a business proposal use?',

@@ -37,7 +37,7 @@ export const depositInvoiceGuide: GuideConfig = {
       body: [
         'These four words get used interchangeably and mean different things, which matters when someone asks for their money back.',
         'A deposit secures a commitment. It is usually a proportion of the total, and its function is to make the client\'s cancellation costly enough that they turn up. Wedding photography and event work run on this.',
-        'An advance payment funds work you must pay for before you can deliver — materials, subcontractors, licences. Its function is cashflow, not commitment, and it is usually sized to the actual cost being covered rather than as a percentage of the job.',
+        'An advance payment funds work you must pay for before you can deliver — materials, subcontractors, licenses. Its function is cashflow, not commitment, and it is usually sized to the actual cost being covered rather than as a percentage of the job.',
         'A retainer buys availability over a period, and is properly covered in [retainer and recurring invoices](/retainer-recurring-invoice).',
         'A prepayment is simply the whole fee, paid up front. Common for small jobs, new clients and anything where chasing afterwards would cost more than the job is worth.',
       ],
@@ -104,7 +104,7 @@ export const depositInvoiceGuide: GuideConfig = {
     {
       question: 'What is the difference between a deposit and an advance payment?',
       answer:
-        'A deposit secures commitment and is usually a proportion of the total. An advance funds costs you must incur before delivering — materials, subcontractors, licences — and is sized to those costs. One manages risk, the other manages cashflow.',
+        'A deposit secures commitment and is usually a proportion of the total. An advance funds costs you must incur before delivering — materials, subcontractors, licenses — and is sized to those costs. One manages risk, the other manages cashflow.',
     },
     {
       question: 'Do I charge VAT or GST on a deposit?',
@@ -114,7 +114,7 @@ export const depositInvoiceGuide: GuideConfig = {
     {
       question: 'How do I show a deposit on the final invoice?',
       answer:
-        'Show the full value of the work, then the deposit already paid as a clearly labelled deduction, then the balance due. Invoicing only the remainder with no reference leaves the client\'s bookkeeper unable to reconcile it against their records.',
+        'Show the full value of the work, then the deposit already paid as a clearly labeled deduction, then the balance due. Invoicing only the remainder with no reference leaves the client\'s bookkeeper unable to reconcile it against their records.',
     },
     {
       question: 'What is a proforma invoice for a deposit?',
@@ -406,7 +406,7 @@ export const creditNoteGuide: GuideConfig = {
         'A credit note changes your tax position, and the timing matters.',
         'In most VAT and GST systems, an adjustment is accounted for in the period the credit note is issued, not the period the original invoice was raised. You do not go back and amend a filed return; you reflect the adjustment in the current one.',
         'The tax reversed must be at the rate originally charged, even if rates have since changed. A 2024 invoice credited in 2026 reverses at the 2024 rate.',
-        'Your client makes the mirror adjustment, reducing the input tax they claimed. This is why issuing the credit note promptly matters — a client who claimed input tax on an invoice you later cancelled is carrying an error until you give them the document that lets them fix it.',
+        'Your client makes the mirror adjustment, reducing the input tax they claimed. This is why issuing the credit note promptly matters — a client who claimed input tax on an invoice you later canceled is carrying an error until you give them the document that lets them fix it.',
         'For overpayments specifically, money a client has paid that you are not entitled to keep is not income. Holding it indefinitely is neither good practice nor, in many jurisdictions, lawful — unclaimed balances eventually fall under specific rules about what must be done with them.',
       ],
     },
@@ -441,7 +441,7 @@ export const creditNoteGuide: GuideConfig = {
     {
       question: 'How do I cancel an invoice completely?',
       answer:
-        'Issue a credit note for the full value, referencing the original invoice number and stating the reason. The invoice and the credit note both stand in your records and net to zero. Never reuse the cancelled invoice number for a different sale.',
+        'Issue a credit note for the full value, referencing the original invoice number and stating the reason. The invoice and the credit note both stand in your records and net to zero. Never reuse the canceled invoice number for a different sale.',
     },
     {
       question: 'What do I do if a client overpays?',
@@ -537,7 +537,7 @@ export const disputedInvoiceGuide: GuideConfig = {
       body: [
         'In practice nearly every invoice dispute is one of these, and each has a different correct response.',
         'A scope misunderstanding. The client believed something was included. This is the most common by a wide margin, and it is usually a quoting failure rather than a delivery failure. If the quotation genuinely was ambiguous, the fair resolution is usually to split the difference and then fix your quotation template, which is covered in [how to write a quotation](/how-to-write-a-quotation).',
-        'A genuine defect. The work is not what was agreed. Inspect it, acknowledge what is wrong without over-apologising, fix it, and hold the invoice until it is fixed. Do not offer a discount instead of a fix unless the client asks for one — it reads as buying your way out.',
+        'A genuine defect. The work is not what was agreed. Inspect it, acknowledge what is wrong without over-apologizing, fix it, and hold the invoice until it is fixed. Do not offer a discount instead of a fix unless the client asks for one — it reads as buying your way out.',
         'A cashflow problem wearing a dispute as a costume. The client cannot pay and is generating an objection to buy time. The tell is that the objection is vague, arrives at the due date rather than on receipt, and grows when answered. Address it directly and offer a payment plan.',
         'An administrative deduction. Withholding tax, a contra charge, or a retention. Not a dispute at all, and treating it as one damages the relationship over nothing. Check the arithmetic before responding.',
       ],
@@ -630,7 +630,7 @@ export const disputedInvoiceGuide: GuideConfig = {
     {
       question: 'How do I avoid invoice disputes?',
       answer:
-        'Almost all of them are created at quoting stage. Itemise the scope, state exclusions and assumptions explicitly, price variations in writing before doing the work, and confirm approvals by message. Disputes are a symptom of an ambiguous quotation far more often than of poor work.',
+        'Almost all of them are created at quoting stage. Itemize the scope, state exclusions and assumptions explicitly, price variations in writing before doing the work, and confirm approvals by message. Disputes are a symptom of an ambiguous quotation far more often than of poor work.',
     },
   ],
   faqs: [

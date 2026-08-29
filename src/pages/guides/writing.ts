@@ -20,13 +20,13 @@ export const writeQuotationGuide: GuideConfig = {
     'A quotation is a fixed price. An estimate is an approximation. Label the document accurately.',
     'Always set a validity period. Fourteen to thirty days is standard.',
     'What you exclude matters as much as what you include.',
-    'Itemise enough that the client can see value, but not so much that they cherry-pick.',
+    'Itemize enough that the client can see value, but not so much that they cherry-pick.',
     'Follow up once, roughly a week later. Most quotations are lost to silence, not to price.',
   ],
   howTo: {
     name: 'How to write a quotation',
     description:
-      'Produce a professional price quotation covering scope, itemised pricing, inclusions, exclusions, validity and terms.',
+      'Produce a professional price quotation covering scope, itemized pricing, inclusions, exclusions, validity and terms.',
     steps: [
       {
         title: 'Confirm what the client actually wants',
@@ -44,9 +44,9 @@ export const writeQuotationGuide: GuideConfig = {
           'Assign a reference such as QUO-001, set the issue date, and set an expiry date for the quoted price.',
       },
       {
-        title: 'Describe the work in itemised lines',
+        title: 'Describe the work in itemized lines',
         description:
-          'Break the job into line items with clear descriptions, quantities and unit rates. Write descriptions the client would recognise, not internal shorthand.',
+          'Break the job into line items with clear descriptions, quantities and unit rates. Write descriptions the client would recognize, not internal shorthand.',
       },
       {
         title: 'State inclusions and exclusions explicitly',
@@ -84,7 +84,7 @@ export const writeQuotationGuide: GuideConfig = {
         'A validity or expiry date for the quoted price',
         'Your business name, address, contact details and tax number where applicable',
         'The client business name and the approving contact',
-        'An itemised description of the work with quantities and unit rates',
+        'An itemized description of the work with quantities and unit rates',
         'A clear statement of what is included',
         'A clear statement of what is excluded',
         'Subtotal, any discount, the tax rate and tax amount, and the total',
@@ -108,10 +108,10 @@ export const writeQuotationGuide: GuideConfig = {
       ],
     },
     {
-      heading: 'How much to itemise',
+      heading: 'How much to itemize',
       body: [
         'There is a real tension here. Too little detail and the client cannot see what they are paying for, so the price looks arbitrary. Too much and they start deleting lines, or benchmarking each one against a cheaper supplier.',
-        'A reasonable default is to itemise by phase or deliverable rather than by task or hour. "Discovery and wireframes — $1,200" invites a conversation about value. "6 hours at $200" invites a conversation about your hourly rate. The first is a better conversation to have.',
+        'A reasonable default is to itemize by phase or deliverable rather than by task or hour. "Discovery and wireframes — $1,200" invites a conversation about value. "6 hours at $200" invites a conversation about your hourly rate. The first is a better conversation to have.',
         'Where a client genuinely needs a line-by-line breakdown, give it, but consider marking optional items clearly as optional so the core scope stays intact.',
       ],
     },
@@ -269,7 +269,7 @@ export const writeProposalGuide: GuideConfig = {
       heading: 'Write the executive summary last',
       body: [
         'The executive summary is not an introduction. It is a compressed version of the entire proposal, and for senior stakeholders who were not in the original meeting it is frequently the only section read end to end.',
-        'It should stand alone: someone reading only that page should understand the problem, what you propose to do, what the client gets, roughly what it costs and how long it takes. Write it after everything else, when you know what you are summarising.',
+        'It should stand alone: someone reading only that page should understand the problem, what you propose to do, what the client gets, roughly what it costs and how long it takes. Write it after everything else, when you know what you are summarizing.',
       ],
     },
     {
@@ -282,7 +282,7 @@ export const writeProposalGuide: GuideConfig = {
     {
       heading: 'Deliverables must be checkable',
       body: [
-        'A deliverable is something the client receives and can verify. "A comprehensive brand strategy" is not checkable. "A 12-page brand guidelines PDF covering logo usage, colour, typography and tone of voice" is.',
+        'A deliverable is something the client receives and can verify. "A comprehensive brand strategy" is not checkable. "A 12-page brand guidelines PDF covering logo usage, color, typography and tone of voice" is.',
         'This protects both sides. The client knows what they are buying, and you have a defensible definition of done. Vague deliverables are how projects end up with an extra month of unpaid revisions.',
       ],
     },
@@ -311,7 +311,7 @@ export const writeProposalGuide: GuideConfig = {
     {
       heading: 'Make accepting it easy',
       body: [
-        'End with an unambiguous next step. A signature block for both the client and your authorised signer, with name, date and space for a signature, turns the proposal into its own acceptance document and removes a round of paperwork.',
+        'End with an unambiguous next step. A signature block for both the client and your authorized signer, with name, date and space for a signature, turns the proposal into its own acceptance document and removes a round of paperwork.',
         'Then follow up. As with quotations, most proposals that go unanswered are lost to inertia rather than to a decision. One short, useful follow-up a week later is expected, not pushy.',
       ],
     },

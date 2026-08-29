@@ -36,7 +36,7 @@ export const quotationGeneratorGuide: GuideConfig = {
       {
         title: 'Open a generator in quotation mode',
         description:
-          'Make sure the document is labelled Quotation or Quote, not Invoice. A client who receives a document headed "Invoice" for work not yet agreed will either be confused or assume they are being billed.',
+          'Make sure the document is labeled Quotation or Quote, not Invoice. A client who receives a document headed "Invoice" for work not yet agreed will either be confused or assume they are being billed.',
       },
       {
         title: 'Add your details and a quotation number',
@@ -49,7 +49,7 @@ export const quotationGeneratorGuide: GuideConfig = {
           'State how long the price holds, typically 14 to 30 days. Without it the quote is open-ended, and a client can accept six months later at a price that no longer covers your costs.',
       },
       {
-        title: 'Itemise the scope precisely',
+        title: 'Itemize the scope precisely',
         description:
           'Each line should describe a deliverable, not an activity. "Homepage design, two rounds of revision" is quotable; "design work" invites scope disputes after acceptance.',
       },
@@ -112,7 +112,7 @@ export const quotationGeneratorGuide: GuideConfig = {
       body: [
         'The one structural feature that changes revenue rather than just saving time is the ability to present options.',
         'A single-total quotation asks a binary question: yes or no. A quotation with a core scope plus clearly priced optional extras asks a different question: which of these do you want? That reframing tends to move the conversation from whether to buy to how much to buy, and it lets a client self-select a larger scope without you having to sell it.',
-        'It also protects you on the downside. If the budget is tight, an itemised quote with optional lines lets the client remove something specific, rather than asking you to reduce the total — which means cutting your margin rather than the scope.',
+        'It also protects you on the downside. If the budget is tight, an itemized quote with optional lines lets the client remove something specific, rather than asking you to reduce the total — which means cutting your margin rather than the scope.',
         'Very few free quotation tools handle this properly. Where a tool does not, present options as clearly separated groups within the line items and state in the notes which are included in the headline figure.',
       ],
     },
@@ -145,7 +145,7 @@ export const quotationGeneratorGuide: GuideConfig = {
     {
       question: 'How do I make a quotation for a customer?',
       answer:
-        'Establish what the client actually needs, price the work from your own costs, then set it out as itemised lines with quantities and rates. Add a validity date, state what is excluded, give the payment terms that will apply, and say exactly how to accept.',
+        'Establish what the client actually needs, price the work from your own costs, then set it out as itemized lines with quantities and rates. Add a validity date, state what is excluded, give the payment terms that will apply, and say exactly how to accept.',
     },
     {
       question: 'Can I change a quotation after sending it?',
@@ -187,7 +187,7 @@ export const quotationGeneratorGuide: GuideConfig = {
     {
       question: 'What is a quotation generator?',
       answer:
-        'A tool that produces a formal price quotation as a shareable or printable document. A good one handles the fields that make a quote an offer rather than a price list: a validity date, itemised scope, exclusions and an acceptance path — not just totals and tax.',
+        'A tool that produces a formal price quotation as a shareable or printable document. A good one handles the fields that make a quote an offer rather than a price list: a validity date, itemized scope, exclusions and an acceptance path — not just totals and tax.',
     },
     {
       question: 'Is a quotation generator different from an invoice generator?',
@@ -253,7 +253,7 @@ export const freeQuotationTemplateGuide: GuideConfig = {
       body: [
         'Whatever template you start from, check for these and add them if they are missing. Each takes one line and each prevents a specific, common problem.',
         'Valid until. Without an expiry date, your price stands indefinitely. Materials move, your availability changes, and a client who resurfaces eight months later will reasonably expect the quoted figure. Add "Valid until: [date]" near the total, not buried in small print.',
-        'Exclusions. What the quote does not cover causes more disputes than what it does. Travel outside a radius, materials at cost, out-of-hours work, third-party licence fees, revisions beyond an agreed number — say so explicitly. A short "Not included" list is the single highest-value addition you can make to a quotation template.',
+        'Exclusions. What the quote does not cover causes more disputes than what it does. Travel outside a radius, materials at cost, out-of-hours work, third-party license fees, revisions beyond an agreed number — say so explicitly. A short "Not included" list is the single highest-value addition you can make to a quotation template.',
         'Acceptance. Tell the client precisely how to say yes: reply to this email confirming, or sign and return. An offer that leaves acceptance ambiguous produces quotations that are neither accepted nor declined, just quietly stale.',
       ],
       list: [
@@ -305,17 +305,17 @@ export const freeQuotationTemplateGuide: GuideConfig = {
     {
       question: 'What is a quotation template?',
       answer:
-        'A reusable document layout with the structure of a price quotation already in place — your details, the client\'s, itemised lines, totals and terms — so you only fill in what changes. A complete one also includes a validity date, an exclusions section and an acceptance instruction.',
+        'A reusable document layout with the structure of a price quotation already in place — your details, the client\'s, itemized lines, totals and terms — so you only fill in what changes. A complete one also includes a validity date, an exclusions section and an acceptance instruction.',
     },
     {
       question: 'How do I write a quotation in Word?',
       answer:
-        'Start from a template, replace the placeholder details, and list the work as itemised lines. Because Word calculates nothing, work out the subtotal, tax and total separately and paste the figures in. Re-check them after every revision, since quotations get revised repeatedly during negotiation.',
+        'Start from a template, replace the placeholder details, and list the work as itemized lines. Because Word calculates nothing, work out the subtotal, tax and total separately and paste the figures in. Re-check them after every revision, since quotations get revised repeatedly during negotiation.',
     },
     {
       question: 'What is the format of a quotation?',
       answer:
-        'Header with both parties and a quotation number, issue date and validity date, itemised scope with quantities and rates, subtotal, tax and total, then assumptions, exclusions, payment terms and how to accept. The validity date and exclusions are what most free templates omit.',
+        'Header with both parties and a quotation number, issue date and validity date, itemized scope with quantities and rates, subtotal, tax and total, then assumptions, exclusions, payment terms and how to accept. The validity date and exclusions are what most free templates omit.',
     },
     {
       question: 'Should I use Word or Excel for a quotation?',
@@ -330,7 +330,7 @@ export const freeQuotationTemplateGuide: GuideConfig = {
     {
       question: 'What should be excluded from a quotation?',
       answer:
-        'Anything a client might reasonably assume is included but is not: travel beyond a stated radius, materials at cost, out-of-hours work, third-party licence fees, and revisions beyond an agreed number. A short "not included" list prevents more disputes than any other section.',
+        'Anything a client might reasonably assume is included but is not: travel beyond a stated radius, materials at cost, out-of-hours work, third-party license fees, and revisions beyond an agreed number. A short "not included" list prevents more disputes than any other section.',
     },
     {
       question: 'Can I put terms and conditions on a quotation?',
@@ -357,7 +357,7 @@ export const freeQuotationTemplateGuide: GuideConfig = {
     {
       question: 'What should a quotation template include?',
       answer:
-        'Your details and the client\'s, a quotation number in its own sequence, the issue date and a validity date, itemised scope with quantities and rates, subtotal, tax and total, what is explicitly excluded, the payment terms that will apply, and a clear instruction on how to accept.',
+        'Your details and the client\'s, a quotation number in its own sequence, the issue date and a validity date, itemized scope with quantities and rates, subtotal, tax and total, what is explicitly excluded, the payment terms that will apply, and a clear instruction on how to accept.',
     },
     {
       question: 'Is a quotation template the same as an estimate template?',
@@ -367,7 +367,7 @@ export const freeQuotationTemplateGuide: GuideConfig = {
     {
       question: 'Should a quotation template show tax?',
       answer:
-        'Yes, if tax will appear on the resulting invoice. Show it as a separate labelled line at the correct rate so the client sees the true amount payable. Quoting excluding tax and invoicing including it is a common and entirely avoidable source of friction.',
+        'Yes, if tax will appear on the resulting invoice. Show it as a separate labeled line at the correct rate so the client sees the true amount payable. Quoting excluding tax and invoicing including it is a common and entirely avoidable source of friction.',
     },
     {
       question: 'How do I make a quotation look professional without a designer?',

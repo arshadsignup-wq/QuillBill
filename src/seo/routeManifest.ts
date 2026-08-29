@@ -24,7 +24,30 @@ export interface RouteEntry extends SEOOptions {
   sitemap?: boolean;
   changefreq?: string;
   priority?: number;
+  /**
+   * ISO date this page's content last actually changed.
+   *
+   * Every URL used to carry the build date, so a deploy that touched one guide
+   * told Google all 60 pages had changed. A lastmod that moves without the
+   * content moving is a signal Google learns to ignore, which costs you the
+   * recrawl you wanted on the page that did change. Guides take their own
+   * `updated` field; everything else is set here and bumped when edited.
+   */
+  lastmod?: string;
 }
+
+/**
+ * Last substantive edit to the pages that are not guides. Bump the entry when
+ * you change that page's copy — not when you deploy.
+ */
+const PAGE_UPDATED = {
+  home: '2026-08-30',
+  landing: '2026-08-30',
+  templates: '2026-08-30',
+  guidesHub: '2026-08-30',
+  legal: '2026-08-06',
+  about: '2026-08-30',
+} as const;
 
 /**
  * Every indexable route, with the exact metadata that must appear in the
@@ -38,6 +61,7 @@ export const routes: RouteEntry[] = [
     jsonLd: [organizationSchema(), websiteSchema(), webApplicationSchema()],
     changefreq: 'weekly',
     priority: 1.0,
+    lastmod: PAGE_UPDATED.home,
   },
 
   // Primary commercial landing pages
@@ -47,6 +71,7 @@ export const routes: RouteEntry[] = [
     jsonLd: landingJsonLd(invoiceConfig),
     changefreq: 'weekly',
     priority: 0.9,
+    lastmod: PAGE_UPDATED.landing,
   },
   {
     path: '/quotation-generator',
@@ -54,6 +79,7 @@ export const routes: RouteEntry[] = [
     jsonLd: landingJsonLd(quotationConfig),
     changefreq: 'weekly',
     priority: 0.9,
+    lastmod: PAGE_UPDATED.landing,
   },
   {
     path: '/proposal-generator',
@@ -61,6 +87,7 @@ export const routes: RouteEntry[] = [
     jsonLd: landingJsonLd(proposalConfig),
     changefreq: 'weekly',
     priority: 0.9,
+    lastmod: PAGE_UPDATED.landing,
   },
 
   // Template galleries
@@ -70,6 +97,7 @@ export const routes: RouteEntry[] = [
     jsonLd: galleryJsonLd(invoiceTemplatesConfig),
     changefreq: 'weekly',
     priority: 0.9,
+    lastmod: PAGE_UPDATED.templates,
   },
   {
     path: '/quotation-templates',
@@ -77,6 +105,7 @@ export const routes: RouteEntry[] = [
     jsonLd: galleryJsonLd(quotationTemplatesConfig),
     changefreq: 'weekly',
     priority: 0.8,
+    lastmod: PAGE_UPDATED.templates,
   },
   {
     path: '/proposal-templates',
@@ -84,6 +113,7 @@ export const routes: RouteEntry[] = [
     jsonLd: galleryJsonLd(proposalTemplatesConfig),
     changefreq: 'weekly',
     priority: 0.8,
+    lastmod: PAGE_UPDATED.templates,
   },
 
   // Guides hub + every guide, generated from the same list the hub renders
@@ -93,6 +123,7 @@ export const routes: RouteEntry[] = [
     jsonLd: guidesHubJsonLd(),
     changefreq: 'weekly',
     priority: 0.8,
+    lastmod: PAGE_UPDATED.guidesHub,
   },
   ...guideConfigs.map((g) => ({
     path: `/${g.slug}`,
@@ -100,6 +131,7 @@ export const routes: RouteEntry[] = [
     jsonLd: guideJsonLd(g),
     changefreq: 'monthly',
     priority: 0.7,
+    lastmod: g.updated,
   })),
 
   // Supporting / trust pages
@@ -115,6 +147,7 @@ export const routes: RouteEntry[] = [
     ],
     changefreq: 'monthly',
     priority: 0.7,
+    lastmod: PAGE_UPDATED.about,
   },
   {
     path: '/about',
@@ -122,36 +155,42 @@ export const routes: RouteEntry[] = [
     jsonLd: [organizationSchema()],
     changefreq: 'monthly',
     priority: 0.6,
+    lastmod: PAGE_UPDATED.about,
   },
   {
     path: '/contact',
     ...pageMeta['/contact'],
     changefreq: 'monthly',
     priority: 0.5,
+    lastmod: PAGE_UPDATED.about,
   },
   {
     path: '/privacy',
     ...pageMeta['/privacy'],
     changefreq: 'yearly',
     priority: 0.3,
+    lastmod: PAGE_UPDATED.legal,
   },
   {
     path: '/terms',
     ...pageMeta['/terms'],
     changefreq: 'yearly',
     priority: 0.3,
+    lastmod: PAGE_UPDATED.legal,
   },
   {
     path: '/disclaimer',
     ...pageMeta['/disclaimer'],
     changefreq: 'yearly',
     priority: 0.3,
+    lastmod: PAGE_UPDATED.legal,
   },
   {
     path: '/dmca',
     ...pageMeta['/dmca'],
     changefreq: 'yearly',
     priority: 0.3,
+    lastmod: PAGE_UPDATED.legal,
   },
 
   // Shells that /view/:payload and /edit/:payload rewrite onto. Without them

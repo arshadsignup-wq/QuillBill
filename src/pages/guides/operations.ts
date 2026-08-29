@@ -27,14 +27,14 @@ export const invoiceNumberingGuide: GuideConfig = {
   },
   h1: 'Invoice Numbering Systems That Survive an Audit',
   intro:
-    'Invoice numbering looks like the most trivial decision in your whole billing process, and it is the one you are least able to change later. By the time a scheme is inconvenient you have three years of records in it, a client base that recognises it, and an accountant who has built reports around it. Ten minutes of thought at the start is worth a great deal, and the requirements are simpler than the number of competing conventions suggests.',
+    'Invoice numbering looks like the most trivial decision in your whole billing process, and it is the one you are least able to change later. By the time a scheme is inconvenient you have three years of records in it, a client base that recognizes it, and an accountant who has built reports around it. Ten minutes of thought at the start is worth a great deal, and the requirements are simpler than the number of competing conventions suggests.',
   sections: [
     {
       heading: 'The only rules that are actually rules',
       body: [
         'Across almost every jurisdiction, two requirements are universal and everything else is convention.',
         'Numbers must be unique. No two invoices ever carry the same reference, forever, including across years.',
-        'Numbers must be sequential without unexplained gaps. This is the one that surprises people, and the reason is simple: sequence integrity is how tax authorities test whether invoices have been suppressed. If your records run 001, 002, 004, the obvious question is what happened to 003, and "I cancelled it" is only a good answer if you can produce the cancelled document.',
+        'Numbers must be sequential without unexplained gaps. This is the one that surprises people, and the reason is simple: sequence integrity is how tax authorities test whether invoices have been suppressed. If your records run 001, 002, 004, the obvious question is what happened to 003, and "I canceled it" is only a good answer if you can produce the canceled document.',
         'Some jurisdictions add specifics. India caps the serial at 16 characters and requires uniqueness within the financial year. Others require the sequence to be continuous across the life of the business. Check your own rules, but design for unique and gap-free and you will satisfy most of them.',
       ],
     },
@@ -61,7 +61,7 @@ export const invoiceNumberingGuide: GuideConfig = {
     {
       heading: 'Why client codes in the number are a bad idea',
       body: [
-        'It is tempting to encode the client — ACME-001, ACME-002 — because it looks organised. Three problems follow, and they all arrive later.',
+        'It is tempting to encode the client — ACME-001, ACME-002 — because it looks organized. Three problems follow, and they all arrive later.',
         'The sequence stops being auditable. There is no single running order any more, just dozens of parallel ones, and demonstrating that no invoice is missing becomes much harder.',
         'It leaks information. A client who sees ACME-001 knows they are your first invoice to them, which is fine, and a client who sees ACME-047 alongside a colleague\'s BETA-003 can infer relative volumes. That is your business information, not theirs.',
         'It breaks when relationships change. Clients rename, merge, get acquired, or turn out to be two entities. A number containing a client identity becomes wrong, and you cannot change an issued invoice.',
@@ -72,7 +72,7 @@ export const invoiceNumberingGuide: GuideConfig = {
       heading: 'When you get it wrong',
       body: [
         'Three common mistakes, each with a specific fix.',
-        'A skipped number. Do not fill the gap with a later invoice — that puts documents out of chronological order and looks worse than the gap. Record a note explaining the skip, or issue a cancelled invoice carrying that number with a zero value and "issued in error" on it, so the sequence is complete.',
+        'A skipped number. Do not fill the gap with a later invoice — that puts documents out of chronological order and looks worse than the gap. Record a note explaining the skip, or issue a canceled invoice carrying that number with a zero value and "issued in error" on it, so the sequence is complete.',
         'A duplicated number. Two live invoices sharing a reference is a genuine problem because payments cannot be allocated reliably. Credit note the later one in full, reissue it with the correct next number, and tell the client what you have done.',
         'A scheme you have outgrown. Do not renumber history — that is worse than the inconsistency. Close the old sequence cleanly at a period boundary and start the new one from the following period, with a note in your records explaining the change. An auditor will accept a documented, dated transition; they will not accept retrospectively rewritten numbers.',
         'For corrections generally, see [credit notes and refunds](/credit-note-and-refunds).',
@@ -94,7 +94,7 @@ export const invoiceNumberingGuide: GuideConfig = {
     {
       question: 'Can I reuse an invoice number?',
       answer:
-        'Never, including for a cancelled invoice. The number identifies that specific document permanently. If an invoice is cancelled, credit note it and move to the next number — do not recycle the reference for a different sale.',
+        'Never, including for a canceled invoice. The number identifies that specific document permanently. If an invoice is canceled, credit note it and move to the next number — do not recycle the reference for a different sale.',
     },
     {
       question: 'Should invoice numbers reset each year?',
@@ -109,7 +109,7 @@ export const invoiceNumberingGuide: GuideConfig = {
     {
       question: 'What is a gap in the invoice sequence and does it matter?',
       answer:
-        'A missing number in an otherwise continuous run. It matters because the obvious inference is that an invoice existed and was removed. Record why the number was skipped, or issue a zero-value cancelled invoice carrying it, so the sequence is complete.',
+        'A missing number in an otherwise continuous run. It matters because the obvious inference is that an invoice existed and was removed. Record why the number was skipped, or issue a zero-value canceled invoice carrying it, so the sequence is complete.',
     },
     {
       question: 'How should I number quotations and invoices differently?',
@@ -196,7 +196,7 @@ export const retainerInvoiceGuide: GuideConfig = {
       heading: 'Three retainer models, three different invoices',
       body: [
         'People say "retainer" to mean at least three arrangements that behave differently.',
-        'An availability retainer buys access. The client pays for you to be reachable and to prioritise their work, whether or not they use it. This is the cleanest model and the easiest to defend in a quiet month, because availability is the product.',
+        'An availability retainer buys access. The client pays for you to be reachable and to prioritize their work, whether or not they use it. This is the cleanest model and the easiest to defend in a quiet month, because availability is the product.',
         'A block-of-hours retainer buys a defined quantity — twenty hours a month, drawn down as needed. Clear and easy to sell, and it invites the rollover argument every time a month is quiet.',
         'A deliverables retainer buys defined outputs: four blog posts, a monthly report, a maintenance cycle. Easiest to evidence, since the client can see what arrived, but it turns into piecework if the deliverables are trivially countable.',
         'The invoice differs by model. Availability states the period and the scope of access. Hours states hours included, used and remaining. Deliverables lists what was produced.',
@@ -270,7 +270,7 @@ export const retainerInvoiceGuide: GuideConfig = {
     {
       question: 'How do I justify a retainer in a quiet month?',
       answer:
-        'By having sold availability rather than hours, and by summarising the period on the invoice. Even a single line — capacity held, monitoring in place, no requests raised — changes how the invoice reads compared with a bare figure.',
+        'By having sold availability rather than hours, and by summarizing the period on the invoice. Even a single line — capacity held, monitoring in place, no requests raised — changes how the invoice reads compared with a bare figure.',
     },
     {
       question: 'How do I raise the price of a retainer?',
@@ -382,7 +382,7 @@ export const invoiceEmailGuide: GuideConfig = {
       body: [
         'Repeat the essentials in the email body. Not everyone opens the attachment before deciding what to do with the message, and some AP systems display only the body text.',
         'Four things: what the invoice is for, the amount, the due date, and how to pay. Three sentences. Then a line thanking them, and stop.',
-        'Do not apologise for invoicing. "Sorry to chase" and "I hope you don\'t mind" undermine a routine commercial request and, in practice, make it easier to deprioritise. You did the work; the invoice is the expected next step.',
+        'Do not apologize for invoicing. "Sorry to chase" and "I hope you don\'t mind" undermine a routine commercial request and, in practice, make it easier to deprioritise. You did the work; the invoice is the expected next step.',
         'Do not put payment terms up for negotiation by asking "let me know if that works". State the due date as a fact. If a client needs different terms they will say so, and that is a conversation worth having explicitly rather than inviting by default.',
       ],
     },
@@ -428,7 +428,7 @@ export const invoiceEmailGuide: GuideConfig = {
     {
       question: 'Should I send my invoice as a PDF or in the email body?',
       answer:
-        'Attach a PDF and summarise it in the body. The PDF is the record and is what AP systems expect; the body summary means the essentials are visible without opening anything, which matters more than people assume.',
+        'Attach a PDF and summarize it in the body. The PDF is the record and is what AP systems expect; the body summary means the essentials are visible without opening anything, which matters more than people assume.',
     },
     {
       question: 'What should I name my invoice file?',
@@ -441,7 +441,7 @@ export const invoiceEmailGuide: GuideConfig = {
         'Three days before the due date as a courtesy, on the due date, then at seven and fourteen days overdue. Following up on a schedule rather than on how annoyed you feel means it happens consistently and stays professional.',
     },
     {
-      question: 'Should I apologise for chasing an invoice?',
+      question: 'Should I apologize for chasing an invoice?',
       answer:
         'No. Requesting payment for completed work is a routine commercial act, not an imposition. Apologetic framing signals the request is negotiable and makes it easier to deprioritise. Be polite and plain rather than sorry.',
     },
@@ -617,7 +617,7 @@ export const recordKeepingGuide: GuideConfig = {
         'Yes. Retention obligations survive closure and typically run for the same period from the final return. Someone must remain able to produce them, which is worth arranging deliberately rather than leaving to chance.',
     },
     {
-      question: 'How should I name and organise invoice files?',
+      question: 'How should I name and organize invoice files?',
       answer:
         'Folder per financial year, split into sales and purchases, files named date-number-client: 2026-03-14_INV-0042_Acme.pdf. That sorts chronologically, searches by any element, and requires no particular software to make sense of.',
     },
@@ -736,7 +736,7 @@ export const internationalInvoiceGuide: GuideConfig = {
       heading: 'Exchange rates and your own books',
       body: [
         'Even where the client bears the risk, you still need a rate for your own accounting.',
-        'Record the rate at the invoice date, since that is generally when the sale is recognised. When payment arrives at a different rate, the difference is a foreign exchange gain or loss — a real line in your accounts, not an error to be smoothed over.',
+        'Record the rate at the invoice date, since that is generally when the sale is recognized. When payment arrives at a different rate, the difference is a foreign exchange gain or loss — a real line in your accounts, not an error to be smoothed over.',
         'Where tax applies, most systems require the tax amount in local currency regardless of the invoice currency. The UAE requires the VAT shown in AED at a Central Bank rate; EU states require the VAT in the currency of the country where it is due. Note the rate and its source on the invoice.',
         'For long projects, consider invoicing in stages rather than one payment at the end. It reduces exposure to any single rate movement, quite apart from its cashflow benefits — see [milestone and partial payments](/milestone-partial-payment-invoice).',
       ],
@@ -777,7 +777,7 @@ export const internationalInvoiceGuide: GuideConfig = {
     {
       question: 'What exchange rate should I use on an invoice?',
       answer:
-        'The rate at the invoice date, recorded with its source, since that is generally when the sale is recognised. Where tax applies, many jurisdictions specify which rate must be used for the tax amount, so check rather than assuming.',
+        'The rate at the invoice date, recorded with its source, since that is generally when the sale is recognized. Where tax applies, many jurisdictions specify which rate must be used for the tax amount, so check rather than assuming.',
     },
     {
       question: 'Do I charge VAT or sales tax to an overseas client?',
