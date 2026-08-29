@@ -181,7 +181,8 @@ export const routes: RouteEntry[] = [
   {
     path: '/404',
     title: 'Page Not Found',
-    description: 'The page you are looking for does not exist.',
+    description:
+      'The page you are looking for does not exist or the link may have expired. Return to QuillBill to create a free invoice, quotation or proposal.',
     noindex: true,
     sitemap: false,
   },
