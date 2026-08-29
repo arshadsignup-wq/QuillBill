@@ -2,6 +2,7 @@ import type { InvoiceData, CalculatedTotals } from '../../../types/invoice';
 import { formatDate, formatCurrency } from '../../../lib/format';
 import { getDocumentTitle } from '../../../lib/documentTitle';
 import DocumentFooter from '../DocumentFooter';
+import { DocTitle } from '../DocTitle';
 
 interface TemplateProps {
   data: InvoiceData;
@@ -24,7 +25,7 @@ export default function GradientTemplate({ data, totals }: TemplateProps) {
             {data.logo && (
               <img src={data.logo} alt="Logo" className="h-10 w-auto object-contain mb-3 rounded bg-white/20 p-1" />
             )}
-            <h1 className="text-3xl font-bold text-white tracking-tight">{label}</h1>
+            <DocTitle className="text-3xl font-bold text-white tracking-tight">{label}</DocTitle>
             <div className="flex gap-4 mt-2 text-xs text-white/70">
               <span>{data.documentNumber}</span>
               <span>{formatDate(data.issueDate)}</span>

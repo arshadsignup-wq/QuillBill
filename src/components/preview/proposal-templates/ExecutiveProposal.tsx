@@ -1,6 +1,7 @@
 import type { InvoiceData, CalculatedTotals } from '../../../types/invoice';
 import { getDocumentTitle } from '../../../lib/documentTitle';
 import { ProposalSections, ProposalTerms, ProposalSignature, ProposalPricing, ProposalContactStrip } from './ProposalParts';
+import { DocTitle } from '../DocTitle';
 
 interface TemplateProps {
   data: InvoiceData;
@@ -17,7 +18,7 @@ export default function ExecutiveProposal({ data, totals }: TemplateProps) {
       <div className="bg-gray-900 rounded-lg px-8 py-6 mb-6">
         <div className="flex items-start justify-between">
           <div>
-            <h1 className="text-xl font-bold text-white tracking-wide mb-2">{title}</h1>
+            <DocTitle className="text-xl font-bold text-white tracking-wide mb-2">{title}</DocTitle>
             <div className="flex gap-6 text-gray-400 text-[10px]">
               <div>
                 <span className="text-gray-500 uppercase text-[9px] tracking-wider block mb-0.5">Prepared for</span>

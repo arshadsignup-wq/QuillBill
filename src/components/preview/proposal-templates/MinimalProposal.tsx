@@ -1,6 +1,7 @@
 import type { InvoiceData, CalculatedTotals } from '../../../types/invoice';
 import { getDocumentTitle } from '../../../lib/documentTitle';
 import { ProposalSections, ProposalTerms, ProposalSignature, ProposalPricing, ProposalContactStrip } from './ProposalParts';
+import { DocTitle } from '../DocTitle';
 
 interface TemplateProps {
   data: InvoiceData;
@@ -16,7 +17,7 @@ export default function MinimalProposal({ data, totals }: TemplateProps) {
       {/* Simple header */}
       <div className="flex items-start justify-between mb-6 pb-4 border-b border-gray-200">
         <div>
-          <h1 className="text-xl font-semibold text-gray-900 tracking-wide">{title}</h1>
+          <DocTitle className="text-xl font-semibold text-gray-900 tracking-wide">{title}</DocTitle>
           <div className="flex gap-4 text-[10px] text-gray-400 mt-1">
             <span>Date: {data.issueDate}</span>
             <span>Valid Until: {data.dueDate}</span>

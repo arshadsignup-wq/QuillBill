@@ -2,6 +2,7 @@ import type { InvoiceData, CalculatedTotals } from '../../../types/invoice';
 import { formatDate, formatCurrency } from '../../../lib/format';
 import { getDocumentTitle } from '../../../lib/documentTitle';
 import DocumentFooter from '../DocumentFooter';
+import { DocTitle } from '../DocTitle';
 
 interface TemplateProps {
   data: InvoiceData;
@@ -23,7 +24,7 @@ export default function ElegantTemplate({ data, totals }: TemplateProps) {
           {data.logo && (
             <img src={data.logo} alt="Logo" className="h-14 w-auto object-contain mb-3" />
           )}
-          <h1 className="text-3xl font-light tracking-widest uppercase" style={{ color: ac }}>{label}</h1>
+          <DocTitle className="text-3xl font-light tracking-widest uppercase" style={{ color: ac }}>{label}</DocTitle>
           <div className="mt-1 text-xs text-gray-400 tracking-wide">{data.documentNumber}</div>
         </div>
         <div className="text-right text-xs text-gray-500 space-y-1 pt-2">

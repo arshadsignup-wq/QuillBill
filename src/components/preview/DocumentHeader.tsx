@@ -1,6 +1,7 @@
 import type { InvoiceData } from '../../types/invoice';
 import { formatDate } from '../../lib/format';
 import { getDocumentTitle } from '../../lib/documentTitle';
+import { DocTitle } from './DocTitle';
 
 interface DocumentHeaderProps {
   data: InvoiceData;
@@ -25,9 +26,9 @@ export default function DocumentHeader({ data, accentColor }: DocumentHeaderProp
           </div>
         </div>
         <div className="text-right">
-          <h1 className="text-2xl font-bold tracking-tight" style={{ color: accentColor }}>
+          <DocTitle className="text-2xl font-bold tracking-tight" style={{ color: accentColor }}>
             {label}
-          </h1>
+          </DocTitle>
           <div className="text-xs text-gray-500 mt-2 space-y-0.5">
             <div><span className="font-medium text-gray-700">No:</span> {data.documentNumber}</div>
             <div><span className="font-medium text-gray-700">Date:</span> {formatDate(data.issueDate)}</div>

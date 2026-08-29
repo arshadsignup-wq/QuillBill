@@ -2,6 +2,7 @@ import type { InvoiceData, CalculatedTotals } from '../../../types/invoice';
 import { formatDate, formatCurrency } from '../../../lib/format';
 import { getDocumentTitle } from '../../../lib/documentTitle';
 import DocumentFooter from '../DocumentFooter';
+import { DocTitle } from '../DocTitle';
 
 interface TemplateProps {
   data: InvoiceData;
@@ -19,7 +20,7 @@ export default function ClassicTemplate({ data, totals }: TemplateProps) {
         {data.logo && (
           <img src={data.logo} alt="Logo" className="h-14 w-auto object-contain mx-auto mb-2" />
         )}
-        <h1 className="text-3xl font-bold tracking-wide" style={{ color: ac }}>{label}</h1>
+        <DocTitle className="text-3xl font-bold tracking-wide" style={{ color: ac }}>{label}</DocTitle>
       </div>
 
       {/* Meta + Parties */}

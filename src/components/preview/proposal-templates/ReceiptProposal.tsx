@@ -1,6 +1,7 @@
 import type { InvoiceData, CalculatedTotals } from '../../../types/invoice';
 import { getDocumentTitle } from '../../../lib/documentTitle';
 import { ProposalSections, ProposalTerms, ProposalSignature, ProposalPricing } from './ProposalParts';
+import { DocTitle } from '../DocTitle';
 
 interface TemplateProps {
   data: InvoiceData;
@@ -16,7 +17,7 @@ export default function ReceiptProposal({ data, totals }: TemplateProps) {
       {/* Centered header */}
       <div className="text-center mb-6">
         {data.logo && <img src={data.logo} alt="Logo" className="h-10 w-auto object-contain mx-auto mb-2" />}
-        <h1 className="text-xl font-bold tracking-wider">{title}</h1>
+        <DocTitle className="text-xl font-bold tracking-wider">{title}</DocTitle>
         <div className="text-[10px] text-gray-500 mt-1">
           {data.documentNumber && <span>{data.documentNumber} · </span>}
           {data.issueDate}

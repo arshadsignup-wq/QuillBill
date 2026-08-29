@@ -1,6 +1,7 @@
 import type { InvoiceData, CalculatedTotals } from '../../../types/invoice';
 import { getDocumentTitle } from '../../../lib/documentTitle';
 import { ProposalSections, ProposalTerms, ProposalSignature, ProposalPricing, ProposalContactStrip } from './ProposalParts';
+import { DocTitle } from '../DocTitle';
 
 interface TemplateProps {
   data: InvoiceData;
@@ -21,7 +22,7 @@ export default function ClassicProposal({ data, totals }: TemplateProps) {
             {data.logo && (
               <img src={data.logo} alt="Logo" className="h-10 w-auto object-contain mx-auto mb-2" />
             )}
-            <h1 className="text-2xl font-bold tracking-wide" style={{ color: accentColor }}>{title}</h1>
+            <DocTitle className="text-2xl font-bold tracking-wide" style={{ color: accentColor }}>{title}</DocTitle>
             <div className="flex justify-center gap-6 text-[10px] text-gray-500 mt-2">
               <span>Date: {data.issueDate}</span>
               <span>Valid Until: {data.dueDate}</span>

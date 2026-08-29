@@ -1,6 +1,7 @@
 import type { InvoiceData, CalculatedTotals } from '../../../types/invoice';
 import { getDocumentTitle } from '../../../lib/documentTitle';
 import { ProposalSections, ProposalTerms, ProposalSignature, ProposalPricing, ProposalContactStrip } from './ProposalParts';
+import { DocTitle } from '../DocTitle';
 
 interface TemplateProps {
   data: InvoiceData;
@@ -16,7 +17,7 @@ export default function StripeProposal({ data, totals }: TemplateProps) {
       {/* Header with left accent stripe */}
       <div className="flex items-start justify-between mb-6 pl-4" style={{ borderLeft: `4px solid ${accentColor}` }}>
         <div>
-          <h1 className="text-xl font-bold tracking-wide" style={{ color: accentColor }}>{title}</h1>
+          <DocTitle className="text-xl font-bold tracking-wide" style={{ color: accentColor }}>{title}</DocTitle>
           <div className="flex gap-4 text-[10px] text-gray-400 mt-1">
             <span>{data.issueDate}</span>
             <span>Valid: {data.dueDate}</span>

@@ -2,6 +2,7 @@ import type { InvoiceData, CalculatedTotals } from '../../../types/invoice';
 import { formatDate, formatCurrency } from '../../../lib/format';
 import { getDocumentTitle } from '../../../lib/documentTitle';
 import DocumentFooter from '../DocumentFooter';
+import { DocTitle } from '../DocTitle';
 
 interface TemplateProps {
   data: InvoiceData;
@@ -21,7 +22,7 @@ export default function StripeTemplate({ data, totals }: TemplateProps) {
             {data.logo && (
               <img src={data.logo} alt="Logo" className="h-10 w-auto object-contain mb-2" />
             )}
-            <h1 className="text-2xl font-bold tracking-tight text-gray-900">{label}</h1>
+            <DocTitle className="text-2xl font-bold tracking-tight text-gray-900">{label}</DocTitle>
             <div className="text-xs text-gray-400 mt-0.5">{data.documentNumber}</div>
           </div>
           <div className="text-right text-xs text-gray-500 space-y-0.5">

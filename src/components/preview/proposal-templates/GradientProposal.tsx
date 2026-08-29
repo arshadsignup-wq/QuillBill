@@ -1,6 +1,7 @@
 import type { InvoiceData, CalculatedTotals } from '../../../types/invoice';
 import { getDocumentTitle } from '../../../lib/documentTitle';
 import { ProposalSections, ProposalTerms, ProposalSignature, ProposalPricing, ProposalContactStrip } from './ProposalParts';
+import { DocTitle } from '../DocTitle';
 
 interface TemplateProps {
   data: InvoiceData;
@@ -24,7 +25,7 @@ export default function GradientProposal({ data, totals }: TemplateProps) {
             {data.logo && (
               <img src={data.logo} alt="Logo" className="h-10 w-auto object-contain mb-3 rounded bg-white/20 p-1" />
             )}
-            <h1 className="text-2xl font-bold text-white tracking-tight">{title}</h1>
+            <DocTitle className="text-2xl font-bold text-white tracking-tight">{title}</DocTitle>
             <div className="flex gap-6 text-white/70 text-[10px] mt-2">
               <span>Date: {data.issueDate}</span>
               <span>Valid Until: {data.dueDate}</span>

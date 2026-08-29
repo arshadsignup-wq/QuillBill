@@ -2,6 +2,7 @@ import type { InvoiceData, CalculatedTotals } from '../../../types/invoice';
 import { formatDate, formatCurrency } from '../../../lib/format';
 import { getDocumentTitle } from '../../../lib/documentTitle';
 import DocumentFooter from '../DocumentFooter';
+import { DocTitle } from '../DocTitle';
 
 interface TemplateProps {
   data: InvoiceData;
@@ -20,7 +21,7 @@ export default function SidebarTemplate({ data, totals }: TemplateProps) {
           {data.logo && (
             <img src={data.logo} alt="Logo" className="h-10 w-auto object-contain self-start mb-4 rounded bg-white/20 p-1" />
           )}
-          <h1 className="text-xl font-bold tracking-tight mb-1">{label}</h1>
+          <DocTitle className="text-xl font-bold tracking-tight mb-1">{label}</DocTitle>
           <div className="text-white/60 text-[10px] mb-6">{data.documentNumber}</div>
 
           <div className="mb-6">

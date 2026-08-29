@@ -1,6 +1,7 @@
 import type { InvoiceData, CalculatedTotals } from '../../../types/invoice';
 import { getDocumentTitle } from '../../../lib/documentTitle';
 import { ProposalSections, ProposalTerms, ProposalSignature, ProposalPricing, ProposalContactStrip } from './ProposalParts';
+import { DocTitle } from '../DocTitle';
 
 interface TemplateProps {
   data: InvoiceData;
@@ -22,7 +23,7 @@ export default function ElegantProposal({ data, totals }: TemplateProps) {
             {data.documentNumber && <div>{data.documentNumber}</div>}
           </div>
         </div>
-        <h1 className="text-xl font-normal tracking-[0.2em] uppercase text-gray-800 mb-2">{title}</h1>
+        <DocTitle className="text-xl font-normal tracking-[0.2em] uppercase text-gray-800 mb-2">{title}</DocTitle>
         <div className="h-px w-20" style={{ backgroundColor: accentColor }} />
         <div className="text-[10px] text-gray-400 mt-2 tracking-wide">Valid until {data.dueDate}</div>
       </div>

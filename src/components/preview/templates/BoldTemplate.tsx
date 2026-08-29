@@ -2,6 +2,7 @@ import type { InvoiceData, CalculatedTotals } from '../../../types/invoice';
 import { formatDate, formatCurrency } from '../../../lib/format';
 import { getDocumentTitle } from '../../../lib/documentTitle';
 import DocumentFooter from '../DocumentFooter';
+import { DocTitle } from '../DocTitle';
 
 interface TemplateProps {
   data: InvoiceData;
@@ -26,9 +27,9 @@ export default function BoldTemplate({ data, totals }: TemplateProps) {
             <div>Due {formatDate(data.dueDate)}</div>
           </div>
         </div>
-        <h1 className="text-5xl font-black tracking-tighter leading-none" style={{ color: ac }}>
+        <DocTitle className="text-5xl font-black tracking-tighter leading-none" style={{ color: ac }}>
           {label}
-        </h1>
+        </DocTitle>
         <div className="h-1 w-16 mt-3 rounded-full" style={{ backgroundColor: ac }} />
       </div>
 

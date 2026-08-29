@@ -6,6 +6,8 @@ import LandingFAQ from '../landing/components/LandingFAQ';
 import CrossLinks from '../landing/components/CrossLinks';
 import { galleryJsonLd } from '../../seo/pageSchemas';
 import type { TemplateGalleryConfig } from './templateData';
+import TemplatePreview from './TemplatePreview';
+import type { TemplateName } from '../../types/invoice';
 
 interface Props {
   config: TemplateGalleryConfig;
@@ -42,7 +44,13 @@ export default function TemplateGalleryPage({ config }: Props) {
         </p>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {config.templates.map((t) => (
-            <article key={t.key} className="rounded-lg border border-gray-200 bg-white p-5">
+            <article key={t.key} className="rounded-lg border border-gray-200 bg-white overflow-hidden flex flex-col">
+              <TemplatePreview
+                mode={config.mode}
+                template={t.key as TemplateName}
+                label={`${t.label} ${config.docLabel}`}
+              />
+              <div className="p-5 flex flex-col flex-1">
               <h3 className="text-sm font-semibold text-gray-900">
                 {t.label} {config.docLabel} template
               </h3>
@@ -58,6 +66,7 @@ export default function TemplateGalleryPage({ config }: Props) {
                 <Check size={13} />
                 Use this template
               </Link>
+              </div>
             </article>
           ))}
         </div>

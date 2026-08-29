@@ -1,6 +1,7 @@
 import type { InvoiceData, CalculatedTotals } from '../../../types/invoice';
 import { getDocumentTitle } from '../../../lib/documentTitle';
 import { ProposalSections, ProposalTerms, ProposalSignature, ProposalPricing, ProposalContactStrip } from './ProposalParts';
+import { DocTitle } from '../DocTitle';
 
 interface TemplateProps {
   data: InvoiceData;
@@ -16,7 +17,7 @@ export default function CleanProposal({ data, totals }: TemplateProps) {
       {/* Minimal header */}
       <div className="mb-8">
         <div className="flex items-start justify-between">
-          <h1 className="text-lg font-medium text-gray-900">{title}</h1>
+          <DocTitle className="text-lg font-medium text-gray-900">{title}</DocTitle>
           {data.logo && <img src={data.logo} alt="Logo" className="h-8 w-auto object-contain" />}
         </div>
         <div className="text-[10px] text-gray-400 mt-1">

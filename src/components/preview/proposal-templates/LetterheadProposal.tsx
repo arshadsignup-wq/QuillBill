@@ -1,6 +1,7 @@
 import type { InvoiceData, CalculatedTotals } from '../../../types/invoice';
 import { getDocumentTitle } from '../../../lib/documentTitle';
 import { ProposalSections, ProposalTerms, ProposalSignature, ProposalPricing, ProposalContactStrip } from './ProposalParts';
+import { DocTitle } from '../DocTitle';
 
 interface TemplateProps {
   data: InvoiceData;
@@ -21,7 +22,7 @@ export default function LetterheadProposal({ data, totals }: TemplateProps) {
         <div className="flex items-center gap-3">
           {data.logo && <img src={data.logo} alt="Logo" className="h-10 w-auto object-contain" />}
           <div>
-            <h1 className="text-xl font-bold text-gray-900">{title}</h1>
+            <DocTitle className="text-xl font-bold text-gray-900">{title}</DocTitle>
             <div className="text-[10px] text-gray-400 mt-0.5">
               {data.documentNumber && <span>{data.documentNumber} · </span>}
               {data.issueDate}

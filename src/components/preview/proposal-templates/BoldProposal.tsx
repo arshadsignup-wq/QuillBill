@@ -1,6 +1,7 @@
 import type { InvoiceData, CalculatedTotals } from '../../../types/invoice';
 import { getDocumentTitle } from '../../../lib/documentTitle';
 import { ProposalSections, ProposalTerms, ProposalSignature, ProposalPricing, ProposalContactStrip } from './ProposalParts';
+import { DocTitle } from '../DocTitle';
 
 interface TemplateProps {
   data: InvoiceData;
@@ -23,9 +24,9 @@ export default function BoldProposal({ data, totals }: TemplateProps) {
             <div>Valid: {data.dueDate}</div>
           </div>
         </div>
-        <h1 className="text-4xl font-black tracking-tighter leading-none" style={{ color: accentColor }}>
+        <DocTitle className="text-4xl font-black tracking-tighter leading-none" style={{ color: accentColor }}>
           {title}
-        </h1>
+        </DocTitle>
         <div className="h-1.5 w-16 mt-3 rounded-full" style={{ backgroundColor: accentColor }} />
       </div>
 

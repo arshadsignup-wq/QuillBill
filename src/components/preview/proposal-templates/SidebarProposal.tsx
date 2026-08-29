@@ -1,6 +1,7 @@
 import type { InvoiceData, CalculatedTotals } from '../../../types/invoice';
 import { getDocumentTitle } from '../../../lib/documentTitle';
 import { ProposalSections, ProposalTerms, ProposalSignature, ProposalPricing } from './ProposalParts';
+import { DocTitle } from '../DocTitle';
 
 interface TemplateProps {
   data: InvoiceData;
@@ -19,7 +20,7 @@ export default function SidebarProposal({ data, totals }: TemplateProps) {
           {data.logo && (
             <img src={data.logo} alt="Logo" className="h-10 w-auto object-contain self-start mb-4 rounded bg-white/20 p-1" />
           )}
-          <h1 className="text-xl font-bold tracking-tight mb-1">{title}</h1>
+          <DocTitle className="text-xl font-bold tracking-tight mb-1">{title}</DocTitle>
           {data.documentNumber && <div className="text-white/60 text-[10px] mb-4">{data.documentNumber}</div>}
 
           <div className="mb-4">

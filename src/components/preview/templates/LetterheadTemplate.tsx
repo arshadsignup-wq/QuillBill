@@ -2,6 +2,7 @@ import type { InvoiceData, CalculatedTotals } from '../../../types/invoice';
 import { formatDate, formatCurrency } from '../../../lib/format';
 import { getDocumentTitle } from '../../../lib/documentTitle';
 import DocumentFooter from '../DocumentFooter';
+import { DocTitle } from '../DocTitle';
 
 interface TemplateProps {
   data: InvoiceData;
@@ -35,7 +36,7 @@ export default function LetterheadTemplate({ data, totals }: TemplateProps) {
       {/* Title + meta */}
       <div className="print-break-avoid flex justify-between items-start mb-8">
         <div>
-          <h1 className="text-2xl font-bold" style={{ color: ac }}>{label}</h1>
+          <DocTitle className="text-2xl font-bold" style={{ color: ac }}>{label}</DocTitle>
           <div className="text-xs text-gray-400 mt-0.5">{data.documentNumber}</div>
         </div>
         <div className="text-right text-xs space-y-2">

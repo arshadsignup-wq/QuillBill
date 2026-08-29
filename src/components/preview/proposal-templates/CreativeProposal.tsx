@@ -1,6 +1,7 @@
 import type { InvoiceData, CalculatedTotals } from '../../../types/invoice';
 import { getDocumentTitle } from '../../../lib/documentTitle';
 import { ProposalSections, ProposalTerms, ProposalSignature, ProposalPricing, ProposalContactStrip } from './ProposalParts';
+import { DocTitle } from '../DocTitle';
 
 interface TemplateProps {
   data: InvoiceData;
@@ -26,7 +27,7 @@ export default function CreativeProposal({ data, totals }: TemplateProps) {
             </span>
           </div>
         </div>
-        <h1 className="text-2xl font-bold" style={{ color: accentColor }}>{title}</h1>
+        <DocTitle className="text-2xl font-bold" style={{ color: accentColor }}>{title}</DocTitle>
         {data.documentNumber && <div className="text-[10px] text-gray-400 mt-1">{data.documentNumber}</div>}
       </div>
 

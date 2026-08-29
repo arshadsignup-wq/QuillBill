@@ -1,6 +1,7 @@
 import type { InvoiceData, CalculatedTotals } from '../../../types/invoice';
 import { getDocumentTitle } from '../../../lib/documentTitle';
 import { ProposalSections, ProposalTerms, ProposalSignature, ProposalPricing, ProposalContactStrip } from './ProposalParts';
+import { DocTitle } from '../DocTitle';
 
 interface TemplateProps {
   data: InvoiceData;
@@ -20,7 +21,7 @@ export default function ModernProposal({ data, totals }: TemplateProps) {
       >
         <div className="flex items-start justify-between">
           <div className="flex-1">
-            <h1 className="text-2xl font-bold text-white tracking-wide mb-3">{title}</h1>
+            <DocTitle className="text-2xl font-bold text-white tracking-wide mb-3">{title}</DocTitle>
             <div className="flex gap-8 text-white/90 text-[11px]">
               <div>
                 <span className="text-white/60 uppercase text-[9px] tracking-wider block mb-0.5">Prepared for</span>

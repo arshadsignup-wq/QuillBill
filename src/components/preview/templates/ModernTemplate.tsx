@@ -2,6 +2,7 @@ import type { InvoiceData, CalculatedTotals } from '../../../types/invoice';
 import { formatDate, formatCurrency } from '../../../lib/format';
 import { getDocumentTitle } from '../../../lib/documentTitle';
 import DocumentFooter from '../DocumentFooter';
+import { DocTitle } from '../DocTitle';
 
 interface TemplateProps {
   data: InvoiceData;
@@ -21,7 +22,7 @@ export default function ModernTemplate({ data, totals }: TemplateProps) {
             {data.logo && (
               <img src={data.logo} alt="Logo" className="h-10 w-auto object-contain mb-2 rounded bg-white/20 p-1" />
             )}
-            <h1 className="text-2xl font-bold text-white tracking-tight">{label}</h1>
+            <DocTitle className="text-2xl font-bold text-white tracking-tight">{label}</DocTitle>
             <div className="text-white/70 text-xs mt-1">
               {data.documentNumber} &middot; {formatDate(data.issueDate)}
             </div>

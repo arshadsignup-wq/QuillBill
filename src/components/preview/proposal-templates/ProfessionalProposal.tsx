@@ -1,6 +1,7 @@
 import type { InvoiceData, CalculatedTotals } from '../../../types/invoice';
 import { getDocumentTitle } from '../../../lib/documentTitle';
 import { ProposalSections, ProposalTerms, ProposalSignature, ProposalPricing, ProposalContactStrip } from './ProposalParts';
+import { DocTitle } from '../DocTitle';
 
 interface TemplateProps {
   data: InvoiceData;
@@ -20,7 +21,7 @@ export default function ProfessionalProposal({ data, totals }: TemplateProps) {
       <div className="flex items-start justify-between mb-6">
         <div>
           {data.logo && <img src={data.logo} alt="Logo" className="h-10 w-auto object-contain mb-2" />}
-          <h1 className="text-xl font-bold text-gray-900">{title}</h1>
+          <DocTitle className="text-xl font-bold text-gray-900">{title}</DocTitle>
           <div className="text-[10px] text-gray-400 mt-1">
             {data.documentNumber && <span>{data.documentNumber} · </span>}
             {data.issueDate} — Due: {data.dueDate}
