@@ -16,6 +16,7 @@ const CLUSTERS: GuideConfig['cluster'][] = [
   'Quotations',
   'Proposals',
   'Tools',
+  'Calculators',
   'Writing',
 ];
 
@@ -26,6 +27,7 @@ const CLUSTER_BLURB: Record<GuideConfig['cluster'], string> = {
   Proposals: 'Winning work with a proposal that covers scope, deliverables and timeline.',
   Tools: 'How online generators actually work, what "free" costs you, and how the options compare.',
   Writing: 'Punctuation, wording and the language side of quoting — including actual quotations.',
+  Calculators: 'Work out the number first — tax, late interest, your rate, the date payment is actually due.',
   'By profession': 'What changes on the invoice when you shoot weddings, fix pipes or bill by the sprint.',
   'By country': 'Tax invoice rules that actually differ: GST, VAT, e-invoicing mandates and required fields.',
 };

@@ -5,6 +5,7 @@ import AppRoutes from './routes';
 import EditorPage from './pages/EditorPage';
 import ViewPage from './pages/ViewPage';
 import { guideConfigs } from './pages/guides/guideData';
+import GuidePage from './pages/guides/GuidePage';
 
 export { routes, sitemapRoutes } from './seo/routeManifest';
 export { SITE_ORIGIN, absoluteUrl, OG_IMAGE } from './lib/site';
@@ -17,7 +18,9 @@ export { guideModulePath } from './pages/guides/guideIndex';
  * Only the markup is produced here — head tags come from the route manifest so
  * the prerenderer never has to run effects to discover them.
  */
-const eagerGuides = Object.fromEntries(guideConfigs.map((g) => [g.slug, g]));
+const eagerGuides = Object.fromEntries(
+  guideConfigs.map((g) => [g.slug, <GuidePage key={g.slug} config={g} />]),
+);
 
 export function renderRoute(url: string): string {
   return renderToStaticMarkup(

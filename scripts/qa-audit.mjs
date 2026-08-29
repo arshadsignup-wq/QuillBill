@@ -89,7 +89,11 @@ const toks = (q) => new Set(norm(q).split(' ').filter((w) => w.length > 3));
 // same-shaped question scoped to a different one: "reverse charge on a GST
 // invoice" and "reverse charge on a UAE invoice" target different searches and
 // have genuinely different answers. Only flag them when the scope matches.
-const SCOPES = ['india','gst','gstin','uae','emirates','trn','philippines','bir','nigeria','firs','naira','eu','vies','intracommunity','european','freelance','photographer','tutor','consultant','developer','designer','trades','contractor'];
+const SCOPES = ['india','gst','gstin','uae','emirates','trn','philippines','bir','nigeria','firs','naira','eu','vies','intracommunity','european','freelance','photographer','tutor','consultant','developer','designer','trades','contractor',
+  // Payment terms are distinct products, not phrasings of one question:
+  // "what does end of month mean" and "what does net 30 mean" share almost
+  // every token and have completely different answers.
+  'net30','net 30','net14','net 14','net60','net 60','endofmonth','end of month','eom','2/10'];
 const scopeOf = (q) => SCOPES.filter((s) => norm(q).includes(s)).join('|');
 for (let i = 0; i < entries.length; i++) {
   for (let j = i + 1; j < entries.length; j++) {

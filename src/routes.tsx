@@ -24,11 +24,12 @@ interface AppRoutesProps {
   editor?: ComponentType;
   viewer?: ComponentType;
   /**
-   * Likewise for the guides: the prerenderer hands over the fully loaded
-   * configs so every guide still renders to real static HTML, while the
-   * browser gets the lazy per-cluster version.
+   * Likewise for the guides: the prerenderer hands over ready-made elements so
+   * every guide still renders to real static HTML, while the browser gets the
+   * lazy per-cluster version. Elements rather than configs, so routes.tsx does
+   * not have to import GuidePage itself.
    */
-  guides?: Record<string, GuideConfig>;
+  guides?: Record<string, ReactElement>;
 }
 import NotFoundPage from './pages/NotFoundPage';
 import PrivacyPage from './pages/PrivacyPage';
@@ -46,10 +47,9 @@ import {
   quotationTemplatesConfig,
   proposalTemplatesConfig,
 } from './pages/templates/templateData';
-import GuidePage from './pages/guides/GuidePage';
 import GuidesHubPage from './pages/guides/GuidesHubPage';
 import { guideSlugs, guideLoaders } from './pages/guides/guideIndex';
-import type { GuideConfig } from './pages/guides/types';
+import type { ReactElement } from 'react';
 
 /**
  * One lazy component per guide, each resolving to its cluster module.
@@ -62,7 +62,14 @@ const lazyGuides: Record<string, ComponentType> = Object.fromEntries(
   guideSlugs.map((slug) => [
     slug,
     lazy(async () => {
-      const config = await guideLoaders[slug]();
+      // GuidePage is imported here rather than at the top of the file on
+      // purpose. A static import would put it — and with it the calculator
+      // widgets it can render — in the entry chunk, which every visitor
+      // downloads including the ones who only came to make an invoice.
+      const [{ default: GuidePage }, config] = await Promise.all([
+        import('./pages/guides/GuidePage'),
+        guideLoaders[slug](),
+      ]);
       return { default: () => <GuidePage config={config} /> };
     }),
   ]),
@@ -102,14 +109,9 @@ export default function AppRoutes({ editor, viewer, guides }: AppRoutesProps = {
 
       <Route path="/guides" element={<GuidesHubPage />} />
       {guideSlugs.map((slug) => {
-        const Eager = guides?.[slug];
         const Guide = lazyGuides[slug];
         return (
-          <Route
-            key={slug}
-            path={`/${slug}`}
-            element={Eager ? <GuidePage config={Eager} /> : <Guide />}
-          />
+          <Route key={slug} path={`/${slug}`} element={guides?.[slug] ?? <Guide />} />
         );
       })}
 

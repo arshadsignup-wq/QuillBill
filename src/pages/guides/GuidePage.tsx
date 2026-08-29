@@ -8,6 +8,7 @@ import { guideJsonLd } from '../../seo/pageSchemas';
 import { RichText } from './RichText';
 import { relFor } from './links';
 import { guideIndex } from './guideIndex';
+import { calculators } from './calculators';
 import type { GuideConfig, GuideSection } from './types';
 
 interface Props {
@@ -137,6 +138,11 @@ export default function GuidePage({ config }: Props) {
             </div>
           </section>
         )}
+
+        {config.calculator && (() => {
+          const Calculator = calculators[config.calculator];
+          return <Calculator />;
+        })()}
 
         {config.howTo && (
           <section className="max-w-3xl mx-auto px-4 pt-12">

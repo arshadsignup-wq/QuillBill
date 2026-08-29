@@ -12,7 +12,8 @@
     "preview": "vite preview",
     "audit:seo": "node scripts/seo-audit.mjs dist",
     "audit:qa": "node scripts/qa-audit.mjs",
-    "audit": "npm run audit:qa && npm run audit:seo"
+    "audit": "npm run audit:qa && npm run audit:seo",
+    "gen:guides": "node scripts/gen-guide-index.mjs"
   },
   "dependencies": {
     "lucide-react": "^0.570.0",

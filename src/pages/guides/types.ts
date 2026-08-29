@@ -1,4 +1,5 @@
 import type { FAQItem } from '../landing/landingData';
+import type { CalculatorKey } from './calculators';
 
 export interface GuideSection {
   heading: string;
@@ -58,9 +59,16 @@ export interface GuideConfig {
     | 'Tools'
     | 'Writing'
     | 'By country'
-    | 'By profession';
+    | 'By profession'
+    | 'Calculators';
   /** One-line summary used on the /guides hub. */
   summary: string;
+  /**
+   * Renders an interactive calculator directly under the intro. The page is
+   * still a guide — the tool answers the query on arrival and the prose below
+   * explains the arithmetic instead of hiding it.
+   */
+  calculator?: CalculatorKey;
   /** Scannable answer box directly under the intro. */
   keyTakeaways?: string[];
   /** When set, a HowTo schema is emitted from these steps. */
