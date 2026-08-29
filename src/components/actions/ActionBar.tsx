@@ -8,6 +8,7 @@ import { useToast } from '../ui/ToastProvider';
 import Button from '../ui/Button';
 import ShareDialog from './ShareDialog';
 import ExportImportMenu from './ExportImportMenu';
+import DocumentsMenu from './DocumentsMenu';
 
 interface ActionBarProps {
   onPreview?: () => void;
@@ -46,6 +47,7 @@ export default function ActionBar({ onPreview }: ActionBarProps) {
           <span className="hidden sm:inline">As Invoice</span>
         </Button>
       )}
+      <DocumentsMenu />
       <Button variant="ghost" size="sm" onClick={handleClearAll}>
         <Trash2 size={16} />
         <span className="hidden sm:inline">Clear All</span>

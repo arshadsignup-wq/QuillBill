@@ -39,6 +39,15 @@ export default function LineItemRow({ item, index, canDelete }: LineItemRowProps
           className="w-full bg-transparent text-sm text-gray-900 text-right outline-none focus:bg-gray-50 rounded px-1 py-0.5"
         />
       </td>
+      <td className="py-2 pr-2 w-20">
+        <input
+          value={item.unit ?? ''}
+          onChange={(e) => update('unit', e.target.value)}
+          placeholder="unit"
+          aria-label={`Unit for line ${index + 1}`}
+          className="w-full bg-transparent text-sm text-gray-900 placeholder:text-gray-300 outline-none focus:bg-gray-50 rounded px-1 py-0.5"
+        />
+      </td>
       <td className="py-2 pr-2 w-28">
         <input
           type="number"
@@ -49,6 +58,20 @@ export default function LineItemRow({ item, index, canDelete }: LineItemRowProps
           className="w-full bg-transparent text-sm text-gray-900 text-right outline-none focus:bg-gray-50 rounded px-1 py-0.5"
         />
       </td>
+      {data.taxMode === 'per-line' && (
+        <td className="py-2 pr-2 w-20">
+          <input
+            type="number"
+            min="0"
+            step="0.01"
+            value={item.taxRate ?? ''}
+            onChange={(e) => update('taxRate', parseFloat(e.target.value) || 0)}
+            placeholder="0"
+            aria-label={`Tax rate for line ${index + 1}`}
+            className="w-full bg-transparent text-sm text-gray-900 text-right placeholder:text-gray-300 outline-none focus:bg-gray-50 rounded px-1 py-0.5"
+          />
+        </td>
+      )}
       <td className="py-2 pr-2 w-28 text-right text-sm text-gray-700">
         {formatCurrency(itemTotal, data.currency)}
       </td>

@@ -2,6 +2,7 @@ import type { InvoiceData, CalculatedTotals } from '../../../types/invoice';
 import { formatDate, formatCurrency } from '../../../lib/format';
 import { getDocumentTitle } from '../../../lib/documentTitle';
 import DocumentFooter from '../DocumentFooter';
+import { formatQuantity, taxRateLabel } from '../../../lib/calculations';
 
 interface TemplateProps {
   data: InvoiceData;
@@ -71,7 +72,7 @@ export default function CompactTemplate({ data, totals }: TemplateProps) {
               <tr key={item.id} className="border-b border-gray-100">
                 <td className="py-1.5 text-gray-400">{i + 1}</td>
                 <td className="py-1.5 text-gray-900">{item.description || '—'}</td>
-                <td className="py-1.5 text-gray-700 text-right">{item.quantity}</td>
+                <td className="py-1.5 text-gray-700 text-right">{formatQuantity(item)}</td>
                 <td className="py-1.5 text-gray-700 text-right">{formatCurrency(item.rate, data.currency)}</td>
                 <td className="py-1.5 text-gray-900 text-right font-medium">{formatCurrency(itemTotal, data.currency)}</td>
               </tr>
@@ -95,7 +96,7 @@ export default function CompactTemplate({ data, totals }: TemplateProps) {
           )}
           {totals.taxAmount > 0 && (
             <div className="flex justify-between py-0.5 text-gray-500">
-              <span>Tax ({data.taxRate}%)</span>
+              <span>Tax ({taxRateLabel(data, totals)})</span>
               <span className="text-gray-800">{formatCurrency(totals.taxAmount, data.currency)}</span>
             </div>
           )}

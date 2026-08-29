@@ -28,6 +28,7 @@ export function createDefaultInvoice(): InvoiceData {
     discountType: 'percentage',
     discountValue: 0,
     taxRate: 0,
+    taxMode: 'single',
     shippingCost: 0,
     notes: '',
     paymentTerms: '',

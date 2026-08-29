@@ -32,11 +32,12 @@ function sampleFor(mode: DocumentMode, template: TemplateName): InvoiceData {
     items: [
       { id: 's1', description: 'Brand identity system and logo suite', quantity: 1, rate: 4200 },
       { id: 's2', description: 'Packaging design — three SKUs', quantity: 3, rate: 850 },
-      { id: 's3', description: 'Photography direction (day rate)', quantity: 2, rate: 1150 },
+      { id: 's3', description: 'Photography direction', quantity: 2, rate: 1150, unit: 'days' },
     ],
     discountType: 'percentage',
     discountValue: 5,
     taxRate: 8.5,
+    taxMode: 'single',
     shippingCost: 0,
     notes: 'Thank you for your business. Please reference the document number with payment.',
     paymentTerms: 'Net 30. A 1.5% monthly charge applies to balances past due.',

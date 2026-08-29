@@ -11,7 +11,7 @@ type Action =
   | { type: 'ADD_ITEM' }
   | { type: 'REMOVE_ITEM'; payload: string }
   | { type: 'UPDATE_ITEM'; payload: { id: string; field: keyof LineItem; value: string | number } }
-  | { type: 'SET_TOTALS'; payload: Partial<Pick<InvoiceData, 'discountType' | 'discountValue' | 'taxRate' | 'shippingCost'>> }
+  | { type: 'SET_TOTALS'; payload: Partial<Pick<InvoiceData, 'discountType' | 'discountValue' | 'taxRate' | 'taxMode' | 'shippingCost'>> }
   | { type: 'SET_NOTES'; payload: string }
   | { type: 'SET_PAYMENT_TERMS'; payload: string }
   | { type: 'SET_BANK_DETAILS'; payload: string }
@@ -31,6 +31,7 @@ type Action =
   | { type: 'SET_CLIENT_SIGNATURE_IMAGE'; payload: string }
   | { type: 'SET_AUTHORIZED_SIGNATURE_IMAGE'; payload: string }
   | { type: 'LOAD_DATA'; payload: InvoiceData }
+  | { type: 'APPLY_PROFILE'; payload: { from: ContactInfo; logo: string; bankDetails: string; paymentTerms: string } }
   | { type: 'DUPLICATE_AS_INVOICE' }
   | { type: 'RESET' };
 
@@ -136,6 +137,15 @@ function reducer(state: InvoiceData, action: Action): InvoiceData {
 
     case 'LOAD_DATA':
       return { ...action.payload };
+
+    case 'APPLY_PROFILE':
+      return {
+        ...state,
+        from: { ...action.payload.from },
+        logo: action.payload.logo,
+        bankDetails: action.payload.bankDetails,
+        paymentTerms: action.payload.paymentTerms,
+      };
 
     case 'DUPLICATE_AS_INVOICE': {
       const today = new Date();

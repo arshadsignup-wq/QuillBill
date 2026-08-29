@@ -10,13 +10,17 @@ export default function LineItemsTable() {
   return (
     <Card title="Line Items">
       <div className="overflow-x-auto -mx-1">
-        <table className="w-full min-w-[480px]">
+        <table className="w-full min-w-[600px]">
           <thead>
             <tr className="border-b border-gray-200 text-left">
               <th className="pb-2 pr-2 text-xs font-medium text-gray-500 w-8">#</th>
               <th className="pb-2 pr-2 text-xs font-medium text-gray-500">Description</th>
               <th className="pb-2 pr-2 text-xs font-medium text-gray-500 text-right w-20">Qty</th>
+              <th className="pb-2 pr-2 text-xs font-medium text-gray-500 w-20">Unit</th>
               <th className="pb-2 pr-2 text-xs font-medium text-gray-500 text-right w-28">Rate</th>
+              {data.taxMode === 'per-line' && (
+                <th className="pb-2 pr-2 text-xs font-medium text-gray-500 text-right w-20">Tax %</th>
+              )}
               <th className="pb-2 pr-2 text-xs font-medium text-gray-500 text-right w-28">Amount</th>
               <th className="pb-2 w-8"></th>
             </tr>

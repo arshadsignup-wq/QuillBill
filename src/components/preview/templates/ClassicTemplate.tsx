@@ -3,6 +3,7 @@ import { formatDate, formatCurrency } from '../../../lib/format';
 import { getDocumentTitle } from '../../../lib/documentTitle';
 import DocumentFooter from '../DocumentFooter';
 import { DocTitle } from '../DocTitle';
+import { formatQuantity, taxRateLabel } from '../../../lib/calculations';
 
 interface TemplateProps {
   data: InvoiceData;
@@ -70,7 +71,7 @@ export default function ClassicTemplate({ data, totals }: TemplateProps) {
               <tr key={item.id} className="border-b border-gray-200 even:bg-gray-50">
                 <td className="py-2 px-3 text-xs text-gray-500 border-r border-gray-200">{i + 1}</td>
                 <td className="py-2 px-3 text-xs text-gray-900 border-r border-gray-200">{item.description || '—'}</td>
-                <td className="py-2 px-3 text-xs text-gray-700 text-right border-r border-gray-200">{item.quantity}</td>
+                <td className="py-2 px-3 text-xs text-gray-700 text-right border-r border-gray-200">{formatQuantity(item)}</td>
                 <td className="py-2 px-3 text-xs text-gray-700 text-right border-r border-gray-200">{formatCurrency(item.rate, data.currency)}</td>
                 <td className="py-2 px-3 text-xs text-gray-900 text-right font-bold">{formatCurrency(itemTotal, data.currency)}</td>
               </tr>
@@ -94,7 +95,7 @@ export default function ClassicTemplate({ data, totals }: TemplateProps) {
           )}
           {totals.taxAmount > 0 && (
             <div className="flex justify-between text-xs px-3 py-1.5 border-b border-gray-200">
-              <span className="text-gray-600">Tax ({data.taxRate}%)</span>
+              <span className="text-gray-600">Tax ({taxRateLabel(data, totals)})</span>
               <span>{formatCurrency(totals.taxAmount, data.currency)}</span>
             </div>
           )}

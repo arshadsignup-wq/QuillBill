@@ -15,6 +15,7 @@ export function decodePayload(payload: string): InvoiceData | null {
     if (!isValidInvoiceData(data)) return null;
     if (typeof data.documentTitle !== 'string') data.documentTitle = '';
     if (data.paperSize !== 'a4' && data.paperSize !== 'letter') data.paperSize = 'a4';
+    if (data.taxMode !== 'single' && data.taxMode !== 'per-line') data.taxMode = 'single';
     if (typeof data.bankDetails !== 'string') data.bankDetails = '';
     if (typeof data.projectScope !== 'string') data.projectScope = '';
     if (typeof data.deliverables !== 'string') data.deliverables = '';

@@ -19,7 +19,18 @@ export interface LineItem {
   description: string;
   quantity: number;
   rate: number;
+  /** Optional unit of measure shown beside the quantity: hours, days, each. */
+  unit?: string;
+  /**
+   * Per-line tax rate, used only when the document is in 'per-line' tax mode.
+   * GST, UAE VAT and EU cross-border invoices routinely mix rates on one
+   * document — zero-rated freight beside standard-rated goods — which a single
+   * document-wide rate cannot express.
+   */
+  taxRate?: number;
 }
+
+export type TaxMode = 'single' | 'per-line';
 
 export interface InvoiceData {
   mode: DocumentMode;
@@ -34,6 +45,7 @@ export interface InvoiceData {
   discountType: 'percentage' | 'fixed';
   discountValue: number;
   taxRate: number;
+  taxMode: TaxMode;
   shippingCost: number;
   notes: string;
   paymentTerms: string;
@@ -55,10 +67,19 @@ export interface InvoiceData {
   authorizedSignatureImage: string;
 }
 
+export interface TaxBreakdownRow {
+  rate: number;
+  /** Discounted amount this rate was applied to. */
+  base: number;
+  amount: number;
+}
+
 export interface CalculatedTotals {
   lineItems: { id: string; total: number }[];
   subtotal: number;
   discountAmount: number;
   taxAmount: number;
+  /** One row per distinct rate. A single-rate document produces one row. */
+  taxBreakdown: TaxBreakdownRow[];
   total: number;
 }

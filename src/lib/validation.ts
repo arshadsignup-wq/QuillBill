@@ -20,6 +20,7 @@ export function isValidInvoiceData(data: unknown): boolean {
   if (d.discountType !== 'percentage' && d.discountType !== 'fixed') return false;
   if (typeof d.discountValue !== 'number') return false;
   if (typeof d.taxRate !== 'number') return false;
+  if (d.taxMode !== undefined && d.taxMode !== 'single' && d.taxMode !== 'per-line') return false;
   if (typeof d.shippingCost !== 'number') return false;
   if (typeof d.notes !== 'string') return false;
   if (typeof d.paymentTerms !== 'string') return false;
@@ -62,6 +63,8 @@ function isValidLineItem(item: unknown): boolean {
     typeof li.id === 'string' &&
     typeof li.description === 'string' &&
     typeof li.quantity === 'number' &&
-    typeof li.rate === 'number'
+    typeof li.rate === 'number' &&
+    (li.unit === undefined || typeof li.unit === 'string') &&
+    (li.taxRate === undefined || typeof li.taxRate === 'number')
   );
 }

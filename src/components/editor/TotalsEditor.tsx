@@ -42,20 +42,42 @@ export default function TotalsEditor() {
           />
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <Input
-            label="Tax Rate (%)"
-            id="tax-rate"
-            type="number"
-            min="0"
-            step="0.01"
-            value={data.taxRate || ''}
+          <Select
+            label="Tax"
+            id="tax-mode"
+            value={data.taxMode}
             onChange={(e) =>
               dispatch({
                 type: 'SET_TOTALS',
-                payload: { taxRate: parseFloat(e.target.value) || 0 },
+                payload: { taxMode: e.target.value as 'single' | 'per-line' },
               })
             }
+            options={[
+              { value: 'single', label: 'One rate for the document' },
+              { value: 'per-line', label: 'A rate per line item' },
+            ]}
           />
+          {data.taxMode === 'single' ? (
+            <Input
+              label="Tax Rate (%)"
+              id="tax-rate"
+              type="number"
+              min="0"
+              step="0.01"
+              value={data.taxRate || ''}
+              onChange={(e) =>
+                dispatch({
+                  type: 'SET_TOTALS',
+                  payload: { taxRate: parseFloat(e.target.value) || 0 },
+                })
+              }
+            />
+          ) : (
+            <p className="self-end pb-2 text-xs text-gray-500">
+              Set each line's rate in the Tax&nbsp;% column above. Mixed rates on one document are
+              normal for GST and VAT invoices.
+            </p>
+          )}
           <Input
             label="Shipping"
             id="shipping"
@@ -83,12 +105,17 @@ export default function TotalsEditor() {
               <span className="text-red-600">-{formatCurrency(totals.discountAmount, data.currency)}</span>
             </div>
           )}
-          {totals.taxAmount > 0 && (
-            <div className="flex justify-between text-sm">
-              <span className="text-gray-500">Tax ({data.taxRate}%)</span>
-              <span className="text-gray-900">{formatCurrency(totals.taxAmount, data.currency)}</span>
+          {totals.taxBreakdown.map((row) => (
+            <div key={row.rate} className="flex justify-between text-sm">
+              <span className="text-gray-500">
+                Tax ({row.rate}%)
+                {totals.taxBreakdown.length > 1 && (
+                  <span className="text-gray-400"> on {formatCurrency(row.base, data.currency)}</span>
+                )}
+              </span>
+              <span className="text-gray-900">{formatCurrency(row.amount, data.currency)}</span>
             </div>
-          )}
+          ))}
           {data.shippingCost > 0 && (
             <div className="flex justify-between text-sm">
               <span className="text-gray-500">Shipping</span>

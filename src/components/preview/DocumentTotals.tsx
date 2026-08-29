@@ -23,12 +23,19 @@ export default function DocumentTotals({ data, totals, accentColor }: DocumentTo
             <span className="text-red-600">-{formatCurrency(totals.discountAmount, data.currency)}</span>
           </div>
         )}
-        {totals.taxAmount > 0 && (
-          <div className="flex justify-between text-xs">
-            <span className="text-gray-500">Tax ({data.taxRate}%)</span>
-            <span className="text-gray-900">{formatCurrency(totals.taxAmount, data.currency)}</span>
+        {/* One row per rate. A tax authority that requires the breakdown wants
+            the base each rate was charged on, not just the combined figure. */}
+        {totals.taxBreakdown.map((row) => (
+          <div key={row.rate} className="flex justify-between text-xs">
+            <span className="text-gray-500">
+              Tax ({row.rate}%)
+              {totals.taxBreakdown.length > 1 && (
+                <span className="text-gray-400"> on {formatCurrency(row.base, data.currency)}</span>
+              )}
+            </span>
+            <span className="text-gray-900">{formatCurrency(row.amount, data.currency)}</span>
           </div>
-        )}
+        ))}
         {data.shippingCost > 0 && (
           <div className="flex justify-between text-xs">
             <span className="text-gray-500">Shipping</span>

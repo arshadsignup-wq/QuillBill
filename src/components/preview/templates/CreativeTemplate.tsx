@@ -2,6 +2,7 @@ import type { InvoiceData, CalculatedTotals } from '../../../types/invoice';
 import { formatDate, formatCurrency } from '../../../lib/format';
 import { getDocumentTitle } from '../../../lib/documentTitle';
 import DocumentFooter from '../DocumentFooter';
+import { formatQuantity, taxRateLabel } from '../../../lib/calculations';
 
 interface TemplateProps {
   data: InvoiceData;
@@ -74,7 +75,7 @@ export default function CreativeTemplate({ data, totals }: TemplateProps) {
             <div key={item.id} className="grid grid-cols-[auto_1fr_60px_90px_90px] gap-2 rounded-xl px-3 py-2.5 text-xs" style={{ backgroundColor: i % 2 === 0 ? ac + '06' : 'transparent' }}>
               <span className="w-6 text-gray-400">{i + 1}</span>
               <span className="text-gray-900">{item.description || '—'}</span>
-              <span className="text-gray-700 text-right">{item.quantity}</span>
+              <span className="text-gray-700 text-right">{formatQuantity(item)}</span>
               <span className="text-gray-700 text-right">{formatCurrency(item.rate, data.currency)}</span>
               <span className="text-gray-900 text-right font-medium">{formatCurrency(itemTotal, data.currency)}</span>
             </div>
@@ -97,7 +98,7 @@ export default function CreativeTemplate({ data, totals }: TemplateProps) {
           )}
           {totals.taxAmount > 0 && (
             <div className="flex justify-between text-xs px-3 py-1">
-              <span className="text-gray-500">Tax ({data.taxRate}%)</span>
+              <span className="text-gray-500">Tax ({taxRateLabel(data, totals)})</span>
               <span>{formatCurrency(totals.taxAmount, data.currency)}</span>
             </div>
           )}
