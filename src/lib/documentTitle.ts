@@ -25,6 +25,9 @@ export function getSecondDateLabel(data: InvoiceData): string {
  */
 export function getTotalLabel(data: InvoiceData): string {
   if (data.mode === 'receipt') return 'Total Paid';
-  if (data.mode === 'timesheet' || data.mode === 'purchase-order') return 'Total';
-  return 'Total Due';
+  // Only an invoice is a demand for payment. A quotation and a proposal are
+  // offers — nothing is due on either — and a purchase order and a timesheet
+  // are records. "Total Due" is true of exactly one of the six.
+  if (data.mode === 'invoice') return 'Total Due';
+  return 'Total';
 }
