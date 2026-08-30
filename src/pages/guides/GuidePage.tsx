@@ -9,6 +9,7 @@ import { RichText } from './RichText';
 import { relFor } from './links';
 import { guideIndex } from './guideIndex';
 import { calculators } from './calculators';
+import { examples } from './examples';
 import type { GuideConfig, GuideSection } from './types';
 
 interface Props {
@@ -142,6 +143,11 @@ export default function GuidePage({ config }: Props) {
         {config.calculator && (() => {
           const Calculator = calculators[config.calculator];
           return <Calculator />;
+        })()}
+
+        {config.example && (() => {
+          const Example = examples[config.example];
+          return <Example />;
         })()}
 
         {config.howTo && (

@@ -28,6 +28,12 @@ export const guideIndex: GuideIndexEntry[] = [
     summary: 'What an invoice must contain, how to number them, setting payment terms, and exporting a PDF.',
   },
   {
+    slug: 'invoice-example',
+    cluster: 'Invoicing',
+    title: 'Invoice Example: A Completed Invoice, Field by Field',
+    summary: 'A completed invoice with every field annotated, plus the versions that get queried and why.',
+  },
+  {
     slug: 'create-invoice-free',
     cluster: 'Invoicing',
     title: 'How to Create an Invoice for Free',
@@ -220,6 +226,12 @@ export const guideIndex: GuideIndexEntry[] = [
     summary: 'How to write a price quotation that wins the work and cannot be argued with later.',
   },
   {
+    slug: 'quotation-example',
+    cluster: 'Quotations',
+    title: 'Quotation Example: A Completed Quote, Field by Field',
+    summary: 'A completed quotation with every field annotated, including the validity date most quotes leave off.',
+  },
+  {
     slug: 'invoice-vs-quotation',
     cluster: 'Quotations',
     title: 'Invoice vs Quotation: What Is the Difference?',
@@ -346,6 +358,7 @@ export const guideSlugs: string[] = guideIndex.map((g) => g.slug);
 /** Per-cluster dynamic imports, so one guide never drags in the rest. */
 export const guideLoaders: Record<string, () => Promise<GuideConfig>> = {
   'how-to-create-an-invoice': () => import('./core').then((m) => m.howToCreateInvoiceGuide),
+  'invoice-example': () => import('./exampleGuides').then((m) => m.invoiceExampleGuide),
   'create-invoice-free': () => import('./invoiceTools').then((m) => m.createInvoiceFreeGuide),
   'free-invoice-template-guide': () => import('./invoiceTools').then((m) => m.freeInvoiceTemplateGuide),
   'freelance-invoicing-guide': () => import('./invoicing').then((m) => m.freelanceInvoicingGuide),
@@ -378,6 +391,7 @@ export const guideLoaders: Record<string, () => Promise<GuideConfig>> = {
   'credit-note-and-refunds': () => import('./paymentProblems').then((m) => m.creditNoteGuide),
   'retainer-recurring-invoice': () => import('./operations').then((m) => m.retainerInvoiceGuide),
   'how-to-write-a-quotation': () => import('./writing').then((m) => m.writeQuotationGuide),
+  'quotation-example': () => import('./exampleGuides').then((m) => m.quotationExampleGuide),
   'invoice-vs-quotation': () => import('./core').then((m) => m.invoiceVsQuotationGuide),
   'free-quotation-template-guide': () => import('./quotationTools').then((m) => m.freeQuotationTemplateGuide),
   'request-a-quotation': () => import('./quotationTools').then((m) => m.requestQuotationGuide),
@@ -407,6 +421,7 @@ export const guideLoaders: Record<string, () => Promise<GuideConfig>> = {
  */
 export const guideModulePath: Record<string, string> = {
   'how-to-create-an-invoice': 'src/pages/guides/core.ts',
+  'invoice-example': 'src/pages/guides/exampleGuides.ts',
   'create-invoice-free': 'src/pages/guides/invoiceTools.ts',
   'free-invoice-template-guide': 'src/pages/guides/invoiceTools.ts',
   'freelance-invoicing-guide': 'src/pages/guides/invoicing.ts',
@@ -439,6 +454,7 @@ export const guideModulePath: Record<string, string> = {
   'credit-note-and-refunds': 'src/pages/guides/paymentProblems.ts',
   'retainer-recurring-invoice': 'src/pages/guides/operations.ts',
   'how-to-write-a-quotation': 'src/pages/guides/writing.ts',
+  'quotation-example': 'src/pages/guides/exampleGuides.ts',
   'invoice-vs-quotation': 'src/pages/guides/core.ts',
   'free-quotation-template-guide': 'src/pages/guides/quotationTools.ts',
   'request-a-quotation': 'src/pages/guides/quotationTools.ts',

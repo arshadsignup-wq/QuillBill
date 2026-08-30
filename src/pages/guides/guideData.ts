@@ -58,6 +58,7 @@ import {
   hourlyRateCalculatorGuide,
   dueDateCalculatorGuide,
 } from './calculatorGuides';
+import { invoiceExampleGuide, quotationExampleGuide } from './exampleGuides';
 import {
   invoiceNumberingGuide,
   retainerInvoiceGuide,
@@ -122,6 +123,8 @@ export {
   lateFeeCalculatorGuide,
   hourlyRateCalculatorGuide,
   dueDateCalculatorGuide,
+  invoiceExampleGuide,
+  quotationExampleGuide,
 };
 
 /**
@@ -134,6 +137,7 @@ export {
 export const guideConfigs: GuideConfig[] = [
   // Invoicing
   howToCreateInvoiceGuide,
+  invoiceExampleGuide,
   createInvoiceFreeGuide,
   freeInvoiceTemplateGuide,
   freelanceInvoicingGuide,
@@ -175,6 +179,7 @@ export const guideConfigs: GuideConfig[] = [
 
   // Quotations
   writeQuotationGuide,
+  quotationExampleGuide,
   invoiceVsQuotationGuide,
   freeQuotationTemplateGuide,
   requestQuotationGuide,

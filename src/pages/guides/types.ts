@@ -1,5 +1,6 @@
 import type { FAQItem } from '../landing/landingData';
 import type { CalculatorKey } from './calculators';
+import type { ExampleKey } from './examples';
 
 export interface GuideSection {
   heading: string;
@@ -69,6 +70,8 @@ export interface GuideConfig {
    * explains the arithmetic instead of hiding it.
    */
   calculator?: CalculatorKey;
+  /** Renders a filled-in, annotated document under the intro. */
+  example?: ExampleKey;
   /** Scannable answer box directly under the intro. */
   keyTakeaways?: string[];
   /** When set, a HowTo schema is emitted from these steps. */
