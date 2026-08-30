@@ -65,6 +65,10 @@ import {
   timesheetTemplateGuide,
 } from './documentTypes';
 import {
+  zohoInvoiceAlternativeGuide,
+  waveInvoicingAlternativeGuide,
+} from './comparisons';
+import {
   invoiceNumberingGuide,
   retainerInvoiceGuide,
   invoiceEmailGuide,
@@ -133,6 +137,8 @@ export {
   receiptTemplateGuide,
   purchaseOrderTemplateGuide,
   timesheetTemplateGuide,
+  zohoInvoiceAlternativeGuide,
+  waveInvoicingAlternativeGuide,
 };
 
 /**
@@ -208,6 +214,8 @@ export const guideConfigs: GuideConfig[] = [
   quotationGeneratorGuide,
   freeQuotationSoftwareGuide,
   invoiceGeneratorAlternativesGuide,
+  zohoInvoiceAlternativeGuide,
+  waveInvoicingAlternativeGuide,
 
   // Calculators
   vatCalculatorGuide,
