@@ -16,6 +16,7 @@ import { SITE_ORIGIN } from '../lib/site';
  */
 export const AUTHOR = {
   name: 'Arshad Hossain',
+  email: 'arshadhossain.work@gmail.com',
   url: `${SITE_ORIGIN}/about`,
   id: `${SITE_ORIGIN}/#author`,
   role: 'Builder and maintainer',
@@ -31,5 +32,6 @@ export function personSchema() {
     '@id': AUTHOR.id,
     name: AUTHOR.name,
     url: AUTHOR.url,
+    email: AUTHOR.email,
   };
 }

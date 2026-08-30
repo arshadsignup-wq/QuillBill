@@ -19,6 +19,15 @@ export function organizationSchema() {
     },
     description:
       'QuillBill is a free, privacy-first invoice, quotation and proposal generator that runs entirely in your browser.',
+    // The same address the contact page shows. A contact detail that resolves
+    // to a real, reachable person is a trust signal; one that only exists in
+    // markup is not, so these two must not drift apart.
+    contactPoint: {
+      '@type': 'ContactPoint',
+      contactType: 'customer support',
+      email: AUTHOR.email,
+      url: `${SITE_ORIGIN}/contact`,
+    },
   };
 }
 
