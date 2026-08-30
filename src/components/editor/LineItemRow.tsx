@@ -2,6 +2,7 @@ import { Trash2 } from 'lucide-react';
 import { useInvoiceContext } from '../../context/InvoiceContext';
 import type { LineItem } from '../../types/invoice';
 import { formatCurrency } from '../../lib/format';
+import { modeSpec } from '../../constants/documentModes';
 
 interface LineItemRowProps {
   item: LineItem;
@@ -21,6 +22,17 @@ export default function LineItemRow({ item, index, canDelete }: LineItemRowProps
   return (
     <tr className="group border-b border-gray-100 last:border-0">
       <td className="py-2 pr-2 text-xs text-gray-400 w-8">{index + 1}</td>
+      {modeSpec(data.mode).showLineDates && (
+        <td className="py-2 pr-2 w-32">
+          <input
+            type="date"
+            value={item.date ?? ''}
+            onChange={(e) => update('date', e.target.value)}
+            aria-label={`Date for line ${index + 1}`}
+            className="w-full bg-transparent text-sm text-gray-900 outline-none focus:bg-gray-50 rounded px-1 py-0.5"
+          />
+        </td>
+      )}
       <td className="py-2 pr-2">
         <input
           value={item.description}

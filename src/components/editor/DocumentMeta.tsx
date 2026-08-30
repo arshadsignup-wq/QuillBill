@@ -3,13 +3,15 @@ import { currencies } from '../../constants/currencies';
 import Input from '../ui/Input';
 import Select from '../ui/Select';
 import Card from '../ui/Card';
+import { modeSpec } from '../../constants/documentModes';
 
 export default function DocumentMeta() {
   const { data, dispatch } = useInvoiceContext();
 
-  const defaultTitle = data.mode === 'invoice' ? 'Invoice' : data.mode === 'proposal' ? 'Proposal' : 'Quotation';
-  const numberPlaceholder = data.mode === 'proposal' ? 'PROP-001' : 'INV-001';
-  const dueDateLabel = data.mode === 'proposal' ? 'Valid Until' : 'Due Date';
+  const spec = modeSpec(data.mode);
+  const defaultTitle = spec.label;
+  const numberPlaceholder = spec.numberPrefix;
+  const dueDateLabel = spec.secondDateLabel;
 
   return (
     <Card title="Document Details">

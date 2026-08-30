@@ -71,6 +71,27 @@ export function taxRateLabel(data: InvoiceData, totals: CalculatedTotals): strin
   return totals.taxBreakdown.map((r) => `${r.rate}%`).join(' + ');
 }
 
+/**
+ * "12 Mar — Client kickoff call" on a timesheet, the plain description
+ * everywhere else.
+ *
+ * Prefixing the description rather than adding a date column means the date
+ * reaches all 30 templates without any of them growing a column they would
+ * only use for one mode.
+ */
+export function formatDescription(item: { description: string; date?: string }): string {
+  const date = item.date?.trim();
+  if (!date) return item.description;
+  const parsed = new Date(`${date}T00:00:00Z`);
+  if (Number.isNaN(parsed.getTime())) return item.description;
+  const label = parsed.toLocaleDateString(undefined, {
+    day: 'numeric',
+    month: 'short',
+    timeZone: 'UTC',
+  });
+  return item.description ? `${label} — ${item.description}` : label;
+}
+
 /** "2 hours", "3", "1 day" — the unit only appears when one was given. */
 export function formatQuantity(item: { quantity: number; unit?: string }): string {
   const unit = item.unit?.trim();

@@ -11,6 +11,7 @@ import { guideIndex } from '../pages/guides/guideIndex';
 import type { LandingPageConfig } from '../pages/landing/landingData';
 import type { TemplateGalleryConfig } from '../pages/templates/templateData';
 import type { GuideConfig } from '../pages/guides/types';
+import { modeSpec } from '../constants/documentModes';
 
 /**
  * JSON-LD builders live here rather than beside their components so the route
@@ -18,8 +19,7 @@ import type { GuideConfig } from '../pages/guides/types';
  * prerenderer's module graph.
  */
 
-const modeNoun = (mode: LandingPageConfig['mode']) =>
-  mode === 'invoice' ? 'invoice' : mode === 'quote' ? 'quotation' : 'proposal';
+const modeNoun = (mode: LandingPageConfig['mode']) => modeSpec(mode).noun;
 
 export function landingJsonLd(config: LandingPageConfig) {
   return [

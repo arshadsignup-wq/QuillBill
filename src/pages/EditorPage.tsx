@@ -17,6 +17,7 @@ import HomeContent from './HomeContent';
 import { useSEO } from '../hooks/useSEO';
 import { pageMetaFor } from '../seo/pageMeta';
 import { Zap, Shield, Share2, Palette, X } from 'lucide-react';
+import { MODE_KEYS, DEFAULT_NUMBERS, modeSpec } from '../constants/documentModes';
 
 const HERO_DISMISSED_KEY = 'quillbill-hero-dismissed';
 
@@ -101,10 +102,14 @@ function EditorContent({ showHomeContent }: { showHomeContent: boolean }) {
   );
 }
 
+// Deep-link aliases for ?mode=. Derived from the mode list so a new document
+// type is linkable the moment it exists, with a couple of friendlier spellings
+// for the hyphenated one.
 const VALID_MODES: Record<string, DocumentMode> = {
-  invoice: 'invoice',
-  quote: 'quote',
-  proposal: 'proposal',
+  ...Object.fromEntries(MODE_KEYS.map((m) => [m, m])),
+  quotation: 'quote',
+  po: 'purchase-order',
+  purchaseorder: 'purchase-order',
 };
 
 const VALID_TEMPLATES = new Set<string>(
@@ -144,10 +149,8 @@ export default function EditorPage() {
       const newMode = VALID_MODES[modeParam];
       data = { ...data, mode: newMode };
       // Mirror the document number logic from the reducer
-      if (newMode === 'proposal' && data.documentNumber === 'INV-001') {
-        data.documentNumber = 'PROP-001';
-      } else if (newMode !== 'proposal' && data.documentNumber === 'PROP-001') {
-        data.documentNumber = 'INV-001';
+      if (DEFAULT_NUMBERS.includes(data.documentNumber)) {
+        data.documentNumber = modeSpec(newMode).numberPrefix;
       }
     }
 

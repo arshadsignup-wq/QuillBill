@@ -1,4 +1,10 @@
-export type DocumentMode = 'invoice' | 'quote' | 'proposal';
+export type DocumentMode =
+  | 'invoice'
+  | 'quote'
+  | 'proposal'
+  | 'receipt'
+  | 'purchase-order'
+  | 'timesheet';
 
 export type PaperSize = 'a4' | 'letter';
 
@@ -21,6 +27,12 @@ export interface LineItem {
   rate: number;
   /** Optional unit of measure shown beside the quantity: hours, days, each. */
   unit?: string;
+  /**
+   * Date this line refers to. Only meaningful on a timesheet, where each row
+   * is a day's work rather than a product. Rendered as a prefix on the
+   * description so it appears in all 30 templates without a new column.
+   */
+  date?: string;
   /**
    * Per-line tax rate, used only when the document is in 'per-line' tax mode.
    * GST, UAE VAT and EU cross-border invoices routinely mix rates on one

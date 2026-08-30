@@ -1,5 +1,6 @@
 import { useInvoiceContext } from '../../context/InvoiceContext';
 import type { TemplateName } from '../../types/invoice';
+import { modeSpec } from '../../constants/documentModes';
 
 const invoiceTemplates: { name: TemplateName; label: string; description: string }[] = [
   { name: 'minimal', label: 'Minimal', description: 'Clean and simple' },
@@ -39,7 +40,7 @@ const proposalTemplates: { name: TemplateName; label: string; description: strin
 
 export default function TemplatePicker() {
   const { data, dispatch } = useInvoiceContext();
-  const templates = data.mode === 'proposal' ? proposalTemplates : invoiceTemplates;
+  const templates = modeSpec(data.mode).usesProposalTemplates ? proposalTemplates : invoiceTemplates;
 
   return (
     <div className="flex flex-col gap-2">

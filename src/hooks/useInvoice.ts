@@ -2,6 +2,7 @@ import { useReducer } from 'react';
 import { nanoid } from 'nanoid';
 import type { InvoiceData, DocumentMode, ContactInfo, LineItem, TemplateName, PaperSize } from '../types/invoice';
 import { createDefaultInvoice, createDefaultLineItem } from '../constants/defaults';
+import { modeSpec, DEFAULT_NUMBERS } from '../constants/documentModes';
 
 type Action =
   | { type: 'SET_MODE'; payload: DocumentMode }
@@ -39,13 +40,18 @@ function reducer(state: InvoiceData, action: Action): InvoiceData {
   switch (action.type) {
     case 'SET_MODE': {
       const newMode = action.payload;
-      let documentNumber = state.documentNumber;
-      if (newMode === 'proposal' && documentNumber === 'INV-001') {
-        documentNumber = 'PROP-001';
-      } else if (newMode !== 'proposal' && documentNumber === 'PROP-001') {
-        documentNumber = 'INV-001';
-      }
-      return { ...state, mode: newMode, documentNumber };
+      const spec = modeSpec(newMode);
+      // Only renumber a document number the user has not touched. Any of the
+      // six defaults counts as untouched; anything else is theirs to keep.
+      const documentNumber = DEFAULT_NUMBERS.includes(state.documentNumber)
+        ? spec.numberPrefix
+        : state.documentNumber;
+      // A timesheet is billed in hours, so say so rather than making every
+      // user type it on every row.
+      const items = spec.defaultUnit
+        ? state.items.map((i) => (i.unit ? i : { ...i, unit: spec.defaultUnit }))
+        : state.items;
+      return { ...state, mode: newMode, documentNumber, items };
     }
 
     case 'SET_META':

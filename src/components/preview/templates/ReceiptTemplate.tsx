@@ -2,7 +2,7 @@ import type { InvoiceData, CalculatedTotals } from '../../../types/invoice';
 import { formatDate, formatCurrency } from '../../../lib/format';
 import { getDocumentTitle } from '../../../lib/documentTitle';
 import DocumentFooter from '../DocumentFooter';
-import { formatQuantity, taxRateLabel } from '../../../lib/calculations';
+import { formatDescription, formatQuantity, taxRateLabel } from '../../../lib/calculations';
 
 interface TemplateProps {
   data: InvoiceData;
@@ -54,7 +54,7 @@ export default function ReceiptTemplate({ data, totals }: TemplateProps) {
             return (
               <div key={item.id} className="flex justify-between text-xs py-1">
                 <div className="flex-1 text-gray-800">
-                  {item.description || `Item ${i + 1}`}
+                  {formatDescription(item) || `Item ${i + 1}`}
                   <span className="text-gray-400 ml-1">x{formatQuantity(item)}</span>
                 </div>
                 <div className="text-right font-medium text-gray-900 ml-4">{formatCurrency(itemTotal, data.currency)}</div>

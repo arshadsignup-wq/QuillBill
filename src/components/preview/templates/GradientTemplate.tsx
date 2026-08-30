@@ -3,7 +3,7 @@ import { formatDate, formatCurrency } from '../../../lib/format';
 import { getDocumentTitle } from '../../../lib/documentTitle';
 import DocumentFooter from '../DocumentFooter';
 import { DocTitle } from '../DocTitle';
-import { formatQuantity, taxRateLabel } from '../../../lib/calculations';
+import { formatDescription, formatQuantity, taxRateLabel } from '../../../lib/calculations';
 
 interface TemplateProps {
   data: InvoiceData;
@@ -75,7 +75,7 @@ export default function GradientTemplate({ data, totals }: TemplateProps) {
             return (
               <tr key={item.id} className="border-b border-gray-100">
                 <td className="py-2.5 px-3 text-xs text-gray-400">{i + 1}</td>
-                <td className="py-2.5 px-3 text-xs text-gray-900">{item.description || '—'}</td>
+                <td className="py-2.5 px-3 text-xs text-gray-900">{formatDescription(item) || '—'}</td>
                 <td className="py-2.5 px-3 text-xs text-gray-700 text-right">{formatQuantity(item)}</td>
                 <td className="py-2.5 px-3 text-xs text-gray-700 text-right">{formatCurrency(item.rate, data.currency)}</td>
                 <td className="py-2.5 px-3 text-xs text-gray-900 text-right font-medium">{formatCurrency(itemTotal, data.currency)}</td>

@@ -3,6 +3,7 @@ import { useInvoiceContext } from '../../context/InvoiceContext';
 import Card from '../ui/Card';
 import Button from '../ui/Button';
 import LineItemRow from './LineItemRow';
+import { modeSpec } from '../../constants/documentModes';
 
 export default function LineItemsTable() {
   const { data, dispatch } = useInvoiceContext();
@@ -14,6 +15,9 @@ export default function LineItemsTable() {
           <thead>
             <tr className="border-b border-gray-200 text-left">
               <th className="pb-2 pr-2 text-xs font-medium text-gray-500 w-8">#</th>
+              {modeSpec(data.mode).showLineDates && (
+                <th className="pb-2 pr-2 text-xs font-medium text-gray-500 w-32">Date</th>
+              )}
               <th className="pb-2 pr-2 text-xs font-medium text-gray-500">Description</th>
               <th className="pb-2 pr-2 text-xs font-medium text-gray-500 text-right w-20">Qty</th>
               <th className="pb-2 pr-2 text-xs font-medium text-gray-500 w-20">Unit</th>

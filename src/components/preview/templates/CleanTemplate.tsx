@@ -2,7 +2,7 @@ import type { InvoiceData, CalculatedTotals } from '../../../types/invoice';
 import { formatDate, formatCurrency } from '../../../lib/format';
 import { getDocumentTitle } from '../../../lib/documentTitle';
 import DocumentFooter from '../DocumentFooter';
-import { formatQuantity } from '../../../lib/calculations';
+import { formatDescription, formatQuantity } from '../../../lib/calculations';
 
 interface TemplateProps {
   data: InvoiceData;
@@ -68,7 +68,7 @@ export default function CleanTemplate({ data, totals }: TemplateProps) {
             const itemTotal = totals.lineItems.find((li) => li.id === item.id)?.total ?? 0;
             return (
               <tr key={item.id}>
-                <td className="py-3 text-xs text-gray-800">{item.description || '—'}</td>
+                <td className="py-3 text-xs text-gray-800">{formatDescription(item) || '—'}</td>
                 <td className="py-3 text-xs text-gray-500 text-right">{formatQuantity(item)}</td>
                 <td className="py-3 text-xs text-gray-500 text-right">{formatCurrency(item.rate, data.currency)}</td>
                 <td className="py-3 text-xs text-gray-800 text-right">{formatCurrency(itemTotal, data.currency)}</td>

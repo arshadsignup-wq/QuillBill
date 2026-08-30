@@ -2,7 +2,8 @@ export function isValidInvoiceData(data: unknown): boolean {
   if (!data || typeof data !== 'object') return false;
   const d = data as Record<string, unknown>;
 
-  if (d.mode !== 'invoice' && d.mode !== 'quote' && d.mode !== 'proposal') return false;
+  const MODES = ['invoice', 'quote', 'proposal', 'receipt', 'purchase-order', 'timesheet'];
+  if (typeof d.mode !== 'string' || !MODES.includes(d.mode)) return false;
   if (typeof d.documentTitle !== 'string' && d.documentTitle !== undefined) return false;
   if (typeof d.documentNumber !== 'string') return false;
   if (typeof d.issueDate !== 'string') return false;
@@ -65,6 +66,7 @@ function isValidLineItem(item: unknown): boolean {
     typeof li.quantity === 'number' &&
     typeof li.rate === 'number' &&
     (li.unit === undefined || typeof li.unit === 'string') &&
+    (li.date === undefined || typeof li.date === 'string') &&
     (li.taxRate === undefined || typeof li.taxRate === 'number')
   );
 }

@@ -60,6 +60,11 @@ import {
 } from './calculatorGuides';
 import { invoiceExampleGuide, quotationExampleGuide } from './exampleGuides';
 import {
+  receiptTemplateGuide,
+  purchaseOrderTemplateGuide,
+  timesheetTemplateGuide,
+} from './documentTypes';
+import {
   invoiceNumberingGuide,
   retainerInvoiceGuide,
   invoiceEmailGuide,
@@ -125,6 +130,9 @@ export {
   dueDateCalculatorGuide,
   invoiceExampleGuide,
   quotationExampleGuide,
+  receiptTemplateGuide,
+  purchaseOrderTemplateGuide,
+  timesheetTemplateGuide,
 };
 
 /**
@@ -145,7 +153,9 @@ export const guideConfigs: GuideConfig[] = [
   internationalInvoiceGuide,
   recordKeepingGuide,
   proformaInvoiceGuide,
+  receiptTemplateGuide,
   purchaseOrderGuide,
+  purchaseOrderTemplateGuide,
 
   // By profession
   photographerInvoiceGuide,
@@ -175,6 +185,7 @@ export const guideConfigs: GuideConfig[] = [
   milestoneInvoiceGuide,
   disputedInvoiceGuide,
   creditNoteGuide,
+  timesheetTemplateGuide,
   retainerInvoiceGuide,
 
   // Quotations
