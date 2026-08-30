@@ -1,6 +1,6 @@
 import type { InvoiceData, CalculatedTotals } from '../../../types/invoice';
 import { formatDate, formatCurrency } from '../../../lib/format';
-import { getDocumentTitle } from '../../../lib/documentTitle';
+import { getSecondDateLabel, getDocumentTitle } from '../../../lib/documentTitle';
 import DocumentFooter from '../DocumentFooter';
 import { formatDescription, formatQuantity, taxRateLabel } from '../../../lib/calculations';
 
@@ -32,7 +32,7 @@ export default function ProfessionalTemplate({ data, totals }: TemplateProps) {
           <div className="text-xs text-gray-500 mt-1 space-y-0.5">
             <div># {data.documentNumber}</div>
             <div>Date: {formatDate(data.issueDate)}</div>
-            <div>Due: {formatDate(data.dueDate)}</div>
+            <div>{getSecondDateLabel(data)}: {formatDate(data.dueDate)}</div>
           </div>
         </div>
       </div>

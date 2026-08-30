@@ -1,6 +1,6 @@
 import type { InvoiceData, CalculatedTotals } from '../../../types/invoice';
 import { formatDate, formatCurrency } from '../../../lib/format';
-import { getDocumentTitle } from '../../../lib/documentTitle';
+import { getSecondDateLabel, getDocumentTitle } from '../../../lib/documentTitle';
 import DocumentFooter from '../DocumentFooter';
 import { formatDescription, formatQuantity, taxRateLabel } from '../../../lib/calculations';
 
@@ -33,7 +33,7 @@ export default function CreativeTemplate({ data, totals }: TemplateProps) {
             <span className="font-medium">Issued:</span> {formatDate(data.issueDate)}
           </div>
           <div className="rounded-xl px-4 py-2 text-xs" style={{ backgroundColor: ac + '10', color: ac }}>
-            <span className="font-medium">Due:</span> {formatDate(data.dueDate)}
+            <span className="font-medium">{getSecondDateLabel(data)}:</span> {formatDate(data.dueDate)}
           </div>
         </div>
       </div>

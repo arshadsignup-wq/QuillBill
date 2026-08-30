@@ -1,6 +1,6 @@
 import type { InvoiceData, CalculatedTotals } from '../../../types/invoice';
 import { formatDate, formatCurrency } from '../../../lib/format';
-import { getDocumentTitle } from '../../../lib/documentTitle';
+import { getTotalLabel, getSecondDateLabel, getDocumentTitle } from '../../../lib/documentTitle';
 import DocumentFooter from '../DocumentFooter';
 import { DocTitle } from '../DocTitle';
 import { formatDescription, formatQuantity, taxRateLabel } from '../../../lib/calculations';
@@ -30,7 +30,7 @@ export default function SidebarTemplate({ data, totals }: TemplateProps) {
             <div className="text-xs text-white/80">{formatDate(data.issueDate)}</div>
           </div>
           <div className="mb-6">
-            <div className="text-[9px] font-semibold uppercase tracking-wider text-white/50 mb-1.5">Due Date</div>
+            <div className="text-[9px] font-semibold uppercase tracking-wider text-white/50 mb-1.5">{getSecondDateLabel(data)}</div>
             <div className="text-xs text-white/80">{formatDate(data.dueDate)}</div>
           </div>
 
@@ -46,7 +46,7 @@ export default function SidebarTemplate({ data, totals }: TemplateProps) {
 
           <div className="mt-auto pt-4 border-t border-white/20">
             <div className="text-xl font-bold">{formatCurrency(totals.total, data.currency)}</div>
-            <div className="text-[10px] text-white/50 uppercase tracking-wider">Total Due</div>
+            <div className="text-[10px] text-white/50 uppercase tracking-wider">{getTotalLabel(data)}</div>
           </div>
         </div>
 

@@ -1,6 +1,6 @@
 import type { InvoiceData, CalculatedTotals } from '../../../types/invoice';
 import { formatDate, formatCurrency } from '../../../lib/format';
-import { getDocumentTitle } from '../../../lib/documentTitle';
+import { getSecondDateLabel, getDocumentTitle } from '../../../lib/documentTitle';
 import DocumentFooter from '../DocumentFooter';
 import { formatDescription, formatQuantity } from '../../../lib/calculations';
 
@@ -49,7 +49,7 @@ export default function CleanTemplate({ data, totals }: TemplateProps) {
             {data.to.phone && <div>{data.to.phone}</div>}
             {data.to.address && <div className="whitespace-pre-line">{data.to.address}</div>}
           </div>
-          <div className="text-xs text-gray-400 mt-3">Due {formatDate(data.dueDate)}</div>
+          <div className="text-xs text-gray-400 mt-3">{getSecondDateLabel(data)} {formatDate(data.dueDate)}</div>
         </div>
       </div>
 

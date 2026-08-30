@@ -1,6 +1,6 @@
 import type { InvoiceData } from '../../types/invoice';
 import { formatDate } from '../../lib/format';
-import { getDocumentTitle } from '../../lib/documentTitle';
+import { getSecondDateLabel, getDocumentTitle } from '../../lib/documentTitle';
 import { DocTitle } from './DocTitle';
 
 interface DocumentHeaderProps {
@@ -32,7 +32,7 @@ export default function DocumentHeader({ data, accentColor }: DocumentHeaderProp
           <div className="text-xs text-gray-500 mt-2 space-y-0.5">
             <div><span className="font-medium text-gray-700">No:</span> {data.documentNumber}</div>
             <div><span className="font-medium text-gray-700">Date:</span> {formatDate(data.issueDate)}</div>
-            <div><span className="font-medium text-gray-700">Due:</span> {formatDate(data.dueDate)}</div>
+            <div><span className="font-medium text-gray-700">{getSecondDateLabel(data)}:</span> {formatDate(data.dueDate)}</div>
           </div>
         </div>
       </div>

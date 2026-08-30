@@ -1,6 +1,6 @@
 import type { InvoiceData, CalculatedTotals } from '../../../types/invoice';
 import { formatDate, formatCurrency } from '../../../lib/format';
-import { getDocumentTitle } from '../../../lib/documentTitle';
+import { getSecondDateLabel, getDocumentTitle } from '../../../lib/documentTitle';
 import DocumentFooter from '../DocumentFooter';
 import { DocTitle } from '../DocTitle';
 import { formatDescription, formatQuantity, taxRateLabel } from '../../../lib/calculations';
@@ -43,7 +43,7 @@ export default function LetterheadTemplate({ data, totals }: TemplateProps) {
         <div className="text-right text-xs space-y-2">
           <div className="inline-block border border-gray-200 rounded-lg px-3 py-2 text-gray-600">
             <div className="font-medium text-gray-900">Issue: {formatDate(data.issueDate)}</div>
-            <div className="font-medium text-gray-900">Due: {formatDate(data.dueDate)}</div>
+            <div className="font-medium text-gray-900">{getSecondDateLabel(data)}: {formatDate(data.dueDate)}</div>
           </div>
         </div>
       </div>

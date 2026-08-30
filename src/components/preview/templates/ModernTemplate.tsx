@@ -1,6 +1,6 @@
 import type { InvoiceData, CalculatedTotals } from '../../../types/invoice';
 import { formatDate, formatCurrency } from '../../../lib/format';
-import { getDocumentTitle } from '../../../lib/documentTitle';
+import { getSecondDateLabel, getDocumentTitle } from '../../../lib/documentTitle';
 import DocumentFooter from '../DocumentFooter';
 import { DocTitle } from '../DocTitle';
 import { formatDescription, formatQuantity, taxRateLabel } from '../../../lib/calculations';
@@ -49,7 +49,7 @@ export default function ModernTemplate({ data, totals }: TemplateProps) {
           </div>
         </div>
         <div className="text-right text-xs text-gray-500">
-          <div><span className="font-medium text-gray-700">Due Date:</span></div>
+          <div><span className="font-medium text-gray-700">{getSecondDateLabel(data)}:</span></div>
           <div className="font-semibold text-gray-900">{formatDate(data.dueDate)}</div>
         </div>
       </div>

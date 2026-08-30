@@ -1,6 +1,6 @@
 import type { InvoiceData, CalculatedTotals } from '../../../types/invoice';
 import { formatDate, formatCurrency } from '../../../lib/format';
-import { getDocumentTitle } from '../../../lib/documentTitle';
+import { getSecondDateLabel, getDocumentTitle } from '../../../lib/documentTitle';
 import DocumentFooter from '../DocumentFooter';
 import { DocTitle } from '../DocTitle';
 import { formatDescription, formatQuantity, taxRateLabel } from '../../../lib/calculations';
@@ -53,7 +53,7 @@ export default function GradientTemplate({ data, totals }: TemplateProps) {
           </div>
         </div>
         <div className="text-right">
-          <div className="text-xs text-gray-400">Due Date</div>
+          <div className="text-xs text-gray-400">{getSecondDateLabel(data)}</div>
           <div className="text-sm font-semibold text-gray-900">{formatDate(data.dueDate)}</div>
         </div>
       </div>

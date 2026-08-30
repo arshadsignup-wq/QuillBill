@@ -1,6 +1,6 @@
 import type { InvoiceData, CalculatedTotals } from '../../../types/invoice';
 import { formatDate, formatCurrency } from '../../../lib/format';
-import { getDocumentTitle } from '../../../lib/documentTitle';
+import { getSecondDateLabel, getDocumentTitle } from '../../../lib/documentTitle';
 import DocumentFooter from '../DocumentFooter';
 import { formatDescription, formatQuantity, taxRateLabel } from '../../../lib/calculations';
 
@@ -28,7 +28,7 @@ export default function CompactTemplate({ data, totals }: TemplateProps) {
         </div>
         <div className="text-right text-[10px] text-gray-500">
           <div>Issued: {formatDate(data.issueDate)}</div>
-          <div>Due: {formatDate(data.dueDate)}</div>
+          <div>{getSecondDateLabel(data)}: {formatDate(data.dueDate)}</div>
         </div>
       </div>
 

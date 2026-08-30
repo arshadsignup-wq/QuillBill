@@ -1,6 +1,6 @@
 import type { InvoiceData, CalculatedTotals } from '../../../types/invoice';
 import { formatDate, formatCurrency } from '../../../lib/format';
-import { getDocumentTitle } from '../../../lib/documentTitle';
+import { getTotalLabel, getSecondDateLabel, getDocumentTitle } from '../../../lib/documentTitle';
 import DocumentFooter from '../DocumentFooter';
 import { DocTitle } from '../DocTitle';
 import { formatDescription, formatQuantity, taxRateLabel } from '../../../lib/calculations';
@@ -34,7 +34,7 @@ export default function ElegantTemplate({ data, totals }: TemplateProps) {
             <div className="font-semibold text-gray-900 text-sm">{formatDate(data.issueDate)}</div>
           </div>
           <div className="text-gray-700">
-            <span className="italic">Due</span>
+            <span className="italic">{getSecondDateLabel(data)}</span>
             <div className="font-semibold text-gray-900 text-sm">{formatDate(data.dueDate)}</div>
           </div>
         </div>
@@ -115,7 +115,7 @@ export default function ElegantTemplate({ data, totals }: TemplateProps) {
             </div>
           )}
           <div className="flex justify-between text-base font-bold pt-3 mt-1" style={{ borderTop: `1px solid ${ac}` }}>
-            <span style={{ color: ac }}>Total Due</span>
+            <span style={{ color: ac }}>{getTotalLabel(data)}</span>
             <span className="text-gray-900">{formatCurrency(totals.total, data.currency)}</span>
           </div>
         </div>
