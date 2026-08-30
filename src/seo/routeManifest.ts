@@ -16,6 +16,7 @@ import {
   webApplicationSchema,
   faqSchema,
   breadcrumbSchema,
+  personSchema,
 } from './schema';
 
 export interface RouteEntry extends SEOOptions {
@@ -152,7 +153,7 @@ export const routes: RouteEntry[] = [
   {
     path: '/about',
     ...pageMeta['/about'],
-    jsonLd: [organizationSchema()],
+    jsonLd: [organizationSchema(), personSchema()],
     changefreq: 'monthly',
     priority: 0.6,
     lastmod: PAGE_UPDATED.about,

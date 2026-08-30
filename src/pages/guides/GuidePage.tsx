@@ -11,6 +11,7 @@ import { guideIndex } from './guideIndex';
 import { calculators } from './calculators';
 import { examples } from './examples';
 import type { GuideConfig, GuideSection } from './types';
+import { AUTHOR } from '../../constants/author';
 
 interface Props {
   config: GuideConfig;
@@ -113,6 +114,11 @@ export default function GuidePage({ config }: Props) {
             </h1>
             <p className="mt-4 text-base text-gray-600 leading-relaxed">{config.intro}</p>
             <p className="mt-5 text-xs text-gray-500">
+              By{' '}
+              <Link to="/about" className="font-medium text-gray-700 hover:text-brand hover:underline">
+                {AUTHOR.name}
+              </Link>
+              {' · '}
               Published <time dateTime={config.published}>{formatDate(config.published)}</time>
               {config.updated !== config.published && (
                 <>

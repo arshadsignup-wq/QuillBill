@@ -5,6 +5,7 @@ import {
   itemListSchema,
   webApplicationSchema,
   articleSchema,
+  personSchema,
 } from './schema';
 import { absoluteUrl } from '../lib/site';
 import { guideIndex } from '../pages/guides/guideIndex';
@@ -69,6 +70,9 @@ export function guideJsonLd(config: GuideConfig) {
       updated: config.updated,
       section: config.cluster,
     }),
+    // The article's author is referenced by @id, so the Person node has to be
+    // in the graph on the same page or the reference dangles.
+    personSchema(),
   ];
   if (config.howTo) {
     nodes.push(howToSchema(config.howTo.name, config.howTo.description, config.howTo.steps));

@@ -3,6 +3,7 @@ import { FileText, Shield, Zap, Share2, Palette, Globe } from 'lucide-react';
 import StaticPageLayout from '../components/layout/StaticPageLayout';
 import { useSEO } from '../hooks/useSEO';
 import { pageMetaFor } from '../seo/pageMeta';
+import { AUTHOR } from '../constants/author';
 
 const features = [
   {
@@ -71,6 +72,15 @@ export default function AboutPage() {
               <p className="text-xs text-gray-500 leading-relaxed">{f.description}</p>
             </div>
           ))}
+        </div>
+
+        <div className="mt-10 space-y-4 text-gray-700 text-sm leading-relaxed">
+          <h2 className="text-lg font-semibold text-gray-900 mb-2">Who is behind it</h2>
+          <p>
+            <span className="font-semibold text-gray-900">{AUTHOR.name}</span> — {AUTHOR.role.toLowerCase()}.
+          </p>
+          <p>{AUTHOR.bio}</p>
+          <p>{AUTHOR.disclaimer}</p>
         </div>
 
         <div className="mt-10 space-y-6 text-gray-700 text-sm leading-relaxed">

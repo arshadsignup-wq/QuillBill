@@ -1,5 +1,6 @@
 import { SITE_ORIGIN, SITE_NAME, absoluteUrl, OG_IMAGE } from '../lib/site';
 import type { FAQItem } from '../pages/landing/landingData';
+import { AUTHOR, personSchema } from '../constants/author';
 
 /** Stable @id for the publishing organization, referenced from other nodes. */
 export const ORG_ID = `${SITE_ORIGIN}/#organization`;
@@ -132,6 +133,8 @@ export interface ArticleMeta {
  * fields on each guide rather than the build clock — a dateModified that bumps
  * on every deploy is both untrue and a freshness signal Google discounts.
  */
+const AUTHOR_ID = AUTHOR.id;
+
 export function articleSchema(meta: ArticleMeta) {
   const url = absoluteUrl(meta.path);
   return {
@@ -147,10 +150,15 @@ export function articleSchema(meta: ArticleMeta) {
     image: OG_IMAGE,
     datePublished: meta.published,
     dateModified: meta.updated,
-    author: { '@id': ORG_ID },
+    // A named Person rather than the Organization. See constants/author.ts
+    // for why the bio claims no credential.
+    author: { '@id': AUTHOR_ID },
     publisher: { '@id': ORG_ID },
   };
 }
+
+/** Emitted alongside the article so its author @id resolves to a real node. */
+export { personSchema };
 
 /** ItemList schema for template gallery pages. */
 export function itemListSchema(name: string, items: { name: string; description: string }[]) {
