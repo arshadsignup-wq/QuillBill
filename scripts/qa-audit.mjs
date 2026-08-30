@@ -93,7 +93,7 @@ const SCOPES = ['india','gst','gstin','uae','emirates','trn','philippines','bir'
   // Payment terms are distinct products, not phrasings of one question:
   // "what does end of month mean" and "what does net 30 mean" share almost
   // every token and have completely different answers.
-  'net30','net 30','net14','net 14','net60','net 60','endofmonth','end of month','eom','2/10'];
+  'uk','hmrc','britain','british','sterling','australia','australian','ato','abn','canada','canadian','cra','hst','provincial','province','usa','united states','american','irs','1099','w-9','ein','ssn','sales tax','net30','net 30','net14','net 14','net60','net 60','endofmonth','end of month','eom','2/10'];
 const scopeOf = (q) => SCOPES.filter((s) => norm(q).includes(s)).join('|');
 for (let i = 0; i < entries.length; i++) {
   for (let j = i + 1; j < entries.length; j++) {

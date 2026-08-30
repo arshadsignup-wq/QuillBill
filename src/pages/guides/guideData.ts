@@ -33,6 +33,10 @@ import {
   philippinesInvoiceGuide,
   nigeriaInvoiceGuide,
   euVatInvoiceGuide,
+  ukVatInvoiceGuide,
+  australiaTaxInvoiceGuide,
+  canadaGstHstInvoiceGuide,
+  usaInvoiceGuide,
 } from './countries';
 import {
   photographerInvoiceGuide,
@@ -95,6 +99,10 @@ export {
   philippinesInvoiceGuide,
   nigeriaInvoiceGuide,
   euVatInvoiceGuide,
+  ukVatInvoiceGuide,
+  australiaTaxInvoiceGuide,
+  canadaGstHstInvoiceGuide,
+  usaInvoiceGuide,
   photographerInvoiceGuide,
   tradesInvoiceGuide,
   consultantInvoiceGuide,
@@ -143,7 +151,12 @@ export const guideConfigs: GuideConfig[] = [
   developerInvoiceGuide,
   tutorInvoiceGuide,
 
-  // By country
+  // By country — broadest markets first, so the hub links these before the
+  // narrower jurisdictions.
+  ukVatInvoiceGuide,
+  usaInvoiceGuide,
+  canadaGstHstInvoiceGuide,
+  australiaTaxInvoiceGuide,
   indiaGstInvoiceGuide,
   uaeVatInvoiceGuide,
   euVatInvoiceGuide,

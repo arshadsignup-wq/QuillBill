@@ -896,3 +896,555 @@ export const euVatInvoiceGuide: GuideConfig = {
     { title: 'Invoice Record Keeping', description: 'What to retain, and for how long.', href: '/invoice-record-keeping' },
   ],
 };
+
+/**
+ * UK, Australia, Canada and the United States.
+ *
+ * Same rule as the rest of this cluster: every requirement is cited to the tax
+ * authority and every citation was checked resolving. The ATO and CRA pages
+ * refuse automated requests, so both were opened in a real browser and the
+ * requirement lists below were taken from the page text, not from memory.
+ *
+ * One correction worth recording: the CRA input tax credit thresholds are $100
+ * and $500. They were $30 and $150 until 20 April 2021, and most third-party
+ * writing about Canadian invoicing still quotes the old pair.
+ */
+
+export const ukVatInvoiceGuide: GuideConfig = {
+  slug: 'vat-invoice-requirements-uk',
+  cluster: 'By country',
+  published: '2026-08-30',
+  updated: '2026-08-30',
+  summary:
+    'What a UK invoice must carry, when it has to be a full VAT invoice, and the statutory interest you can charge when it goes unpaid.',
+  keyTakeaways: [
+    'If you are not VAT registered, do not put a VAT number or VAT amount on the invoice.',
+    'Supplies over £250 including VAT need a full VAT invoice; at or under that a simplified one will do.',
+    'The VAT registration threshold is £90,000 of taxable turnover in any rolling 12 months.',
+    'Late commercial payments carry statutory interest of 8% above the Bank of England base rate.',
+  ],
+  seo: {
+    title: 'UK Invoice Requirements | VAT Invoice Fields Explained',
+    description:
+      'What a UK invoice must include, when a full VAT invoice is required rather than a simplified one, the £90,000 threshold, and statutory late payment interest.',
+    canonical: '/vat-invoice-requirements-uk',
+  },
+  h1: 'UK Invoice Requirements: Plain Invoices and VAT Invoices',
+  intro:
+    'The UK has two different documents that both get called an invoice. If you are not registered for VAT you issue a plain invoice and must not mention VAT at all. If you are registered, HMRC prescribes a specific field list, and which list depends on the value of the supply. This guide covers both, plus what you can charge when the invoice goes unpaid.',
+  sections: [
+    {
+      heading: 'If you are not VAT registered',
+      body: [
+        'You still have to issue a proper invoice, and [GOV.UK sets out what it must include](https://www.gov.uk/invoicing-and-taking-payment-from-customers/invoices-what-they-must-include): a unique identifying number, your business name, address and contact information, the name and address of the customer, a clear description of what you are charging for, the date of supply, the invoice date, the amount being charged, and the total owed.',
+        'What you must not do is show a VAT line or a VAT registration number. Charging VAT when you are not registered for it is a serious problem, and adding a plausible-looking VAT line to make an invoice look more professional is the most common way small businesses stumble into it.',
+        'Sole traders should show their own name alongside any trading name. A limited company should use its full registered name as it appears on the certificate of incorporation.',
+      ],
+    },
+    {
+      heading: 'When you need a full VAT invoice',
+      body: [
+        'Once registered, the supply value decides the format. Where the consideration exceeds £250 including VAT you need a full VAT invoice. At or below £250 a simplified invoice is acceptable, which is why shop receipts look nothing like a contractor invoice.',
+        'HMRC lists the [details a full VAT invoice must show](https://www.gov.uk/hmrc-internal-manuals/vat-trader-records/vatrec5010) in its internal manual, which is the most precise statement of the requirement available.',
+      ],
+      list: [
+        'A sequential number that uniquely identifies the document',
+        'The time of supply — the tax point — and the date of issue where they differ',
+        'Your name, address and VAT registration number',
+        'The name and address of the customer',
+        'A description sufficient to identify the goods or services supplied',
+        'For each description: the quantity, the VAT rate, and the amount payable excluding VAT',
+        'The unit price',
+        'The gross total payable excluding VAT',
+        'The rate of any cash discount offered',
+        'The total VAT chargeable, expressed in sterling',
+      ],
+    },
+    {
+      heading: 'Simplified and modified invoices',
+      body: [
+        'A simplified VAT invoice covers supplies of £250 or less including VAT. It needs your name, address and VAT number, the time of supply, a description identifying what was supplied, and for each VAT rate the total payable including VAT and the rate charged. Exempt supplies must not appear on a simplified invoice at all.',
+        'A modified VAT invoice is the third option: for supplies above £250, and only where the customer agrees, you can show VAT-inclusive rather than VAT-exclusive values for each item. It exists for retail-style businesses and is worth knowing about mainly so you recognise one when a supplier sends you it.',
+      ],
+    },
+    {
+      heading: 'The registration threshold',
+      body: [
+        'You must register for VAT once your taxable turnover in any rolling twelve months exceeds £90,000, a threshold that rose from £85,000 on 1 April 2024. Registration is required within 30 days of the end of the month you crossed it, and your effective date is the first day of the second month after that. [GOV.UK covers the thresholds](https://www.gov.uk/how-vat-works/vat-thresholds) including the £88,000 figure at which you may deregister.',
+        'The rolling twelve-month test catches people out. It is not your financial year — a strong autumn can push you over on a measurement window that ends in November, and the obligation starts then rather than at your year end.',
+      ],
+    },
+    {
+      heading: 'What you can charge when payment is late',
+      body: [
+        'Between businesses, [statutory interest is 8% plus the Bank of England base rate](https://www.gov.uk/late-commercial-payments-interest-debt-recovery/charging-interest-commercial-debt). The base rate is fixed twice a year for this purpose: the rate on 31 December applies for the first half of the following year, and the rate on 30 June applies for the second half.',
+        'You can also claim a fixed sum towards the cost of recovering the debt, on top of the interest, and the amount steps up with the size of the debt. Check the current bands on the GOV.UK page rather than relying on a figure quoted elsewhere.',
+        'Two limits are worth knowing. You cannot claim statutory interest if your contract sets a different rate — though you cannot use a lower rate when contracting with a public authority — and interest can only be collected for up to six years from the day after the contracted payment terms ended.',
+      ],
+    },
+    {
+      heading: 'Keeping the records',
+      body: [
+        'VAT records generally need to be kept for six years, and [VAT Notice 700/21](https://www.gov.uk/guidance/record-keeping-for-vat-notice-70021) sets out what counts as a record and the form it can take. Copies of the invoices you issued are part of that, not an optional extra.',
+        'Digital copies are fine provided they are complete and readable. If you are within Making Tax Digital, the requirement extends to keeping the underlying records digitally and preserving the link between them and your return, so a PDF filed in a folder is the floor rather than the whole answer.',
+      ],
+    },
+  ],
+  answersHeading: 'UK invoicing: common questions',
+  answers: [
+    {
+      question: 'What must a UK invoice include?',
+      answer:
+        'A unique identifying number, your business name and address, the customer\'s name and address, a clear description of the goods or services, the supply date, the invoice date, the amounts charged and the total owed. VAT-registered businesses must add the prescribed VAT fields.',
+    },
+    {
+      question: 'Do I need to be VAT registered to send an invoice in the UK?',
+      answer:
+        'No. Anyone trading can issue an invoice. If you are not registered, simply leave VAT off entirely — no VAT number, no VAT line and no VAT in the total. Charging VAT without being registered is a serious error.',
+    },
+    {
+      question: 'When can I issue a simplified VAT invoice?',
+      answer:
+        'When the supply is £250 or less including VAT. It needs your VAT number, the time of supply, a description of what was supplied, and for each rate the VAT-inclusive total and the rate charged. Exempt supplies cannot appear on one.',
+    },
+    {
+      question: 'What is the VAT registration threshold in the UK?',
+      answer:
+        '£90,000 of taxable turnover across any rolling twelve-month period, in force since 1 April 2024. You must register within 30 days of the end of the month in which you crossed it, and you may deregister below £88,000.',
+    },
+    {
+      question: 'How much interest can I charge on a late invoice in the UK?',
+      answer:
+        'For business-to-business debts, statutory interest is 8% above the Bank of England base rate, plus a fixed sum towards recovery costs that increases with the size of the debt. A different rate written into your contract replaces the statutory one.',
+    },
+    {
+      question: 'How long do I have to keep UK invoices?',
+      answer:
+        'VAT records, including copies of the invoices you issued, generally need to be kept for six years. Digital copies are acceptable provided they are complete and legible, and Making Tax Digital adds requirements about how the underlying records are held.',
+    },
+  ],
+  faqs: [
+    {
+      question: 'Does a UK invoice need to be signed?',
+      answer: 'No. Invoices are not signed in ordinary UK commercial practice, unlike quotations and proposals where acceptance matters.',
+    },
+    {
+      question: 'Can I invoice in a currency other than sterling?',
+      answer:
+        'Yes, but the total VAT chargeable must be shown in sterling on a full VAT invoice even where the rest of the document is in another currency.',
+    },
+    {
+      question: 'What if I forgot to number an invoice sequentially?',
+      answer:
+        'Do not renumber a sent invoice. Keep the sequence going and note the gap in your records; unexplained gaps are what cause problems in a review, not a documented one.',
+    },
+  ],
+  sources: [
+    { label: 'Invoices — what they must include', publisher: 'GOV.UK', url: 'https://www.gov.uk/invoicing-and-taking-payment-from-customers/invoices-what-they-must-include' },
+    { label: 'VATREC5010 — details which must be shown on a full VAT invoice', publisher: 'HM Revenue & Customs', url: 'https://www.gov.uk/hmrc-internal-manuals/vat-trader-records/vatrec5010' },
+    { label: 'Late commercial payments: charging interest and debt recovery', publisher: 'GOV.UK', url: 'https://www.gov.uk/late-commercial-payments-interest-debt-recovery/charging-interest-commercial-debt' },
+    { label: 'Record keeping (VAT Notice 700/21)', publisher: 'HM Revenue & Customs', url: 'https://www.gov.uk/guidance/record-keeping-for-vat-notice-70021' },
+  ],
+  ctaHeading: 'Create a UK invoice',
+  ctaText: 'Open the Invoice Generator',
+  ctaLink: '/?mode=invoice',
+  crossLinks: [
+    { title: 'Late Payment Interest Calculator', description: 'What an overdue invoice has actually accrued.', href: '/late-payment-interest-calculator' },
+    { title: 'How to Chase an Unpaid Invoice', description: 'The escalation sequence that gets paid.', href: '/how-to-chase-an-unpaid-invoice' },
+    { title: 'VAT and GST Calculator', description: 'Add or strip tax at any rate.', href: '/vat-calculator' },
+  ],
+};
+
+export const australiaTaxInvoiceGuide: GuideConfig = {
+  slug: 'tax-invoice-requirements-australia',
+  cluster: 'By country',
+  published: '2026-08-30',
+  updated: '2026-08-30',
+  summary:
+    'The seven details the ATO requires on a tax invoice, the $82.50 and $1,000 thresholds, and how GST rounding works.',
+  keyTakeaways: [
+    'A tax invoice must state that it is one, and must show your ABN.',
+    'Sales of $1,000 or more must also identify the buyer.',
+    'A customer who asks for a tax invoice must get one within 28 days.',
+    'If GST is exactly 1/11 of the price, "Total price includes GST" satisfies the GST requirement.',
+  ],
+  seo: {
+    title: 'Australian Tax Invoice Requirements | ATO Rules and GST',
+    description:
+      'What the ATO requires on a tax invoice: the seven mandatory details, the $82.50 and $1,000 thresholds, GST rounding rules, and recipient-created tax invoices.',
+    canonical: '/tax-invoice-requirements-australia',
+  },
+  h1: 'Australian Tax Invoice Requirements',
+  intro:
+    'In Australia a "tax invoice" is a defined document, not a description. It is what allows your customer to claim a GST credit, and if it is missing a required detail it is not a valid tax invoice at all. The ATO sets out exactly what must appear, and the list changes depending on the value of the sale.',
+  sections: [
+    {
+      heading: 'The seven details for sales under $1,000',
+      body: [
+        'The ATO states that a tax invoice for a taxable sale of less than $1,000 must include enough information to clearly determine seven things. "Clearly determine" is a slightly softer test than a rigid field list, but in practice the safest reading is that each of the seven appears explicitly on the document.',
+      ],
+      list: [
+        'That the document is intended to be a tax invoice',
+        'The seller\'s identity',
+        'The seller\'s Australian Business Number (ABN)',
+        'The date the invoice was issued',
+        'A brief description of the items sold, including the quantity where applicable and the price',
+        'The GST amount payable, if any',
+        'The extent to which each sale on the invoice is a taxable sale',
+      ],
+    },
+    {
+      heading: 'Sales of $1,000 or more',
+      body: [
+        'Above that threshold there is one addition: the invoice must also show the buyer\'s identity or their ABN. Everything else stays the same.',
+        'The practical advice from the ATO is to build one template that meets the higher requirement and use it for everything. A tax invoice that satisfies the $1,000-and-over rules is valid for smaller sales too, and it removes any question about which version you should have sent.',
+      ],
+    },
+    {
+      heading: 'When you have to provide one',
+      body: [
+        'If a customer asks for a tax invoice you must provide one within 28 days of the request, unless the sale is for $82.50 including GST or less. That same $82.50 figure is the point above which a buyer needs a tax invoice in hand to claim a GST credit.',
+        'The document does not have to be paper. A PDF emailed to the customer is a valid tax invoice provided it contains everything required. Australia has also adopted the Peppol framework for eInvoicing, and the ATO treats a compliant Peppol invoice as satisfying the "intended to be a tax invoice" requirement even where those words do not appear on it.',
+      ],
+    },
+    {
+      heading: 'Mixed taxable and GST-free sales',
+      body: [
+        'Where one invoice carries both taxable and non-taxable items, it must clearly show which items are taxable, the amount of GST to be paid, and the total amount payable. Items are non-taxable when they are GST-free or input-taxed, and lumping them in with taxable lines is what makes an invoice fail.',
+        'This is the case for per-line tax rather than a single document-wide rate. If a document mixes GST-free freight with standard-rated goods, the invoice has to say so line by line.',
+      ],
+    },
+    {
+      heading: 'GST rounding',
+      body: [
+        'Where GST works out to a fraction of a cent, specific rules apply. With a single taxable sale on the invoice, round the GST to the nearest cent with half a cent rounding up.',
+        'With more than one taxable sale there are two permitted approaches. Under the total invoice rule you total first and then round. Under the taxable supply rule you work out GST for each sale, round each as your accounting system requires, then add and round the total. You and your customer do not have to use the same rule.',
+      ],
+    },
+    {
+      heading: 'Recipient-created tax invoices',
+      body: [
+        'In some industries the buyer issues the invoice rather than the seller. That is a recipient-created tax invoice, and it is only valid where both parties are registered for GST at the time it is issued, both have agreed in writing that the buyer will issue it and the seller will not, that agreement is current, and the Commissioner has determined that this type of supply can be invoiced this way.',
+        'An RCTI must also show both ABNs, make clear that it is a recipient-created tax invoice rather than a standard one, and state that any GST is payable by the supplier. The recipient must issue it to the supplier within 28 days.',
+      ],
+    },
+  ],
+  answersHeading: 'Australian tax invoices: common questions',
+  answers: [
+    {
+      question: 'What must an Australian tax invoice include?',
+      answer:
+        'That it is intended to be a tax invoice, the seller\'s identity and ABN, the issue date, a brief description with quantity and price, the GST amount payable, and the extent to which each sale is taxable. Sales of $1,000 or more also need the buyer identified.',
+    },
+    {
+      question: 'Do I need an ABN on my invoice in Australia?',
+      answer:
+        'Yes. The seller\'s ABN is one of the mandatory details on a tax invoice. Without it the document is not a valid tax invoice, and your customer cannot use it to claim a GST credit for the purchase.',
+    },
+    {
+      question: 'What is the $82.50 rule for tax invoices?',
+      answer:
+        'A buyer needs a tax invoice to claim a GST credit on purchases over $82.50 including GST. Below that a receipt suffices. It is also the point below which you are not obliged to provide a tax invoice when one is requested.',
+    },
+    {
+      question: 'Can I write "Total price includes GST" instead of a GST amount?',
+      answer:
+        'Yes, but only when the GST is exactly one eleventh of the total price. If any line is GST-free or input-taxed, that statement no longer holds and you must show the GST amount and identify which sales are taxable.',
+    },
+    {
+      question: 'How long do I have to issue a tax invoice in Australia?',
+      answer:
+        'Within 28 days of the customer requesting one, unless the sale is $82.50 including GST or less. The clock runs from the request rather than from the sale, so a late request still creates a 28-day obligation.',
+    },
+    {
+      question: 'Does an emailed PDF count as a tax invoice?',
+      answer:
+        'Yes. The ATO does not require paper. A PDF or other digital format sent to the customer is a valid tax invoice as long as it contains every required detail, and a compliant Peppol eInvoice qualifies as well.',
+    },
+  ],
+  faqs: [
+    {
+      question: 'What if my customer is not registered for GST?',
+      answer:
+        'Your obligations are unchanged — you still issue a valid tax invoice. They simply cannot claim a GST credit for the purchase.',
+    },
+    {
+      question: 'Do I charge GST if I am not registered?',
+      answer:
+        'No. If you are not registered for GST you cannot charge it, and your document is an invoice rather than a tax invoice.',
+    },
+    {
+      question: 'Does the invoice have to say "Tax Invoice" in those words?',
+      answer:
+        'The requirement is that the document is intended to be a tax invoice, and using the words is the clearest way to satisfy it. Compliant Peppol eInvoices are treated as satisfying it without them.',
+    },
+  ],
+  sources: [
+    { label: 'Tax invoices', publisher: 'Australian Taxation Office', url: 'https://www.ato.gov.au/businesses-and-organisations/gst-excise-and-indirect-taxes/gst/tax-invoices' },
+    { label: 'Setting up your business invoices', publisher: 'Australian Taxation Office', url: 'https://www.ato.gov.au/businesses-and-organisations/preparing-lodging-and-paying/record-keeping-for-business/setting-up-and-managing-records/setting-up-your-business-invoices' },
+  ],
+  ctaHeading: 'Create an Australian tax invoice',
+  ctaText: 'Open the Invoice Generator',
+  ctaLink: '/?mode=invoice',
+  crossLinks: [
+    { title: 'VAT and GST Calculator', description: 'Work the GST out both ways.', href: '/vat-calculator' },
+    { title: 'How to Create an Invoice', description: 'The fields every invoice needs, anywhere.', href: '/how-to-create-an-invoice' },
+    { title: 'International Invoicing', description: 'Multi-currency, FX and cross-border payment.', href: '/international-invoicing-currency' },
+  ],
+};
+
+export const canadaGstHstInvoiceGuide: GuideConfig = {
+  slug: 'gst-hst-invoice-requirements-canada',
+  cluster: 'By country',
+  published: '2026-08-30',
+  updated: '2026-08-30',
+  summary:
+    'The CRA information requirements at each dollar threshold, why the rate depends on the buyer\'s province, and the $30,000 small supplier line.',
+  keyTakeaways: [
+    'The information a buyer needs scales with the sale: under $100, $100 to $499.99, and $500 or more.',
+    'The thresholds are $100 and $500 — they were raised from $30 and $150 on 20 April 2021.',
+    'Show your GST/HST registration number once the sale reaches $100.',
+    'The rate follows the place of supply, so a buyer in Ontario means HST even if you are in Alberta.',
+  ],
+  seo: {
+    title: 'Canada GST/HST Invoice Requirements | CRA Rules by Amount',
+    description:
+      'What the CRA requires on an invoice at each threshold — under $100, $100 to $499.99, and $500 or more — plus place-of-supply rates and the small supplier rule.',
+    canonical: '/gst-hst-invoice-requirements-canada',
+  },
+  h1: 'Canada GST/HST Invoice Requirements',
+  intro:
+    'Canada is unusual in that the required contents of an invoice scale with its value. The CRA sets out three tiers, and what your customer needs in order to claim an input tax credit depends on which tier the sale falls into. Get it wrong and the customer cannot recover the tax, which is the kind of thing that gets an invoice sent back.',
+  sections: [
+    {
+      heading: 'The three thresholds',
+      body: [
+        'The CRA publishes the [input tax credit information requirements](https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/calculate-prepare-report/input-tax-credit.html) as a table with three columns. Suppliers have to provide this information; buyers need it to support a claim.',
+        'A widely repeated error is worth naming. Until 20 April 2021 the thresholds were $30 and $150, and a great deal of third-party writing about Canadian invoicing still quotes those figures. They are $100 and $500.',
+      ],
+      table: {
+        head: ['Information required', 'Under $100', '$100–$499.99', '$500 or more'],
+        rows: [
+          ['Supplier\'s business or trading name', 'Yes', 'Yes', 'Yes'],
+          ['Invoice date, or date the tax became payable', 'Yes', 'Yes', 'Yes'],
+          ['Total amount paid or payable', 'Yes', 'Yes', 'Yes'],
+          ['GST/HST charged, or a statement that the amount includes it', 'No', 'Yes', 'Yes'],
+          ['Status of each supply where taxable and exempt are mixed', 'No', 'Yes', 'Yes'],
+          ['Supplier\'s GST/HST registration number', 'No', 'Yes', 'Yes'],
+          ['Buyer\'s name or trading name', 'No', 'No', 'Yes'],
+          ['Brief description of the property or services', 'No', 'No', 'Yes'],
+          ['Terms of payment', 'No', 'No', 'Yes'],
+        ],
+      },
+    },
+    {
+      heading: 'Which rate you charge',
+      body: [
+        'GST is 5% federally. Some provinces have harmonised their sales tax with it, so a single HST is charged instead at a higher combined rate. Others levy a separate provincial sales tax that sits alongside GST, and Quebec runs QST through Revenu Québec rather than the CRA.',
+        'The rate is determined by the place of supply, which generally means where the customer is rather than where you are. A consultant in Calgary billing a client in Halifax charges the Nova Scotia HST rate, not Alberta\'s 5%. Because provincial rates change, take the current figures from the CRA rather than from a table someone published two years ago.',
+      ],
+    },
+    {
+      heading: 'The small supplier threshold',
+      body: [
+        'You generally must register for GST/HST once your worldwide taxable revenues exceed $30,000 in a single calendar quarter or over four consecutive calendar quarters. Below that you are a small supplier and registration is optional.',
+        'Registering voluntarily below the threshold has a real upside: you can claim input tax credits on your own purchases. The tradeoff is that you must then charge tax to every customer, which matters if you sell to consumers who cannot recover it.',
+      ],
+    },
+    {
+      heading: 'Showing tax on the invoice',
+      body: [
+        'Above $100 you must either show the GST/HST charged as its own amount, or state that the amount paid or payable for each taxable supply includes the tax at the applicable rate. Showing it separately is almost always the better choice — it removes ambiguity for a buyer reconciling a claim.',
+        'Where an invoice mixes taxable and exempt supplies, the status of each has to be clear from $100 upwards. Again this is per-line tax rather than a single rate applied to a subtotal.',
+      ],
+    },
+    {
+      heading: 'Time limits your customer is working to',
+      body: [
+        'Most registrants have four years to claim an input tax credit, running to the due date of the return for the last reporting period ending within four years of the period in which the credit first became claimable. Certain large businesses and listed financial institutions have two years instead.',
+        'This matters to you because a customer who discovers a defective invoice inside that window will come back and ask you to reissue it. Getting the fields right the first time is cheaper than reconstructing a document from three years ago.',
+      ],
+    },
+  ],
+  answersHeading: 'Canadian invoicing: common questions',
+  answers: [
+    {
+      question: 'What information must a Canadian invoice show?',
+      answer:
+        'It scales with value. Under $100 you need your business name, the date and the total. From $100 you add your GST/HST number and the tax charged. From $500 you also add the buyer\'s name, a description of what was supplied and the payment terms.',
+    },
+    {
+      question: 'Do I need a GST/HST number on my invoice?',
+      answer:
+        'Once the sale reaches $100 the CRA requires your GST/HST registration number on the document. Below that it is not required. Without it your customer cannot support an input tax credit claim for the tax you charged.',
+    },
+    {
+      question: 'What GST/HST rate do I charge an out-of-province client?',
+      answer:
+        'The rate follows the place of supply, which is generally where your customer is. A supplier in Alberta billing an Ontario client charges Ontario HST rather than the 5% federal GST alone. Check current provincial rates with the CRA.',
+    },
+    {
+      question: 'When do I have to register for GST/HST in Canada?',
+      answer:
+        'Generally once your worldwide taxable revenues exceed $30,000 in one calendar quarter or across four consecutive quarters. Below that you are a small supplier and may register voluntarily, which lets you claim input tax credits on your own costs.',
+    },
+    {
+      question: 'Are the Canadian invoice thresholds still $30 and $150?',
+      answer:
+        'No. They became $100 and $500 on 20 April 2021. A lot of third-party guidance still quotes the old figures, so check against the CRA page rather than a secondary source when the amount is near a boundary.',
+    },
+  ],
+  faqs: [
+    {
+      question: 'Does Quebec work the same way?',
+      answer:
+        'GST rules are the same, but QST is administered by Revenu Québec rather than the CRA, and QST registration numbers are confirmed there.',
+    },
+    {
+      question: 'Can I invoice in US dollars from Canada?',
+      answer:
+        'Yes. You still have to account for the GST/HST correctly in Canadian dollars, so record the exchange rate you used along with the invoice.',
+    },
+    {
+      question: 'What if I charged the wrong provincial rate?',
+      answer:
+        'Issue a credit note cancelling the original and a corrected invoice with a new number, rather than editing the document you already sent.',
+    },
+  ],
+  sources: [
+    { label: 'Input tax credits — information requirements', publisher: 'Canada Revenue Agency', url: 'https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/calculate-prepare-report/input-tax-credit.html' },
+    { label: 'General Information for GST/HST Registrants (RC4022)', publisher: 'Canada Revenue Agency', url: 'https://www.canada.ca/en/revenue-agency/services/forms-publications/publications/rc4022/general-information-gst-hst-registrants.html' },
+  ],
+  ctaHeading: 'Create a Canadian invoice',
+  ctaText: 'Open the Invoice Generator',
+  ctaLink: '/?mode=invoice',
+  crossLinks: [
+    { title: 'VAT and GST Calculator', description: 'Add or strip tax at any rate.', href: '/vat-calculator' },
+    { title: 'Credit Notes and Refunds', description: 'Correcting an invoice you already sent.', href: '/credit-note-and-refunds' },
+    { title: 'International Invoicing', description: 'Multi-currency, FX and cross-border payment.', href: '/international-invoicing-currency' },
+  ],
+};
+
+export const usaInvoiceGuide: GuideConfig = {
+  slug: 'invoice-requirements-usa',
+  cluster: 'By country',
+  published: '2026-08-30',
+  updated: '2026-08-30',
+  summary:
+    'There is no federal invoice format in the US. What actually governs is your contract, state sales tax, and the W-9 and 1099-NEC paperwork.',
+  keyTakeaways: [
+    'No federal law prescribes what a US invoice must contain.',
+    'There is no VAT. Sales tax is a state matter and usually does not apply to services.',
+    'Send a W-9 before the first payment, not at year end.',
+    'Payers report $600 or more of nonemployee compensation on Form 1099-NEC.',
+  ],
+  seo: {
+    title: 'US Invoice Requirements | What Actually Applies',
+    description:
+      'The US has no federal invoice format. What governs instead: your contract, state sales tax, W-9 collection, 1099-NEC reporting at $600, and IRS recordkeeping.',
+    canonical: '/invoice-requirements-usa',
+  },
+  h1: 'US Invoice Requirements: What Actually Applies',
+  intro:
+    'Businesses arriving from a VAT country keep looking for the American equivalent of a tax invoice, and there is not one. No federal statute prescribes the contents of an invoice, there is no VAT number to display, and nothing has to be sequentially numbered by law. What governs instead is your contract, the sales tax rules of individual states, and a small amount of IRS paperwork that has nothing to do with the invoice itself.',
+  sections: [
+    {
+      heading: 'There is no federal invoice format',
+      body: [
+        'Nothing at federal level tells you what an invoice must show, and there is generally no obligation to issue one at all. An invoice in the US is a commercial document rather than a tax document: what makes it enforceable is the agreement behind it.',
+        'That freedom is not an invitation to send less. Everything that makes an invoice get paid — a unique number, clear dates, itemised descriptions, explicit terms, the entity being billed — is still worth including, just for commercial rather than statutory reasons. Purchase-order requirements from large buyers are often stricter than anything a tax authority would impose.',
+      ],
+    },
+    {
+      heading: 'Sales tax is a state question',
+      body: [
+        'There is no VAT and no federal sales tax. Sales tax is levied by states, and often by counties and cities on top, which is why a single state can contain hundreds of distinct rates. Most states tax tangible goods; many do not tax professional services at all, which is why a large share of freelancers never charge sales tax on an invoice.',
+        'Whether you must collect depends on nexus — a connection to the state through physical presence or, since South Dakota v. Wayfair, economic activity above a threshold that each state sets for itself. Because the rules genuinely differ state by state, this is a question for the state\'s revenue department or your accountant rather than a rule of thumb.',
+      ],
+    },
+    {
+      heading: 'W-9 before the first payment',
+      body: [
+        'If you hire a contractor, the [IRS says to have them complete Form W-9](https://www.irs.gov/businesses/small-businesses-self-employed/forms-and-associated-taxes-for-independent-contractors) so you have their taxpayer identification number, and to keep it on file for four years.',
+        'Collect it before the first payment goes out. Chasing a W-9 in January from someone you last worked with in March is the classic small-business January problem, and it is entirely avoidable by making the form part of onboarding rather than of year-end.',
+      ],
+    },
+    {
+      heading: 'Form 1099-NEC and the $600 threshold',
+      body: [
+        'Businesses that pay $600 or more of nonemployee compensation in a year [report it on Form 1099-NEC](https://www.irs.gov/forms-pubs/about-form-1099-nec). That obligation sits with the payer, not with the contractor issuing the invoice.',
+        'As the contractor, your job is to make this easy: consistent legal name and TIN on your invoices matching what you put on the W-9. A mismatch between the name on the invoice and the name on the form is what produces the notices nobody wants to deal with.',
+        'Payments made through a payment card or third-party settlement network are generally reported by that network instead, so do not assume every dollar you received needs a 1099-NEC from the client.',
+      ],
+    },
+    {
+      heading: 'Records',
+      body: [
+        'The IRS expects you to keep records that support the income and deductions on your return, and [its recordkeeping guidance](https://www.irs.gov/businesses/small-businesses-self-employed/recordkeeping) covers what that means in practice. Copies of the invoices you issued are the primary evidence of your revenue.',
+        'How long depends on the situation, and the IRS sets out the periods of limitation that apply. Three years covers the common case, but several circumstances extend it, so read the guidance rather than assuming a single number covers everything.',
+      ],
+    },
+  ],
+  answersHeading: 'US invoicing: common questions',
+  answers: [
+    {
+      question: 'What must a US invoice legally include?',
+      answer:
+        'Federally, nothing. No US statute prescribes the contents of an invoice or requires you to issue one. What controls is your contract with the client, and in practice the purchase-order requirements imposed by larger buyers.',
+    },
+    {
+      question: 'Do I charge sales tax on my invoice?',
+      answer:
+        'Only if you have nexus in a state that taxes what you are selling. Most states do not tax professional services, so many freelancers never charge it. Goods are taxed far more often, and rates vary by city and county.',
+    },
+    {
+      question: 'Is there a VAT number in the United States?',
+      answer:
+        'No. The US has no value-added tax and therefore no VAT registration number. Overseas clients asking for one can be told that; your EIN is the closest equivalent identifier and serves a different purpose entirely.',
+    },
+    {
+      question: 'When does a client have to send me a 1099-NEC?',
+      answer:
+        'When a business pays you $600 or more of nonemployee compensation during the year. The obligation is the payer\'s. Payments routed through a payment card or third-party settlement network are generally reported by that network instead.',
+    },
+    {
+      question: 'Do I need an EIN to invoice as a freelancer?',
+      answer:
+        'Not necessarily — a sole proprietor can use their Social Security number. Many freelancers get an EIN anyway so they are not putting their SSN on a W-9 for every client, which is a reasonable privacy step.',
+    },
+    {
+      question: 'What is the IRS period of limitations on my records?',
+      answer:
+        'It is the window in which the IRS can assess additional tax or you can amend a return, and it sets how long the supporting records matter. Three years is the common case; understated income, unfiled returns and worthless-security claims each extend it.',
+    },
+  ],
+  faqs: [
+    {
+      question: 'Do US invoices need sequential numbers?',
+      answer:
+        'Not by law, but do it anyway. Sequential numbering is how you find an invoice later and how you notice one that never got sent.',
+    },
+    {
+      question: 'Can I invoice a US client in another currency?',
+      answer:
+        'Yes, if they agree. Be explicit about which currency the total is in, since a bare dollar sign is genuinely ambiguous between several currencies.',
+    },
+    {
+      question: 'Does an invoice need to be signed in the US?',
+      answer: 'No. Invoices are not signed in ordinary US commercial practice.',
+    },
+  ],
+  sources: [
+    { label: 'Forms and associated taxes for independent contractors', publisher: 'Internal Revenue Service', url: 'https://www.irs.gov/businesses/small-businesses-self-employed/forms-and-associated-taxes-for-independent-contractors' },
+    { label: 'About Form 1099-NEC, Nonemployee Compensation', publisher: 'Internal Revenue Service', url: 'https://www.irs.gov/forms-pubs/about-form-1099-nec' },
+    { label: 'Recordkeeping', publisher: 'Internal Revenue Service', url: 'https://www.irs.gov/businesses/small-businesses-self-employed/recordkeeping' },
+  ],
+  ctaHeading: 'Create a US invoice',
+  ctaText: 'Open the Invoice Generator',
+  ctaLink: '/?mode=invoice',
+  crossLinks: [
+    { title: 'Freelance Invoicing Guide', description: 'From your first invoice to international clients.', href: '/freelance-invoicing-guide' },
+    { title: 'Invoice Record Keeping', description: 'What to keep and for how long.', href: '/invoice-record-keeping' },
+    { title: 'Payment Due Date Calculator', description: 'Turn Net terms into a real date.', href: '/payment-due-date-calculator' },
+  ],
+};
