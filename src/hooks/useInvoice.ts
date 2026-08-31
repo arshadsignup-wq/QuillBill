@@ -46,12 +46,11 @@ function reducer(state: InvoiceData, action: Action): InvoiceData {
       const documentNumber = DEFAULT_NUMBERS.includes(state.documentNumber)
         ? spec.numberPrefix
         : state.documentNumber;
-      // A timesheet is billed in hours, so say so rather than making every
-      // user type it on every row.
-      const items = spec.defaultUnit
-        ? state.items.map((i) => (i.unit ? i : { ...i, unit: spec.defaultUnit }))
-        : state.items;
-      return { ...state, mode: newMode, documentNumber, items };
+      // The default unit is presentation, not data. Writing "hours" into every
+      // line on switching to Timesheet left it there when the user switched
+      // back, so an invoice would read "1 hours". The mode now supplies the
+      // fallback at render time instead, and switching modes touches nothing.
+      return { ...state, mode: newMode, documentNumber };
     }
 
     case 'SET_META':

@@ -4,6 +4,7 @@ import { getSecondDateLabel, getDocumentTitle } from '../../../lib/documentTitle
 import DocumentFooter from '../DocumentFooter';
 import { DocTitle } from '../DocTitle';
 import { formatDescription, formatQuantity, taxRateLabel } from '../../../lib/calculations';
+import { modeSpec } from '../../../constants/documentModes';
 
 interface TemplateProps {
   data: InvoiceData;
@@ -74,7 +75,7 @@ export default function BoldTemplate({ data, totals }: TemplateProps) {
               <tr key={item.id} className="border-b border-gray-200">
                 <td className="py-2.5 text-xs text-gray-400 font-mono">{i + 1}</td>
                 <td className="py-2.5 text-xs text-gray-900 font-medium">{formatDescription(item) || '—'}</td>
-                <td className="py-2.5 text-xs text-gray-700 text-right">{formatQuantity(item)}</td>
+                <td className="py-2.5 text-xs text-gray-700 text-right">{formatQuantity(item, modeSpec(data.mode).defaultUnit)}</td>
                 <td className="py-2.5 text-xs text-gray-700 text-right">{formatCurrency(item.rate, data.currency)}</td>
                 <td className="py-2.5 text-xs text-gray-900 text-right font-bold">{formatCurrency(itemTotal, data.currency)}</td>
               </tr>

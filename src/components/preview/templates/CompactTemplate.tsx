@@ -3,6 +3,7 @@ import { formatDate, formatCurrency } from '../../../lib/format';
 import { getSecondDateLabel, getDocumentTitle } from '../../../lib/documentTitle';
 import DocumentFooter from '../DocumentFooter';
 import { formatDescription, formatQuantity, taxRateLabel } from '../../../lib/calculations';
+import { modeSpec } from '../../../constants/documentModes';
 
 interface TemplateProps {
   data: InvoiceData;
@@ -72,7 +73,7 @@ export default function CompactTemplate({ data, totals }: TemplateProps) {
               <tr key={item.id} className="border-b border-gray-100">
                 <td className="py-1.5 text-gray-400">{i + 1}</td>
                 <td className="py-1.5 text-gray-900">{formatDescription(item) || '—'}</td>
-                <td className="py-1.5 text-gray-700 text-right">{formatQuantity(item)}</td>
+                <td className="py-1.5 text-gray-700 text-right">{formatQuantity(item, modeSpec(data.mode).defaultUnit)}</td>
                 <td className="py-1.5 text-gray-700 text-right">{formatCurrency(item.rate, data.currency)}</td>
                 <td className="py-1.5 text-gray-900 text-right font-medium">{formatCurrency(itemTotal, data.currency)}</td>
               </tr>

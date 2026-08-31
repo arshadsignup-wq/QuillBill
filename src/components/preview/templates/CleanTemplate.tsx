@@ -3,6 +3,7 @@ import { formatDate, formatCurrency } from '../../../lib/format';
 import { getSecondDateLabel, getDocumentTitle } from '../../../lib/documentTitle';
 import DocumentFooter from '../DocumentFooter';
 import { formatDescription, formatQuantity } from '../../../lib/calculations';
+import { modeSpec } from '../../../constants/documentModes';
 
 interface TemplateProps {
   data: InvoiceData;
@@ -69,7 +70,7 @@ export default function CleanTemplate({ data, totals }: TemplateProps) {
             return (
               <tr key={item.id}>
                 <td className="py-3 text-xs text-gray-800">{formatDescription(item) || '—'}</td>
-                <td className="py-3 text-xs text-gray-500 text-right">{formatQuantity(item)}</td>
+                <td className="py-3 text-xs text-gray-500 text-right">{formatQuantity(item, modeSpec(data.mode).defaultUnit)}</td>
                 <td className="py-3 text-xs text-gray-500 text-right">{formatCurrency(item.rate, data.currency)}</td>
                 <td className="py-3 text-xs text-gray-800 text-right">{formatCurrency(itemTotal, data.currency)}</td>
               </tr>

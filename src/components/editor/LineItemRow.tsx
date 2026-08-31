@@ -55,7 +55,7 @@ export default function LineItemRow({ item, index, canDelete }: LineItemRowProps
         <input
           value={item.unit ?? ''}
           onChange={(e) => update('unit', e.target.value)}
-          placeholder="unit"
+          placeholder={modeSpec(data.mode).defaultUnit ?? 'unit'}
           aria-label={`Unit for line ${index + 1}`}
           className="w-full bg-transparent text-sm text-gray-900 placeholder:text-gray-300 outline-none focus:bg-gray-50 rounded px-1 py-0.5"
         />

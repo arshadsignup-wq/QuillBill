@@ -3,6 +3,7 @@ import { formatDate, formatCurrency } from '../../../lib/format';
 import { getSecondDateLabel, getDocumentTitle } from '../../../lib/documentTitle';
 import DocumentFooter from '../DocumentFooter';
 import { formatDescription, formatQuantity, taxRateLabel } from '../../../lib/calculations';
+import { modeSpec } from '../../../constants/documentModes';
 
 interface TemplateProps {
   data: InvoiceData;
@@ -75,7 +76,7 @@ export default function CreativeTemplate({ data, totals }: TemplateProps) {
             <div key={item.id} className="grid grid-cols-[auto_1fr_60px_90px_90px] gap-2 rounded-xl px-3 py-2.5 text-xs" style={{ backgroundColor: i % 2 === 0 ? ac + '06' : 'transparent' }}>
               <span className="w-6 text-gray-400">{i + 1}</span>
               <span className="text-gray-900">{formatDescription(item) || '—'}</span>
-              <span className="text-gray-700 text-right">{formatQuantity(item)}</span>
+              <span className="text-gray-700 text-right">{formatQuantity(item, modeSpec(data.mode).defaultUnit)}</span>
               <span className="text-gray-700 text-right">{formatCurrency(item.rate, data.currency)}</span>
               <span className="text-gray-900 text-right font-medium">{formatCurrency(itemTotal, data.currency)}</span>
             </div>

@@ -92,8 +92,18 @@ export function formatDescription(item: { description: string; date?: string }):
   return item.description ? `${label} — ${item.description}` : label;
 }
 
-/** "2 hours", "3", "1 day" — the unit only appears when one was given. */
-export function formatQuantity(item: { quantity: number; unit?: string }): string {
-  const unit = item.unit?.trim();
+/**
+ * "2 hours", "3", "1 day".
+ *
+ * `fallbackUnit` is the document type's default — a timesheet is billed in
+ * hours — applied at render time rather than written into the line. Storing it
+ * meant it survived a switch back to Invoice and produced "1 hours" on a
+ * document that had nothing to do with time.
+ */
+export function formatQuantity(
+  item: { quantity: number; unit?: string },
+  fallbackUnit?: string,
+): string {
+  const unit = item.unit?.trim() || fallbackUnit?.trim();
   return unit ? `${item.quantity} ${unit}` : String(item.quantity);
 }
