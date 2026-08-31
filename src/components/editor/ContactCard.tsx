@@ -9,6 +9,7 @@ import {
   saveClient,
   StorageFullError,
 } from '../../lib/library';
+import { ensurePersistentStorage } from '../../lib/persistence';
 import { useToast } from '../ui/ToastProvider';
 import Input from '../ui/Input';
 import Textarea from '../ui/Textarea';
@@ -43,6 +44,10 @@ export default function ContactCard({ type }: ContactCardProps) {
     try {
       fn();
       toast(done);
+      // Same reasoning as the document library: the user has just asked us to
+      // remember something, so ask the browser to stop treating it as
+      // disposable. Memoised, so repeated saves cost nothing.
+      void ensurePersistentStorage();
     } catch (err) {
       toast(
         err instanceof StorageFullError

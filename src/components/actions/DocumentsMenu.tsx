@@ -10,6 +10,7 @@ import {
   StorageFullError,
   type SavedDocument,
 } from '../../lib/library';
+import { ensurePersistentStorage, storageStatus, formatBytes, type StorageStatus } from '../../lib/persistence';
 import { useToast } from '../ui/ToastProvider';
 import Button from '../ui/Button';
 import Dialog from '../ui/Dialog';
@@ -31,11 +32,13 @@ export default function DocumentsMenu() {
   // The document being edited, so re-saving updates in place rather than
   // leaving a trail of near-identical copies.
   const [currentId, setCurrentId] = useState<string | null>(null);
+  const [storage, setStorage] = useState<StorageStatus | null>(null);
 
   useEffect(() => {
     if (open) {
       setDocs(listDocuments());
       setName(suggestName(data));
+      storageStatus().then(setStorage);
     }
   }, [open, data]);
 
@@ -46,6 +49,9 @@ export default function DocumentsMenu() {
       setCurrentId(id);
       setDocs(listDocuments());
       toast('Document saved to this browser');
+      // Saving is the point at which the user has asked us to keep something,
+      // so it is the right moment to ask the browser to stop evicting it.
+      ensurePersistentStorage().then(() => storageStatus().then(setStorage));
     } catch (err) {
       toast(
         err instanceof StorageFullError
@@ -96,6 +102,25 @@ export default function DocumentsMenu() {
             </button>
           </div>
 
+          {storage && storage.state !== 'persisted' && (
+            <p className="rounded-lg border border-amber-200 bg-amber-50 p-3 text-[11px] leading-relaxed text-amber-800">
+              <span className="font-medium">This browser has not marked the storage as permanent.</span>{' '}
+              Saved documents can be cleared when disk space runs low, or after a long time
+              without a visit — and clearing site data removes them too. Anything you need to
+              keep, export with <span className="font-medium">More &rarr; Export JSON</span>.
+            </p>
+          )}
+          {storage?.state === 'persisted' && (
+            <p className="rounded-lg border border-green-200 bg-green-50 p-3 text-[11px] leading-relaxed text-green-800">
+              <span className="font-medium">This browser has marked the storage as permanent</span>,
+              so saved documents will not be cleared automatically. Clearing site data still
+              removes them.
+              {typeof storage.usage === 'number' && typeof storage.quota === 'number' && (
+                <> Using {formatBytes(storage.usage)} of {formatBytes(storage.quota)}.</>
+              )}
+            </p>
+          )}
+
           <div>
             <h3 className="text-xs font-medium text-gray-600 mb-2">
               On this browser ({docs.length})
@@ -103,7 +128,8 @@ export default function DocumentsMenu() {
             {docs.length === 0 ? (
               <p className="rounded-lg border border-dashed border-gray-300 p-4 text-xs text-gray-500">
                 Nothing saved yet. Saved documents stay on this device — they are never uploaded,
-                which also means they will not follow you to another browser. Use Export JSON for that.
+                which also means they will not follow you to another browser, and they are only
+                as durable as this browser's storage. Use Export JSON for anything you must keep.
               </p>
             ) : (
               <ul className="max-h-64 overflow-y-auto divide-y divide-gray-100 rounded-lg border border-gray-200">
