@@ -21,7 +21,7 @@ function SharedDocumentShell() {
           <span className="text-base font-bold text-gray-900">QuillBill</span>
         </Link>
       </header>
-      <div className="flex flex-col items-center justify-center gap-3 py-24 px-4 text-center">
+      <main className="flex flex-col items-center justify-center gap-3 py-24 px-4 text-center">
         <FileText size={32} className="text-gray-300" />
         <h1 className="text-lg font-semibold text-gray-900">Shared document</h1>
         <p className="max-w-md text-sm text-gray-500">
@@ -31,7 +31,7 @@ function SharedDocumentShell() {
         <Link to="/" className="text-sm text-brand hover:underline">
           Create your own document
         </Link>
-      </div>
+      </main>
     </div>
   );
 }
@@ -96,7 +96,7 @@ export default function ViewPage() {
           </Button>
         </div>
       </header>
-      <div ref={containerRef} className="flex justify-center py-6 sm:py-8 px-4">
+      <main ref={containerRef} className="flex justify-center py-6 sm:py-8 px-4">
         <div
           style={scale < 1 ? { transform: `scale(${scale})`, transformOrigin: 'top center', width: '210mm' } : undefined}
         >
@@ -104,7 +104,7 @@ export default function ViewPage() {
             <InvoiceDocument data={data} totals={totals} />
           </div>
         </div>
-      </div>
+      </main>
       <PrintPageStyle paperSize={data.paperSize} />
       {/* Print portal — renders at body level for clean print */}
       {createPortal(

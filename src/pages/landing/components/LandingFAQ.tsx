@@ -22,7 +22,15 @@ export default function LandingFAQ({ faqs, heading = 'Frequently Asked Questions
         {faqs.map((faq, index) => (
           <details key={index} className="group border border-gray-200 rounded-lg bg-white">
             <summary className="flex cursor-pointer items-center justify-between px-5 py-4 text-left text-sm font-medium text-gray-900 hover:bg-gray-50 rounded-lg list-none [&::-webkit-details-marker]:hidden">
-              <h3 className="text-sm font-medium text-gray-900">{faq.question}</h3>
+              {/* When the block supplies its own h2, the questions sit under
+                  it at h3. On /faq the heading is suppressed because the page
+                  h1 already says it, which left an h1 -> h3 jump — so without
+                  a heading the questions are the section level themselves. */}
+              {heading ? (
+                <h3 className="text-sm font-medium text-gray-900">{faq.question}</h3>
+              ) : (
+                <h2 className="text-sm font-medium text-gray-900">{faq.question}</h2>
+              )}
               <ChevronDown
                 size={18}
                 className="shrink-0 ml-3 text-gray-400 transition-transform duration-200 group-open:rotate-180"

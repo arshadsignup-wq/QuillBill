@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import { cloneElement, useId, type ReactElement, type ReactNode } from 'react';
 
 /**
  * Shared chrome for the calculators.
@@ -21,6 +21,16 @@ export function CalcShell({ title, children, result }: { title: string; children
   );
 }
 
+/**
+ * A labelled control.
+ *
+ * The label is a sibling with an explicit `htmlFor`, not a wrapper. Wrapping
+ * the control meant the accessible name absorbed everything inside the label —
+ * so the currency picker announced as "Currency USD EUR GBP INR AED AUD CAD
+ * SGD NGN PHP", and every field trailed its own hint text. The hint is now a
+ * description via aria-describedby, which screen readers announce separately
+ * and after the name.
+ */
 export function Field({
   label,
   hint,
@@ -28,14 +38,24 @@ export function Field({
 }: {
   label: string;
   hint?: string;
-  children: ReactNode;
+  /** Exactly one form control; it receives the id and the description link. */
+  children: ReactElement<{ id?: string; 'aria-describedby'?: string }>;
 }) {
+  const id = useId();
+  const hintId = hint ? `${id}-hint` : undefined;
+
   return (
-    <label className="flex flex-col gap-1.5">
-      <span className="text-xs font-medium text-gray-700">{label}</span>
-      {children}
-      {hint && <span className="text-[11px] text-gray-500">{hint}</span>}
-    </label>
+    <div className="flex flex-col gap-1.5">
+      <label htmlFor={id} className="text-xs font-medium text-gray-700">
+        {label}
+      </label>
+      {cloneElement(children, { id, 'aria-describedby': hintId })}
+      {hint && (
+        <span id={hintId} className="text-[11px] text-gray-500">
+          {hint}
+        </span>
+      )}
+    </div>
   );
 }
 

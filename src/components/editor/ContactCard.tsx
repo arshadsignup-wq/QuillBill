@@ -119,10 +119,16 @@ export default function ContactCard({ type }: ContactCardProps) {
         {type === 'to' && (
           <div className="flex flex-wrap items-center gap-2">
             {clients.length > 0 && (
-              <label className="flex items-center gap-1.5 text-xs text-gray-600">
-                <Users size={13} className="text-gray-400" />
-                <span className="sr-only">Choose a saved client</span>
+              <span className="flex items-center gap-1.5 text-xs text-gray-600">
+                <Users size={13} className="text-gray-400" aria-hidden="true" />
+                {/* Explicit association rather than wrapping: a label that
+                    wraps a select swallows every option into its accessible
+                    name. */}
+                <label htmlFor="saved-clients" className="sr-only">
+                  Choose a saved client
+                </label>
                 <select
+                  id="saved-clients"
                   value=""
                   onChange={(e) => pickClient(e.target.value)}
                   className="rounded-lg border border-gray-300 bg-white px-2 py-1.5 text-xs text-gray-700 focus:border-brand focus:outline-none cursor-pointer"
@@ -134,7 +140,7 @@ export default function ContactCard({ type }: ContactCardProps) {
                     </option>
                   ))}
                 </select>
-              </label>
+              </span>
             )}
             <button
               type="button"
